@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Zeroperks Login Page</title>
+        <link rel="shortcut icon" href="/images/title-logo.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Krishnakumar Rajendran's bio and portfolio">
+        <meta name="keywords" content="Krishna, Rajendran, Krish, FrontEnd Developer, UI Developer, Software Developer, Node Developer, ACL recovery, ACL reconstruction">
+        <%- include('templates/headers') %>
+    </head>
+    <body class="text-center">
+        <main>
+            <div class="container py-4">
+                <%- include('templates/navigation') %>
+                <form class="form-signin" id="loginForm" action="/login" method="post">
+                    <img class="mb-4" src="/images/title-logo.png" alt="" width="72" height="72">
+                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                    
+                    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                    
+                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+
+                    <button class="mt-4 btn btn-lg btn-primary btn-block" id="signin-btn" type="button">Sign in</button>
+                </form>
+                <%- include('templates/footer') %>
+            </div>
+        </main>
+    </body>
+</html>

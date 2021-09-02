@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Zeroperks User Page</title>
+        <link rel="shortcut icon" href="/images/title-logo.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Krishnakumar Rajendran's bio and portfolio">
+        <meta name="keywords" content="Krishna, Rajendran, Krish, FrontEnd Developer, UI Developer, Software Developer, Node Developer, ACL recovery, ACL reconstruction">
+        <%- include('templates/headers') %>
+    </head>
+    <body>
+        <main>
+            <div class="container py-4">
+                <%- include('templates/navigation') %>
+                <section class="py-5 text-center container">
+                    <div class="row py-lg-5">
+                      <div class="col-lg-6 col-md-8 mx-auto">
+                        <h1 class="fw-light">Welcome back!</h1>
+                        
+                        <p>
+                          <a href="/acl/" class="btn btn-primary my-2">ACL Recovery</a>
+                          <a href="https://electyourfuture.com/play-time/" class="btn btn-secondary my-2">Play Now</a>
+                        </p>
+                      </div>
+                    </div>
+                  </section>
+                <%- include('templates/footer') %>
+            </div>
+        </main>
+    </body>
+</html>

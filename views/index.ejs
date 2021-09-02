@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Zeroperks | Krishnakumar Rajendran's bio and portfolio</title>
+        <link rel="shortcut icon" href="/images/title-logo.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Krishnakumar Rajendran's bio and portfolio">
+        <meta name="keywords" content="Krishna, Rajendran, Krish, FrontEnd Developer, UI Developer, Software Developer, Node Developer, ACL recovery, ACL reconstruction">
+        <%- include('templates/headers') %>
+    </head>
+    <body>
+        <main>
+            <div class="container py-4">
+                <%- include('templates/navigation') %>
+          
+                <div class="mb-4 bg-light rounded-3">
+                    <div class="container-fluid">
+                        <div class="row c-Hero">
+                            <div class="col-md-8">
+                                <h1 class="display-5 fw-bold">Krishna</h1>
+                                <p class="fs-5">Hello! My name is Krishnakumar Rajendran, and I'm a Dallas based developer. As a passionate UI developer who has the skill to transform any complex designs to robust HTML + CSS + JS and NodeJS. Also, architecture frontend projects using Webpack4, Gulp, Babel, SCSS, BEM, ITCSS, BrowserSync and JS Frameworks like Vue and Angular.</p>
+                                <a href="https://www.linkedin.com/in/krishdev/" class="btn btn-primary btn-lg" type="button">LinkedIn</a>
+                            </div>
+                            <div class="col-md-4">
+                                <img src="/images/hero-image.jpg" alt="hero image" style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-6 mt-2">
+                        <div class="h-100 p-5 text-white bg-dark rounded-3">
+                            <h2>ACL Recovery</h2>
+                            <p>June 5th 2021, I completly tore my left ACL and since then it has been a challenge to recover from that pain and go through the reconstruction path.</p>
+                            <a href="/category/acl/" class="btn btn-outline-light" type="button">Read More</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-2">
+                        <div class="h-100 p-5 bg-light border rounded-3">
+                            <h2>Game Time</h2>
+                            <p>On the screen you will get 1 to many clues, from that you got to guess the song name out of it.</p>
+                            <a href="https://electyourfuture.com/play-time/" class="btn btn-outline-secondary" type="button">Play Now</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-2">
+                        <div class="h-100 p-5 text-white bg-primary rounded-3">
+                            <h2>Projects</h2>
+                            <p>At my leisure time I design and develope few projects mostly for NGO's or small time businesses.</p>
+                            <a href="/category/projects/" class="btn btn-outline-light" type="button">Know More</a>
+                        </div>
+                    </div>
+                </div>
+          
+                <%- include('templates/footer') %>
+            </div>
+        </main>
+    </body>
+</html>

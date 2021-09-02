@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= post.title %> | ACL Recovery | Krishnakumar Rajendran's bio and portfolio</title>
+        <link rel="shortcut icon" href="/images/title-logo.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="<%= post.description %>Krishnakumar Rajendran's ACL recovery path">
+        <meta name="keywords" content="<%= post.keywords %>, ACL recovery, ACL reconstruction, acl patellar tendon graft, Dallas Texas ACL recovery">
+        <meta property="og:title" content="<%= post.title %>" />
+        <meta property="og:description" content="<%= post.description %>" />
+        <% if( post.heroImage.url) { %>
+        <meta property="og:image" content="<%= aclPort+post.heroImage.url %>" />
+        <% } %>
+        <%- include('templates/headers') %>
+        <script>
+            var postId = "<%= post.id %>";
+        </script>
+    </head>
+    <body>
+        <div class="container py-4 pb-0">
+            <%- include('templates/navigation') %>
+        </div>
+        <div class="container" id="custom-cards">
+            <h2 class="blog-post-title"><%= post.title %></h2>
+            <% if( post.heroImage.url) { %>
+            <figure class="blog-post-figure" style="background-image: url('<%= aclPort+post.heroImage.url %>');"></figure>
+            <% } %>
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <% if(post.categories && post.categories.length) { %><li class="breadcrumb-item"><a href="/category/<%= post.categories[0].url %>/"><%= post.categories[0].name %></a></li><% } %>
+                    <li class="breadcrumb-item active"><%= post.title %></li>
+                </ol>   
+            </nav>
+            <div class="row">
+                <section class="col-md-8">
+                    <article class="blog-post">                        
+                        <p class="blog-post-meta row">
+                            <span class="col-sm-6">
+                                <b>Date Published: </b><%= new Date(post.published_at).toLocaleString() %>
+                            </span>
+                            <span class="col-sm-6">
+                                <b>Views: </b><%= post.views ? post.views : 1 %>
+                            </span>
+                        </p>
+                        <p class="blog-post-content"><%- post.content %></p>
+                    </article>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-12">
+                          <div class="card shadow-0 border" style="background-color: #f0f2f5;">
+                            <div class="card-body p-4">
+                                <% if (typeof token != "undefined" && token) { %>
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a comment here" id="commentTxt" style="height: 100px"></textarea>
+                                    <label for="floatingTextarea2">Comments</label>
+                                </div>
+                                <div class="d-grid my-4 gap-2 col-6 mx-auto">
+                                    <button id="comment-btn" class="btn btn-primary" type="button">Add Comment</button>
+                                </div>
+                                <% } else { %>
+                                <a href="/login" class="btn btn-primary btn-sm" id="login-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightbulb" viewBox="0 0 16 16">
+                                        <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"></path>
+                                    </svg>
+                                    Login
+                                </a> to add comments. <p></p>
+                                <% } %>
+                              
+                                <% for (let i = 0; i < comments.length ; i++) { 
+                                    const comment = comments[i];
+                                    %>
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                    <p><%= comment.comment %></p>
+                        
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex flex-row align-items-center">
+                                        <p class="small mb-0 ms-2"><%= comment.user ? comment.user.username : 'Someone' %></p>
+                                        </div>
+                                        <!-- <div class="d-flex flex-row align-items-center">
+                                        <p class="small text-muted mb-0">Upvote?</p>
+                                        <i
+                                            class="far fa-thumbs-up mx-2 fa-xs text-black"
+                                            style="margin-top: -0.16rem;"
+                                        ></i>
+                                        <p class="small text-muted mb-0">3</p>
+                                        </div> -->
+                                    </div>
+                                    </div>
+                                </div>
+                                <% } %>
+                      
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="col-md-4">
+                    <h4 class="fst-italic">Recent Posts</h4>
+                    <ol class="list-unstyled mb-0">
+                        <% for (let i = 0; i < recentPosts.length; i++) {
+                            const thisPost = recentPosts[i];    
+                        %>
+                        <li><a href="/post/<%= thisPost.url %>/"><%= thisPost.title.substring(0,30) %></a></li>
+                        <% } %>
+                    </ol>
+                </section>
+            </div>
+        </div>
+        <%- include('templates/footer') %>
+    </body>
+</html>

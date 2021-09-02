@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sorry! Page not found</title>
+        <%- include('templates/headers') %>
+    </head>
+    <body>
+        <main>
+            <div class="container py-4">
+                <%- include('templates/navigation') %>
+          
+                <div class="mb-4 bg-light rounded-3">
+                    <div class="container-fluid">
+                        <h1><%= message %></h1>
+                        <h2><%= error.status %></h2>
+                        <pre><%= error.stack %></pre>
+                    </div>
+                </div>
+                <%- include('templates/footer') %>
+            </div>
+        </main>
+    </body>
+</html>
