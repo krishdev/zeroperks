@@ -1,5 +1,6 @@
 const config = require('./config');
 exports.defaultLocals = function (req, res) {
+    res.locals.origin = process.env.NODE_ENV && process.env.NODE_ENV == 'production' ? 'https://zeroperks.com' : 'http://localhost:8080'
     res.locals.year = new Date().getFullYear();
     const token = req.session.token || null;
     res.locals.token = token;

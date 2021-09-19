@@ -14,11 +14,13 @@ const {
 } = require('./configs/common-setup');
 
 var app = express();
+var expressLayouts = require('express-ejs-layouts');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(expressLayouts);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -36,6 +38,9 @@ app.use(session({
   saveUninitialized: false,
   cookie: { secure: false,expires:7 * 24 * 60 * 60 * 1000 }
 }));
+
+app.set('layout', 'main-layout');
+app.set("layout extractScripts", true);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

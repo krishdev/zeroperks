@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const credentials = {
     data: {
         login: document.querySelector('#signin-btn'),
