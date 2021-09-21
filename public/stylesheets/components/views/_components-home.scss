@@ -1,0 +1,9 @@
+$c-name: '.c-Home';
+
+#{$c-name}__Banner {
+    background-image: url($img-path+'scooter.png');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 28em;
+}

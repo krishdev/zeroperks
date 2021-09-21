@@ -1,0 +1,25 @@
+// Breakpoints
+$bp-xs-small: 396px;
+$bp-small: 579px;
+$bp-medium: 768px;
+$bp-large: 992px;
+$bp-xl-large: 1200px;
+
+// Font weight
+$regular-bold: 500;
+$bold: 600;
+$super-bold: 800;
+
+// Font style
+$font-main: 'IBM Plex Sans', sans-serif;
+$font-banger: 'Bangers', cursivel;
+$font-cursive: 'Kaushan Script', cursive;
+
+// Image Path
+$img-path: '/images/';
+
+@mixin breakpoint ($dimension) {
+    @media (min-width: $dimension) {
+        @content;
+    }
+}
