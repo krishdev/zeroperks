@@ -1,0 +1,22 @@
+$o-name: '.o-Btn';
+
+#{$o-name} {
+    border: 0;
+    border-radius: 20px;
+    padding: .875em 3em;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#{$o-name}--blue {
+    background-color: $mld-blue;
+    color: $white;
+    border: 1px solid $mld-blue;
+    transition: .3s ease-in all;
+
+    &:hover {
+        background-color: $white;
+        color: $mld-blue;
+    }
+}

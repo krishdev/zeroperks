@@ -1,0 +1,36 @@
+.row {
+    display: flex;
+    flex-flow: column;
+
+    &--al-center {
+        align-items: center;
+    }
+
+    &--jt-sp-btw {
+        justify-content: space-between;
+    }
+
+    &--jt-center {
+        justify-content: center;
+    }
+
+    @include breakpoint ($bp-medium) {
+        flex-flow: row wrap;
+    }
+
+    @include breakpoint ($bp-large) {
+        flex-flow: row nowrap;
+    }
+}
+
+$total: 12;
+
+@function column-width ($col) {
+    @return percentage($col/$total);
+}
+
+@for $i from 1 through $total {
+    .col-#{$i} {
+        width: column-width($i);
+    }
+}

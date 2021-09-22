@@ -1,0 +1,15 @@
+$c-name: '.c-Section';
+
+#{$c-name}-lt-white {
+    background-color: #edeeee;
+    padding: 4em 0;
+}
+
+#{$c-name}__desc {
+    color: $drk-gray;
+    
+    @include breakpoint ($bp-large) {
+        max-width: 45em;
+        margin: 0 auto;
+    }
+}

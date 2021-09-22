@@ -1,9 +1,80 @@
 $c-name: '.c-Home';
 
+#{$c-name}__mid-panel {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2em;
+}
+
+#{$c-name}__mid-panel .o-Btn {
+    z-index: 2;
+    position: relative;
+    bottom: -1.875em;
+}
+
 #{$c-name}__Banner {
-    background-image: url($img-path+'scooter.png');
+    background-image: url($img-path+'home-banner-bg.png');
     background-position: 50% 50%;
     background-repeat: no-repeat;
+    background-size: cover;
+    height: 32em;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+    bottom: -7px;
+    overflow-x: hidden;
+
+    @include breakpoint ($bp-large) {
+        background-size: contain;
+    }
+}
+
+#{$c-name}-Banner__scooter {
+    background-image: url($img-path+'home-scooter.png');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-size: contain;
-    height: 28em;
+    z-index: 1;
+    height: 17em;
+    position: absolute;
+    bottom: 11px;
+    left: auto;
+    width: 20em;
+    left: 20em;
+
+    @include breakpoint ($bp-small) {
+        left: 30em;
+    }
+
+    @include breakpoint ($bp-medium) {
+        left: 42em;
+    }
+}
+
+#{$c-name}-mid-p__lt {
+    color: $lt-gray;
+    font-size: 1em;
+    letter-spacing: 1px;
+}
+
+#{$c-name}-mid-p__h {
+    font-size: 2.5em;
+    margin-top: 0;
+    margin-bottom: 0;
+    letter-spacing: 5px;
+
+    @include breakpoint ($bp-medium) {
+        font-size: 3em;
+    }
+
+    @include breakpoint ($bp-large) {
+        font-size: 4em;
+    }
+}
+
+#{$c-name}__sec {
+    text-align: center;
 }
