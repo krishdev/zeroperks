@@ -1,8 +1,12 @@
 $c-name: '.c-Section';
 
+#{$c-name}-white,
+#{$c-name}-lt-white {
+    padding: 4em 1em;
+}
 #{$c-name}-lt-white {
     background-color: #edeeee;
-    padding: 4em 0;
+    padding: 4em 1em;
 }
 
 #{$c-name}__desc {

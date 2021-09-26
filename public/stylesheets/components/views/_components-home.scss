@@ -78,3 +78,30 @@ $c-name: '.c-Home';
 #{$c-name}__sec {
     text-align: center;
 }
+
+#{$c-name}-sec__grid {
+    margin-top: 3.5em;
+    
+    &>div {
+        margin-bottom: 2em;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+#{$c-name}-grid__title {
+    font-size: 1.15em;
+    color: $drk-black;
+    font-weight: 500;
+
+    &+p {
+        color: $drk-gray;
+        font-size: .875em;
+    }
+}
+
+.c-Section-lt-white#{$c-name}__sec {
+    padding-bottom: 2em;
+}

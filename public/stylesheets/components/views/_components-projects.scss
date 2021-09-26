@@ -1,0 +1,90 @@
+$c-name: '.c-Project';
+
+#{$c-name} {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6em;
+
+    &--invert {
+        flex-direction: row-reverse;
+    }
+}
+
+#{$c-name}-wrapper {
+    padding: 5em 0;
+}
+
+#{$c-name}__images {
+    width: 50%;
+}
+
+#{$c-name}__content {
+    width: 50%;
+    padding-left: 1em;
+    text-align: right;
+}
+
+#{$c-name}--invert #{$c-name}__content {
+    text-align: left;
+    padding-left: 0;
+    padding-right: 1em;
+}
+
+#{$c-name}__images img {
+    width: 100%;
+    box-shadow: 0 10px 30px -15px rgb(199 90 79);
+}
+
+#{$c-name}__content p:first-child {
+    text-align: right;
+    margin-bottom: .25em;
+    font-size: .875em;
+    text-transform: uppercase;
+    font-family: 'Bangers', cursivel;
+    letter-spacing: 1.25px;
+    color: #333;
+}
+
+#{$c-name}--invert #{$c-name}__content p:first-child {
+    text-align: left;
+}
+
+#{$c-name}__content h3 {
+    text-align: right;
+    margin-top: 0;
+}
+
+#{$c-name}--invert #{$c-name}__content h3 {
+    text-align: left;
+}
+
+#{$c-name}__content h3 a {
+    text-decoration: none;
+}
+
+#{$c-name}__content p:nth-child(3) {
+    text-align: right;
+    background-color: #edeeee;
+    padding: 1em;
+    border-radius: 4pt;
+    box-shadow: 0 10px 30px -15px navy;
+}
+
+#{$c-name}--invert #{$c-name}__content p:nth-child(3) {
+    text-align: left;
+}
+
+#{$c-name}__content ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    font-family: monospace;
+}
+
+#{$c-name}__content ul li {
+    padding: .5em;
+    font-size: .75em;
+}

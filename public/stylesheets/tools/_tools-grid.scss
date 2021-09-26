@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .row {
     display: flex;
     flex-flow: column;
@@ -19,18 +21,51 @@
     }
 
     @include breakpoint ($bp-large) {
-        flex-flow: row nowrap;
+        flex-flow: row wrap;
     }
 }
 
 $total: 12;
 
 @function column-width ($col) {
-    @return percentage($col/$total);
+    @return math.percentage(math.div($col,$total));
 }
 
 @for $i from 1 through $total {
+    .col-sm-#{$i}, .col-md-#{$i}, .col-#{$i} {
+        width: 100%;
+    }
+}
+@for $i from 1 through $total {
+    .col-sm-#{$i} {
+        @include breakpoint ($bp-xs-small) {
+            @if ($total != $i) {
+                box-sizing: border-box;
+                padding: 0 .75em;
+                width: column-width($i);
+            }
+        }
+    }
+}
+@for $i from 1 through $total {
+    .col-md-#{$i} {
+        @include breakpoint ($bp-medium) {
+            @if ($total != $i) {
+                box-sizing: border-box;
+                padding: 0 .75em;
+                width: column-width($i);
+            }
+        }
+    }
+}
+@for $i from 1 through $total {    
     .col-#{$i} {
-        width: column-width($i);
+        @include breakpoint ($bp-large) {
+            @if ($total != $i) {
+                box-sizing: border-box;
+                padding: 0 .75em;
+                width: column-width($i);
+            }
+        }
     }
 }
