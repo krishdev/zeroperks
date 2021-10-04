@@ -105,3 +105,23 @@ $c-name: '.c-Home';
 .c-Section-lt-white#{$c-name}__sec {
     padding-bottom: 2em;
 }
+
+.c-Repo-wrapper {
+    margin-top: 3em;
+}
+
+.c-Repo {
+    text-align: left;
+    margin-bottom: 1em;
+}
+
+.c-Repo__body {
+    padding: 1em;
+    background-color: $light-navy;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.c-Repo__desc {
+    font-size: .875em;
+}

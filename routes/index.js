@@ -3,8 +3,16 @@ var router = express.Router();
 const got = require('got');
 const config = require('../configs/config');
 const {
+  getGitRepo
+} = require('./api');
+const {
   defaultLocals
 } = require('../configs/common-setup');
+const {
+  getBlogs,
+  getAllCategories
+} = require('../controller/controller.blog');
+
 let jwt = null;
 let headersAuth = {
     responseType: 'json',
@@ -15,10 +23,43 @@ let headersAuth = {
 };
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', async function(req, res, next) {
   defaultLocals(req, res);
-  console.log('entering');
-  res.render('partials/index');
+  let allRepo = null;
+  try {
+    allRepo = await getGitRepo(6, 1);
+  } catch (error) {
+    console.log(error);
+  }
+  res.render('partials/index', {allRepo});
+});
+
+router.get('/about', async function(req, res, next) {
+  defaultLocals(req, res);
+  let allRepo = null;
+  let calcYear = new Date().getFullYear() - 2018;
+  try {
+    allRepo = await getGitRepo(6, 1);
+  } catch (error) {
+    console.log(error);
+  }
+  res.render('partials/about', {allRepo, calcYear});
+});
+
+router.get('/topics', async function(req, res, next) {
+  defaultLocals(req, res);
+  let allBlogs = [];
+  let allCategories = [];
+  let recentArticles = [];
+  
+  try {
+    allBlogs = await getBlogs(3, '_featured=true');
+    allCategories = await getAllCategories();
+    recentArticles = await getBlogs(6, '_sort=createdAt:DESC');
+  } catch (error) {
+    console.log(error);
+  }
+  res.render('partials/topics', {allBlogs, allCategories, recentArticles});
 });
 
 router.get('/login', function (req, res) {

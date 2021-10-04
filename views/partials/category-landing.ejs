@@ -1,51 +1,70 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title><%= category.metaTitle %> | ZEROPERKS</title>
-        <link rel="shortcut icon" href="/images/title-logo.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="<%= category.metaDescription %>">
-        <meta name="keywords" content="<%= category.keywords %>">
-        <%- include('templates/headers') %>
+        <%- contentFor('pageMeta') %>
+        <%- include('../common/fragments/page-meta', { 
+            title: category.metaTitle + ' |  ZEROPERSK',
+            description: category.metaDescription,
+            keywords: category.keywords,
+        }) %>
+        <%- contentFor('topHead') %>
     </head>
     <body>
-        <div class="container py-4">
-            <%- include('templates/navigation') %>
-        </div>
-        <div class="container px-4" id="custom-cards">
+        <%- include('../common/fragments/navbar') %>
+        <div class="c-Category o-Layout">
             
-            <div class="container-fluid">
-                <div class="row c-Hero">
-                    <div class="col-md-8">
-                        <h1 class="display-5 fw-bold u-Kaushan"><%= category.title %></h1>
-                        <%- category.description.description %>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="<%= aclPort+category.bannerImage.url %>" alt="hero image" style="width: 100%">
-                    </div>
+            <header class="c-Category__header">
+                <div class="c-Category-header__title">
+                    <h1 class="display-5 fw-bold u-Kaushan"><%= category.title %></h1>
+                    <%- category.description.description %>
                 </div>
-            </div>
-        
-            <div class="blog-card row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-                <% for(let i = 0; i < recentPosts.length; i++) { 
-                    const thisPost = recentPosts[i];
-                    %>
-                <div class="col">
-                    <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('<%= aclPort+thisPost.heroImage.url %>');">
-                    <a href="/post/<%= thisPost.url %>/" class="blog-card__link d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                        <h2 class="mt-5 mb-4 display-6 lh-1 fw-bold blog-card__text"><%= thisPost.title.substring(0,50) %></h2>
-                        <ul class="d-flex list-unstyled mt-auto blog-card__text">
-                            <li class="me-auto">
-                                <span class="author-initial rounded-circle border border-white">K</span>
-                            </li>
-                            <li class="d-flex align-items-center me-3">
-                                <small><%= new Date(thisPost.published_at).toLocaleString() %></small>
-                            </li>
-                        </ul>
-                    </a>
-                    </div>
+                <% if (typeof category.bannerImage != 'undefined' && typeof category.bannerImage.url != 'undefined') { %>
+                <div class="c-Category-header__figure">
+                    <img src="<%= aclPort+category.bannerImage.url %>" alt="hero image" style="width: 100%">
                 </div>
                 <% } %>
+            </header>
+        
+            <div class="c-Category__posts">
+                <% if (recentPosts.length) { %>
+                <h2>Posts</h2>
+                <% } else { %>
+                    <h2>No posts yet.</h2>
+                <% } %>
+                <div class="c-Category__post-wrapper row">
+                    <% for(let i = 0; i < recentPosts.length; i++) { 
+                        const thisPost = recentPosts[i];
+                        %>
+                    <div class="col-sm-12 col-md-6 col-4">
+                        <div class="c-Category-post">
+                            <figure class="c-Category-post__figure">
+                                <img src="<%= aclPort+thisPost.heroImage.url %>" alt="<%= thisPost.title.substring(0,50) %>">
+                            </figure>
+                            <div class="c-Category-post__body">
+                                <div class="c-Category-post__date"><%= new Date(thisPost.published_at).toLocaleString() %></div>
+                                <h3 class="mt-5 mb-4 display-6 lh-1 fw-bold blog-card__text">
+                                    <a href="/post/<%= thisPost.url %>/" class="blog-card__link d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                                        <%= thisPost.title.substring(0,50) %>
+                                    </a>
+                                </h3>
+                                <p>
+                                    <%= thisPost.content.substring(0,100) %>...
+                                </p>
+                            </div>
+                            <div class="c-Category-post__footer">
+                                <div class="c-Category-post__cat">
+                                    <% for(let j = 0; j < thisPost.categories.length; j++) { 
+                                        const thisCat = thisPost.categories[j];
+                                        %>
+                                        <a href="/category/<%= thisCat.url %>/"><%=thisCat.name%></a>
+                                    <% } %>
+                                </div>
+                                <a href="/post/<%= thisPost.url %>/" class="c-Category-post__url">Read Post <i class="fas fa-long-arrow-alt-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
             </div>
 
             <!-- Pagination -->
@@ -78,8 +97,7 @@
                 </ul>
             <% } %>
 
-          </div>
+        </div>
           
-          <%- include('templates/footer') %>
     </body>
-</html>
+    </html>

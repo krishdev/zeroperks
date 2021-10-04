@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- contentFor('pageMeta') %>
+        <%- include('../common/fragments/page-meta', { 
+            title: 'ZEROPERSK by Krishna',
+            description: 'ZEROPERSK by Krishna',
+            keywords: 'ZEROPERSK by Krishna',
+        }) %>
+        <%- contentFor('topHead') %>
+    </head>
+    <body>
+        <%- include('../common/fragments/navbar') %>
+        <main>
+            <section class="o-Layout">
+                <div class="c-Home__mid-panel">
+                    <span class="c-Home-mid-p__lt">DAD&DEV</span>
+                    <h1 class="c-Home-mid-p__h">KRISHNA</h1>
+                    <div class="c-About row">
+                        <div class="col-sm-12 col-md-8 col-8">
+                            <h3 class="c-About__title">About Me</h3>
+                            <p>Hello! I am Krishnakumar Rajendran and I love creating things that render on the internet. My interest in web development started back in 2013 when I decided to build an alumni website for my batch which taught me a lot more about HTML & CSS.</p>
+                            <p>Other than coding I love spending time with my <%= calcYear %> old kid, riding bicycle and a big fan of Marvel cinematic universe.</p>
+                            <p>Today I have had the privilege of working at a global investment management firm, a startup and an insure tech. And today I am focused on building beautiful interfaces that are reliable, scalable and cloud based multi platform digital applications for a variety of clients.</p>
+                            <p>Here are a few technologies I have been working with: </p>
+                            <ul>
+                                <li>
+                                    <span class="o-Icon-list">
+                                        <i class="fas fa-caret-right"></i>
+                                    </span>  Javascript
+                                </li>
+                                <li>
+                                    <span class="o-Icon-list">
+                                        <i class="fas fa-caret-right"></i>
+                                    </span>  Vue
+                                </li>
+                                <li>
+                                    <span class="o-Icon-list">
+                                        <i class="fas fa-caret-right"></i>
+                                    </span>  SCSS
+                                </li>
+                                <li>
+                                    <span class="o-Icon-list">
+                                        <i class="fas fa-caret-right"></i>
+                                    </span>  Node.js
+                                </li>
+                                <li>
+                                    <span class="o-Icon-list">
+                                        <i class="fas fa-caret-right"></i>
+                                    </span>  GraphQL
+                                </li>
+                                <li>
+                                    <span class="o-Icon-list">
+                                        <i class="fas fa-caret-right"></i>
+                                    </span>  Wordpress
+                                </li>
+                            </ul>
+                        </div>
+                        <figure class="col-sm-12 col-md-4 col-4">
+                            <img src="/images/hero-image.jpg" alt="hero-image" style="width: 100%;">
+                        </figure>
+                    </div>
+                </div>
+            </section>
+            <section class="c-Section-ultr-drk c-Home__sec">
+                <div class="o-Layout">
+                    <h2>Experiment Projects</h2>
+                    <p class="c-Section__desc">Some of my seriously fun projects.</p>
+                    <div class="c-Repo-wrapper row">
+                        <%  if (typeof allRepo != null) {
+                            allRepo = JSON.parse(allRepo);
+                            if (allRepo.length) {
+                                for(let i = 0; i < allRepo.length; i++) { 
+                                    let thisRepo = allRepo[i];
+                        %>
+                        <div class="c-Repo col-sm-12 col-md-6 col-4">
+                            <div class="c-Repo__body">
+                                <a class="o-Icon-link" href="<%= thisRepo.html_url %>" target="_blank">
+                                    <i class="fas fa-folder"></i>
+                                </a>
+                                <h3 class="c-Repo__title"><%= thisRepo.name %></h3>
+                                <% if (thisRepo.description != null) { %><p class="c-Repo__desc"><%- thisRepo.description %></p><% } %>
+                            </div>
+                        </div>
+                        <% } } } %>
+
+                        <div class="o-Btn-wrapper o-Btn-wrapper--center">
+                            <a href="https://github.com/krishdev?tab=repositories" class="o-Btn-line">More on Github</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

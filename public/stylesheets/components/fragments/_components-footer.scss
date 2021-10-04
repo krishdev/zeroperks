@@ -1,0 +1,28 @@
+$c-name: '.c-Footer';
+
+#{$c-name} {
+    padding-top: 5em;
+    font-size: .875em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#{$c-name} > p {
+    text-align: center;
+    font-size: .75rem;
+}
+
+#{$c-name}__menu-title {
+    margin-top: 0;
+    font-size: .875em;
+}
+
+#{$c-name}__link {
+    text-decoration: none;
+    padding: .35em 0;
+    display: block;
+}
+
+#{$c-name} .row > div {
+    margin-bottom: 1em;
+}

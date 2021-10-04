@@ -134,6 +134,34 @@
                     </div>
                 </div>
             </section>
+            <section class="c-Section-ultr-drk c-Home__sec">
+                <div class="o-Layout">
+                    <h2>Other Projects of Mine</h2>
+                    <p class="c-Section__desc">Some of my seriously fun projects.</p>
+                    <div class="c-Repo-wrapper row">
+                        <%  if (typeof allRepo != null) {
+                            allRepo = JSON.parse(allRepo);
+                            if (allRepo.length) {
+                                for(let i = 0; i < allRepo.length; i++) { 
+                                    let thisRepo = allRepo[i];
+                        %>
+                        <div class="c-Repo col-sm-12 col-md-6 col-4">
+                            <div class="c-Repo__body">
+                                <a class="o-Icon-link" href="<%= thisRepo.html_url %>" target="_blank">
+                                    <i class="fas fa-folder"></i>
+                                </a>
+                                <h3 class="c-Repo__title"><%= thisRepo.name %></h3>
+                                <% if (thisRepo.description != null) { %><p class="c-Repo__desc"><%- thisRepo.description %></p><% } %>
+                            </div>
+                        </div>
+                        <% } } } %>
+
+                        <div class="o-Btn-wrapper o-Btn-wrapper--center">
+                            <a href="https://github.com/krishdev?tab=repositories" class="o-Btn-line">More on Github</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     </body>
 </html>

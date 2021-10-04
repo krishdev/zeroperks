@@ -7,4 +7,5 @@ import '../stylesheets/entries/all-entries.scss';
 import './navbar';
 import './login';
 import './home';
+import './topics';
 console.log('hello')

@@ -2,10 +2,19 @@ $c-name: '.c-Project';
 
 #{$c-name} {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 6em;
+    position: relative;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @include breakpoint ($bp-medium) {
+        flex-flow: row nowrap;
+    }
 
     &--invert {
         flex-direction: row-reverse;
@@ -13,23 +22,49 @@ $c-name: '.c-Project';
 }
 
 #{$c-name}-wrapper {
-    padding: 5em 0;
+    padding: 5em 0 0;
 }
 
 #{$c-name}__images {
-    width: 50%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+    height: 100%;
+
+    @include breakpoint ($bp-medium) {
+        position: static;
+        width: 50%;
+    }
 }
 
 #{$c-name}__content {
-    width: 50%;
-    padding-left: 1em;
-    text-align: right;
+    width: 100%;
+    z-index: 2;
+    padding: 1em;
+    text-align: left;
+    box-sizing: border-box;
+    background-color: rgba(255,255,255,.7);
+    
+    @include breakpoint ($bp-medium) {
+        text-align: initial;
+        background: none;
+        padding: 0;
+        padding-left: 1em;
+        text-align: right;
+        width: 50%;
+    }
 }
 
 #{$c-name}--invert #{$c-name}__content {
     text-align: left;
-    padding-left: 0;
-    padding-right: 1em;
+    
+    @include breakpoint ($bp-medium) {
+        padding-left: 0;
+        padding-right: 1em;
+    }
 }
 
 #{$c-name}__images img {
@@ -38,13 +73,16 @@ $c-name: '.c-Project';
 }
 
 #{$c-name}__content p:first-child {
-    text-align: right;
     margin-bottom: .25em;
     font-size: .875em;
     text-transform: uppercase;
     font-family: 'Bangers', cursivel;
     letter-spacing: 1.25px;
     color: #333;
+
+    @include breakpoint ($bp-medium) {
+        text-align: right;
+    }
 }
 
 #{$c-name}--invert #{$c-name}__content p:first-child {
@@ -52,8 +90,11 @@ $c-name: '.c-Project';
 }
 
 #{$c-name}__content h3 {
-    text-align: right;
     margin-top: 0;
+
+    @include breakpoint ($bp-medium) {
+        text-align: right;
+    }
 }
 
 #{$c-name}--invert #{$c-name}__content h3 {
@@ -65,11 +106,14 @@ $c-name: '.c-Project';
 }
 
 #{$c-name}__content p:nth-child(3) {
-    text-align: right;
     background-color: #edeeee;
     padding: 1em;
     border-radius: 4pt;
     box-shadow: 0 10px 30px -15px navy;
+    
+    @include breakpoint ($bp-medium) {
+        text-align: right;
+    }
 }
 
 #{$c-name}--invert #{$c-name}__content p:nth-child(3) {

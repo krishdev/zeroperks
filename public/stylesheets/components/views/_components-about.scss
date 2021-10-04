@@ -1,0 +1,14 @@
+$c-name: '.c-About';
+
+#{$c-name} {
+    width: 100%;
+    margin: 3em 0;
+    padding: 0 1em;
+    box-sizing: border-box;
+}
+
+#{$c-name} ul {
+    display: list-item;
+    columns: 2;
+    list-style: none;
+}

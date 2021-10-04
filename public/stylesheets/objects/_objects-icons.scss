@@ -12,6 +12,34 @@ $o-name: '.o-Icon';
     margin-bottom: .875em;
 }
 
+#{$o-name}-link {
+    width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#{$o-name}-list {
+    width: .875em;
+    height: .875em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#{$o-name}-link svg {
+    width: 2em !important;
+    height: 2em !important;
+    color: $white;
+}
+
+#{$o-name}-list svg {
+    width: .875em !important;
+    height: .875em !important;
+    color: $drk-black   ;
+}
+
 #{$o-name}-block svg {
     width: 35px;
     color: $drk-gray;

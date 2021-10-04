@@ -66,7 +66,7 @@ router.get('/:url', async function (req, res, next) {
     thisPost.views += 1;    
     
     updatePost(thisPost.id, thisPost);
-    res.render('blog', {post:thisPost, recentPosts: recentPostResponseBody, comments: responseComment.body || []})
+    res.render('partials/blog', {post:thisPost, recentPosts: recentPostResponseBody, comments: responseComment.body || []})
 })
 
 async function updatePost (id, data) {

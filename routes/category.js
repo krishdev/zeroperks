@@ -41,7 +41,7 @@ router.get(['/:url','/:url/:page'], async function(req, res, next) {
                 responseType: 'json'
             })
             const responseCountBody = responseCount.body;
-            res.render('category-landing', {
+            res.render('partials/category-landing', {
                 recentPosts: responseBody, 
                 aclPort: config.acl,
                 totalPosts: responseCountBody,

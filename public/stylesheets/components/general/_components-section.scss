@@ -1,12 +1,21 @@
 $c-name: '.c-Section';
 
-#{$c-name}-white,
-#{$c-name}-lt-white {
+.pad {
     padding: 4em 1em;
+}
+
+#{$c-name}-white,
+#{$c-name}-lt-white,
+#{$c-name}-ultr-drk {
+    @extend .pad;
 }
 #{$c-name}-lt-white {
     background-color: #edeeee;
-    padding: 4em 1em;
+}
+
+#{$c-name}-ultr-drk {
+    background-color: $navy-blue;
+    color: $light-slate;
 }
 
 #{$c-name}__desc {

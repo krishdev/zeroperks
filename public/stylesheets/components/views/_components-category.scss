@@ -1,0 +1,97 @@
+$c-name: '.c-Category';
+
+#{$c-name} {
+    overflow-x: hidden;
+    padding: 4em 1em 0;
+}
+
+#{$c-name}__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    flex-flow: column-reverse;
+
+    @include breakpoint ($bp-medium) {
+        flex-flow: row;
+    }
+}
+
+#{$c-name}-header__title {
+    background-color: #333;
+    border: 4px solid #e2e2e2;
+    box-sizing: border-box;
+    box-shadow: 1rem 1rem 0 0 #e2e2e2;
+    color: #fff;
+    padding: 1rem;
+    width: 100%;
+
+    @include breakpoint ($bp-medium) {
+        width: 70%;
+    }
+}
+
+#{$c-name}-header__title h1 {
+    margin-top: 0;
+}
+
+#{$c-name}-post {
+    padding-bottom: 2em;
+}
+
+#{$c-name}-post__figure img {
+    width: 100%;
+}
+
+#{$c-name}--header__figure {
+    width: 100%;
+
+    @include breakpoint ($bp-medium) {
+        width: 30%;
+    }
+}
+
+#{$c-name}--header__figure img {
+    width: 100%;
+}
+
+#{$c-name}-post__figure img {
+    border-radius: 6pt;
+    box-shadow: 3px 3px 7px rgb(51 51 51 / 48%);
+}
+
+#{$c-name}-post__body {
+    padding: .75em 0;
+}
+
+#{$c-name}-post__date {
+    font-size: .75em;
+    font-weight: 500;
+    color: #999;
+}
+
+#{$c-name}-post__body h3 a {
+    text-decoration: none;
+    color: #333;
+}
+
+#{$c-name}-post__body p {
+    color: #999;
+    font-size: .875em;
+}
+
+#{$c-name}-post__footer a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+#{$c-name}-post__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#{$c-name}__posts h2 {
+    margin-top: 2em;
+}

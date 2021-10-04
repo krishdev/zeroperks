@@ -2,3 +2,27 @@
     max-width: 66.667em;
     margin: 0 auto;
 }
+
+.o-Breadcrumb__wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.o-Breadcrumb__item a {
+    text-decoration-color: $mld-blue;
+    color: $ultra-blue;
+    font-weight: 500;
+    font-size: .875em;
+}
+
+.o-Breadcrumb__item svg {
+    font-size: 0.75em;
+    padding: 0 .5em;
+}
+
+.o-Breadcrumb__item.active {
+    font-size: .875em;
+    color: #333;
+}
