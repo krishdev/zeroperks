@@ -27,7 +27,7 @@
                         <div class="o-Layout">
                             <p><%= blog.categories[0].title %></p>
                             <h1><%= blog.title %></h1>
-                            <a href="<%- blog.url %>" class="o-Btn-line o-Btn-line--black">Read Article</a>
+                            <a href="/post/<%- blog.url %>" class="o-Btn-line o-Btn-line--black o-Btn--icon">Read Article <span class="o-Icon-bg"><i class="fas fa-chevron-right"></i></span></a>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                         <div class="c-Topics__cat" style="background-color: <%= cat.rgba %>;">
                             <div class="o-Icon-list"><i style="color: <%= cat.colorCode %>" class="<%= cat.icon %>"></i></div>
                             <div class="c-Topics-cat__heading"><%= cat.name %></div>
-                            <a href="/category/<%= cat.url %>">Learn More</a>
+                            <a href="/category/<%= cat.url %>"><span class="o-Icon-bg"><i class="fas fa-chevron-right"></i></span> Learn More</a>
                         </div>
                     <% } %>
                 </div>
@@ -77,7 +77,7 @@
                             </a>
                             <div class="c-Topics-art-body__title"><%= article.title && article.title.length < 93 ? article.title : (article.title.substring(0,90)+'..') %></div>
                             <div class="c-Topics-art-body__date"><%= new Date(article.createdAt).toString().substring(0,15) %></div>
-                            <a href="<%- article.url %>" class="o-Btn-line o-Btn-line--black">Read Article</a>
+                            <a href="/post/<%- article.url %>" class="o-Btn-line o-Btn-line--black o-Btn--icon">Read Article <span class="o-Icon-bg"><i class="fas fa-chevron-right"></i></span></a>
                         </div>
                     </div>
                     <% } %>

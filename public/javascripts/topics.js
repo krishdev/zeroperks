@@ -13,6 +13,13 @@ const swiper = new Swiper('.swiper', {
     pagination: {
       el: '.swiper-pagination',
     },
+    autoplay: {
+      delay: 2000,
+    },
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    },
   
     // Navigation arrows
     // navigation: {

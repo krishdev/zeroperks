@@ -3,7 +3,8 @@ var router = express.Router();
 const got = require('got');
 const config = require('../configs/config');
 const {
-    defaultLocals
+    defaultLocals,
+    timeSince
 } = require('../configs/common-setup');
 
 
@@ -59,7 +60,12 @@ router.get('/:url', async function (req, res, next) {
     try {
         responseComment = await got.get(config.acl+'/comments?_sort=createdAt:DESC&_where[post]='+thisPost.id, {		
             responseType: 'json'
-        })
+        });
+        if (responseComment && responseComment.body.length) {
+            responseComment.body.forEach (item => {
+                item.timeSince = timeSince(new Date (item.published_at));
+            })
+        }
     } catch (error) {
         console.log('Comments for posts: ', error);
     }

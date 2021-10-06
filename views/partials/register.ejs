@@ -1,34 +1,54 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Zeroperks Register Page</title>
-        <link rel="shortcut icon" href="/images/title-logo.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Krishnakumar Rajendran's bio and portfolio">
-        <meta name="keywords" content="Krishna, Rajendran, Krish, FrontEnd Developer, UI Developer, Software Developer, Node Developer, ACL recovery, ACL reconstruction">
-        <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
-        <%- include('templates/headers') %>
+        <%- contentFor('pageMeta') %>
+        <%- include('../common/fragments/page-meta', { 
+            title: 'Register to ZEROPERSK',
+            description: 'Register to ZEROPERSK',
+            keywords: 'Register to ZEROPERSK',
+        }) %>
+        <%- contentFor('topHead') %>
     </head>
-    <body class="text-center">
-        <main>
-            <div class="container py-4">
-                <%- include('templates/navigation') %>
-                <form class="form-signin" id="registerForm" action="/register" method="post">
-                    <img class="mb-4" src="/images/title-logo.png" alt="" width="72" height="72">
-                    <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
-                    <input type="text" name="username" id="username" class="form-control" placeholder="Username" required="" autofocus="">
-                    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-                    
-                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" title="Minimum 8 characters with one uppercase, one lowercase and one number" required="">
-                    <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" required="">
+    <body>
+        <%- include('../common/fragments/navbar') %>
+        <div class="c-Cred c-Cred--register o-Layout">
+            <div class="c-Cred__body row">
+                <div class="col-sm-12 col-md-4">
+                    <figure class="c-Cred__logo">
+                        <img class="mb-4" src="/images/zeroperks-title-logo.png" alt="zeroperks-logo">
+                    </figure>
+                    <div class="c-Cred__categories swiper">
+                        <div class="swiper-wrapper">
+                            <% 
+                            const allCats = allCategories || [];
+                            for(let i = 0; i < allCats.length ; i++) { 
+                            const cat = allCats[i];
+                            %>
+                                <div class="c-Cred__cat swiper-slide">
+                                    <div class="o-Icon-list"><i style="color: <%= cat.colorCode %>" class="<%= cat.icon %>"></i></div>
+                                    <div class="c-Cred-cat__heading"><%= cat.name %></div>
+                                    <a href="/category/<%= cat.url %>"><span class="o-Icon-bg"><i class="fas fa-chevron-right"></i></span> Learn More</a>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-8">
+                    <ul class="c-Cred-form__header">
+                        <li><a href="/register" class="active">Register</a></li>
+                        <li><a href="/login">Login</a></li>
+                    </ul>
+                    <form class="c-Cred__form" id="loginForm" action="/register" method="post">
+                        <input type="text" name="username" id="username" class="form-control" placeholder="Username" required="" autofocus="">
+                        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                        
+                        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" title="Minimum 8 characters with one uppercase, one lowercase and one number" required="">
+                        <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" required="">
 
-                    <button class="mt-4 btn btn-lg btn-primary btn-block" id="signup-btn" type="button">Sign up</button>
-                </form>
-                <% if (typeof(error) != "undefined") { %>
-                    <%= error %>
-                <% } %>
-                <%- include('templates/footer') %>
+                        <button class="c-Comment-form__btn" id="signup-btn" type="button">Sign up <i class="fas fa-user-plus"></i></button>
+                    </form>
+                </div>
             </div>
-        </main>
+        </div>
     </body>
 </html>

@@ -49,7 +49,7 @@ $c-name: '.c-Topics';
     position: absolute;
     left: 0;
     top: 0;
-    background-color: rgb(25, 25, 25,  .46);
+    background-color: rgba(25, 25, 25, .46);
     z-index: 1;
 }
 
@@ -189,5 +189,5 @@ $c-name: '.c-Topics';
 #{$c-name}-art__body .o-Btn-line {
     display: inline-block;
     margin-top: 1em;
-    width: 7em;
+    width: 9em;
 }

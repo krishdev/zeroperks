@@ -1,0 +1,40 @@
+<div class="c-Comment__wrapper">
+    <h2 class="u-Ma-t-0"><i class="fas fa-comments"></i> Comments</h2>
+    <div class="c-Comment">
+        <% for (let i = 0; i < comments.length ; i++) { 
+            const comment = comments[i];
+            %>
+            <div class="c-Comment-cnt">
+                <div class="c-Comment-cnt__user-ltr">
+                    <%- comment.user ? comment.user.username.substring(0,1).toUpperCase() : '<i class="fas fa-user"></i>' %>
+                </div>
+                <div class="c-Comment-cnt__body">
+                    <div class="c-Comment-cnt__header">
+                        <div class="c-Comment-cnt-hdr__username">
+                            <%= comment.user ? comment.user.username : 'Anonymous' %>
+                        </div>
+                        <div class="c-Comment-cnt-hdr__time">
+                            <%= comment.timeSince %> ago
+                        </div>
+                    </div>
+
+                    <p><%= comment.comment %></p>
+
+                    <div class="c-Comment-cnt__footer">
+                        <button class="c-Comment-cnt-ftr__icn c-Comment-cnt-ftr__icn--like"><i class="fas fa-heart"></i><%= comment.helpful ? (comment.helpful + ' Likes') : 'Helpful' %></button>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+        <div class="c-Comment-form">
+            <% if (typeof token != "undefined" && token) { %>
+                <div class="c-Comment-form__box">
+                    <textarea class="form-control" placeholder="Leave a comment here" id="commentTxt" style="height: 100px"></textarea>
+                </div>
+                <a id="comment-btn" href="javascript:void(0)" class="c-Comment-form__btn c-Comment-form__btn--login" id="login-btn">Add Comment <i class="fas fa-comment-dots"></i></a>
+            <% } else { %>
+                <a href="/login" class="c-Comment-form__btn c-Comment-form__btn--login" id="login-btn">Add Comment <i class="fas fa-comment-dots"></i></a>
+            <% } %>
+        </div>
+    </div>
+</div>

@@ -1,29 +1,52 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Zeroperks Login Page</title>
-        <link rel="shortcut icon" href="/images/title-logo.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Krishnakumar Rajendran's bio and portfolio">
-        <meta name="keywords" content="Krishna, Rajendran, Krish, FrontEnd Developer, UI Developer, Software Developer, Node Developer, ACL recovery, ACL reconstruction">
-        <%- include('templates/headers') %>
+        <%- contentFor('pageMeta') %>
+        <%- include('../common/fragments/page-meta', { 
+            title: 'Login to ZEROPERSK',
+            description: 'Login to ZEROPERSK',
+            keywords: 'Login to ZEROPERSK',
+        }) %>
+        <%- contentFor('topHead') %>
     </head>
-    <body class="text-center">
-        <main>
-            <div class="container py-4">
-                <%- include('templates/navigation') %>
-                <form class="form-signin" id="loginForm" action="/login" method="post">
-                    <img class="mb-4" src="/images/title-logo.png" alt="" width="72" height="72">
-                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-                    
-                    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-                    
-                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-
-                    <button class="mt-4 btn btn-lg btn-primary btn-block" id="signin-btn" type="button">Sign in</button>
-                </form>
-                <%- include('templates/footer') %>
+    <body>
+        <%- include('../common/fragments/navbar') %>
+        <div class="c-Cred c-Cred--login o-Layout">
+            <div class="c-Cred__body row">
+                <div class="col-sm-12 col-md-4">
+                    <figure class="c-Cred__logo">
+                        <img class="mb-4" src="/images/zeroperks-title-logo.png" alt="zeroperks-logo">
+                    </figure>
+                    <div class="c-Cred__categories swiper">
+                        <div class="swiper-wrapper">
+                            <% 
+                            const allCats = allCategories || [];
+                            for(let i = 0; i < allCats.length ; i++) { 
+                            const cat = allCats[i];
+                            %>
+                                <div class="c-Cred__cat swiper-slide">
+                                    <div class="o-Icon-list"><i style="color: <%= cat.colorCode %>" class="<%= cat.icon %>"></i></div>
+                                    <div class="c-Cred-cat__heading"><%= cat.name %></div>
+                                    <a href="/category/<%= cat.url %>"><span class="o-Icon-bg"><i class="fas fa-chevron-right"></i></span> Learn More</a>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-8">
+                    <ul class="c-Cred-form__header">
+                        <li><a href="/register">Register</a></li>
+                        <li><a href="/login" class="active">Login</a></li>
+                    </ul>
+                    <form class="c-Cred__form" id="loginForm" action="/login" method="post">
+                        <input type="email" autocomplete="form.email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                        
+                        <input type="password" autocomplete="form.password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+    
+                        <button class="c-Comment-form__btn" id="signin-btn" type="button">Sign in <i class="fas fa-sign-in-alt"></i></button>
+                    </form>
+                </div>
             </div>
-        </main>
+        </div>
     </body>
 </html>

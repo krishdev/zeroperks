@@ -46,3 +46,14 @@ $o-name: '.o-Btn';
     color: $white;
     border-color: $black;
 }
+
+#{$o-name}--icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: row nowrap;
+}
+
+#{$o-name}--icon .o-Icon-bg {
+    margin-left: .5em;
+}

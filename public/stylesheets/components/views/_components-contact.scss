@@ -1,0 +1,34 @@
+$c-name: '.c-Contact';
+
+#{$c-name}__form .form-control {
+    border: 1px solid #dadada;
+    box-shadow: none;
+    padding: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+}
+
+#{$c-name}__form {
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+#{$c-name}__form .col-md-6:nth-child(2) {
+    padding-right: 0;
+}
+
+#{$c-name}__form textarea.form-control {
+    height: 9em;
+}
+
+#{$c-name}__form-btn {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#{$c-name}__form-btn .c-Comment-form__btn {
+    font-size: .875rem;
+}

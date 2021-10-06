@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- contentFor('pageMeta') %>
+        <%- include('../common/fragments/page-meta', { 
+            title: 'Contact Krishna |  ZEROPERSK',
+            description: 'Contact Krishna',
+            keywords: 'Contact Krishna',
+        }) %>
+        <%- contentFor('topHead') %>
+    </head>
+    <body>
+        <%- include('../common/fragments/navbar') %>
+        <div class="c-Contact o-Layout">
+            <div class="c-Home__mid-panel">
+                <span class="c-Home-mid-p__lt">HI&HELLO</span>
+                <h1 class="c-Home-mid-p__h">CONTACT</h1>
+                <div class="c-About row">
+                    <div class="col-sm-12 col-md-8 col-8 u-Ma-h-center">
+                        <div class="c-Contact__greet">
+                            <p>I'm interested in freelance or fun coloboration projects. However, if you have other request or question, don't hesitate to use the form.</p>
+                        </div>
+                        <div class="c-Contact__form row">
+                            <div class="col-sm-12 col-md-6">
+                                <input type="text" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <input type="email" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" placeholder="Subject">
+                            </div>
+                            <div class="col-sm-12">
+                                <textarea type="text" class="form-control" placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <div class="c-Contact__form-btn">
+                            <button class="c-Comment-form__btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          
+    </body>
+</html>

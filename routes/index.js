@@ -62,22 +62,39 @@ router.get('/topics', async function(req, res, next) {
   res.render('partials/topics', {allBlogs, allCategories, recentArticles});
 });
 
-router.get('/login', function (req, res) {
+router.get('/contact', async function(req, res, next) {
+  defaultLocals(req, res);
+  res.render('partials/contact');
+});
+
+router.get('/login', async function (req, res) {
   res.locals.origin = process.env.NODE_ENV && process.env.NODE_ENV == 'production' ? 'https://zeroperks.com' : 'http://localhost:8080'
   res.locals.year = new Date().getFullYear();
+  res.locals.aclPort = config.acl;
   res.locals.token = null;
   res.locals.username = null;
   req.session.username = null;
   delete req.session.token;
-  res.render('login', {
-    title: 'login'
-  });
+  let allCategories = [];
+  try {
+    allCategories = await getAllCategories();
+  } catch (error) {
+    console.log(error);
+  }
+  res.render('partials/login', {allCategories});
 })
 
 router.post('/login', async function (req, res) {
   res.locals.origin = process.env.NODE_ENV && process.env.NODE_ENV == 'production' ? 'https://zeroperks.com' : 'http://localhost:8080'
   res.locals.year = new Date().getFullYear();
   res.locals.token = req.session.token || null;
+  res.locals.aclPort = config.acl;
+  let allCategories = [];
+  try {
+    allCategories = await getAllCategories();
+  } catch (error) {
+    console.log(error);
+  }
   const body = req.body;
   try {
     const response = await got.post(config.acl+'/auth/local', {
@@ -97,23 +114,31 @@ router.post('/login', async function (req, res) {
     }
   } catch (error) {
     console.log('Login: ', error);
-    res.render('login', {
+    res.render('partials/login', {
       title: 'login',
-      error: error
+      error: error,
+      allCategories
     });
   }
 })
 
-router.get('/register', function (req, res) {
+router.get('/register', async function (req, res) {
   res.locals.origin = process.env.NODE_ENV && process.env.NODE_ENV == 'production' ? 'https://zeroperks.com' : 'http://localhost:8080'
   res.locals.year = new Date().getFullYear();
   res.locals.token = null;
   res.locals.username = null;
   req.session.username = null;
+  res.locals.aclPort = config.acl;
   delete req.session.token;
   req.session.redirect = req.headers.referer;
-  res.render('register', {
-    title: 'register'
+  let allCategories = [];
+  try {
+    allCategories = await getAllCategories();
+  } catch (error) {
+    console.log(error);
+  }
+  res.render('partials/register', {
+    allCategories
   });
 })
 
@@ -121,7 +146,14 @@ router.post('/register', async function (req, res) {
   res.locals.origin = process.env.NODE_ENV && process.env.NODE_ENV == 'production' ? 'https://zeroperks.com' : 'http://localhost:8080'
   res.locals.year = new Date().getFullYear();
   res.locals.token = req.session.token || null;
+  res.locals.aclPort = config.acl;
   const body = req.body;
+  let allCategories = [];
+  try {
+    allCategories = await getAllCategories();
+  } catch (error) {
+    console.log(error);
+  }
   try {
     const response = await got.post(config.acl+'/auth/local/register', {
       responseType: 'json',
@@ -141,9 +173,10 @@ router.post('/register', async function (req, res) {
     }
   } catch (error) {
     console.log('Register: ', error);
-    res.render('register', {
+    res.render('partials/register', {
       title: 'register',
-      error: error
+      error: error,
+      allCategories
     });
   }
 })

@@ -57,7 +57,7 @@ $c-name: '.c-Category';
 
 #{$c-name}-post__figure img {
     border-radius: 6pt;
-    box-shadow: 3px 3px 7px rgb(51 51 51 / 48%);
+    box-shadow: 3px 3px 7px rgba(51, 51, 51, .48);
 }
 
 #{$c-name}-post__body {

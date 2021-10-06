@@ -44,3 +44,18 @@ $o-name: '.o-Icon';
     width: 35px;
     color: $drk-gray;
 }
+
+#{$o-name}-bg {
+    width: 1.25em;
+    height: 1.25em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    border-radius: 35px;
+}
+
+#{$o-name}-bg svg {
+    color: #fff;
+    font-size: .65em;
+}
