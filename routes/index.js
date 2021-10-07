@@ -68,7 +68,7 @@ router.get('/contact', async function(req, res, next) {
 });
 
 router.get('/login', async function (req, res) {
-  res.locals.origin = process.env.NODE_ENV && process.env.NODE_ENV == 'production' ? 'https://zeroperks.com' : 'http://localhost:8080'
+  res.locals.origin = config.env;
   res.locals.year = new Date().getFullYear();
   res.locals.aclPort = config.acl;
   res.locals.token = null;
@@ -85,7 +85,7 @@ router.get('/login', async function (req, res) {
 })
 
 router.post('/login', async function (req, res) {
-  res.locals.origin = process.env.NODE_ENV && process.env.NODE_ENV == 'production' ? 'https://zeroperks.com' : 'http://localhost:8080'
+  res.locals.origin = config.env;
   res.locals.year = new Date().getFullYear();
   res.locals.token = req.session.token || null;
   res.locals.aclPort = config.acl;
@@ -124,7 +124,7 @@ router.post('/login', async function (req, res) {
 })
 
 router.get('/register', async function (req, res) {
-  res.locals.origin = process.env.NODE_ENV && process.env.NODE_ENV == 'production' ? 'https://zeroperks.com' : 'http://localhost:8080'
+  res.locals.origin = config.env;
   res.locals.year = new Date().getFullYear();
   res.locals.token = null;
   res.locals.username = null;
@@ -144,7 +144,7 @@ router.get('/register', async function (req, res) {
 })
 
 router.post('/register', async function (req, res) {
-  res.locals.origin = process.env.NODE_ENV && process.env.NODE_ENV == 'production' ? 'https://zeroperks.com' : 'http://localhost:8080'
+  res.locals.origin = config.env;
   res.locals.year = new Date().getFullYear();
   res.locals.token = req.session.token || null;
   res.locals.aclPort = config.acl;
