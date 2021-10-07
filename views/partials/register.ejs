@@ -38,13 +38,41 @@
                         <li><a href="/register" class="active">Register</a></li>
                         <li><a href="/login">Login</a></li>
                     </ul>
-                    <form class="c-Cred__form" id="loginForm" action="/register" method="post">
-                        <input type="text" name="username" id="username" class="form-control" placeholder="Username" required="" autofocus="">
-                        <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                    <form class="c-Cred__form" id="registerForm" action="/register" method="post">
+                        <div class="o-Form__wrapper">
+                            <input type="text" name="username" id="username" class="form-control" placeholder="Username" required="" autofocus="">
+                            <div class="o-Form__error">
+                                <p class="required">Username is required.</p>
+                                <p class="username">Username cannot contain special characters and minimum 3 characters required.</p>
+                            </div>
+                        </div>
+                        <div class="o-Form__wrapper">
+                            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                            <div class="o-Form__error">
+                                <p class="required">Email is required.</p>
+                                <p class="email">Invalid Email</p>
+                            </div>
+                        </div>
                         
-                        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" title="Minimum 8 characters with one uppercase, one lowercase and one number" required="">
-                        <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" required="">
-
+                        <div class="o-Form__wrapper">
+                            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" title="Minimum 8 characters with one uppercase, one lowercase and one number" required="">
+                            <div class="o-Form__error">
+                                <p class="required">Password is required.</p>
+                                <p class="password">Password requires minimum 8 characters with one uppercase, one lowercase and one number.</p>
+                            </div>
+                        </div>
+                        <div class="o-Form__wrapper">
+                            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password" required="">
+                            <div class="o-Form__error">
+                                <p class="required">Confirm Password is required.</p>
+                                <p class="confirmPassword">Confirm Password is incorrect.</p>
+                            </div>
+                        </div>
+                        <% if (typeof(error) != "undefined") { %>
+                            <div class="o-Form__server-error">
+                                <p>Sorry! Something went wrong please report <a href="/contact">here</a>.</p>
+                            </div>
+                        <% } %>
                         <button class="c-Comment-form__btn" id="signup-btn" type="button">Sign up <i class="fas fa-user-plus"></i></button>
                     </form>
                 </div>

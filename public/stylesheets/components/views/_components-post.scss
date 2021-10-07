@@ -14,6 +14,11 @@ $c-name: '.c-Post';
 
 #{$c-name}__title {
     color: #333;
+    font-size: 1.25em;
+    
+    @include breakpoint ($bp-medium) {
+        font-size: auto;
+    }
 }
 
 #{$c-name}__sd-list li {

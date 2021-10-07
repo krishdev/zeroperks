@@ -27,9 +27,12 @@
             </div>
         <% } %>
         <div class="c-Comment-form">
-            <% if (typeof token != "undefined" && token) { %>
+            <% if (token) { %>
                 <div class="c-Comment-form__box">
                     <textarea class="form-control" placeholder="Leave a comment here" id="commentTxt" style="height: 100px"></textarea>
+                    <div class="o-Form__error">
+                        <p class="required u-Ma-t-0 u-Ma-b-1">Comment is required.</p>
+                    </div>
                 </div>
                 <a id="comment-btn" href="javascript:void(0)" class="c-Comment-form__btn c-Comment-form__btn--login" id="login-btn">Add Comment <i class="fas fa-comment-dots"></i></a>
             <% } else { %>

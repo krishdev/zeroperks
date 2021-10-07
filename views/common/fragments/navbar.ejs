@@ -20,12 +20,19 @@
             <li class="c-Nav__item">
                 <a class="c-Nav__link" href="/contact">Hire me</a>
             </li>
+            <% if (!token) { %>
             <li class="c-Nav__item">
                 <a class="c-Nav__link" href="/login">Sign In</a>
             </li>
             <li class="c-Nav__item">
                 <a class="c-Nav__link" href="/register">Sign Up</a>
             </li>
+            <% } %>
+            <% if (token) { %>
+            <li class="c-Nav__item">
+                <a class="c-Nav__link" href="/logout">Logout</a>
+            </li>
+            <% } %>
         </ul>
     </nav>
 </header>

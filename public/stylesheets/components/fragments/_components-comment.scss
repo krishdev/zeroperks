@@ -74,6 +74,7 @@ $c-name: '.c-Comment';
 #{$c-name}-cnt__body p {
     font-size: .875em;
     color: #333;
+    white-space: pre-wrap;
 }
 
 #{$c-name}-form__btn {

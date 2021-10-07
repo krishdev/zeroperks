@@ -5,7 +5,7 @@ const credentials = {
         login: document.querySelector('#signin-btn'),
         register: document.querySelector('#signup-btn'),
         comment: document.querySelector('#comment-btn'),
-        errorClass: ['border', 'border-danger', 'border-2'],
+        errorClass: 'o-Error',
         formSubmitting: false
     },
     initialized () {
@@ -36,31 +36,35 @@ const credentials = {
                 email: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                 password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
             };
-           
-            if (!form.email.value.trim() || !regex.email.test(form.email.value)) {
+            const emailRequired = !form.email.value.trim();
+            const emailInvalid = !regex.email.test(form.email.value);
+            const $emailRequired = form.email.parentElement.querySelector('.o-Form__error .required');
+            const $emailInvalid =  form.email.parentElement.querySelector('.o-Form__error .email');
+            if (emailRequired || emailInvalid) {
                 invalid = true;
-                for (let i = 0; i < credentials.data.errorClass.length; i++) {
-                    const error = credentials.data.errorClass[i];
-                    form.email.classList.add(error);
+                if (emailRequired) {
+                    $emailRequired.classList.add(credentials.data.errorClass);
+                } else {
+                    $emailRequired.classList.remove(credentials.data.errorClass);
                 }
-            } else if (form.email.classList.contains('border-danger')) {
-                for (let i = 0; i < credentials.data.errorClass.length; i++) {
-                    const error = credentials.data.errorClass[i];
-                    form.email.classList.remove(error);
+                
+                if (!emailRequired && emailInvalid) {
+                    $emailInvalid.classList.add(credentials.data.errorClass);
+                } else {
+                    $emailInvalid.classList.remove(credentials.data.errorClass);
                 }
+            } else  {
+                $emailRequired.classList.remove(credentials.data.errorClass);
+                $emailInvalid.classList.remove(credentials.data.errorClass);
             }
 
-            if (!form.password.value.trim()) {
+            const passwordRequired = !form.password.value.trim();
+            const $passwordRequired = form.password.parentElement.querySelector('.o-Form__error .required');
+            if (passwordRequired) {
                 invalid = true;
-                for (let i = 0; i < credentials.data.errorClass.length; i++) {
-                    const error = credentials.data.errorClass[i];
-                    form.password.classList.add(error);
-                }
-            } else if (form.password.classList.contains('border-danger')) {
-                for (let i = 0; i < credentials.data.errorClass.length; i++) {
-                    const error = credentials.data.errorClass[i];
-                    form.password.classList.remove(error);
-                }
+                $passwordRequired.classList.add(credentials.data.errorClass);
+            } else  {
+                $passwordRequired.classList.remove(credentials.data.errorClass);
             }
             if (!invalid) {
                 document.querySelector('#loginForm').submit();
@@ -70,60 +74,97 @@ const credentials = {
             credentials.data.formSubmitting = true;
             var regex = {
                 email: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/
+                password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+                username: /^[(\w\s)]+$/g
             };
             var invalid = false;
             var form = document.forms.registerForm;
-            if (!form.username.value.trim()) {
+            const usernameRequired = !form.username.value.trim();
+            const usernameInvalid = !regex.username.test(form.username.value) || form.username.value.trim().length < 3;
+            const $usernameRequired = form.username.parentElement.querySelector('.o-Form__error .required');
+            const $usernameInvalid =  form.username.parentElement.querySelector('.o-Form__error .username');
+            if (usernameRequired || usernameInvalid) {
                 invalid = true;
-                for (let i = 0; i < credentials.data.errorClass.length; i++) {
-                    const error = credentials.data.errorClass[i];
-                    form.username.classList.add(error);
+                if (usernameRequired) {
+                    $usernameRequired.classList.add(credentials.data.errorClass);
+                } else {
+                    $usernameRequired.classList.remove(credentials.data.errorClass);
                 }
-            } else if (form.username.classList.contains('border-danger')) {
-                for (let i = 0; i < credentials.data.errorClass.length; i++) {
-                    const error = credentials.data.errorClass[i];
-                    form.username.classList.remove(error);
+                
+                if (!usernameRequired && usernameInvalid) {
+                    $usernameInvalid.classList.add(credentials.data.errorClass);
+                } else {
+                    $usernameInvalid.classList.remove(credentials.data.errorClass);
                 }
+            } else  {
+                $usernameRequired.classList.remove(credentials.data.errorClass);
+                $usernameInvalid.classList.remove(credentials.data.errorClass);
             }
 
-            if (!form.email.value.trim() || !regex.email.test(form.email.value)) {
+            const emailRequired = !form.email.value.trim();
+            const emailInvalid = !regex.email.test(form.email.value);
+            const $emailRequired = form.email.parentElement.querySelector('.o-Form__error .required');
+            const $emailInvalid =  form.email.parentElement.querySelector('.o-Form__error .email');
+            if (emailRequired || emailInvalid) {
                 invalid = true;
-                for (let i = 0; i < credentials.data.errorClass.length; i++) {
-                    const error = credentials.data.errorClass[i];
-                    form.email.classList.add(error);
+                if (emailRequired) {
+                    $emailRequired.classList.add(credentials.data.errorClass);
+                } else {
+                    $emailRequired.classList.remove(credentials.data.errorClass);
                 }
-            } else if (form.email.classList.contains('border-danger')) {
-                for (let i = 0; i < credentials.data.errorClass.length; i++) {
-                    const error = credentials.data.errorClass[i];
-                    form.email.classList.remove(error);
+                
+                if (!emailRequired && emailInvalid) {
+                    $emailInvalid.classList.add(credentials.data.errorClass);
+                } else {
+                    $emailInvalid.classList.remove(credentials.data.errorClass);
                 }
+            } else  {
+                $emailRequired.classList.remove(credentials.data.errorClass);
+                $emailInvalid.classList.remove(credentials.data.errorClass);
             }
 
-            if (!form.password.value.trim() || !regex.password.test(form.password.value)) {
+            const passwordRequired = !form.password.value.trim();
+            const passwordInvalid = !regex.password.test(form.password.value);
+            const $passwordRequired = form.password.parentElement.querySelector('.o-Form__error .required');
+            const $passwordInvalid =  form.password.parentElement.querySelector('.o-Form__error .password');
+            if (passwordRequired || passwordInvalid) {
                 invalid = true;
-                for (let i = 0; i < credentials.data.errorClass.length; i++) {
-                    const error = credentials.data.errorClass[i];
-                    form.password.classList.add(error);
+                if (passwordRequired) {
+                    $passwordRequired.classList.add(credentials.data.errorClass);
+                } else {
+                    $passwordRequired.classList.remove(credentials.data.errorClass);
                 }
-            } else if (form.password.classList.contains('border-danger')) {
-                for (let i = 0; i < credentials.data.errorClass.length; i++) {
-                    const error = credentials.data.errorClass[i];
-                    form.password.classList.remove(error);
+                
+                if (!passwordRequired && passwordInvalid) {
+                    $passwordInvalid.classList.add(credentials.data.errorClass);
+                } else {
+                    $passwordInvalid.classList.remove(credentials.data.errorClass);
                 }
+            } else  {
+                $passwordRequired.classList.remove(credentials.data.errorClass);
+                $passwordInvalid.classList.remove(credentials.data.errorClass);
             }
 
-            if (!form.confirmPassword.value.trim() || form.password.value !== form.confirmPassword.value) {
+            const confirmPasswordRequired = !form.confirmPassword.value.trim();
+            const confirmPasswordInvalid = form.password.value !== form.confirmPassword.value;
+            const $confirmPasswordRequired = form.confirmPassword.parentElement.querySelector('.o-Form__error .required');
+            const $confirmPasswordInvalid =  form.confirmPassword.parentElement.querySelector('.o-Form__error .confirmPassword');
+            if (confirmPasswordRequired || confirmPasswordInvalid) {
                 invalid = true;
-                for (let i = 0; i < credentials.data.errorClass.length; i++) {
-                    const error = credentials.data.errorClass[i];
-                    form.confirmPassword.classList.add(error);
+                if (confirmPasswordRequired) {
+                    $confirmPasswordRequired.classList.add(credentials.data.errorClass);
+                } else {
+                    $confirmPasswordRequired.classList.remove(credentials.data.errorClass);
                 }
-            } else if (form.confirmPassword.classList.contains('border-danger')) {
-                for (let i = 0; i < credentials.data.errorClass.length; i++) {
-                    const error = credentials.data.errorClass[i];
-                    form.confirmPassword.classList.remove(error);
+                
+                if (!confirmPasswordRequired && confirmPasswordInvalid) {
+                    $confirmPasswordInvalid.classList.add(credentials.data.errorClass);
+                } else {
+                    $confirmPasswordInvalid.classList.remove(credentials.data.errorClass);
                 }
+            } else  {
+                $confirmPasswordRequired.classList.remove(credentials.data.errorClass);
+                $confirmPasswordInvalid.classList.remove(credentials.data.errorClass);
             }
             if (!invalid) {
                 document.querySelector('#registerForm').submit();
@@ -134,27 +175,23 @@ const credentials = {
             
             var invalid = false;
             var form = document.querySelector('#commentTxt');
-                       
+            const $cmtError = document.querySelector('#commentTxt').nextElementSibling.querySelector('.required');
             if (!form.value.trim()) {
                 invalid = true;
-                for (let i = 0; i < credentials.data.errorClass.length; i++) {
-                    const error = credentials.data.errorClass[i];
-                    form.classList.add(error);
-                }
-            } else if (form.classList.contains('border-danger')) {
-                for (let i = 0; i < credentials.data.errorClass.length; i++) {
-                    const error = credentials.data.errorClass[i];
-                    form.classList.remove(error);
-                }
+                $cmtError.classList.add(credentials.data.errorClass);
+            } else {
+                $cmtError.classList.remove(credentials.data.errorClass);
             }
             if (!invalid) {
-                axios.post('/acl/comment', {
+                axios.post('/post/comment', {
                     comment: form.value,
                     postId: window.postId
                 }).then(function (res) {
                     if(res.data.success) {
                         window.location.reload();
                     }
+                }, error => {
+                    console.log(error.body);
                 })
             }
         },

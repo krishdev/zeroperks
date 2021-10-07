@@ -110,6 +110,7 @@ router.post('/login', async function (req, res) {
       req.session.username = response.body.user.username;
       req.session.userId = response.body.user.id;
       const redirecTo = req.session.redirect || '/';
+      console.log('redirectTo: ' + redirecTo);
       res.redirect(redirecTo);
     }
   } catch (error) {
@@ -182,8 +183,8 @@ router.post('/register', async function (req, res) {
 })
 
 router.get('/logout', function (req, res) {
-  req.session.token = null;
-  req.session.username = null;
+  delete req.session.token;
+  delete req.session.username;
   let redirecTo = req.headers.referer || '/';
   if (redirecTo) redirecTo = new URL(redirecTo).pathname;
   console.log(redirecTo);

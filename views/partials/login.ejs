@@ -38,11 +38,25 @@
                         <li><a href="/register">Register</a></li>
                         <li><a href="/login" class="active">Login</a></li>
                     </ul>
-                    <form class="c-Cred__form" id="loginForm" action="/login" method="post">
-                        <input type="email" autocomplete="form.email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-                        
-                        <input type="password" autocomplete="form.password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-    
+                    <form class="c-Cred__form" id="loginForm" action="/login" method="post" autocomplete="off">
+                        <div class="o-Form__wrapper">
+                            <input type="email" autocomplete="off" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+                            <div class="o-Form__error">
+                                <p class="required">Email is required.</p>
+                                <p class="email">Invalid Email</p>
+                            </div>
+                        </div>
+                        <div class="o-Form__wrapper">
+                            <input type="password" autocomplete="off" name="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+                            <div class="o-Form__error">
+                                <p class="required">Password is required.</p>
+                            </div>
+                        </div>
+                        <% if (typeof(error) != "undefined") { %>
+                            <div class="o-Form__server-error">
+                                <p>Email ID or Password did not match please try again.</p>
+                            </div>
+                        <% } %>
                         <button class="c-Comment-form__btn" id="signin-btn" type="button">Sign in <i class="fas fa-sign-in-alt"></i></button>
                     </form>
                 </div>
