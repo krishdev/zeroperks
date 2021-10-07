@@ -6,6 +6,7 @@
             title: post.title + ' |  ZEROPERSK',
             description: post.description,
             keywords: post.keywords,
+            image: post.ogImage.url || undefined
         }) %>
         <%- contentFor('topHead') %>
     </head>

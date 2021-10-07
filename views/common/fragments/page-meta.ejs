@@ -6,4 +6,8 @@
 <meta name="keywords" content="<%= keywords %>">
 <meta name="og:title" content="<%= title %>">
 <meta name="og:description" content="<%= description %>">
-<meta name="og:image" content="<%= typeof image == 'undefined' ? aclPort+'/images/og-image/wide.jpg' : image %>">
+<meta name="og:image" content="<%= origin+'/images/og-images/og-wide.jpg' %>">
+<meta name="og:image" content="<%= origin+'/images/og-images/thumb.jpg' %>">
+<% if (typeof image != 'undefined') { %>
+<meta name="og:image" content="<%= aclPort + image %>">
+<% } %>
