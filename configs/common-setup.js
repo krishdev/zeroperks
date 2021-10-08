@@ -62,3 +62,37 @@ exports.timeSince = function (date) {
     const intrl = Math.floor(seconds);
     return intrl + " second" + (intrl > 1 ? 's' : '');
 }
+
+exports.getGitRepo = function (perPage, page) {
+  return new Promise ((resolve, reject) => {
+      const url = `https://api.github.com/users/krishdev/repos?sort=updated&per_page=${perPage}&page=${page}`;
+      got.get(url).then(res => {
+          const responseBody = res.body;
+          if (responseBody && responseBody.length) {
+              sendEmail({
+                  from: 'mailkrishna2@gmail.com',
+                  to: 'mailkrishna2@gmail.com',
+                  subj: 'Zeroperks | GitRepo fetch',
+                  content: `${url} ${responseBody}`
+              })
+              resolve(responseBody);
+          } else {
+              sendEmail({
+                  from: 'mailkrishna2@gmail.com',
+                  to: 'mailkrishna2@gmail.com',
+                  subj: 'Zeroperks | Error occurred on GitRepo fetch',
+                  content: `Came in empty. Api used ${url}`
+              })
+              resolve([]);
+          }
+      }, error => {
+          sendEmail({
+              from: 'mailkrishna2@gmail.com',
+              to: 'mailkrishna2@gmail.com',
+              subj: 'Zeroperks | Error occurred on GitRepo fetch',
+              content: `<p>${new Date().toString()}</p> ${error}`
+          })
+          reject(error);
+      });
+  })
+}

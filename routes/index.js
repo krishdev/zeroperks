@@ -5,11 +5,10 @@ const config = require('../configs/config');
 const {
   sendEmail
   } = require('../controller/controller.email');
+
 const {
+  defaultLocals,
   getGitRepo
-} = require('./api');
-const {
-  defaultLocals
 } = require('../configs/common-setup');
 const {
   getBlogs,
