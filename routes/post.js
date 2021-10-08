@@ -6,6 +6,9 @@ const {
     defaultLocals,
     timeSince
 } = require('../configs/common-setup');
+const {
+    sendEmail
+} = require('../controller/controller.email');
 
 
 async function generateJWTStrapi () {
@@ -88,6 +91,22 @@ async function updatePost (id, data) {
     }
 }
 
+async function updateComment (id, data) {
+    const copyHeaderesAuth = JSON.parse(JSON.stringify(config.headersAuth));
+    copyHeaderesAuth['json'] = data;
+    try {
+        const response = await got.put(config.acl+'/comments/'+id, copyHeaderesAuth);
+        if (response && response.body && response.body.id) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (error) {
+        console.log('Comments Update error: ', error);
+        return false;
+    }
+}
+
 router.post('/comment', async function (req, res) {
     const params = req.body;
     try {
@@ -114,6 +133,66 @@ router.post('/comment', async function (req, res) {
         })
     }
     
+})
+
+router.post('/like', async function (req, res) {
+    const postId = req.body.postId;
+    const commentId = req.body.commentId;
+    if (postId) {
+        try {
+            const getPostUrl = config.acl+'/posts/'+postId;
+            const response = await got.get(getPostUrl, {		
+                responseType: 'json'
+            })
+            const responseBody = response.body;
+            if (responseBody && responseBody.id) {
+                let thisPost = responseBody;
+                if (!commentId) {
+                    // add +1 to Post helpful
+                    thisPost.helpful += 1;
+                    updatePost(thisPost.id, thisPost);
+                } else if (commentId){
+                    // add +1 to Comment helpful
+                    const commentResponse = await got.get(config.acl+'/comments/'+commentId, {		
+                        responseType: 'json'
+                    });
+                    const commentBody = commentResponse.body;
+                    if (commentBody && commentBody.id) {
+                        let thisComment = commentBody;
+                        thisComment.helpful += 1;
+                        updateComment(thisComment.id, thisComment)
+                    }
+                }
+                res.status(200).json({
+                    success: true
+                })
+            } else {
+                res.status(200).json({
+                    success: false,
+                    error: true,
+                    error: 'Post Id invalid.'
+                })
+            }
+        } catch (error) {
+            sendEmail({
+                from: 'mailkrishna2@gmail.com',
+                to: 'mailkrishna2@gmail.com',
+                subj: 'Zeroperks | Error occurred on Like API',
+                content: `<p>${new Date().toString()}</p> ${error}`
+            })
+            res.status(200).json({
+                success: false,
+                error: true,
+                error: error
+            })
+        }
+    } else {
+        res.status(200).json({
+            success: false,
+            error: true,
+            error: 'Post ID required.'
+        })
+    }
 })
 
 module.exports = router;

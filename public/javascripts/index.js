@@ -12,4 +12,5 @@ import './login';
 import './home';
 import './topics';
 import './hireme';
+import './post';
 console.log('hello')

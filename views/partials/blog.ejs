@@ -6,7 +6,7 @@
             title: post.title + ' |  ZEROPERSK',
             description: post.description,
             keywords: post.keywords,
-            image: post.ogImage.url || undefined
+            image: post.ogImage && post.ogImage.url ? post.ogImage.url : undefined
         }) %>
         <%- contentFor('topHead') %>
     </head>
@@ -62,7 +62,10 @@
                             <li class="c-Post__sd-item"><i class="fas fa-chevron-right"></i> <a href="/post/<%= thisPost.url %>/"><%= title.substring(0,25) %></a></li>
                             <% } %>
                         </ol>
-                        <button class="c-Comment-cnt-ftr__icn c-Comment-cnt-ftr__icn--like"><i class="fas fa-heart"></i><%= typeof post.helpful != 'undefined' && post.helpful ? (post.helpful + ' Likes') : 'Helpful' %></button>
+                        <button id="helpfulPost" class="c-Comment-cnt-ftr__icn c-Comment-cnt-ftr__icn--like">
+                            <i class="fas fa-heart"></i>
+                            <span data-like-count="<%- post.helpful %>"><%= typeof post.helpful != 'undefined' && post.helpful ? (post.helpful + (post.helpful == 1 ? ' Like' : ' Likes')) : 'Helpful' %></span>
+                        </button>
                     </div>
                 </section>
             </div>

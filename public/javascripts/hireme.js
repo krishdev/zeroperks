@@ -11,12 +11,16 @@ const hire = {
         success: false,
     },
     initialized () {
-        this.data.contactBtn.addEventListener('click', () => {
-            this.sendMessage();
-        });
-        this.data.resendBtn.addEventListener('click', () => {
-            this.resendMessage();
-        })
+        if (this.data.contactBtn) {
+            this.data.contactBtn.addEventListener('click', () => {
+                this.sendMessage();
+            });
+        }
+        if (this.data.resendBtn) {
+            this.data.resendBtn.addEventListener('click', () => {
+                this.resendMessage();
+            })
+        }
     },
     sendMessage () {
         let invalid = false;

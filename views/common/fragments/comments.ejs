@@ -21,7 +21,10 @@
                     <p><%= comment.comment %></p>
 
                     <div class="c-Comment-cnt__footer">
-                        <button class="c-Comment-cnt-ftr__icn c-Comment-cnt-ftr__icn--like"><i class="fas fa-heart"></i><%= comment.helpful ? (comment.helpful + ' Likes') : 'Helpful' %></button>
+                        <button data-comment-id="<%- comment.id %>" class="c-Comment-cnt-ftr__icn c-Comment-cnt-ftr__icn--like">
+                            <i class="fas fa-heart"></i>
+                            <span data-like-count="<%- comment.helpful %>"><%= comment.helpful ? (comment.helpful + (comment.helpful == 1 ? ' Like' : ' Likes')) : 'Helpful' %></span>
+                        </button>
                     </div>
                 </div>
             </div>
