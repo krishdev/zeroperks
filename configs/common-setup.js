@@ -1,4 +1,8 @@
 const config = require('./config');
+const got = require('got');
+const {
+  sendEmail
+} = require('../controller/controller.email');
 exports.defaultLocals = function (req, res) {
     res.locals.origin = config.env;
     res.locals.year = new Date().getFullYear();
