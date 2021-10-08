@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const got = require('got');
+var svgCaptcha = require('svg-captcha');
 const config = require('../configs/config');
 const {
   sendEmail
@@ -197,6 +198,14 @@ router.get('/logout', function (req, res) {
   if (redirecTo) redirecTo = new URL(redirecTo).pathname;
   console.log(redirecTo);
   res.redirect(redirecTo);
+})
+
+router.get('/verify-image', function (req, res) {
+  var captcha = svgCaptcha.create();
+  req.session.captcha = captcha.text;
+  
+  res.type('svg');
+  res.status(200).send(captcha.data);
 })
 
 module.exports = router;

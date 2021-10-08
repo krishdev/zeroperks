@@ -70,6 +70,15 @@ const hire = {
             $messageRequired.classList.remove(this.data.errorClass);
         }
 
+        const verificationRequired = !this.form.verification.value.trim();
+        const $verificationRequired = this.form.verification.parentElement.parentElement.querySelector('.o-Form__error .required');
+        if (verificationRequired) {
+            invalid = true;
+            $verificationRequired.classList.add(this.data.errorClass);
+        } else {
+            $verificationRequired.classList.remove(this.data.errorClass);
+        }
+
         if (!invalid) {
             const self = this;
             this.data.formSubmitting = true;
@@ -78,12 +87,16 @@ const hire = {
                 to: 'mailkrishna2@gmail.com',
                 subj: `Zeroperks Contact : ${this.form.subject.value}`,
                 content: `${this.form.message.value}<p>Email: ${this.form.email.value}</p><p>Thank you: ${this.form.name.value}</p>`,
+                verificationText: this.form.verification.value
             }).then(function (res) {
                 self.data.formSubmitting = false;
                 if(res.data.success) {
                     self.form.classList.add('u-Hidden');
                     self.data.resendMess.classList.remove('u-Hidden');
                     self.data.success = true;
+                } else if (res.data.error) {
+                    const $verificationInvalid = self.form.verification.parentElement.parentElement.querySelector('.o-Form__error .verification');
+                    $verificationInvalid.classList.add(self.data.errorClass);
                 }
             }, error => {
                 self.data.formSubmitting = false;
@@ -99,6 +112,7 @@ const hire = {
         this.form.email.value = "";
         this.form.subject.value = "";
         this.form.message.value = "";
+        this.form.verification.value = "";
     }
 }
 

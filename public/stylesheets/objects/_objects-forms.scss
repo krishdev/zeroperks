@@ -55,3 +55,10 @@
     margin-top: 0;
     color: $red;
 }
+
+.o-Form__verification {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-flow: row nowrap;
+}

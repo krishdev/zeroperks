@@ -34,10 +34,18 @@ router.get('/git-repo/', async (req, res) => {
 });
 
 router.post('/send-email/', (req, res) => {
+    if (req.session.captcha && req.session.captcha === req.body.verificationText) {
         sendEmail(req.body);
         res.status(200).json({
             success: true
         })
+    } else {
+        res.status(200).json({
+            success: false,
+            error: true,
+            message: 'Invalid Verification'
+        })
+    }
 })
 
 router.post('/generate-sitemap/', (req, res) => {
