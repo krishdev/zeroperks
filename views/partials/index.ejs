@@ -11,6 +11,9 @@
     </head>
     <body>
         <%- include('../common/fragments/navbar') %>
+        <script>
+            var allRepo  = "<%- allRepo  %>";
+        </script>
         <main>
             <section class="o-Layout">
                 <div class="c-Home__mid-panel">
@@ -139,7 +142,7 @@
                     <h2>Other Projects of Mine</h2>
                     <p class="c-Section__desc">Some of my seriously fun projects.</p>
                     <div class="c-Repo-wrapper row">
-                        <%  if (typeof allRepo != null) {
+                        <%  if (typeof allRepo != 'undefined' && allRepo) {
                             allRepo = JSON.parse(allRepo);
                             if (allRepo.length) {
                                 for(let i = 0; i < allRepo.length; i++) { 
