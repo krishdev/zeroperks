@@ -35,6 +35,12 @@ function getGitRepo (perPage, page) {
         got.get(url).then(res => {
             const responseBody = res.body;
             if (responseBody && responseBody.length) {
+                sendEmail({
+                    from: 'mailkrishna2@gmail.com',
+                    to: 'mailkrishna2@gmail.com',
+                    subj: 'Zeroperks | GitRepo fetch',
+                    html: `${url} ${responseBody}`
+                })
                 resolve(responseBody);
             } else {
                 sendEmail({

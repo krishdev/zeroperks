@@ -3,6 +3,9 @@ var router = express.Router();
 const got = require('got');
 const config = require('../configs/config');
 const {
+  sendEmail
+  } = require('../controller/controller.email');
+const {
   getGitRepo
 } = require('./api');
 const {
@@ -29,6 +32,12 @@ router.get('/', async function(req, res, next) {
   try {
     allRepo = await getGitRepo(6, 1);
   } catch (error) {
+    sendEmail({
+        from: 'mailkrishna2@gmail.com',
+        to: 'mailkrishna2@gmail.com',
+        subj: 'Zeroperks | Error occurred on GitRepo fetch',
+        html: `<p>${new Date().toString()}</p> ${error}`
+    })
     console.log(error);
   }
   res.render('partials/index', {allRepo});
