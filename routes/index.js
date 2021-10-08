@@ -36,7 +36,7 @@ router.get('/', async function(req, res, next) {
         from: 'mailkrishna2@gmail.com',
         to: 'mailkrishna2@gmail.com',
         subj: 'Zeroperks | Error occurred on GitRepo fetch',
-        html: `<p>${new Date().toString()}</p> ${error}`
+        content: `<p>${new Date().toString()}</p> ${error}`
     })
     console.log(error);
   }

@@ -39,7 +39,7 @@ function getGitRepo (perPage, page) {
                     from: 'mailkrishna2@gmail.com',
                     to: 'mailkrishna2@gmail.com',
                     subj: 'Zeroperks | GitRepo fetch',
-                    html: `${url} ${responseBody}`
+                    content: `${url} ${responseBody}`
                 })
                 resolve(responseBody);
             } else {
@@ -47,7 +47,7 @@ function getGitRepo (perPage, page) {
                     from: 'mailkrishna2@gmail.com',
                     to: 'mailkrishna2@gmail.com',
                     subj: 'Zeroperks | Error occurred on GitRepo fetch',
-                    html: `Came in empty. Api used ${url}`
+                    content: `Came in empty. Api used ${url}`
                 })
                 resolve([]);
             }
@@ -56,7 +56,7 @@ function getGitRepo (perPage, page) {
                 from: 'mailkrishna2@gmail.com',
                 to: 'mailkrishna2@gmail.com',
                 subj: 'Zeroperks | Error occurred on GitRepo fetch',
-                html: `<p>${new Date().toString()}</p> ${error}`
+                content: `<p>${new Date().toString()}</p> ${error}`
             })
             reject(error);
         });
