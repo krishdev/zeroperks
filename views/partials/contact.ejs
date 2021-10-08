@@ -16,26 +16,45 @@
                 <span class="c-Home-mid-p__lt">HI&HELLO</span>
                 <h1 class="c-Home-mid-p__h">CONTACT</h1>
                 <div class="c-About row">
-                    <div class="col-sm-12 col-md-8 col-8 u-Ma-h-center">
+                    <form novalidate action="#" id="contactForm" class="col-sm-12 col-md-8 col-8 u-Ma-h-center">
                         <div class="c-Contact__greet">
                             <p>I'm interested in freelance or fun coloboration projects. However, if you have other request or question, don't hesitate to use the form.</p>
                         </div>
                         <div class="c-Contact__form row">
                             <div class="col-sm-12 col-md-6">
-                                <input type="text" class="form-control" placeholder="Name">
+                                <input type="text" class="form-control" name="name" placeholder="Name">
+                                <div class="o-Form__error">
+                                    <p class="required">Name is required.</p>
+                                </div>
                             </div>
                             <div class="col-sm-12 col-md-6">
-                                <input type="email" class="form-control" placeholder="Email">
+                                <input type="email" class="form-control" name="email" placeholder="Email">
+                                <div class="o-Form__error">
+                                    <p class="required">Email is required.</p>
+                                    <p class="email">Invalid Email.</p>
+                                </div>
                             </div>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" placeholder="Subject">
+                                <input type="text" class="form-control" name="subject" placeholder="Subject">
+                                <div class="o-Form__error">
+                                    <p class="required">Subject is required.</p>
+                                </div>
                             </div>
                             <div class="col-sm-12">
-                                <textarea type="text" class="form-control" placeholder="Message"></textarea>
+                                <textarea type="text" name="message" class="form-control" placeholder="Message"></textarea>
+                                <div class="o-Form__error">
+                                    <p class="required">Message is required.</p>
+                                </div>
                             </div>
                         </div>
                         <div class="c-Contact__form-btn">
-                            <button class="c-Comment-form__btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                            <button id="contactMe" type="button" class="c-Comment-form__btn">Send Message <i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                    <div id="resendMessage" class="col-sm-12 col-md-8 col-8 u-Ma-h-center u-Hidden">
+                        <div class="c-Contact__greet c-Contact__greet--center">
+                            <p>Thank you for reaching out. I will get back to you at the earliest.</p>
+                            <button id="resend" type="button" class="c-Comment-form__btn">Resend Message <i class="fas fa-paper-plane"></i></button>
                         </div>
                     </div>
                 </div>

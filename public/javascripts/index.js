@@ -11,4 +11,5 @@ import './navbar';
 import './login';
 import './home';
 import './topics';
+import './hireme';
 console.log('hello')

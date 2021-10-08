@@ -9,6 +9,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var postRouter = require('./routes/post');
 var categoryRouter = require('./routes/category');
+var apiRouter = require('./routes/api');
+var {
+  schedulerOnceAWeek
+} = require('./controller/controller.scheduler');
 const {
   defaultLocals
 } = require('./configs/common-setup');
@@ -46,7 +50,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/category', categoryRouter);
 app.use('/post', postRouter);
-
+app.use('/api', apiRouter);
+schedulerOnceAWeek();
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   defaultLocals(req, res);
