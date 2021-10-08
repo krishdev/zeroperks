@@ -31,14 +31,27 @@ router.get('/git-repo/', async (req, res) => {
 
 function getGitRepo (perPage, page) {
     return new Promise ((resolve, reject) => {
-        got.get(`https://api.github.com/users/krishdev/repos?sort=updated&per_page=${perPage}&page=${page}`).then(res => {
+        const url = `https://api.github.com/users/krishdev/repos?sort=updated&per_page=${perPage}&page=${page}`;
+        got.get(url).then(res => {
             const responseBody = res.body;
             if (responseBody && responseBody.length) {
                 resolve(responseBody);
             } else {
+                sendEmail({
+                    from: 'mailkrishna2@gmail.com',
+                    to: 'mailkrishna2@gmail.com',
+                    subj: 'Zeroperks | Error occurred on GitRepo fetch',
+                    html: `Came in empty. Api used ${url}`
+                })
                 resolve([]);
             }
         }, error => {
+            sendEmail({
+                from: 'mailkrishna2@gmail.com',
+                to: 'mailkrishna2@gmail.com',
+                subj: 'Zeroperks | Error occurred on GitRepo fetch',
+                html: `<p>${new Date().toString()}</p> ${error}`
+            })
             reject(error);
         });
     })
