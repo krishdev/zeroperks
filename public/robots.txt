@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /api/*
+Disallow: /logout
+Sitemap: https://zeroperks.com/sitemap.xml
