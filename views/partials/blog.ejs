@@ -5,7 +5,7 @@
         <%- include('../common/fragments/page-meta', { 
             title: post.title + ' |  ZEROPERSK',
             description: post.description,
-            keywords: post.keywords,
+            keywords: post.keyword,
             image: post.ogImage && post.ogImage.url ? post.ogImage.url : undefined
         }) %>
         <%- contentFor('topHead') %>
