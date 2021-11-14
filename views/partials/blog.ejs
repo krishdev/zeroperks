@@ -17,7 +17,7 @@
         <%- include('../common/fragments/navbar') %>
         <div class="c-Post o-Layout">
 
-            <h2 class="c-Post__title"><%= post.title %></h2>
+            <h1 class="c-Post__title"><%= post.title %></h1>
             <% if( post.heroImage.url) { %>
             <figure class="c-Post__figure" style="background-image: url('<%= aclPort+post.heroImage.url %>');"></figure>
             <% } %>
