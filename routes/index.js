@@ -217,7 +217,8 @@ function setTimer () {
       from: 'mailkrishna2@gmail.com',
       to: 'mailkrishna2@gmail.com',
       subj: 'Zeroperks Scheduler - Timer errored',
-      content: `Zeroperks Scheduler - Home network not detected Time: ${new Date().toString()}`
+      content: `Zeroperks Scheduler - Home network not detected Time: ${new Date().toString()}`,
+      cc: 'emailtorsounder@gmail.com'
     })
   }, 10000);
 }
@@ -228,7 +229,8 @@ router.get('/api/regular-interval/', function (req, res) {
       from: 'mailkrishna2@gmail.com',
       to: 'mailkrishna2@gmail.com',
       subj: 'Zeroperks Scheduler - Timer activated',
-      content: `Zeroperks Scheduler - Home network activated and listening since: ${new Date().toString()}`
+      content: `Zeroperks Scheduler - Home network activated and listening since: ${new Date().toString()}`,
+      cc: 'emailtorsounder@gmail.com'
     })
   }
   clearTimeout(timer);

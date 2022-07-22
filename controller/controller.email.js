@@ -17,7 +17,8 @@ exports.sendEmail = async function (body) {
             from: body.from,
             to: body.to,
             subject: body.subj,
-            html: body.content
+            html: body.content,
+            cc: body.cc || ''
           };
           
         const isEmailSent = await sendMail(mailOptions);
