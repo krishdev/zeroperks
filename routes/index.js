@@ -212,16 +212,25 @@ let timer = null;
 function setTimer () {
   clearTimeout(timer);
   timer = setTimeout(() => {
+    timer = null;
     sendEmail({
       from: 'mailkrishna2@gmail.com',
       to: 'mailkrishna2@gmail.com',
       subj: 'Zeroperks Scheduler - Timer errored',
       content: `Zeroperks Scheduler - Home network not detected Time: ${new Date().toString()}`
-  })
+    })
   }, 10000);
 }
 
 router.get('/api/regular-interval/', function (req, res) {
+  if (timer === null) {
+    sendEmail({
+      from: 'mailkrishna2@gmail.com',
+      to: 'mailkrishna2@gmail.com',
+      subj: 'Zeroperks Scheduler - Timer activated',
+      content: `Zeroperks Scheduler - Home network activated and listening since: ${new Date().toString()}`
+    })
+  }
   clearTimeout(timer);
   setTimer();
   res.status(200).json({
