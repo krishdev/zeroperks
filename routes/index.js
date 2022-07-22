@@ -208,8 +208,22 @@ router.get('/verify-image', function (req, res) {
   res.status(200).send(captcha.data);
 })
 
+let timer = null;
+function setTimer () {
+  clearTimeout(timer);
+  timer = setTimeout(() => {
+    sendEmail({
+      from: 'mailkrishna2@gmail.com',
+      to: 'mailkrishna2@gmail.com',
+      subj: 'Zeroperks Scheduler - Timer errored',
+      content: `Zeroperks Scheduler - Home network not detected Time: ${new Date().toString()}`
+  })
+  }, 10000);
+}
 
 router.get('/api/regular-interval/', function (req, res) {
+  clearTimeout(timer);
+  setTimer();
   res.status(200).json({
     success: true
   })
