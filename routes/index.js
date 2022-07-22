@@ -208,4 +208,10 @@ router.get('/verify-image', function (req, res) {
   res.status(200).send(captcha.data);
 })
 
+
+router.get('/api/regular-interval/', function (req, res) {
+  res.status(200).json({
+    success: true
+  })
+})
 module.exports = router;
