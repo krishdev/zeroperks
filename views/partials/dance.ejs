@@ -3,13 +3,12 @@
 <html>
   <head>
     <%- contentFor('pageMeta') %>
-      <%- include('./common/fragments/page-meta', { 
-          title: 'Tharikas Bharatanatyam Arangetram',
-          description: 'Bharatanatyam Arangetram of Tharika on Sep 3, 2023',
-          keywords: 'Tharika Bharatanatyam Arangetram',
-      }) %>
-      <%- contentFor('topHead') %>
-    
+    <%- include('../common/fragments/page-meta', { 
+        title: 'Tharikas Bharatanatyam Arangetram',
+        description: 'Bharatanatyam Arangetram of Tharika on Sep 3, 2023',
+        keywords: 'Tharika Bharatanatyam Arangetram',
+    }) %>
+    <%- contentFor('topHead') %>
     <link href="<%= origin %>/assets/bootstrap.min.css" rel="stylesheet">
     <meta name="description" content="">
     <link rel="icon" href="/images/favicon.png">
@@ -19,8 +18,6 @@
     <link rel="stylesheet" href="<%= origin %>/assets/style-two.css">
     <script src="https://use.fontawesome.com/1d1822d5d1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-
-
     <style data-jss="" data-meta="MuiTouchRipple">
       .MuiTouchRipple-root {
         top: 0;
