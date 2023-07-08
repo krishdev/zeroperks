@@ -76,6 +76,12 @@ router.get('/contact', async function(req, res, next) {
   res.render('partials/contact');
 });
 
+router.get('/dance', async function(req, res, next) {
+  defaultLocals(req, res);
+  res.render('partials/dance');
+});
+
+
 router.get('/login', async function (req, res) {
   res.locals.origin = config.env;
   res.locals.year = new Date().getFullYear();
