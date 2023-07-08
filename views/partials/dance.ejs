@@ -1183,7 +1183,7 @@
 
             for (const key in this.errors) {
               if (Object.hasOwnProperty.call(this.errors, key)) {
-                if(this.errors[key]) {
+                if(this.errors[key] && key != 'isError') {
                   isError = true;
                 }
               }
