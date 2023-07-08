@@ -3,6 +3,20 @@ var router = express.Router();
 const got = require('got');
 var svgCaptcha = require('svg-captcha');
 const config = require('../configs/config');
+const firebase = require("firebase");
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA1PgQfXImjlrUb5TDV_nsHKhK3BeueDDA",
+  authDomain: "arrangetram-fc6b6.firebaseapp.com",
+  projectId: "arrangetram-fc6b6",
+  storageBucket: "arrangetram-fc6b6.appspot.com",
+  messagingSenderId: "639200817367",
+  appId: "1:639200817367:web:28a44d010ace67c3a18092",
+  measurementId: "G-0BC9GS7F5G"
+};
+
+firebase.initializeApp(firebaseConfig);
+
 const {
   sendEmail
   } = require('../controller/controller.email');
@@ -79,6 +93,27 @@ router.get('/contact', async function(req, res, next) {
 router.get('/dance', async function(req, res, next) {
   defaultLocals(req, res);
   res.render('partials/dance');
+});
+
+router.post('/arrangetram-540', async function (req, res) {
+  const data = req.body;
+  const name = data.name;
+  const email = data.email;
+  const phone = data.phone;
+  const guests = data.guests;
+  const timestamp = new Date().toLocaleString();
+
+  // Save the data to Firebase.
+  const db = await firebase.database();
+  db.ref("participants").push({
+    name,
+    email,
+    phone,
+    guests,
+    timestamp,
+  });
+
+  res.send("Data saved");
 });
 
 
