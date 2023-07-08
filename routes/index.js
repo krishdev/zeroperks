@@ -3,7 +3,7 @@ var router = express.Router();
 const got = require('got');
 var svgCaptcha = require('svg-captcha');
 const config = require('../configs/config');
-const admin = require('firebase-admin/app');
+const admin = require('firebase-admin');
 
 const serviceKey = require('../configs/service-key.json');
 admin.initializeApp({
