@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Tharika's Bharatanatyam Arangetram</title>
+    <link href="<%= origin %>/assets/bootstrap.min.css" rel="stylesheet">
+    <meta name="description" content="Bharatanatyam Arangetram of Tharika on Sep 3, 2023">
+    <link rel="icon" href="/images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<%= origin %>/assets/style-two.css">
+    <script src="https://use.fontawesome.com/1d1822d5d1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+
+    <style data-jss="" data-meta="MuiTouchRipple">
+      .MuiTouchRipple-root {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+        overflow: hidden;
+        position: absolute;
+        border-radius: inherit;
+        pointer-events: none;
+      }
+
+      .MuiTouchRipple-ripple {
+        opacity: 0;
+        position: absolute;
+      }
+
+      .MuiTouchRipple-rippleVisible {
+        opacity: 0.3;
+        animation: MuiTouchRipple-keyframes-enter 550ms cubic-bezier(0.4, 0, 0.2, 1);
+        transform: scale(1);
+      }
+
+      .MuiTouchRipple-ripplePulsate {
+        animation-duration: 200ms;
+      }
+
+      .MuiTouchRipple-child {
+        width: 100%;
+        height: 100%;
+        display: block;
+        opacity: 1;
+        border-radius: 50%;
+        background-color: currentColor;
+      }
+
+      .MuiTouchRipple-childLeaving {
+        opacity: 0;
+        animation: MuiTouchRipple-keyframes-exit 550ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .MuiTouchRipple-childPulsate {
+        top: 0;
+        left: 0;
+        position: absolute;
+        animation: MuiTouchRipple-keyframes-pulsate 2500ms cubic-bezier(0.4, 0, 0.2, 1) 200ms infinite;
+      }
+
+      @-webkit-keyframes MuiTouchRipple-keyframes-enter {
+        0% {
+          opacity: 0.1;
+          transform: scale(0);
+        }
+
+        100% {
+          opacity: 0.3;
+          transform: scale(1);
+        }
+      }
+
+      @-webkit-keyframes MuiTouchRipple-keyframes-exit {
+        0% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @-webkit-keyframes MuiTouchRipple-keyframes-pulsate {
+        0% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(0.92);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+    <style data-jss="" data-meta="MuiButtonBase">
+      .MuiButtonBase-root {
+        color: inherit;
+        border: 0;
+        cursor: pointer;
+        margin: 0;
+        display: inline-flex;
+        outline: 0;
+        padding: 0;
+        position: relative;
+        align-items: center;
+        user-select: none;
+        border-radius: 0;
+        vertical-align: middle;
+        -moz-appearance: none;
+        justify-content: center;
+        text-decoration: none;
+        background-color: transparent;
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .MuiButtonBase-root::-moz-focus-inner {
+        border-style: none;
+      }
+
+      .MuiButtonBase-root.Mui-disabled {
+        cursor: default;
+        pointer-events: none;
+      }
+
+      @media print {
+        .MuiButtonBase-root {
+          -webkit-print-color-adjust: exact;
+        }
+      }
+    </style>
+    <style data-jss="" data-meta="MuiButton">
+      .MuiButton-root {
+        color: rgba(0, 0, 0, 0.87);
+        padding: 6px 16px;
+        font-size: 0.875rem;
+        min-width: 64px;
+        box-sizing: border-box;
+        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        font-weight: 500;
+        line-height: 1.75;
+        border-radius: 4px;
+        letter-spacing: 0.02857em;
+        text-transform: uppercase;
+      }
+
+      .MuiButton-root:hover {
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+
+      .MuiButton-root.Mui-disabled {
+        color: rgba(0, 0, 0, 0.26);
+      }
+
+      @media (hover: none) {
+        .MuiButton-root:hover {
+          background-color: transparent;
+        }
+      }
+
+      .MuiButton-root:hover.Mui-disabled {
+        background-color: transparent;
+      }
+
+      .MuiButton-label {
+        width: 100%;
+        display: inherit;
+        align-items: inherit;
+        justify-content: inherit;
+      }
+
+      .MuiButton-text {
+        padding: 6px 8px;
+      }
+
+      .MuiButton-textPrimary {
+        color: #3f51b5;
+      }
+
+      .MuiButton-textPrimary:hover {
+        background-color: rgba(63, 81, 181, 0.04);
+      }
+
+      @media (hover: none) {
+        .MuiButton-textPrimary:hover {
+          background-color: transparent;
+        }
+      }
+
+      .MuiButton-textSecondary {
+        color: #f50057;
+      }
+
+      .MuiButton-textSecondary:hover {
+        background-color: rgba(245, 0, 87, 0.04);
+      }
+
+      @media (hover: none) {
+        .MuiButton-textSecondary:hover {
+          background-color: transparent;
+        }
+      }
+
+      .MuiButton-outlined {
+        border: 1px solid rgba(0, 0, 0, 0.23);
+        padding: 5px 15px;
+      }
+
+      .MuiButton-outlined.Mui-disabled {
+        border: 1px solid rgba(0, 0, 0, 0.12);
+      }
+
+      .MuiButton-outlinedPrimary {
+        color: #3f51b5;
+        border: 1px solid rgba(63, 81, 181, 0.5);
+      }
+
+      .MuiButton-outlinedPrimary:hover {
+        border: 1px solid #3f51b5;
+        background-color: rgba(63, 81, 181, 0.04);
+      }
+
+      @media (hover: none) {
+        .MuiButton-outlinedPrimary:hover {
+          background-color: transparent;
+        }
+      }
+
+      .MuiButton-outlinedSecondary {
+        color: #f50057;
+        border: 1px solid rgba(245, 0, 87, 0.5);
+      }
+
+      .MuiButton-outlinedSecondary:hover {
+        border: 1px solid #f50057;
+        background-color: rgba(245, 0, 87, 0.04);
+      }
+
+      .MuiButton-outlinedSecondary.Mui-disabled {
+        border: 1px solid rgba(0, 0, 0, 0.26);
+      }
+
+      @media (hover: none) {
+        .MuiButton-outlinedSecondary:hover {
+          background-color: transparent;
+        }
+      }
+
+      .MuiButton-contained {
+        color: rgba(0, 0, 0, 0.87);
+        box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+        background-color: #e0e0e0;
+      }
+
+      .MuiButton-contained:hover {
+        box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+        background-color: #d5d5d5;
+      }
+
+      .MuiButton-contained.Mui-focusVisible {
+        box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+      }
+
+      .MuiButton-contained:active {
+        box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+      }
+
+      .MuiButton-contained.Mui-disabled {
+        color: rgba(0, 0, 0, 0.26);
+        box-shadow: none;
+        background-color: rgba(0, 0, 0, 0.12);
+      }
+
+      @media (hover: none) {
+        .MuiButton-contained:hover {
+          box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+          background-color: #e0e0e0;
+        }
+      }
+
+      .MuiButton-contained:hover.Mui-disabled {
+        background-color: rgba(0, 0, 0, 0.12);
+      }
+
+      .MuiButton-containedPrimary {
+        color: #fff;
+        background-color: #3f51b5;
+      }
+
+      .MuiButton-containedPrimary:hover {
+        background-color: #303f9f;
+      }
+
+      @media (hover: none) {
+        .MuiButton-containedPrimary:hover {
+          background-color: #3f51b5;
+        }
+      }
+
+      .MuiButton-containedSecondary {
+        color: #fff;
+        background-color: #f50057;
+      }
+
+      .MuiButton-containedSecondary:hover {
+        background-color: #c51162;
+      }
+
+      @media (hover: none) {
+        .MuiButton-containedSecondary:hover {
+          background-color: #f50057;
+        }
+      }
+
+      .MuiButton-disableElevation {
+        box-shadow: none;
+      }
+
+      .MuiButton-disableElevation:hover {
+        box-shadow: none;
+      }
+
+      .MuiButton-disableElevation.Mui-focusVisible {
+        box-shadow: none;
+      }
+
+      .MuiButton-disableElevation:active {
+        box-shadow: none;
+      }
+
+      .MuiButton-disableElevation.Mui-disabled {
+        box-shadow: none;
+      }
+
+      .MuiButton-colorInherit {
+        color: inherit;
+        border-color: currentColor;
+      }
+
+      .MuiButton-textSizeSmall {
+        padding: 4px 5px;
+        font-size: 0.8125rem;
+      }
+
+      .MuiButton-textSizeLarge {
+        padding: 8px 11px;
+        font-size: 0.9375rem;
+      }
+
+      .MuiButton-outlinedSizeSmall {
+        padding: 3px 9px;
+        font-size: 0.8125rem;
+      }
+
+      .MuiButton-outlinedSizeLarge {
+        padding: 7px 21px;
+        font-size: 0.9375rem;
+      }
+
+      .MuiButton-containedSizeSmall {
+        padding: 4px 10px;
+        font-size: 0.8125rem;
+      }
+
+      .MuiButton-containedSizeLarge {
+        padding: 8px 22px;
+        font-size: 0.9375rem;
+      }
+
+      .MuiButton-fullWidth {
+        width: 100%;
+      }
+
+      .MuiButton-startIcon {
+        display: inherit;
+        margin-left: -4px;
+        margin-right: 8px;
+      }
+
+      .MuiButton-startIcon.MuiButton-iconSizeSmall {
+        margin-left: -2px;
+      }
+
+      .MuiButton-endIcon {
+        display: inherit;
+        margin-left: 8px;
+        margin-right: -4px;
+      }
+
+      .MuiButton-endIcon.MuiButton-iconSizeSmall {
+        margin-right: -2px;
+      }
+
+      .MuiButton-iconSizeSmall>*:first-child {
+        font-size: 18px;
+      }
+
+      .MuiButton-iconSizeMedium>*:first-child {
+        font-size: 20px;
+      }
+
+      .MuiButton-iconSizeLarge>*:first-child {
+        font-size: 22px;
+      }
+    </style>
+    <style data-jss="" data-meta="MuiDialog">
+      @media print {
+        .MuiDialog-root {
+          position: absolute !important;
+        }
+      }
+
+      .MuiDialog-scrollPaper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .MuiDialog-scrollBody {
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align: center;
+      }
+
+      .MuiDialog-scrollBody:after {
+        width: 0;
+        height: 100%;
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .MuiDialog-container {
+        height: 100%;
+        outline: 0;
+      }
+
+      @media print {
+        .MuiDialog-container {
+          height: auto;
+        }
+      }
+
+      .MuiDialog-paper {
+        margin: 32px;
+        position: relative;
+        overflow-y: auto;
+      }
+
+      @media print {
+        .MuiDialog-paper {
+          box-shadow: none;
+          overflow-y: visible;
+        }
+      }
+
+      .MuiDialog-paperScrollPaper {
+        display: flex;
+        max-height: calc(100% - 64px);
+        flex-direction: column;
+      }
+
+      .MuiDialog-paperScrollBody {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      .MuiDialog-paperWidthFalse {
+        max-width: calc(100% - 64px);
+      }
+
+      .MuiDialog-paperWidthXs {
+        max-width: 444px;
+      }
+
+      @media (max-width:507.95px) {
+        .MuiDialog-paperWidthXs.MuiDialog-paperScrollBody {
+          max-width: calc(100% - 64px);
+        }
+      }
+
+      .MuiDialog-paperWidthSm {
+        max-width: 600px;
+      }
+
+      @media (max-width:663.95px) {
+        .MuiDialog-paperWidthSm.MuiDialog-paperScrollBody {
+          max-width: calc(100% - 64px);
+        }
+      }
+
+      .MuiDialog-paperWidthMd {
+        max-width: 960px;
+      }
+
+      @media (max-width:1023.95px) {
+        .MuiDialog-paperWidthMd.MuiDialog-paperScrollBody {
+          max-width: calc(100% - 64px);
+        }
+      }
+
+      .MuiDialog-paperWidthLg {
+        max-width: 1280px;
+      }
+
+      @media (max-width:1343.95px) {
+        .MuiDialog-paperWidthLg.MuiDialog-paperScrollBody {
+          max-width: calc(100% - 64px);
+        }
+      }
+
+      .MuiDialog-paperWidthXl {
+        max-width: 1920px;
+      }
+
+      @media (max-width:1983.95px) {
+        .MuiDialog-paperWidthXl.MuiDialog-paperScrollBody {
+          max-width: calc(100% - 64px);
+        }
+      }
+
+      .MuiDialog-paperFullWidth {
+        width: calc(100% - 64px);
+      }
+
+      .MuiDialog-paperFullScreen {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        max-width: 100%;
+        max-height: none;
+        border-radius: 0;
+      }
+
+      .MuiDialog-paperFullScreen.MuiDialog-paperScrollBody {
+        margin: 0;
+        max-width: 100%;
+      }
+    </style>
+    <style data-jss="" data-meta="MuiList">
+      .MuiList-root {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        list-style: none;
+      }
+
+      .MuiList-padding {
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+
+      .MuiList-subheader {
+        padding-top: 0;
+      }
+    </style>
+    <style data-jss="" data-meta="MuiCollapse">
+      .MuiCollapse-root {
+        height: 0;
+        overflow: hidden;
+        transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      }
+
+      .MuiCollapse-entered {
+        height: auto;
+        overflow: visible;
+      }
+
+      .MuiCollapse-hidden {
+        visibility: hidden;
+      }
+
+      .MuiCollapse-wrapper {
+        display: flex;
+      }
+
+      .MuiCollapse-wrapperInner {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="__next">
+      <div id="scrool">
+        <div class="br-app">
+          <div class="fixed-navbar">
+            <header id="header" class="wpo-header-style-1">
+              
+            </header>
+          </div>
+          <section class="hero wpo-hero-style-3">
+            <div class="hero-static">
+              <div class="hero-inner">
+                <div class="slider-image">
+                  <img src="/assets/slide-3.jpg" alt="" class="slider-bg">
+                </div>
+                <div class="container">
+                  <div class="slide-content">
+                    <div data-swiper-parallax="300" class="slide-title">
+                      <h2>
+                        <span>Tharika's</span>Bharatanatyam Arangetram.
+                      </h2>
+                    </div>
+                    <div data-swiper-parallax="300" class="slide-sub-title">
+                      <h5>Sunday - September 3, 2023</h5>
+                    </div>
+                    <div data-swiper-parallax="400" class="slide-text">
+                      <p>Nethra & Shanmugam cordially invite you to the Bharathanatyam Arangetram of their daughter.</p>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="slide-btn">
+                      <a class="theme-btn" href="#rsvp">RSVP <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dark_svg">
+              <svg x="0px" y="0px" viewBox="0 186.5 1920 113.5">
+                <polygon points="0,300 655.167,210.5 1432.5,300 1920,198.5 1920,300 "></polygon>
+              </svg>
+            </div>
+          </section>
+          <div class="wpo-about-area-s2 section-padding undefined" id="about">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-lg-5 col-md-12 col-sm-12">
+                  <div class="wpo-about-img">
+                    <img src="/assets/about-2.jpg" alt="">
+                  </div>
+                </div>
+                <div class="col-lg-6 offset-lg-1 col-md-12 col-sm-12">
+                  <div class="wpo-about-content">
+                    <div class="wpo-about-title">
+                      <h2 class="c-Sub-title">About the Guru</h2>
+                      <p>Dr. Praveena Vajja is the owner and director of Natyom Dance Academy. She specializes in Bharatanatyam and has extensive training in Kuchipudi and Kathak. She has trained, performed, and taught dance for over forty years. Natyom Dance Academy's core curriculum develops a foundation of Bharatanatyam for all students. 
+                        The basis allows students to easily pick up other forms of Indian Classical and Modern Dance. Dr. Praveena's core belief is, "It should not matter whether a student is five years old or fifty years old, all students should be able to approach the art form with discipline. This will allow them to strengthen their bodies, minds, and have fun learning."</p>
+                    </div>
+                    
+                  </div>
+                  <div class="wpo-about-content">
+                    <div class="wpo-about-title">
+                      <h2 class="c-Sub-title">About the Shishya</h2>
+                      <p>Thaarika Shanmugam is currently a sophomore at Uplift North Hills Prep School. She started learning  Bharatnatyam from the age of five and has grown to appreciate this art over the years. She now enjoys assisting Natyom teachers in teaching Bharatnatyam to beginners. 
+                        Thaarika has a black belt in karate. She enjoys reading and hanging out with her friends. Thaarika loves dancing with her friends be it Bharatnatyam, Folk or Bollywood.
+                        </p>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ab-shape">
+              <svg width="995" height="1495" viewBox="0 0 995 1495" fill="none">
+                <g opacity="0.3" filter="url(#filter0_f_39_4267)">
+                  <circle cx="247.5" cy="747.5" r="247.5" fill="#FFE500"></circle>
+                </g>
+                <defs>
+                  <filter id="filter0_f_39_4267" x="-500" y="0" width="1495" height="1495" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feflood flood-opacity="0" result="BackgroundImageFix"></feflood>
+                    <feblend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feblend>
+                    <fegaussianblur stdDeviation="250" result="effect1_foregroundBlur_39_4267"></fegaussianblur>
+                  </filter>
+                </defs>
+              </svg>
+            </div>
+            <div class="ab-shape-s2">
+              <svg width="1252" height="1901" viewBox="0 0 1252 1901" fill="none">
+                <g opacity="0.15" filter="url(#filter0_f_39_4265)">
+                  <circle cx="950" cy="950.004" r="450"></circle>
+                </g>
+                <defs>
+                  <filter id="filter0_f_39_4265" x="-0.00012207" y="0.00402832" width="1900" height="1900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feflood flood-opacity="0" result="BackgroundImageFix"></feflood>
+                    <feblend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feblend>
+                    <fegaussianblur stdDeviation="250" result="effect1_foregroundBlur_39_4265"></fegaussianblur>
+                  </filter>
+                </defs>
+              </svg>
+            </div>
+            <div class="line-shape-1">
+              <img src="/assets/shape1.png" alt="">
+            </div>
+            <div class="line-shape-2">
+              <img src="/assets/shape1.png" alt="">
+            </div>
+          </div>
+          <div class="wpo-service-area section-padding wpo-service-area-s2" id="invitation">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-6 col-12">
+                  <div class="wpo-section-title">
+                    <h2>Invitation</h2>
+                    <p class="c-Invi__intro">Shanmugam and Nethra along with Natyom Dance Academy cordially invite you to the Bharatanatyam Arangetram of their daughter Thaarika Shanmugam Disciple of Smt. Praveena Vajja</p>
+                  </div>
+                </div>
+              </div>
+              <div class="wpo-service-wrap">
+                
+                <div class="tab-content">
+                  <div class="tab-pane active">
+                    <div class="row align-items-center">
+                      <div class="col-md-6 col-12">
+                        <div class="wpo-service-item">
+                          <h2>Date & Time</h2>
+                          <div class="c-Invi__item">
+                            <div class="c-Invi__cal">
+                              <div class="main-div">
+                                <div class="sub-div">
+                                  <div class="year-div">SEP</div>
+                                </div>
+                                <div class="date-div">
+                                  <p>03</p>
+                                </div>
+                              </div>
+                              <div class="c-Invi__time">
+                                <div>4PM - 7PM</br>(Seating starts at 3:30PM)</div>
+                                <div title="Add to Calendar" class="addeventatc">
+                                  Add to Calendar
+                                  <span class="start">03/09/2023 03:30 PM</span>
+                                  <span class="end">03/09/2023 07:00 PM</span>
+                                  <span class="timezone">America/Chicago</span>
+                                  <span class="title">Arangetram of Tharika</span>
+                                  <span class="description">Bharatanatyam Arangetram of Thaarika Shanmugam</span>
+                                  <span class="location">Granville Arts Center, 300 N 5th St, Garland, TX 75040</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-12">
+                        <div class="wpo-service-item">
+                          <h2>Venue</h2>
+                          <div class="c-Invi__item">
+                            <div class="c-Invi__location">
+                              <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                              </div>
+                              <div class="c-Invi__desti">
+                                <div>
+                                  Granville Arts Center,</br>300 N 5th St,</br>Garland, TX 75040
+                                </div>
+                                <a target="_blank" class="o-Btn o-Btn--maps" href="geo:32.91515288598084, -96.63565890899281">
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M512 96c0 50.2-59.1 125.1-84.6 155c-3.8 4.4-9.4 6.1-14.5 5H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c53 0 96 43 96 96s-43 96-96 96H139.6c8.7-9.9 19.3-22.6 30-36.8c6.3-8.4 12.8-17.6 19-27.2H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320c-53 0-96-43-96-96s43-96 96-96h39.8c-21-31.5-39.8-67.7-39.8-96c0-53 43-96 96-96s96 43 96 96zM117.1 489.1c-3.8 4.3-7.2 8.1-10.1 11.3l-1.8 2-.2-.2c-6 4.6-14.6 4-20-1.8C59.8 473 0 402.5 0 352c0-53 43-96 96-96s96 43 96 96c0 30-21.1 67-43.5 97.9c-10.7 14.7-21.7 28-30.8 38.5l-.6 .7zM128 352a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM416 128a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
+                                  <span>Open in Map</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ab-shape">
+              <svg width="995" height="1495" viewBox="0 0 995 1495" fill="none">
+                <g opacity="0.3" filter="url(#filter0_f_39_4268)">
+                  <circle cx="247.5" cy="747.5" r="247.5" fill="#FFE500"></circle>
+                </g>
+                <defs>
+                  <filter id="filter0_f_39_4268" x="-500" y="0" width="1495" height="1495" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feflood flood-opacity="0" result="BackgroundImageFix"></feflood>
+                    <feblend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feblend>
+                    <fegaussianblur stdDeviation="250" result="effect1_foregroundBlur_39_4267"></fegaussianblur>
+                  </filter>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div class="wpo-work-area section-padding">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-6 col-12">
+                  <div class="wpo-section-title">
+                    <h2>Accompanists</h2>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="wpo-work-wrap">
+                <div class="wpo-work-item">
+                  <ul>
+                    <li class="logo">
+                      <img src="/assets/induva.png" alt="Nattuvangam">
+                    </li>
+                    <li class="position">Nattuvangam
+                      <!-- -->
+                      <span>Smt.Induvadana</span>
+                    </li>
+                    <li class="link">
+                      <a href="/induvadana-nattuvangam"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>Read more</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="wpo-work-item">
+                  <ul>
+                    <li class="logo">
+                      <img src="/assets/akshaya.png" alt="Vocalist">
+                    </li>
+                    <li class="position">Vocalist
+                      <!-- -->
+                      <span>Smt. Akshaya Ramanath</span>
+                    </li>
+                    <li class="link">
+                      <a href="/akshaya-vocalist"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>Read more</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="wpo-work-item">
+                  <ul>
+                    <li class="logo">
+                      <img src="/assets/umamahesh.png" alt="Violin">
+                    </li>
+                    <li class="position">Violin
+                      <!-- -->
+                      <span>Sri.Umamahesh Iyer</span>
+                    </li>
+                    <li class="link">
+                      <a href="/umamahes-violin"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>Read more</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="wpo-work-item">
+                  <ul>
+                    <li class="logo">
+                      <img src="/assets/balarajen.png" alt="Mridangam">
+                    </li>
+                    <li class="position">Mridangam
+                      <span>Sri.Balu Rajendrakurup</span>
+                    </li>
+                    <li class="link">
+                      <a href="/balurajendrakurup-mridangam"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>Read more</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="shape-wk">
+              <svg width="1500" height="1500" viewBox="0 0 1500 1500" fill="none">
+                <g opacity="0.45" filter="url(#filter0_f_39_4214)">
+                  <circle cx="750" cy="750" r="200"></circle>
+                </g>
+                <defs>
+                  <filter id="filter0_f_39_4214" x="0" y="0" width="1500" height="1500" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feflood flood-opacity="0" result="BackgroundImageFix"></feflood>
+                    <feblend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feblend>
+                    <fegaussianblur stdDeviation="275" result="effect1_foregroundBlur_39_4212"></fegaussianblur>
+                  </filter>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          <div class="wpo-project-area section-padding" id="portfolio">
+            <div class="container">
+              <div class="wpo-section-title-s2">
+                <div class="row align-items-center">
+                  <div class="col-lg-4 col-12">
+                    <div class="title">
+                      <h2>Gallery</h2>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 offset-lg-2">
+                    <div class="sec-title-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M448 80c8.8 0 16 7.2 16 16V415.8l-5-6.5-136-176c-4.5-5.9-11.6-9.3-19-9.3s-14.4 3.4-19 9.3L202 340.7l-30.5-42.7C167 291.7 159.8 288 152 288s-15 3.7-19.5 10.1l-80 112L48 416.3l0-.3V96c0-8.8 7.2-16 16-16H448zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm80 192a48 48 0 1 0 0-96 48 48 0 1 0 0 96z"/></svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="wpo-project-wrap wpo-project-slide">
+                <div class="slick-slider slick-initialized" dir="ltr">
+                  <div class="slick-list">
+                    <div class="slick-track" style="width: 4873px; opacity: 1; transform: translate3d(-2px, 0px, 0px);">
+                      <div data-index="2" class="slick-slide slick-active" aria-hidden="true" style="outline: none;">
+                        <div>
+                          <div class="wpo-project-item" style="width:100%;display:inline-block">
+                            <div class="wpo-project-img">
+                              <a href="https://www.spvstudio.com/Portrait/Thaarikas-Arangetram-Portraits/n-Dtz82z/" target="_blank"><img src="/assets/gallery.jpg" alt=""></a>
+                            </div>
+                            <div class="wpo-project-text">
+                              <h2><a href="https://www.spvstudio.com/Portrait/Thaarikas-Arangetram-Portraits/n-Dtz82z/" target="_blank">Thaarika's Arangetram Portraits</a></h2>
+                              <a href="https://www.spvstudio.com/Portrait/Thaarikas-Arangetram-Portraits/n-Dtz82z/" target="_blank"><span>View Gallery</span></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="shape-p">
+              <svg width="1325" height="1687" viewBox="0 0 1325 1687" fill="none">
+                <g filter="url(#filter0_f_39_4166)">
+                  <circle cx="481.5" cy="843.5" r="343.5" fill-opacity="0.27"></circle>
+                </g>
+                <defs>
+                  <filter id="filter0_f_39_4166" x="-362" y="0" width="1687" height="1687" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feflood flood-opacity="0" result="BackgroundImageFix"></feflood>
+                    <feblend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feblend>
+                    <fegaussianblur stdDeviation="250" result="effect1_foregroundBlur_39_4166"></fegaussianblur>
+                  </filter>
+                </defs>
+              </svg>
+            </div>
+            <div class="line-shape-1">
+              <img src="/assets/line-1.png" alt="">
+            </div>
+            <div class="line-shape-2">
+              <img src="/assets/line-2.png" alt="">
+            </div>
+          </div>
+          
+          <section class="wpo-contact-area section-padding undefined" id="rsvp">
+            <div class="wpo-wpo-contact-form-map">
+              <div class="container">
+                <div class="row">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-6 col-12">
+                      <div class="wpo-section-title">
+                        <h2>RSVP</h2>
+                        <!-- <p>Must explain to you how all this mistaken idea of denouncing pleasure born and give you a complete account the system</p> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="co-lg-10 offset-lg-1  col-12">
+                    <div class="row">
+                      <div class="col col-lg-6 col-md-12 col-12">
+                        <div class="wpo-contact-form">
+                          <form class="contact-validation-active">
+                            <div class="row">
+                              <div class="col col-lg-6 col-12">
+                                <div class="form-field">
+                                  <input type="text" value="" name="name" placeholder="Your Name" v-model.trim="form.name">
+                                  <div class="c-Errors">
+                                    <p v-if="this.errors.isError && this.errors.name" v-html="this.errors.name"></p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col col-lg-6 col-12">
+                                <div class="form-field">
+                                  <input type="email" value="" name="email" placeholder="Your Email" v-model.trim="form.email">
+                                  <div class="c-Errors">
+                                    <p v-if="this.errors.isError && this.errors.email" v-html="this.errors.email"></p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col col-lg-12 col-12">
+                                <div class="form-field">
+                                  <input type="phone" value="" name="phone" placeholder="Your phone" v-model.trim="form.phone">
+                                  <div class="c-Errors">
+                                    <p v-if="this.errors.isError && this.errors.phone" v-html="this.errors.phone"></p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col col-lg-12 col-12">
+                                <div class="form-field">
+                                  <select type="text" name="subject" autocomplete="off" v-model="form.guests">
+                                    <option disabled value="" selected>Choose number of guests</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                    <option value="4">Four</option>
+                                    <option value="5">Five</option>
+                                    <option value="6">Six</option>
+                                    <option value="7">Seven</option>
+                                  </select>
+                                  <div class="c-Errors">
+                                    <p v-if="this.errors.isError && this.errors.guests" v-html="this.errors.guests"></p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="submit-area">
+                              <button type="submit" class="theme-btn" @click.prevent="submit">Submit Now <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg></button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <div class="col col-lg-6 col-md-12 col-12">
+                        <div class="wpo-contact-info">
+                          <div class="info-item">
+                            <h2>Granville Arts Center, Garland, TX</h2>
+                            <div class="info-wrap">
+                              <div class="info-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                              </div>
+                              <div class="info-text">
+                                <span>Venue</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="info-item">
+                            <h2><a href="mailto:nethramr@gmail.com">nethramr@gmail.com</a></h2>
+                            <div class="info-wrap">
+                              <div class="info-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 64C150 64 64 150 64 256s86 192 192 192c17.7 0 32 14.3 32 32s-14.3 32-32 32C114.6 512 0 397.4 0 256S114.6 0 256 0S512 114.6 512 256v32c0 53-43 96-96 96c-29.3 0-55.6-13.2-73.2-33.9C320 371.1 289.5 384 256 384c-70.7 0-128-57.3-128-128s57.3-128 128-128c27.9 0 53.7 8.9 74.7 24.1c5.7-5 13.1-8.1 21.3-8.1c17.7 0 32 14.3 32 32v80 32c0 17.7 14.3 32 32 32s32-14.3 32-32V256c0-106-86-192-192-192zm64 192a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"/></svg>
+                              </div>
+                              <div class="info-text">
+                                <span>E-Mail</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="info-item">
+                            <h2><a href="tel:2142153347">+1 (214) 215-3347</a></h2>
+                            <div class="info-wrap">
+                              <div class="info-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M384 32c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96C0 60.7 28.7 32 64 32H384zm-90.7 96.7c-9.7-2.6-19.9 2.3-23.7 11.6l-20 48c-3.4 8.2-1 17.6 5.8 23.2L280 231.7c-16.6 35.2-45.1 63.7-80.3 80.3l-20.2-24.7c-5.6-6.8-15-9.2-23.2-5.8l-48 20c-9.3 3.9-14.2 14-11.6 23.7l12 44C111.1 378 119 384 128 384c123.7 0 224-100.3 224-224c0-9-6-16.9-14.7-19.3l-44-12z"/></svg>
+                              </div>
+                              <div class="info-text">
+                                <span>Phone Number</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="shape-wk">
+              <svg width="1500" height="1500" viewBox="0 0 1500 1500" fill="none">
+                <g opacity="0.45" filter="url(#filter0_f_39_4214)">
+                  <circle cx="750" cy="750" r="200"></circle>
+                </g>
+                <defs>
+                  <filter id="filter0_f_39_4214" x="0" y="0" width="1500" height="1500" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feflood flood-opacity="0" result="BackgroundImageFix"></feflood>
+                    <feblend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feblend>
+                    <fegaussianblur stdDeviation="275" result="effect1_foregroundBlur_39_4212"></fegaussianblur>
+                  </filter>
+                </defs>
+              </svg>
+            </div>
+          </section>
+          <footer class="wpo-site-footer">
+            <div class="upper-contact-area">
+              <div class="container">
+                <div class="contact-grids">
+                  <div class="row align-items-center">
+                    <div class="col col-lg-6">
+                      <h2>We would be delighted if you could attend the Arangetram.</h2>
+                    </div>
+                    <div class="col col-lg-6">
+                      <div class="send-message-btn">
+                        <a class="theme-btn" href="#rsvp">RSVP <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="left-shape"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="lower-footer">
+              <div class="container">
+                <div class="row">
+                  <div class="separator"></div>
+                  <p class="copyright">Designed by <a href="https://zeroperks.com/" target="_blank">Krishna</a></p>
+                </div>
+              </div>
+            </div>
+          </footer>
+          <div class="col-lg-12">
+            <div class="header-menu">
+              <ul class="smothscroll">
+                <li>
+                  <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      new Vue({
+        el: "#rsvp",
+        data: {
+          form: {
+            name: '',
+            email: '',
+            phone: '',
+            guests: ''
+          },
+          isLoading: false,
+          isFormSubmitted: false,
+          errors: {
+            isError: false,
+            name: '',
+            email: '',
+            phone: '',
+            guests: ''
+          },
+          globalErrors: ''
+        },
+        created () {},
+        methods: {
+          async submit () {
+            this.isFormSubmitted = true;
+            this.errors.isError = this.validation();
+
+            if (!this.errors.isError) {
+              // submit api
+              this.isLoading = true;
+              try {
+                const response = await fetch("https://www.zeroperks.com/arrangetram-540/", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(this.form),
+                });
+                const result = await response.json();
+                console.log("Success:", result);
+              } catch (error) {
+                console.log(error);
+              }
+            }
+          },
+          reset () {
+            this.isFormSubmitted = false;
+            this.isLoading = false;
+            this.form.name = '';
+            this.form.email = '';
+            this.form.phone = '';
+            this.form.guests = '';
+            this.errors.isError = false;
+            this.errors.name = '';
+            this.errors.email = '';
+            this.errors.phone = '';
+            this.errors.guests = '';
+            this.globalErrors = '';
+          },
+          validation () {
+            let isError = false;
+            if (!this.form.name) {
+              this.errors.name = 'Name is required.';
+            } else {
+              this.errors.name = '';
+            }
+            if (!this.form.email) {
+              this.errors.email = 'Email is required.';
+            } else if (!this.validateEmail(this.form.email)) {
+              this.errors.email = 'Email is invalid.';
+            } else {
+              this.errors.email = '';
+            }
+            if (!this.form.phone) {
+              this.errors.phone = 'Phone is required.';
+            } else if (!this.validatePhone(this.form.phone)) {
+              this.errors.phone = 'Phone is invalid.';
+            } else {
+              this.errors.phone = '';
+            }
+            if (!this.form.guests) {
+              this.errors.guests = 'No of Guests is required.';
+            } else {
+              this.errors.guests = '';
+            }
+
+            for (const key in this.errors) {
+              if (Object.hasOwnProperty.call(this.errors, key)) {
+                if(this.errors[key]) {
+                  isError = true;
+                }
+              }
+            }
+
+            return isError;
+          },
+          validateEmail (email) {
+            if (!email) return false;
+            return 
+              /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+          },
+          validatePhone (phone) {
+            if (!phone) return false;
+            return /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/i.test(phone);
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
