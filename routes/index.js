@@ -102,16 +102,9 @@ router.post('/arrangetram-540', async function (req, res) {
 
   // Save the data to Firebase.
   try {
-    const db = await firebase.database();
-    db.ref("participants").push({
-      name,
-      email,
-      phone,
-      guests,
-      timestamp,
-    });
-  
-    res.send("Data saved");
+    const db = await admin.firestore().collection("users").add(data);
+    
+    res.json({message: "Data saved", other: db});
   } catch (error) {
     res.status(500).send({
       message: error
