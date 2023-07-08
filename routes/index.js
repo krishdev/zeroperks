@@ -3,19 +3,13 @@ var router = express.Router();
 const got = require('got');
 var svgCaptcha = require('svg-captcha');
 const config = require('../configs/config');
-const firebase = require("firebase");
+const admin = require('firebase-admin/app');
 
-const firebaseConfig = {
-  apiKey: "AIzaSyA1PgQfXImjlrUb5TDV_nsHKhK3BeueDDA",
-  authDomain: "arrangetram-fc6b6.firebaseapp.com",
-  projectId: "arrangetram-fc6b6",
-  storageBucket: "arrangetram-fc6b6.appspot.com",
-  messagingSenderId: "639200817367",
-  appId: "1:639200817367:web:28a44d010ace67c3a18092",
-  measurementId: "G-0BC9GS7F5G"
-};
-
-firebase.initializeApp(firebaseConfig);
+const serviceKey = require('../configs/service-key.json');
+admin.initializeApp({
+    credential: admin.credential.cert(serviceKey),
+    databaseURL: 'https://arrangetram-fc6b6-default-rtdb.firebaseio.com'
+});
 
 const {
   sendEmail
@@ -96,6 +90,9 @@ router.get('/dance', async function(req, res, next) {
 });
 
 router.post('/arrangetram-540', async function (req, res) {
+  var db = admin.database();
+  var userRef = db.ref("participants");
+
   const data = req.body;
   const name = data.name;
   const email = data.email;
@@ -104,16 +101,22 @@ router.post('/arrangetram-540', async function (req, res) {
   const timestamp = new Date().toLocaleString();
 
   // Save the data to Firebase.
-  const db = await firebase.database();
-  db.ref("participants").push({
-    name,
-    email,
-    phone,
-    guests,
-    timestamp,
-  });
-
-  res.send("Data saved");
+  try {
+    const db = await firebase.database();
+    db.ref("participants").push({
+      name,
+      email,
+      phone,
+      guests,
+      timestamp,
+    });
+  
+    res.send("Data saved");
+  } catch (error) {
+    res.status(500).send({
+      message: error
+    })
+  }
 });
 
 
