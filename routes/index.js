@@ -8,7 +8,7 @@ const admin = require('firebase-admin');
 const serviceKey = require('../configs/service-key.json');
 admin.initializeApp({
     credential: admin.credential.cert(serviceKey),
-    databaseURL: 'https://arrangetram-fc6b6-default-rtdb.firebaseio.com'
+    databaseURL: 'https://dance-e6a81.firebaseio.com'
 });
 
 const {
