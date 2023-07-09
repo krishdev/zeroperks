@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap);
 .slick-slider {
     box-sizing: border-box;
     -webkit-user-select: none;
@@ -4476,11 +4475,38 @@ a.theme-btn svg {
 
 .wpo-service-area,
 .wpo-service-area-s2 {
-    background: #222121;
+    background: rgb(47,7,35);
+    background: linear-gradient(321deg, rgba(47,7,35,1) 0%, rgba(47,29,76,1) 35%, rgba(14,28,69,1) 100%);   
     position: relative;
     overflow: hidden;
     z-index: 1;
     padding-bottom: 90px
+}
+
+.c-Invi__details {
+    list-style: none;
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.c-Invi__details li {
+    line-height: 1.5;
+}
+
+.c-Invi__details li a {
+    display: inline-block;
+    width: 10em;
+    margin-top: 2em;
+}
+
+li.c-Invi__details__agw {
+    font-family: 'Dancing Script', cursive;
+}
+
+li.c-Invi__details__thb {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.875em;
 }
 
 .wpo-about-content {
@@ -4502,6 +4528,9 @@ a.theme-btn svg {
     .wpo-service-area,
     .wpo-service-area-s2 {
         padding-bottom: 50px
+    }
+    li.c-Invi__details__thb {
+        font-size: 1.5em;
     }
 }
 
@@ -4580,8 +4609,9 @@ a.theme-btn svg {
     border: 2px solid #373737;
     border-radius: 12px;
     text-align: center;
-    padding: 50px 40px;
-    margin-bottom: 30px
+    padding: 20px;
+    margin-bottom: 30px;
+    width: 70%;
 }
 
 @media(max-width:1199px) {
@@ -6519,6 +6549,9 @@ a.theme-btn svg {
 @media(max-width:991px) {
     .wpo-service-single-area .wpo-service-single-wrap .wpo-service-area .wpo-service-item h2 {
         font-size: 22px
+    }
+    .wpo-service-item {
+        width: 100% !important;
     }
 }
 
@@ -12303,7 +12336,6 @@ i[class^=flaticon-]:before {
 }
 
 .c-Invi__intro {
-    font-family: 'Dancing Script', cursive;
     font-size: 1.5em;
 }
 
@@ -12359,11 +12391,11 @@ i[class^=flaticon-]:before {
 }
 
 .c-Invi__time {
-    background: #fafafa;
+    background: #50376c;
     padding: 1em;
     border-top-right-radius: 4pt;
     border-bottom-right-radius: 4pt;
-    color: #999;
+    color: #d1c3c3;
     text-align: left;
 }
 
@@ -12386,6 +12418,12 @@ i[class^=flaticon-]:before {
 .c-Invi__desti {
     padding-left: 1em;
     text-align: left;
+}
+
+.c-Invi__end {
+    display: flex;
+    flex-flow: column;
+    align-items: end;
 }
 
 .o-Btn.o-Btn--maps {

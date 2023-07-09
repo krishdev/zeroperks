@@ -90,7 +90,9 @@ router.get('/dance', async function(req, res, next) {
 });
 
 router.post('/arrangetram-540', async function (req, res) {
-  var db = admin.database();
+  const db = admin.firestore();
+  const docRef = db.collection('guests').doc();
+
   var userRef = db.ref("participants");
 
   const data = req.body;
@@ -102,9 +104,17 @@ router.post('/arrangetram-540', async function (req, res) {
 
   // Save the data to Firebase.
   try {
-    const db = await admin.firestore().collection("users").add(data);
+    //const db = await admin.firestore().collection("users").add(data);
+    docRef.set(data)
+    .then(() => {
+      res.json({message: "Data saved", other: db});
+    })
+    .catch((error) => {
+      res.status(500).send({
+        message: error
+      })
+    });
     
-    res.json({message: "Data saved", other: db});
   } catch (error) {
     res.status(500).send({
       message: error
