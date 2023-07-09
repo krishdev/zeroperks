@@ -91,9 +91,7 @@ router.get('/dance', async function(req, res, next) {
 
 router.post('/arrangetram-540', async function (req, res) {
   const db = admin.firestore();
-  const docRef = db.collection('guests').doc();
-
-  var userRef = db.ref("participants");
+  const docRef = db.collection('participants').doc();
 
   const data = req.body;
   const name = data.name;
@@ -110,7 +108,8 @@ router.post('/arrangetram-540', async function (req, res) {
     
   } catch (error) {
     res.status(500).send({
-      message: error
+      message: error,
+      data
     })
   }
 });
