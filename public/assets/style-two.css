@@ -12429,9 +12429,9 @@ i[class^=flaticon-]:before {
 .o-Btn.o-Btn--maps {
     display: block;
     margin-top: .875em;
-    color: #000;
+    color: #fff;
     font-size: 15px;
-    background: #fff;
+    background: #50376c;
     border: 1px solid transparent;
     padding: 13px 12px 12px;
     font-weight: 600;
@@ -12441,11 +12441,16 @@ i[class^=flaticon-]:before {
 }
 
 .o-Btn.o-Btn--maps svg {
-    fill: #000;
+    fill: #fff;
     width: 18px;
     height: 18px;
 }
 
 .o-Btn.o-Btn--maps span {
     padding-left: .5em
+}
+
+.c-Note {
+    font-size: .625em !important;
+    color: #888 !important;
 }
