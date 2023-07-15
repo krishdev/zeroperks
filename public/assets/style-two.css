@@ -12454,3 +12454,16 @@ i[class^=flaticon-]:before {
     font-size: .625em !important;
     color: #888 !important;
 }
+
+.slider-image {
+    background-image: url("/assets/home-main-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+@media (max-width: 450px) {
+    .slider-image {
+        background-position: 61% -92px;
+    }
+}
