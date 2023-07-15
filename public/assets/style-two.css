@@ -12490,9 +12490,7 @@ div#invitation:before {
   .gallery figure {
     margin-bottom: .1rem;
   }
-  .gallery:hover .gallery__image {
-    filter: grayscale(1);
-  }
+
   .gallery__column {
     display: flex;
     flex-direction: column;
@@ -12502,9 +12500,7 @@ div#invitation:before {
     margin: 2px;
     overflow: hidden;
   }
-  .gallery__link:hover .gallery__image {
-    filter: grayscale(0);
-  }
+
   .gallery__link:hover .gallery__caption {
     opacity: 1;
   }
@@ -12531,6 +12527,15 @@ div#invitation:before {
     opacity: 0;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
     transition: 0.3s;
+  }
+
+  @media (min-width: 992px) {
+    .gallery:hover .gallery__image {
+        filter: grayscale(1);
+      }
+      .gallery__link:hover .gallery__image {
+        filter: grayscale(0);
+      }
   }
 
   @media (max-width: 991px) {
