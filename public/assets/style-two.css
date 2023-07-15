@@ -12462,6 +12462,24 @@ i[class^=flaticon-]:before {
     background-position: center;
 }
 
+div#invitation {
+    position: relative;
+}
+
+div#invitation:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 15%;
+    background-image: url("/assets/bell-silver.png");
+    width: 14.75em;
+    height: 20.5em;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .25;
+}
+
 @media (max-width: 450px) {
     .slider-image {
         background-position: 61% -92px;
