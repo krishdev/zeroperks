@@ -12627,3 +12627,12 @@ button.modal-close.modal-exit {
 .is-Locked {
     overflow: hidden;
 }
+
+.c-Footer .row > .col-md-6 {
+    display: none;
+}
+
+.c-Footer .row > .col-md-6:first-child {
+    margin: 0 auto;
+    display: block;
+}
