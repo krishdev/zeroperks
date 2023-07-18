@@ -12635,4 +12635,5 @@ button.modal-close.modal-exit {
 .c-Footer .row > .col-md-6:first-child {
     margin: 0 auto;
     display: block;
+    text-align: center;
 }
