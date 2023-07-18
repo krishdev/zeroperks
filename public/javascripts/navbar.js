@@ -10,9 +10,11 @@ const navbar = {
     },
     initialized () {
         const self = this;
-        this.data.mobMenu.addEventListener('click', function () {
-            self.toggleMenu();
-        })
+        if (this.data.mobMenu) {
+            this.data.mobMenu.addEventListener('click', function () {
+                self.toggleMenu();
+            })
+        }
         window.addEventListener('resize', debounce(()=> {
             const windowWidth = window.innerWidth;
             if (windowWidth >= 768) {
