@@ -12637,3 +12637,19 @@ button.modal-close.modal-exit {
     display: block;
     text-align: center;
 }
+
+@media (max-width: 450px) {
+    .wpo-hero-style-3 .hero-inner .slide-content {
+        background-color: rgb(100, 100, 100,.25);
+        padding: 15px 10px;
+        border-radius: 4pt;
+        box-shadow: 2px 2px 5px rgba(0,0,0,.5);
+    }
+    .slide-title, .slide-sub-title {
+        text-shadow: 8px 3px 3px rgba(0,0,0,.25);
+    }
+    
+    .slide-sub-title h5 {
+        color: white !important;
+    }
+}
