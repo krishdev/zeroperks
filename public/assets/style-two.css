@@ -12562,6 +12562,7 @@ div#invitation:before {
     align-items: center;
     justify-content: center;
     padding: 2em;
+    overflow: hidden;
 }
 .modal.open {
       visibility: visible;
@@ -12580,6 +12581,8 @@ div#invitation:before {
     position: relative;
     padding: 30px;
     color: #999;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 .modal-close {
     position: absolute;
