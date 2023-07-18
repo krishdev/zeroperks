@@ -12602,6 +12602,10 @@ div#invitation:before {
     color: #666;
 }
 
+button.modal-close.modal-exit {
+    font-size: 2em;
+}
+
 @media (min-width: 992px) {
     .modal {
         padding: 10em;
