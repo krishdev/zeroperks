@@ -17,8 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<%= origin %>/assets/style-two.css">
     <script src="https://use.fontawesome.com/1d1822d5d1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
     <script src="/javascripts/scrollreveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <style data-jss="" data-meta="MuiTouchRipple">
       .MuiTouchRipple-root {
         top: 0;
@@ -1298,11 +1299,13 @@
           },
           openModal (modalName) {
             const modal = document.getElementById(modalName);
+            document.querySelector('body').classList.add('is-Locked');
             modal.classList.add("open");
           },
           closeModal (modalName) {
             const modal = document.getElementById(modalName);
             modal.classList.remove("open");
+            document.querySelector('body').classList.remove('is-Locked');
           }
         }
       })

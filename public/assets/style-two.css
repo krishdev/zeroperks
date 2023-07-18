@@ -12561,6 +12561,7 @@ div#invitation:before {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2em;
 }
 .modal.open {
       visibility: visible;
@@ -12568,16 +12569,17 @@ div#invitation:before {
       transition-delay: 0s;
     }
 .modal-bg {
-      position: absolute;
-      background: teal;
-      width: 100%;
-      height: 100%;
-    }
+    position: absolute;
+    background: rgba(0,0,0,.75);
+    width: 100%;
+    height: 100%;
+}
 .modal-container {
     border-radius: 10px;
     background: #fff;
     position: relative;
     padding: 30px;
+    color: #999;
 }
 .modal-close {
     position: absolute;
@@ -12590,4 +12592,28 @@ div#invitation:before {
     border: 0px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.modal-container h1 {
+    color: #585858;
+}
+
+.modal-container p {
+    color: #666;
+}
+
+@media (min-width: 992px) {
+    .modal {
+        padding: 10em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .modal {
+        padding: 20em;
+    }
+}
+
+.is-Locked {
+    overflow: hidden;
 }
