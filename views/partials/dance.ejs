@@ -646,7 +646,7 @@
                   </div>
                 </div>
                 <div class="col-lg-6 offset-lg-1 col-md-12 col-sm-12">
-                  <div class="wpo-about-content">
+                  <div class="wpo-about-content" id="abt-guru">
                     <div class="wpo-about-title">
                       <h2 class="c-Sub-title">About the Guru</h2>
                       <p>Dr. Praveena Vajja is the owner and director of Natyom Dance Academy. She specializes in Bharatanatyam and has extensive training in Kuchipudi and Kathak. She has trained, performed, and taught dance for over forty years. Natyom Dance Academy's core curriculum develops a foundation of Bharatanatyam for all students. 
@@ -654,7 +654,7 @@
                     </div>
                     
                   </div>
-                  <div class="wpo-about-content">
+                  <div class="wpo-about-content" id="abt-shishya">
                     <div class="wpo-about-title">
                       <h2 class="c-Sub-title">About the Shishya</h2>
                       <p>Thaarika Shanmugam is currently a sophomore at Uplift North Hills Prep School. She started learning  Bharatnatyam from the age of five and has grown to appreciate this art over the years. She now enjoys assisting Natyom teachers in teaching Bharatnatyam to beginners. 
@@ -1156,7 +1156,16 @@
     </div>
     
     <script>
-      ScrollReveal().reveal('#about-container',{
+      ScrollReveal().reveal('#abt-guru',{
+        delay: 75,
+        duration: 1500,
+        opacity: 0,
+        distance: "50%",
+        origin: "bottom",
+        reset: true
+      });
+
+      ScrollReveal().reveal('#abt-shishya',{
         delay: 75,
         duration: 1500,
         opacity: 0,
