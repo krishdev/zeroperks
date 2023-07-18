@@ -1207,11 +1207,11 @@
         },
         created () {},
         mounted () {
-          let allClose = document.querySelectorAll('modal.close');
+          let allClose = document.querySelectorAll('modal.hide');
           if (allClose) {
             allClose = Array.from(allClose);
             allClose.forEach(item => {
-              item.classList.remove('close');
+              item.classList.remove('hide');
             })
           }
         },
