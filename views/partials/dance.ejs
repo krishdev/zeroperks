@@ -693,7 +693,7 @@
                 <div class="tab-content">
                   <div class="tab-pane active">
                     <div class="row">
-                      <div class="col-md-6 col-12">
+                      <div class="col-md-6 col-12" id="invitation-left">
                         <ul class="c-Invi__details">
                           <li>Mr Shanmugam and Mrs Nethra</li>
                           <li class="c-Invi__details__agw">along with</li>
@@ -706,7 +706,7 @@
                         </ul>
                       </div>
                       <div class="col-md-6 col-12 c-Invi__end">
-                        <div class="wpo-service-item">
+                        <div class="wpo-service-item"  id="invitation-date">
                           <h2>Date & Time</h2>
                           <div class="c-Invi__item">
                             <div class="c-Invi__cal">
@@ -734,7 +734,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="wpo-service-item">
+                        <div class="wpo-service-item"  id="invitation-venue">
                           <h2>Venue</h2>
                           <div class="c-Invi__item">
                             <div class="c-Invi__location">
@@ -1214,7 +1214,25 @@
             reset: false
           });
 
-          ScrollReveal().reveal('#invitation-container',{
+          ScrollReveal().reveal('#invitation-left',{
+            delay: 125,
+            duration: 1500,
+            opacity: 0,
+            distance: "50%",
+            origin: "bottom",
+            reset: false
+          });
+
+          ScrollReveal().reveal('#invitation-date',{
+            delay: 125,
+            duration: 1500,
+            opacity: 0,
+            distance: "50%",
+            origin: "bottom",
+            reset: false
+          });
+
+          ScrollReveal().reveal('#invitation-venue',{
             delay: 125,
             duration: 1500,
             opacity: 0,
