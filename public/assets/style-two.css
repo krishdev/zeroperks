@@ -12543,6 +12543,12 @@ div#invitation:before {
         width: 50%;
     }
 }
+@media (max-width: 650px) {
+    .slider-image {
+        background-position: 59% -92px;
+    }
+    
+}
 @media (max-width: 450px) {
     .slider-image {
         background-position: 61% -92px;
