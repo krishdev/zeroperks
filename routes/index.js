@@ -111,6 +111,7 @@ router.post('/arrangetram-540', async function (req, res) {
   const phone = data.phone;
   const guests = data.guests;
   const timestamp = new Date().toLocaleString();
+  data.timestamp = timestamp;
 
   // Save the data to Firebase.
   try {
@@ -142,15 +143,16 @@ router.post('/arrangetram-540', async function (req, res) {
 
 router.get('/arrangetram-6874', async function (req, res) {
   const db = admin.firestore();
-  const docRef = db.collection('participants').doc();
+  const docRef = db.collection('participants');
   
   try {
     //const db = await admin.firestore().collection("users").add(data);
+    console.log('entering test..')
     const response = await docRef.get();
     if (response.exists) {
       const data = response.data();
     } else {
-      // console.log("Document does not exist");
+      console.log("Document does not exist");
     }
     res.json({message: "Data retrieved", other: data});
     
