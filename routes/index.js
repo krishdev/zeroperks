@@ -149,17 +149,21 @@ router.get('/arrangetram-6874', async function (req, res) {
     //const db = await admin.firestore().collection("users").add(data);
     console.log('entering test..')
     const response = await docRef.get();
-    if (response.exists) {
+    if (response && response.exists) {
       const data = response.data();
+      res.json({message: "Data retrieved", other: data});
     } else {
       console.log("Document does not exist");
     }
-    res.json({message: "Data retrieved", other: data});
+    res.status(500).send({
+      message: 'error',
+      data: response
+    });
     
   } catch (error) {
     res.status(500).send({
-      message: error,
-      data
+      message: 'error',
+      data: error
     });
   }
 });
