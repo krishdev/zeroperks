@@ -140,6 +140,28 @@ router.post('/arrangetram-540', async function (req, res) {
   }
 });
 
+router.get('/arrangetram-6874', async function (req, res) {
+  const db = admin.firestore();
+  const docRef = db.collection('participants').doc();
+  
+  try {
+    //const db = await admin.firestore().collection("users").add(data);
+    const response = await docRef.get();
+    if (response.exists) {
+      const data = response.data();
+    } else {
+      // console.log("Document does not exist");
+    }
+    res.json({message: "Data retrieved", other: data});
+    
+  } catch (error) {
+    res.status(500).send({
+      message: error,
+      data
+    });
+  }
+});
+
 
 router.get('/login', async function (req, res) {
   res.locals.origin = config.env;
