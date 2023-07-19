@@ -12596,7 +12596,7 @@ div#invitation:before {
     padding: 30px;
     color: #999;
     max-height: 80vh;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 .modal-close {
     position: absolute;
@@ -12662,5 +12662,22 @@ button.modal-close.modal-exit {
     
     .slide-sub-title h5 {
         color: white !important;
+    }
+}
+
+.modal-content {
+    height: 55vh;
+    overflow-y: auto;
+    border: 0;
+    background: none;
+    margin-top: 1em;
+}
+
+@media (max-width: 450px) {
+    .modal-content p {
+        font-size: .875em;
+    }
+    .modal-header h1 {
+        font-size: calc(1rem + 1.5vw);
     }
 }
