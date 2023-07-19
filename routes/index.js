@@ -143,7 +143,7 @@ router.post('/arrangetram-540', async function (req, res) {
 
 router.get('/arrangetram-6874', async function (req, res) {
   const db = admin.firestore();
-  const docRef = db.collection('participants');
+  const docRef = db.collection('participants').doc();
   
   try {
     //const db = await admin.firestore().collection("users").add(data);
