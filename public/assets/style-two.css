@@ -12685,3 +12685,131 @@ button.modal-close.modal-exit {
 button.theme-btn {
     white-space: nowrap;
 }
+
+.timeline *, .timeline *::after, .timeline *::before {
+    box-sizing: border-box;
+    
+    margin: 0;
+    padding: 0;
+  }
+  
+  .timeline p {
+    line-height: 1.8;
+    color: #777;
+  }
+  
+  time {
+    line-height: 1.6;
+  }
+  
+  /* ===================== */
+  /* ===================== */
+  
+  /* Timeline */
+  /* Code Here ↓ */
+  
+  .timeline {
+    padding: 3rem 2rem;
+    max-width: 30em;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0px -1px 12px 0px rgb(0 0 0);
+    margin: 0 auto;
+  }
+  
+  .tl-content .tl-header, 
+  .tl-content .tl-body {
+    padding-left: 25.6px;
+    
+    border-left: 3px solid gainsboro;
+  }
+  
+  .tl-body {
+    padding-bottom:1rem;
+  }
+  
+  .tl-content:last-child .tl-body {
+    border-left: 3px solid transparent;
+  }
+  
+  .tl-header {
+    position: relative;
+    display: grid;
+    
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .tl-title {
+    font-weight: 600;
+    font-size: 1em;
+    border-bottom: 1px solid gainsboro;
+    color: #555;
+  }
+  
+  .tl-time {
+    font-size: 0.7em;
+  }
+  
+  .tl-marker {
+    display:block;
+    position: absolute;
+  
+    width: 16px;
+    height: 16px;
+    border-radius: 50% / 50%;
+    
+    background: gainsboro;
+    
+    left: -1.1rem;
+    top: 50%;
+    
+    transform: translate(50%,-50%);
+  }
+  
+  .tl-content-active .tl-marker {
+    padding: 1.6px;
+    
+    left: -1.25rem;
+    
+    width: 18px;
+    height: 18px;
+    
+    border: 2px solid limegreen;
+    
+    background-color: limegreen;
+    background-clip: content-box;
+    
+    box-shadow: 0 0 15px -2px limegreen;
+  }
+  
+  .tl-content-active .tl-title {
+    font-weight: 700;
+    
+    color: green;
+  }
+
+ .tl-title {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Code Here ↑ */
+  /* Timeline */
+  
+  /* ==================== */
+  
+  a.btn-learn-more {
+    font-size: .65rem;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 9.5em;
+    background-color: #ededed;
+    padding: 3px 7px;
+    border-radius: 20pt;
+    margin-bottom: 5px;
+  }
