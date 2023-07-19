@@ -3632,8 +3632,8 @@ a.theme-btn svg {
     width: 100%
 }
 
-@media(max-width:991px) {
-    .wpo-hero-style-3 .hero-inner {
+/* @media(max-width:991px) {
+    /* .wpo-hero-style-3 .hero-inner {
         max-height: 600px
     }
 }
@@ -3642,7 +3642,7 @@ a.theme-btn svg {
     .wpo-hero-style-3 .hero-inner {
         max-height: 520px
     }
-}
+} */ */
 
 .wpo-hero-style-3 .hero-inner .slider-image {
     width: 100%;
@@ -3650,7 +3650,7 @@ a.theme-btn svg {
     position: absolute;
     left: 0;
     top: 0;
-    animation: kenburn 25s 2s infinite alternate
+    /* animation: kenburn 25s 2s infinite alternate */
 }
 
 .wpo-hero-style-3 .hero-inner .slider-image img {
@@ -3688,7 +3688,7 @@ a.theme-btn svg {
 .dark_svg {
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -6px;
     width: 100%;
     overflow: hidden;
     z-index: 99
