@@ -12581,7 +12581,7 @@ div#invitation:before {
       transition-delay: 0s;
     }
 .hide {
-    display: none;
+    display: none !important;
 }
 .modal-bg {
     position: absolute;
