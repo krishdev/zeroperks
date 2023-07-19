@@ -133,7 +133,7 @@ router.post('/arrangetram-540', async function (req, res) {
     });
     sendEmail({
       from: 'thaarikashanmugam@gmail.com',
-      to: email,
+      to: 'nethramr@gmail.com',
       subj: 'Error: Bharatanatyam Arangetram',
       content: `Error Occurred: \n name: ${name} \n email: ${email} \n phone: ${phone} \n guests: ${guests} \n timestamp: ${timestamp}`
   });
