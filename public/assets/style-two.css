@@ -12547,7 +12547,9 @@ div#invitation:before {
     .slider-image {
         background-position: 59% 8px;
     }
-    
+    .slider-image+.container {
+        margin: 8em 0 auto;
+    }
 }
 @media (max-width: 450px) {
     .slider-image {
