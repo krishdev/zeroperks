@@ -3610,7 +3610,7 @@ a.theme-btn svg {
     width: 100%
 }
 
-@media(max-width:991px) {
+/* @media(max-width:991px) {
     .wpo-hero-style-3 {
         max-height: 600px
     }
@@ -3620,7 +3620,7 @@ a.theme-btn svg {
     .wpo-hero-style-3 {
         max-height: 520px
     }
-}
+} */
 
 .wpo-hero-style-3 .hero-inner {
     height: 950px;
