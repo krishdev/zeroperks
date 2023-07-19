@@ -12580,7 +12580,7 @@ div#invitation:before {
       opacity: 1;
       transition-delay: 0s;
     }
-.modal.hide {
+.hide {
     display: none;
 }
 .modal-bg {
