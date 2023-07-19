@@ -843,7 +843,7 @@
             </div>
           </div>
           <div id="program" class="wpo-service-area section-padding wpo-service-area-s2">
-            <div id="invitation-container" class="container">
+            <div id="program-details" class="container">
               <div class="row justify-content-center">
                 <div class="col-lg-6 col-12">
                   <div class="wpo-section-title">
@@ -1466,6 +1466,14 @@
             reset: false
           });
           ScrollReveal().reveal('#footer-rsvp',{
+            delay: 175,
+            duration: 1500,
+            opacity: 0,
+            distance: "50%",
+            origin: "bottom",
+            reset: false
+          });
+          ScrollReveal().reveal('.tl-content',{
             delay: 175,
             duration: 1500,
             opacity: 0,
