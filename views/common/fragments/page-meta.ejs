@@ -11,3 +11,9 @@
 <% if (typeof image != 'undefined') { %>
 <meta name="og:image" content="<%= aclPort + image %>">
 <% } %>
+<% if (typeof ogWide != 'undefined') { %>
+    <meta name="og:image" content="<%= ogWide %>">
+<% } %>
+<% if (typeof ogSquare != 'undefined') { %>
+    <meta name="og:image" content="<%= ogSquare %>">
+<% } %>
