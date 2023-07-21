@@ -1004,9 +1004,9 @@ ul.smothscroll a:hover {
     font-weight: 700;
     color: #fff;
     display: inline-block;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     position: relative;
-    margin: 10px 0 0
+    margin: 10px 0 0;
 }
 
 @media(max-width:1200px) {
