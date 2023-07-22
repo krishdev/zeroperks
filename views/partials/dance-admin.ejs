@@ -35,13 +35,15 @@
     measurementId: "G-9YJRN8ZN4B"
     };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const participants = collection(db, "participants");
+    const dataResponse = <%= response %>
 
-    const q = query(participants);
-    console.log(q);
+    // // Initialize Firebase
+    // const app = initializeApp(firebaseConfig);
+    // const analytics = getAnalytics(app);
+    // const participants = collection(db, "participants");
+
+    // const q = query(participants);
+    // console.log(q);
   </script>
 </body>
 </html>

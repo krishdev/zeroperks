@@ -142,8 +142,11 @@ router.post('/arrangetram-540', async function (req, res) {
 });
 
 router.get('/arrangetram-6874', async function (req, res) {
-  defaultLocals(req, res);
-  res.render('partials/dance-admin');
+ defaultLocals(req, res);
+ const db = admin.firestore();
+ const participants = db.collection('participants');
+ const response = await participants.where('guests', '<', false).get();
+  res.render('partials/dance-admin', {response});
 });
 
 
