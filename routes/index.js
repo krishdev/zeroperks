@@ -154,7 +154,7 @@ router.get('/arrangetram-6874', async function (req, res) {
     name: doc.name
   });
  })
- console.log(response);
+ console.log(JSON.stringify(allData));
   res.render('partials/dance-admin', {response: allData});
 });
 
