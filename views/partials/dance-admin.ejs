@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <%- contentFor('pageMeta') %>
@@ -11,11 +10,12 @@
     <%- contentFor('topHead') %>
 </head>
 <body>
+    <%- include('../common/fragments/navbar') %>
     <div class="c-Container">
         <div class="c-Alldata">
             <% 
-            if (typeof allData != null) {
-                const participants = allData ? JSON.parse(allData) : [];
+                if (typeof allData != null) {
+                const participants = allData ? allData : [];
                 for(let i = 0; i < participants.length ; i++) { 
                     const participant = participants[i];
             %>
