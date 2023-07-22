@@ -147,7 +147,7 @@ router.get('/arrangetram-6874', async function (req, res) {
  const participants = db.collection('participants');
  const response = await participants.get();
  let allData = response.docs.map(doc=>doc.data());
-res.render('partials/dance-admin', {response: allData});
+res.render('partials/dance-admin', {allData: allData});
 });
 
 

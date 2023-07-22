@@ -14,16 +14,17 @@
     <div class="c-Container">
         <div class="c-Alldata">
             <% 
-            const participants = response ? JSON.parse(response) : [];
-            for(let i = 0; i < participants.length ; i++) { 
-            const participant = participants[i];
+            if (typeof allData != null) {
+                const participants = allData ? JSON.parse(allData) : [];
+                for(let i = 0; i < participants.length ; i++) { 
+                    const participant = participants[i];
             %>
                 <div class="c-Item">
                     <div class="c-Item__sng c-item__name"><%= participant.name %></div>
                     <div class="c-Item__sng c-item__email"><%= participant.email %></div>
                     <div class="c-Item__sng c-item__guests"><%= participant.guests %></div>
                 </div>
-            <% } %>
+            <% } } %>
         </div>
     </div>
 </body>
