@@ -146,14 +146,7 @@ router.get('/arrangetram-6874', async function (req, res) {
  const db = admin.firestore();
  const participants = db.collection('participants');
  const response = await participants.get();
- let allData = [];
- response.forEach(doc=>{
-  allData.push({
-    email: doc.email,
-    guests: doc.guests,
-    name: doc.name
-  });
- })
+ let allData = response.docs.map(doc=>doc.data());
  console.log(JSON.stringify(allData));
   res.render('partials/dance-admin', {response: allData});
 });
