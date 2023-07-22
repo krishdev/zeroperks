@@ -35,6 +35,7 @@ const {
   getBlogs,
   getAllCategories
 } = require('../controller/controller.blog');
+const { all } = require('p-cancelable');
 
 let jwt = null;
 let headersAuth = {
@@ -147,7 +148,14 @@ router.get('/arrangetram-6874', async function (req, res) {
  const participants = db.collection('participants');
  const response = await participants.get();
  let allData = response.docs.map(doc=>doc.data());
-res.render('partials/dance-admin', {allData: allData});
+ let totalGuests = 0;
+ if (allData && allData.length) {
+  allData.forEach( item => {
+    const part = item.guests ? +item.guests : 0;
+    totalGuests += part;
+  })
+ }
+res.render('partials/dance-admin', {allData: allData, totalGuests});
 });
 
 
