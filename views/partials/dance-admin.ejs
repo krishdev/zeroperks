@@ -14,7 +14,7 @@
     <div class="c-Container">
         <div class="c-Alldata">
             <% 
-            const participants = allData ? JSON.parse(allData) : [];
+            const participants = response ? JSON.parse(response) : [];
             for(let i = 0; i < participants.length ; i++) { 
             const participant = participants[i];
             %>
