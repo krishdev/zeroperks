@@ -35,7 +35,7 @@
     measurementId: "G-9YJRN8ZN4B"
     };
 
-    const dataResponse = SON.parse('<%-  response %>');
+    const dataResponse = <%- JSON.parse(  response ) %>;
 
     // // Initialize Firebase
     // const app = initializeApp(firebaseConfig);
