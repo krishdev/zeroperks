@@ -141,32 +141,10 @@ router.post('/arrangetram-540', async function (req, res) {
   }
 });
 
-// router.get('/arrangetram-6874', async function (req, res) {
-//   const db = admin.firestore();
-//   const docRef = db.collection('participants').doc();
-  
-//   try {
-//     //const db = await admin.firestore().collection("users").add(data);
-//     console.log('entering test..')
-//     const response = await docRef.get();
-//     if (response && response.exists) {
-//       const data = response.data();
-//       res.json({message: "Data retrieved", other: data});
-//     } else {
-//       console.log("Document does not exist");
-//     }
-//     res.status(500).send({
-//       message: 'error',
-//       data: response
-//     });
-    
-//   } catch (error) {
-//     res.status(500).send({
-//       message: 'error',
-//       data: error
-//     });
-//   }
-// });
+router.get('/arrangetram-6874', async function (req, res) {
+  defaultLocals(req, res);
+  res.render('partials/dance-admin');
+});
 
 
 router.get('/login', async function (req, res) {
