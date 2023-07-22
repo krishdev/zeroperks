@@ -11,39 +11,20 @@
     <%- contentFor('topHead') %>
 </head>
 <body>
-
-
-    <!-- Insert this script at the bottom of the HTML, but before you use any Firebase services -->
-  <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js'
-
-    // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
-    import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js'
-
-    // Add Firebase products that you want to use
-    import { getAuth } from 'https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js'
-    import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js'
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-    apiKey: "AIzaSyCQ41Rke2gWWPBUwHpAgF1NiHqJwca6AE0",
-    authDomain: "dance-e6a81.firebaseapp.com",
-    projectId: "dance-e6a81",
-    storageBucket: "dance-e6a81.appspot.com",
-    messagingSenderId: "343238617370",
-    appId: "1:343238617370:web:deb8b5c70ce2cfa16c24a3",
-    measurementId: "G-9YJRN8ZN4B"
-    };
-
-    const dataResponse = <%- JSON.stringify(  allData ) %>;
-
-    // // Initialize Firebase
-    // const app = initializeApp(firebaseConfig);
-    // const analytics = getAnalytics(app);
-    // const participants = collection(db, "participants");
-
-    // const q = query(participants);
-    // console.log(q);
-  </script>
+    <div class="c-Container">
+        <div class="c-Alldata">
+            <% 
+            const participants = allData ? JSON.parse(allData) : [];
+            for(let i = 0; i < participants.length ; i++) { 
+            const participant = participants[i];
+            %>
+                <div class="c-Item">
+                    <div class="c-Item__sng c-item__name"><%= participant.name %></div>
+                    <div class="c-Item__sng c-item__email"><%= participant.email %></div>
+                    <div class="c-Item__sng c-item__guests"><%= participant.guests %></div>
+                </div>
+            <% } %>
+        </div>
+    </div>
 </body>
 </html>
