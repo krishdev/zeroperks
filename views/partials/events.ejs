@@ -44,12 +44,13 @@
                     <article class="c-rsvp" id="app">
                         <div class="row">
                             <div class="col col-lg-6 col-md-12 col-12">
+                                <h4 class="mb-3">RSVP</h4>
                                 <div class="wpo-contact-form">
                                     <form v-if="!dataSaved && !globalErrors" class="contact-validation-active" novalidate>
                                         <div class="row">
                                             <div class="col-md-6 mb-3">
                                                 <div class="form-field">
-                                                    <input type="text" value="" name="name" placeholder="Your Name" v-model.trim="form.name" />
+                                                    <input type="text" value="" class="form-control" name="name" placeholder="Your Name" v-model.trim="form.name" />
                                                     <div class="c-Errors">
                                                         <p v-if="this.errors.isError && this.errors.name" v-html="this.errors.name"></p>
                                                     </div>
@@ -57,7 +58,7 @@
                                             </div>
                                             <div class="col-md-6 mb-3">
                                                 <div class="form-field">
-                                                    <input type="email" value="" name="email" placeholder="Your Email" v-model.trim="form.email" />
+                                                    <input type="email" class="form-control" value="" name="email" placeholder="Your Email" v-model.trim="form.email" />
                                                     <div class="c-Errors">
                                                         <p v-if="this.errors.isError && this.errors.email" v-html="this.errors.email"></p>
                                                     </div>
@@ -65,7 +66,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <div class="form-field">
-                                                    <input type="tel" value="" name="phone" placeholder="Your phone" v-model.trim="form.phone" />
+                                                    <input type="tel" value="" class="form-control" name="phone" placeholder="Your phone" v-model.trim="form.phone" />
                                                     <div class="c-Errors">
                                                         <p v-if="this.errors.isError && this.errors.phone" v-html="this.errors.phone"></p>
                                                     </div>
@@ -73,7 +74,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <div class="form-field">
-                                                    <select type="text" name="subject" autocomplete="off" v-model="form.guests">
+                                                    <select type="text" name="subject" class="form-control" autocomplete="off" v-model="form.guests">
                                                         <option disabled value="" selected>Choose number of guests</option>
                                                         <option value="1">One</option>
                                                         <option value="2">Two</option>
@@ -91,7 +92,7 @@
                                         </div>
                                         <p class="c-Note">Your email and phone number are safe with us. We respect your privacy and assure you that your information will not be shared with any third parties and only be used for this event.</p>
                                         <div class="submit-area">
-                                            <button type="submit" class="theme-btn" @click.prevent="submit">
+                                            <button type="submit" class="btn btn-primary btn-lg btn-block" @click.prevent="submit">
                                                 Submit Now
                                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                                                     <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
