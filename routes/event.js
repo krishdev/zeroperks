@@ -41,23 +41,31 @@ generateJWTStrapi ();
 
 /* GET ACL article */
 router.get('/:url', async function (req, res, next) {
-    const response = await got.get(config.acl+'/events?_where[url]='+req.params.url, {		
-		responseType: 'json'
-	})
-    console.log('event entered..... ' + req.params.url);
-    defaultLocals(req, res);
-    const responseBody = response.body;
-    if (!responseBody || responseBody.length === 0) {
-        res.locals.message = "Page Not Found";
-        res.locals.error = "Try different path.";
-
-        // render the error page
+    try {
+        const response = await got.get(config.acl+'/events?_where[url]='+req.params.url, {		
+            responseType: 'json'
+        })
+        console.log('event entered..... ' + req.params.url);
+        defaultLocals(req, res);
+        const responseBody = response.body;
+        if (!responseBody || responseBody.length === 0) {
+            res.locals.message = "Page Not Found";
+            res.locals.error = "Try different path.";
+    
+            // render the error page
+            res.status(404);
+            res.render('error');
+        }
+        let thisPost = responseBody[0];
+        
+        res.render('partials/events', {post:thisPost, url: encodeURIComponent(`/event/${req.params.url}`)})
+    } catch (error) {
+        console.log('error ..... ' + req.params.url);
+        console.log(error);
         res.status(404);
         res.render('error');
     }
-    let thisPost = responseBody[0];
     
-    res.render('partials/events', {post:thisPost, url: encodeURIComponent(`/event/${req.params.url}`)})
 })
 
 async function updatePost (id, data) {
