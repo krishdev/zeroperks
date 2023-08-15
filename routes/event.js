@@ -61,10 +61,12 @@ router.get('/:url', async function (req, res, next) {
         
         res.render('partials/events', {post:thisPost, url: encodeURIComponent(`/event/${req.params.url}`)})
     } catch (error) {
+        res.locals.message = "Page Not Found";
+        res.locals.error = "Try different path.";
         defaultLocals(req, res);
         console.log('error ..... ' + req.params.url);
         console.log(error);
-        res.status(404);
+        res.status(500);
         res.render('error');
     }
     
