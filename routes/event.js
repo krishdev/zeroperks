@@ -42,6 +42,7 @@ generateJWTStrapi ();
 /* GET ACL article */
 router.get('/:url', async function (req, res, next) {
     try {
+        console.log('url entered....');
         const response = await got.get(config.acl+'/events?_where[url]='+req.params.url, {		
             responseType: 'json'
         })
@@ -60,6 +61,7 @@ router.get('/:url', async function (req, res, next) {
         
         res.render('partials/events', {post:thisPost, url: encodeURIComponent(`/event/${req.params.url}`)})
     } catch (error) {
+        defaultLocals(req, res);
         console.log('error ..... ' + req.params.url);
         console.log(error);
         res.status(404);
