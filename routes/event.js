@@ -44,11 +44,8 @@ router.get('/:url', async function (req, res, next) {
     const response = await got.get(config.acl+'/events?_where[url]='+req.params.url, {		
 		responseType: 'json'
 	})
-    const recentResponsePosts = await got.get(config.acl+'/events?_sort=createdAt:DESC&_start=0&_limit=5', {		
-		responseType: 'json'
-	})
+    console.log('event entered..... ' + req.params.url);
     defaultLocals(req, res);
-    const recentPostResponseBody = recentResponsePosts.body;
     const responseBody = response.body;
     if (!responseBody || responseBody.length === 0) {
         res.locals.message = "Page Not Found";
