@@ -46,7 +46,7 @@
                     <article class="blog-post">                        
                         <p class="blog-post-meta row">
                             <span class="col-sm-6">
-                                <b>Event Date: </b><%= post.eventDateTime %>
+                                <b>Event Date: </b><%= new Date(post.eventDateTime).toLocaleString() %>
                             </span>
                         </p>
                         <p class="blog-post-meta row">
