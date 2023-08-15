@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- contentFor('pageMeta') %>
+        <%- include('../common/fragments/page-meta', { 
+            title: post.eventName + ' |  ZEROPERSK',
+            description: post.eventDetails,
+            keywords: 'Baby shower',
+            image: post.ogImage && post.ogImage.url ? post.ogImage.url : undefined
+        }) %>
+        <%- contentFor('topHead') %>
+    </head>
+    <body>
+        <script>
+            var postId = "<%= post.id %>";
+        </script>
+        <%- include('../common/fragments/navbar') %>
+        <div class="c-Post o-Layout">
+
+            <h1 class="c-Post__title"><%= post.title %></h1>
+            <% if( post.heroImage.url) { %>
+            <figure class="c-Post__figure" style="background-image: url('<%= aclPort+post.eventBanner.url %>');"></figure>
+            <% } %>
+            
+            <div class="row c-Post__two-rows">
+                <section class="col-sm-12 col-md-9">
+                    <article class="blog-post">                        
+                        <p class="blog-post-meta row">
+                            <span class="col-sm-6">
+                                <b>Event Date: </b><%= new Date(post.eventDateTime).toLocaleString() %>
+                            </span>
+                        </p>
+                        <p class="blog-post-meta row">
+                            <span class="col-sm-6">
+                                <b>Event Venue: </b><%= post.eventVenue %>
+                            </span>
+                        </p>
+                        <p class="blog-post-content"><%- post.eventDetails.replace(/\*{2}(.*?)\*{2}/gm, '<h3>$1</h3>'); %></p>
+                    </article>
+                    
+                </section>
+            </div>
+            
+        </div>
+    </body>
+</html>
