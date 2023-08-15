@@ -9,6 +9,8 @@
             ogOtSquare: post.ogImage && post.ogImage.url ? post.ogImage.url : undefined
         }) %>
         <%- contentFor('topHead') %>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     </head>
     <body>
         <script>
@@ -37,10 +39,211 @@
                         </p>
                         <p class="blog-post-content"><%- post.eventDetails.replace(/\*{2}(.*?)\*{2}/gm, '<h3>$1</h3>'); %></p>
                     </article>
+
+                    <article class="c-rsvp" id="app">
+                        <div class="row">
+                            <div class="col col-lg-6 col-md-12 col-12">
+                                <div class="wpo-contact-form">
+                                    <form v-if="!dataSaved && !globalErrors" class="contact-validation-active" novalidate>
+                                        <div class="row">
+                                            <div class="col-md-6 mb-3">
+                                                <div class="form-field">
+                                                    <input type="text" value="" name="name" placeholder="Your Name" v-model.trim="form.name" />
+                                                    <div class="c-Errors">
+                                                        <p v-if="this.errors.isError && this.errors.name" v-html="this.errors.name"></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <div class="form-field">
+                                                    <input type="email" value="" name="email" placeholder="Your Email" v-model.trim="form.email" />
+                                                    <div class="c-Errors">
+                                                        <p v-if="this.errors.isError && this.errors.email" v-html="this.errors.email"></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-field">
+                                                    <input type="tel" value="" name="phone" placeholder="Your phone" v-model.trim="form.phone" />
+                                                    <div class="c-Errors">
+                                                        <p v-if="this.errors.isError && this.errors.phone" v-html="this.errors.phone"></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="form-field">
+                                                    <select type="text" name="subject" autocomplete="off" v-model="form.guests">
+                                                        <option disabled value="" selected>Choose number of guests</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                        <option value="4">Four</option>
+                                                        <option value="5">Five</option>
+                                                        <option value="6">Six</option>
+                                                        <option value="7">Seven</option>
+                                                    </select>
+                                                    <div class="c-Errors">
+                                                        <p v-if="this.errors.isError && this.errors.guests" v-html="this.errors.guests"></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="c-Note">Your email and phone number are safe with us. We respect your privacy and assure you that your information will not be shared with any third parties and only be used for this event.</p>
+                                        <div class="submit-area">
+                                            <button type="submit" class="theme-btn" @click.prevent="submit">
+                                                Submit Now
+                                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                                                    <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                    <path
+                                                        d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"
+                                                    />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </form>
+                                    <div v-cloak v-else class="c-Rsvp__saved">
+                                        <p>We're glad you're able to make it! We'll see you soon.</p>
+                                        <p>Your RSVP has been received. We'll send you more details closer to the event.</p>
+                                    </div>
+                                    <div class="c-Rsvp__saved" v-if="globalErrors">
+                                        <p v-html="globalErrors"></p>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                    </article>
                     
                 </section>
             </div>
             
         </div>
+        <script>
+            new Vue({
+              el: "#app",
+              data: {
+                form: {
+                  name: '',
+                  email: '',
+                  phone: '',
+                  guests: ''
+                },
+                isLoading: false,
+                isFormSubmitted: false,
+                errors: {
+                  isError: false,
+                  name: '',
+                  email: '',
+                  phone: '',
+                  guests: ''
+                },
+                globalErrors: '',
+                dataSaved: false
+              },
+              created () {},
+              mounted () {
+
+              },
+              methods: {
+                async submit () {
+                  this.isFormSubmitted = true;
+                  this.errors.isError = this.validation();
+      
+                  if (!this.errors.isError) {
+                    // submit api
+                    this.isLoading = true;
+                    try {
+                      const response = await fetch("/arrangetram-540", {
+                        method: "POST",
+                        headers: {
+                          "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(this.form),
+                      });
+                      const result = await response.json();
+                      if (result && result.message && typeof result.message == 'string') {
+                        this.dataSaved = true;
+                        this.reset();
+                      } else {
+                        this.globalErrors = 'Sorry! Something went wrong. Please click <a href="mailto:mailkrishna2@gmail.com?subject=RSVP%20BabyShower&body=Hello%2C%20We%20will%20attend%20the%20event%20a%20number%20of%20participants"">here</a> to email the same.';
+                      }
+                    } catch (error) {
+                      console.log(error);
+                    }
+                  }
+                },
+                reset () {
+                  this.isFormSubmitted = false;
+                  this.isLoading = false;
+                  this.form.name = '';
+                  this.form.email = '';
+                  this.form.phone = '';
+                  this.form.guests = '';
+                  this.errors.isError = false;
+                  this.errors.name = '';
+                  this.errors.email = '';
+                  this.errors.phone = '';
+                  this.errors.guests = '';
+                  this.globalErrors = '';
+                },
+                validation () {
+                  let isError = false;
+                  if (!this.form.name) {
+                    this.errors.name = 'Name is required.';
+                  } else {
+                    this.errors.name = '';
+                  }
+                  if (!this.form.email) {
+                    this.errors.email = 'Email is required.';
+                  } else if (!this.validateEmail(this.form.email)) {
+                    this.errors.email = 'Email is invalid.';
+                  } else {
+                    this.errors.email = '';
+                  }
+                  if (!this.form.phone) {
+                    this.errors.phone = 'Phone is required.';
+                  } else if (!this.validatePhone(this.form.phone)) {
+                    this.errors.phone = 'Phone is invalid.';
+                  } else {
+                    this.errors.phone = '';
+                  }
+                  if (!this.form.guests) {
+                    this.errors.guests = 'No of Guests is required.';
+                  } else {
+                    this.errors.guests = '';
+                  }
+      
+                  for (const key in this.errors) {
+                    if (Object.hasOwnProperty.call(this.errors, key)) {
+                      if(this.errors[key] && key != 'isError') {
+                        isError = true;
+                      }
+                    }
+                  }
+      
+                  return isError;
+                },
+                validateEmail (email) {
+                  if (!email) return false;
+                  const isvalid = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+                  return isvalid;
+                },
+                validatePhone (phone) {
+                  if (!phone) return false;
+                  const isvalid = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/i.test(phone);
+                  return isvalid;
+                },
+                openModal (modalName) {
+                  const modal = document.getElementById(modalName);
+                  document.querySelector('body').classList.add('is-Locked');
+                  modal.classList.add("open");
+                },
+                closeModal (modalName) {
+                  const modal = document.getElementById(modalName);
+                  modal.classList.remove("open");
+                  document.querySelector('body').classList.remove('is-Locked');
+                }
+              }
+            })
+          </script>
     </body>
 </html>
