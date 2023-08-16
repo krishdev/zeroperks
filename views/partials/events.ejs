@@ -4,7 +4,7 @@
         <%- contentFor('pageMeta') %>
         <%- include('../common/fragments/page-meta', { 
             title: post.eventName + ' |  ZEROPERSK',
-            description: post.eventDetails,
+            description: post.shortInvite,
             keywords: 'Baby shower',
             ogOtSquare: post.ogImage && post.ogImage.url ? post.ogImage.url : undefined
         }) %>
