@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const got = require('got');
+const MarkdownIt = require('markdown-it'),
+md = new MarkdownIt();
 const config = require('../configs/config');
 const {
     defaultLocals,
@@ -58,7 +60,7 @@ router.get('/:url', async function (req, res, next) {
             res.render('error');
         }
         let thisPost = responseBody[0];
-        
+        thisPost.eventDetails = md.render(thisPost.eventDetails);
         res.render('partials/events', {post:thisPost, url: encodeURIComponent(`/event/${req.params.url}`)})
     } catch (error) {
         res.locals.message = "Page Not Found";
