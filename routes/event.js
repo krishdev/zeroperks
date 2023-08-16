@@ -60,7 +60,7 @@ router.get('/:url', async function (req, res, next) {
             res.render('error');
         }
         let thisPost = responseBody[0];
-        console.log(thisPost.eventDetails);
+        
         thisPost.eventDetails = md.render(thisPost.eventDetails);
         res.render('partials/events', {post:thisPost, url: encodeURIComponent(`/event/${req.params.url}`)})
     } catch (error) {

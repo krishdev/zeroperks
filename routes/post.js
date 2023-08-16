@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const got = require('got');
+const MarkdownIt = require('markdown-it'),
+md = new MarkdownIt();
 const config = require('../configs/config');
 const {
     defaultLocals,
@@ -72,9 +74,10 @@ router.get('/:url', async function (req, res, next) {
     } catch (error) {
         console.log('Comments for posts: ', error);
     }
-    thisPost.views += 1;    
+    thisPost.views += 1;
     
     updatePost(thisPost.id, thisPost);
+    thisPost.content = md.render(thisPost.content);
     res.render('partials/blog', {post:thisPost, recentPosts: recentPostResponseBody, comments: responseComment.body || [], url: encodeURIComponent(`/post/${req.params.url}`)})
 })
 
