@@ -106,7 +106,7 @@
                                             </div>
                                             <div class="mb-3">
                                                 <div class="form-field">
-                                                    <input type="tel" value="" class="form-control" name="phone" placeholder="Your phone" v-model.trim="form.phone" />
+                                                    <input type="tel" value="" class="form-control" name="phone" placeholder="Your phone" v-model.trim="form.phone" maxlength="17" />
                                                     <div class="c-Errors">
                                                         <p v-if="this.errors.isError && this.errors.phone" v-html="this.errors.phone"></p>
                                                     </div>
@@ -241,13 +241,13 @@
                   } else {
                     this.errors.email = '';
                   }
-                  if (!this.form.phone) {
-                    this.errors.phone = 'Phone is required.';
-                  } else if (!this.validatePhone(this.form.phone)) {
-                    this.errors.phone = 'Phone is invalid.';
-                  } else {
-                    this.errors.phone = '';
-                  }
+                //   if (!this.form.phone) {
+                //     this.errors.phone = 'Phone is required.';
+                //   } else if (!this.validatePhone(this.form.phone)) {
+                //     this.errors.phone = 'Phone is invalid.';
+                //   } else {
+                //     this.errors.phone = '';
+                //   }
                   if (!this.form.guests) {
                     this.errors.guests = 'No of Guests is required.';
                   } else {
