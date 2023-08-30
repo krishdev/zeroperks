@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const PQueue = require('p-queue');
 const got = require('got');
 var svgCaptcha = require('svg-captcha');
 const config = require('../configs/config');
@@ -144,6 +145,9 @@ router.post('/arrangetram-540', async function (req, res) {
   }
 });
 
+// Create a queue with controlled concurrency
+const queue = new PQueue({ concurrency: 10 }); // Adjust concurrency as needed
+
 router.post('/arangetram-reminder-978', async function (req, res) {
   try {
     const db = admin.firestore();
@@ -151,16 +155,16 @@ router.post('/arangetram-reminder-978', async function (req, res) {
     const response = await participants.get();
     let allData = response.docs.map(doc=>doc.data());
     let allEmails = [];
-    let emailsSent = ["ragasri.paligaram@gmail.com","pappuvenkat@gmail.com","bobbyranjani@yahoo.com","dhareni@gmail.com","srinidhi.d@gmail.com","archsnakh5893@gmail.com","ashtonbhakta21@gmail.com","b.chaitany@gmail.com","mrajappan@hotmail.com","mmuthaluru@gmail.com","swarna.ravi@gmail.com","nethramr@gmail.com","nehajaiswal2006@gmail.com","renukait@gmail.com","caty.vela@icloud.com","lakku.nischalareddy@gmail.com","Email_gana@yahoo.com","findavantika@gmail.com","divyapriya.r@gmail.com"];
+    let emailsSent = ["ragasri.paligaram@gmail.com","pappuvenkat@gmail.com","bobbyranjani@yahoo.com","hinarmada@gmail.com","emailarohana@gmail.com","hasinikiranbabu08@gmail.com","dhareni@gmail.com","srinidhi.d@gmail.com","archsnakh5893@gmail.com","lalapat@gmail.com","ashtonbhakta21@gmail.com","balaji_vimala@hotmail.com","b.chaitany@gmail.com","mrajappan@hotmail.com","mmuthaluru@gmail.com","swarna.ravi@gmail.com","mallikasatpati@gmail.com","nethramr@gmail.com","gayathirid@gmail.com","ponmalar.senthil@gmail.com","nshan.priya@gmail.com","palani.ragu@gmail.com","nehajaiswal2006@gmail.com","renukait@gmail.com","caty.vela@icloud.com","lakku.nischalareddy@gmail.com","Email_gana@yahoo.com","Kalpana.214@gmail.com","findavantika@gmail.com","roger.z.mani@gmail.com","divyapriya.r@gmail.com"];
     if (allData && allData.length) {
       allData.forEach( item => {
-        if (allEmails.indexOf(item.email) === -1 && emailsSent.indexOf(item.email) === -1) allEmails.push(item.email);
+        if (allEmails.indexOf(item.email) === -1 && emailsSent.indexOf(item.email) === -1) {
+          allEmails.push(item.email);
+          queue.add(() => reminderEmailEvt(item.email));
+        }
       });
     }
-    for (let i = 0; i < allEmails.length; i++) {
-      const email = allEmails[i];
-      const sent = reminderEmailEvt(email);
-    }
+    
     res.json({message: "Email sent"});
   } catch (error) {
     res.json({message: "Error occurred"});
