@@ -146,29 +146,9 @@ router.post('/arrangetram-540', async function (req, res) {
 
 router.post('/arangetram-reminder-978', async function (req, res) {
   try {
-    const batch1 = ["dr.nirmala.asokan@gmail.com","premkavi@msn.com","lakmettu@gmail.com","sowmeyaa.dhanasekar@gmail.com","ally.aditi@gmail.com","monikaroy.dogra@gmail.com","Sahasrak@yahoo.com","anna_gemini@hotmail.sg","srirambe@gmail.com","shobiskris@gmail.com","shankar.koti9@gmail.com"];
-    const batch2 = ["ranjannabar@gmail.com","anupama.lalam@gmail.com","nethramr@gmail.com","sri_lakshmi21@yahoo.com","anumanivannan3@gmail.com","praveenadhayanithy@yahoo.com","anu2020dreams@gmail.com","rpsharitha@gmail.com","sathyasree.tumpala@gmail.com","ashwikakatiyar@gmail.com","pooja.vyas@gmail.com"];
-    const batch3 = ["shritha2020@gmail.com","kowsalya.siva@gmail.com","sangubalu@gmail.com","vsaanvi@hotmail.com","shwetaa20@gmail.com","r.chandu2000@gmail.com","jana_naidu@yahoo.com","vibha.arvind@gmail.com","psdallas7@gmail.com","roopa5246@gmail.com","KIranmai.gunta@gmail.com"];
-    const batch4 = ["nagallarehwa@gmail.com","prachirathore@gmail.com","sangeetgha.anand21@gmail.com","sowmeyaa.dhanasekar@gmail.com","sandhyakatragadda@gmail.com","jagadhi227@gmail.com","srinidhi.edupuganti@gmail.com","suneetharavilla@gmail.com","shanpanchu@yahoo.com","soundar_tat@Yahoo.com","shobanabalraj@gmail.com"];
-    const batch5 = ["malkan1331@gmail.com","pln17@yahoo.com","preetips@hotmail.com","jaya.ash@gmail.com","nethramr@gmail.com","sunithasriram@yahoo.com","amusiva@gmail.com","vimal_mathimaran@yahoo.com","Crysoberyl@gmail.com","vijji9022@gmail.com"];
-    const batch6 = ["itsmeanu.2008@gmail.com","mesham123@icloud.com","vsg.vjk@gmail.com","sri_lakshmi21@yahoo.com","priya.mantrala@gmail.com","sudeshnaroy16@gmail.com","mailkrishna2@gmail.com"];
+    const batch1 = ["dr.nirmala.asokan@gmail.com","premkavi@msn.com","lakmettu@gmail.com","sowmeyaa.dhanasekar@gmail.com","ally.aditi@gmail.com","monikaroy.dogra@gmail.com","anna_gemini@hotmail.sg","srirambe@gmail.com","shankar.koti9@gmail.com","anupama.lalam@gmail.com","nethramr@gmail.com","sri_lakshmi21@yahoo.com","anumanivannan3@gmail.com","praveenadhayanithy@yahoo.com","anu2020dreams@gmail.com","rpsharitha@gmail.com","sathyasree.tumpala@gmail.com","kowsalya.siva@gmail.com","sangubalu@gmail.com","vsaanvi@hotmail.com","r.chandu2000@gmail.com","jana_naidu@yahoo.com","vibha.arvind@gmail.com","psdallas7@gmail.com","roopa5246@gmail.com","KIranmai.gunta@gmail.com","nagallarehwa@gmail.com","prachirathore@gmail.com","sangeetgha.anand21@gmail.com","sandhyakatragadda@gmail.com","srinidhi.edupuganti@gmail.com","suneetharavilla@gmail.com","shanpanchu@yahoo.com","soundar_tat@Yahoo.com","shobanabalraj@gmail.com","malkan1331@gmail.com","pln17@yahoo.com","preetips@hotmail.com","jaya.ash@gmail.com","nethramr@gmail.com","sunithasriram@yahoo.com","mailkrishna2@gmail.com","amusiva@gmail.com","vimal_mathimaran@yahoo.com","vijji9022@gmail.com","itsmeanu.2008@gmail.com","mesham123@icloud.com","vsg.vjk@gmail.com","sri_lakshmi21@yahoo.com"];
     for (let i = 0; i < batch1.length; i++) {
-      reminderEmailEvt(batch1[i]); 
-    }
-    for (let i = 0; i < batch2.length; i++) {
-      reminderEmailEvt(batch2[i]); 
-    }
-    for (let i = 0; i < batch3.length; i++) {
-      reminderEmailEvt(batch3[i]); 
-    }
-    for (let i = 0; i < batch4.length; i++) {
-      reminderEmailEvt(batch4[i]); 
-    }
-    for (let i = 0; i < batch5.length; i++) {
-      reminderEmailEvt(batch5[i]); 
-    }
-    for (let i = 0; i < batch6.length; i++) {
-      reminderEmailEvt(batch6[i]); 
+      await reminderEmailEvt(batch1[i]); 
     }
     
     res.json({message: "Email sent"});

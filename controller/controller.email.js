@@ -22,8 +22,10 @@ exports.sendEmail = async function (body) {
           };
           
         const isEmailSent = await sendMail(mailOptions);
+        return isEmailSent;
     } catch (error) {
         console.log(error);
+        console.log('email: ' + body.to);
     }
 }
 
