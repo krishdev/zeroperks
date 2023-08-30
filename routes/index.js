@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const PQueue = require('p-queue');
 const got = require('got');
 var svgCaptcha = require('svg-captcha');
 const config = require('../configs/config');
@@ -145,24 +144,31 @@ router.post('/arrangetram-540', async function (req, res) {
   }
 });
 
-// Create a queue with controlled concurrency
-const queue = new PQueue({ concurrency: 10 }); // Adjust concurrency as needed
-
 router.post('/arangetram-reminder-978', async function (req, res) {
   try {
-    const db = admin.firestore();
-    const participants = db.collection('participants');
-    const response = await participants.get();
-    let allData = response.docs.map(doc=>doc.data());
-    let allEmails = [];
-    let emailsSent = ["ragasri.paligaram@gmail.com","pappuvenkat@gmail.com","bobbyranjani@yahoo.com","hinarmada@gmail.com","emailarohana@gmail.com","hasinikiranbabu08@gmail.com","dhareni@gmail.com","srinidhi.d@gmail.com","archsnakh5893@gmail.com","lalapat@gmail.com","ashtonbhakta21@gmail.com","balaji_vimala@hotmail.com","b.chaitany@gmail.com","mrajappan@hotmail.com","mmuthaluru@gmail.com","swarna.ravi@gmail.com","mallikasatpati@gmail.com","nethramr@gmail.com","gayathirid@gmail.com","ponmalar.senthil@gmail.com","nshan.priya@gmail.com","palani.ragu@gmail.com","nehajaiswal2006@gmail.com","renukait@gmail.com","caty.vela@icloud.com","lakku.nischalareddy@gmail.com","Email_gana@yahoo.com","Kalpana.214@gmail.com","findavantika@gmail.com","roger.z.mani@gmail.com","divyapriya.r@gmail.com"];
-    if (allData && allData.length) {
-      allData.forEach( item => {
-        if (allEmails.indexOf(item.email) === -1 && emailsSent.indexOf(item.email) === -1) {
-          allEmails.push(item.email);
-          queue.add(() => reminderEmailEvt(item.email));
-        }
-      });
+    const batch1 = ["dr.nirmala.asokan@gmail.com","premkavi@msn.com","lakmettu@gmail.com","sowmeyaa.dhanasekar@gmail.com","ally.aditi@gmail.com","monikaroy.dogra@gmail.com","Sahasrak@yahoo.com","anna_gemini@hotmail.sg","srirambe@gmail.com","shobiskris@gmail.com","shankar.koti9@gmail.com"];
+    const batch2 = ["ranjannabar@gmail.com","anupama.lalam@gmail.com","nethramr@gmail.com","sri_lakshmi21@yahoo.com","anumanivannan3@gmail.com","praveenadhayanithy@yahoo.com","anu2020dreams@gmail.com","rpsharitha@gmail.com","sathyasree.tumpala@gmail.com","ashwikakatiyar@gmail.com","pooja.vyas@gmail.com"];
+    const batch3 = ["shritha2020@gmail.com","kowsalya.siva@gmail.com","sangubalu@gmail.com","vsaanvi@hotmail.com","shwetaa20@gmail.com","r.chandu2000@gmail.com","jana_naidu@yahoo.com","vibha.arvind@gmail.com","psdallas7@gmail.com","roopa5246@gmail.com","KIranmai.gunta@gmail.com"];
+    const batch4 = ["nagallarehwa@gmail.com","prachirathore@gmail.com","sangeetgha.anand21@gmail.com","sowmeyaa.dhanasekar@gmail.com","sandhyakatragadda@gmail.com","jagadhi227@gmail.com","srinidhi.edupuganti@gmail.com","suneetharavilla@gmail.com","shanpanchu@yahoo.com","soundar_tat@Yahoo.com","shobanabalraj@gmail.com"];
+    const batch5 = ["malkan1331@gmail.com","pln17@yahoo.com","preetips@hotmail.com","jaya.ash@gmail.com","nethramr@gmail.com","sunithasriram@yahoo.com","amusiva@gmail.com","vimal_mathimaran@yahoo.com","Crysoberyl@gmail.com","vijji9022@gmail.com"];
+    const batch6 = ["itsmeanu.2008@gmail.com","mesham123@icloud.com","vsg.vjk@gmail.com","sri_lakshmi21@yahoo.com","priya.mantrala@gmail.com","sudeshnaroy16@gmail.com","mailkrishna2@gmail.com"];
+    for (let i = 0; i < batch1.length; i++) {
+      reminderEmailEvt(batch1[i]); 
+    }
+    for (let i = 0; i < batch2.length; i++) {
+      reminderEmailEvt(batch2[i]); 
+    }
+    for (let i = 0; i < batch3.length; i++) {
+      reminderEmailEvt(batch3[i]); 
+    }
+    for (let i = 0; i < batch4.length; i++) {
+      reminderEmailEvt(batch4[i]); 
+    }
+    for (let i = 0; i < batch5.length; i++) {
+      reminderEmailEvt(batch5[i]); 
+    }
+    for (let i = 0; i < batch6.length; i++) {
+      reminderEmailEvt(batch6[i]); 
     }
     
     res.json({message: "Email sent"});
