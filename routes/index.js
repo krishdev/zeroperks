@@ -146,9 +146,20 @@ router.post('/arrangetram-540', async function (req, res) {
 
 router.post('/arangetram-reminder-978', async function (req, res) {
   try {
-    const batch1 = ["dr.nirmala.asokan@gmail.com","premkavi@msn.com","lakmettu@gmail.com","sowmeyaa.dhanasekar@gmail.com","ally.aditi@gmail.com","monikaroy.dogra@gmail.com","anna_gemini@hotmail.sg","srirambe@gmail.com","shankar.koti9@gmail.com","anupama.lalam@gmail.com","nethramr@gmail.com","sri_lakshmi21@yahoo.com","anumanivannan3@gmail.com","praveenadhayanithy@yahoo.com","anu2020dreams@gmail.com","rpsharitha@gmail.com","sathyasree.tumpala@gmail.com","kowsalya.siva@gmail.com","sangubalu@gmail.com","vsaanvi@hotmail.com","r.chandu2000@gmail.com","jana_naidu@yahoo.com","vibha.arvind@gmail.com","psdallas7@gmail.com","roopa5246@gmail.com","KIranmai.gunta@gmail.com","nagallarehwa@gmail.com","prachirathore@gmail.com","sangeetgha.anand21@gmail.com","sandhyakatragadda@gmail.com","srinidhi.edupuganti@gmail.com","suneetharavilla@gmail.com","shanpanchu@yahoo.com","soundar_tat@Yahoo.com","shobanabalraj@gmail.com","malkan1331@gmail.com","pln17@yahoo.com","preetips@hotmail.com","jaya.ash@gmail.com","nethramr@gmail.com","sunithasriram@yahoo.com","mailkrishna2@gmail.com","amusiva@gmail.com","vimal_mathimaran@yahoo.com","vijji9022@gmail.com","itsmeanu.2008@gmail.com","mesham123@icloud.com","vsg.vjk@gmail.com","sri_lakshmi21@yahoo.com"];
-    for (let i = 0; i < batch1.length; i++) {
-      await reminderEmailEvt(batch1[i]); 
+    const db = admin.firestore();
+    const participants = db.collection('participants');
+    const response = await participants.get();
+    let allData = response.docs.map(doc=>doc.data());
+    let allEmails = [];
+    if (allData && allData.length) {
+      allData.forEach( item => {
+        if (allEmails.indexOf(item.email) === -1) {
+          allEmails.push(item.email);
+        }
+      });
+    }
+    for (let i = 0; i < allEmails.length; i++) {
+      await reminderEmailEvt(allEmails[i]); 
     }
     
     res.json({message: "Email sent"});
