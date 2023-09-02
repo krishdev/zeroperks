@@ -166,7 +166,54 @@ router.post('/arangetram-reminder-978', async function (req, res) {
   } catch (error) {
     res.json({message: "Error occurred"});
   }
-})
+});
+
+router.post('/guest-book-messages', async function (req, res) {
+  const db = admin.firestore();
+  const docRef = db.collection('guestbook').doc();
+
+  const data = req.body;
+  const name = data.name;
+  const email = data.email;
+  const content = data.content;
+  const timestamp = new Date().toLocaleString();
+  data.timestamp = timestamp;
+
+  // Save the data to Firebase.
+  try {
+    //const db = await admin.firestore().collection("users").add(data);
+    const response = await docRef.set(data);
+    res.json({message: "Data saved", other: response});
+
+  } catch (error) {
+    res.status(500).send({
+      message: error,
+      data
+    });
+    sendEmail({
+      from: 'emailzeroperks@gmail.com',
+      cc: 'thaarikashanmugam@gmail.com',
+      to: 'nethramr@gmail.com',
+      subj: 'Error: Bharatanatyam Arangetram',
+      content: `Error Occurred saving guest book: \n name: ${name} \n email: ${email} \n content: ${content} \n timestamp: ${timestamp}`
+  });
+  }
+});
+
+router.get('/guest-book-messages', async function (req, res) {
+  try {
+    const db = admin.firestore();
+    const guestbook = db.collection('guestbook');
+    const response = await guestbook.get();
+    let messages = response.docs.map(doc=>doc.data());
+
+    res.json({message: "success", messages});
+
+  }
+  catch (error) {
+    res.status(500).json({message: "error"});
+  }
+});
 
 async function reminderEmailEvt (email) {
   try {
