@@ -1610,7 +1610,7 @@
               const randInxs = this.myRandomInts(this.allMessages.length);
               this.messages = this.allMessages.filter((itm, i) => {
                 const valid = randInxs.indexOf(i) > -1;
-                if (valid && itm.content.length > 100) this.allMessages[i].content = itm.content.substr(0,100);
+                if (valid && itm.content.length > 100) this.allMessages[i].content = itm.content.substr(0,100) + '..';
                 return valid;
               });
             } else {
