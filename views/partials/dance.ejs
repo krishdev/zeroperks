@@ -1615,7 +1615,7 @@
               });
             } else {
               this.messages = this.allMessages.filter((itm, i) => {
-                if (itm.content.length > 100) this.allMessages[i].content = itm.content.substr(0,100);
+                if (itm.content.length > 100) this.allMessages[i].content = itm.content.substr(0,100) + '..';
                 return true;
               });
             }
