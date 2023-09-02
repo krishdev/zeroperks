@@ -596,6 +596,44 @@
       .MuiCollapse-wrapperInner {
         width: 100%;
       }
+
+      blockquote {
+        font-weight: 100;
+        font-size: 1.35rem;
+        max-width: 600px;
+        line-height: 1.4;
+        position: relative;
+        margin: 0;
+        padding: .5rem;
+        /* display: inline-block; */
+      }
+
+      blockquote:before,
+      blockquote:after {
+        position: absolute;
+        color: #f1efe6;
+        font-size: 5rem;
+        width: 4rem;
+        height: 4rem;
+      }
+
+      blockquote:before {
+        content: '“';
+        left: -2rem;
+        top: -2rem;
+        opacity: .25;
+      }
+
+      blockquote:after {
+        content: '”';
+        right: -3rem;
+        bottom: 0rem;
+        opacity: .25;
+      }
+
+      #guest-book .info-text span {
+          font-size: .875rem;
+      }
     </style>
   </head>
   <body>
@@ -628,7 +666,7 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="slide-btn" id="rsvp-btn">
-                      <a class="theme-btn" href="#rsvp">RSVP <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a>
+                      <a class="theme-btn" href="#guest-book">GUEST BOOK <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a>
                     </div>
                   </div>
                 </div>
@@ -704,7 +742,7 @@
                           <li style="font-family: 'Dancing Script', cursive;">cordially invite you to their daughter</li>
                           <li class="c-Invi__details__thb">Thaarika's Bharatanatyam Arangetram</li>
                           <li>Disciple of Smt. Praveena Vajja</li>
-                          <li><a class="theme-btn" href="#rsvp">RSVP <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a></li>
+                          <li style="display: none;"><a class="theme-btn" href="#guest-book">GUEST BOOK <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a></li>
                           <li><a href="https://natyom.com/" target="_blank"><img src="/assets/natyom_logo_mono.svg" alt=""></a></li>
                         </ul>
                       </div>
@@ -1081,7 +1119,7 @@
             </div>
           </div>
           
-          <section class="wpo-contact-area section-padding" id="rsvp">
+          <section class="wpo-contact-area section-padding" style="display: none;" id="rsvp">
             <div class="wpo-wpo-contact-form-map">
               <div class="container">
                 <div class="row">
@@ -1089,7 +1127,6 @@
                     <div class="col-lg-6 col-12">
                       <div class="wpo-section-title">
                         <h2>RSVP</h2>
-                        <!-- <p>Must explain to you how all this mistaken idea of denouncing pleasure born and give you a complete account the system</p> -->
                       </div>
                     </div>
                   </div>
@@ -1203,6 +1240,88 @@
               
             </div>
           </section>
+
+          <section class="wpo-contact-area section-padding" id="guest-book">
+            <div class="wpo-wpo-contact-form-map">
+              <div class="container">
+                <div class="row">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-6 col-12">
+                      <div class="wpo-section-title">
+                        <h2>Guest Book</h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="co-lg-10 offset-lg-1  col-12">
+                    <div class="row">
+                      <div class="col col-lg-6 col-md-12 col-12">
+                        <div class="wpo-contact-form">
+                          <form v-if="!dataSaved && !globalErrors" class="contact-validation-active" novalidate>
+                            <div class="row">
+                              <div class="col col-lg-6 col-12">
+                                <div class="form-field">
+                                  <input type="text" value="" name="name" placeholder="Your Name" v-model.trim="form.name">
+                                  <div class="c-Errors">
+                                    <p v-if="this.errors.isError && this.errors.name" v-html="this.errors.name"></p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col col-lg-6 col-12">
+                                <div class="form-field">
+                                  <input type="email" value="" name="email" placeholder="Your Email" v-model.trim="form.email">
+                                  <div class="c-Errors">
+                                    <p v-if="this.errors.isError && this.errors.email" v-html="this.errors.email"></p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col col-lg-12 col-12">
+                                <div class="form-field">
+                                  <textarea name="content" placeholder="Your Message" v-model.trim="form.content" cols="30" rows="10"></textarea>
+                                  <div class="c-Errors">
+                                    <p v-if="this.errors.isError && this.errors.content" v-html="this.errors.content"></p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <p class="c-Note">Your email is safe with us. We respect your privacy and assure you that your information will not be shared with any third parties and only be used for this event.</p>
+                            <div class="submit-area">
+                              <button type="submit" class="theme-btn" @click.prevent="addMessages">Submit Now <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg></button>
+                            </div>
+                          </form>
+                          <div v-cloak v-else class="c-Rsvp__saved">
+                            <p><blockquote v-html="form.content"></blockquote></p>
+                            <p>- {{form.name}}</p>
+                          </div>
+                          <div class="c-Rsvp__saved" v-if="globalErrors">
+                            <p v-html="globalErrors"></p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col col-lg-6 col-md-12 col-12">
+                        <div class="wpo-contact-info scroller">
+                          <!-- Slide -->
+                          <div class="info-item guest-book-" v-for="msg in messages">
+                            <blockquote v-html="msg.content"></blockquote>
+                            <div class="info-wrap">
+                              <div class="info-text">
+                                <span>- {{msg.name}}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="shape-wk">
+              
+            </div>
+          </section>
+
           <footer id="footer-rsvp" class="wpo-site-footer">
             <div class="upper-contact-area">
               <div class="container">
@@ -1211,7 +1330,7 @@
                     <div class="col col-lg-6">
                       <h2>We would be delighted if you could attend the Arangetram.</h2>
                     </div>
-                    <div class="col col-lg-6">
+                    <div class="col col-lg-6" style="display: none;">
                       <div class="send-message-btn">
                         <a class="theme-btn" href="#rsvp">RSVP <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a>
                       </div>
@@ -1330,7 +1449,8 @@
             name: '',
             email: '',
             phone: '',
-            guests: ''
+            guests: '',
+            content: ''
           },
           isLoading: false,
           isFormSubmitted: false,
@@ -1342,9 +1462,13 @@
             guests: ''
           },
           globalErrors: '',
-          dataSaved: false
+          dataSaved: false,
+          messages: [],
+          allMessages: []
         },
-        created () {},
+        created () {
+          this.getMessages();
+        },
         mounted () {
           let allClose = document.querySelectorAll('.modal.hide');
           if (allClose) {
@@ -1459,29 +1583,13 @@
             origin: "bottom",
             reset: false
           });
-          ScrollReveal().reveal('#rsvp-venue',{
-            delay: 175,
-            duration: 1500,
-            opacity: 0,
-            distance: "50%",
-            origin: "bottom",
-            reset: false
-          });
-          ScrollReveal().reveal('#rsvp-nethra',{
-            delay: 175,
-            duration: 1500,
-            opacity: 0,
-            distance: "50%",
-            origin: "bottom",
-            reset: false
-          });
-          ScrollReveal().reveal('#rsvp-shan',{
-            delay: 175,
-            duration: 1500,
-            opacity: 0,
-            distance: "50%",
-            origin: "bottom",
-            reset: false
+          ScrollReveal().reveal('#guest-book-item',{
+          delay: 175,
+          duration: 1500,
+          opacity: 0,
+          distance: "50%",
+          origin: "bottom",
+          reset: false
           });
           ScrollReveal().reveal('#footer-rsvp',{
             delay: 175,
@@ -1556,18 +1664,23 @@
             } else {
               this.errors.email = '';
             }
-            if (!this.form.phone) {
-              this.errors.phone = 'Phone is required.';
-            } else if (!this.validatePhone(this.form.phone)) {
-              this.errors.phone = 'Phone is invalid.';
+            if (!this.form.content) {
+              this.errors.content = 'Message is required.';
             } else {
-              this.errors.phone = '';
+              this.errors.content = '';
             }
-            if (!this.form.guests) {
-              this.errors.guests = 'No of Guests is required.';
-            } else {
-              this.errors.guests = '';
-            }
+            // if (!this.form.phone) {
+            //   this.errors.phone = 'Phone is required.';
+            // } else if (!this.validatePhone(this.form.phone)) {
+            //   this.errors.phone = 'Phone is invalid.';
+            // } else {
+            //   this.errors.phone = '';
+            // }
+            // if (!this.form.guests) {
+            //   this.errors.guests = 'No of Guests is required.';
+            // } else {
+            //   this.errors.guests = '';
+            // }
 
             for (const key in this.errors) {
               if (Object.hasOwnProperty.call(this.errors, key)) {
@@ -1598,6 +1711,72 @@
             const modal = document.getElementById(modalName);
             modal.classList.remove("open");
             document.querySelector('body').classList.remove('is-Locked');
+          },
+          async getMessages () {
+            try {
+              const response = await fetch("/guest-book-messages", {
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json",
+                }
+              });
+
+              const result = await response.json();
+              if (result && result.message && result.message == 'success') {
+                this.allMessages = result.messages;
+                this.setRandomMessages();
+                setInterval(() => {
+                  this.setRandomMessages();
+                },3000)
+              } else {
+                this.globalErrors = 'Sorry! Something went wrong. Please click <a href="mailto:nshanmugam@gmail.com?subject=RSVP%20Arangetram&body=Hello%2C%20We%20will%20attend%20the%20event%20a%20number%20of%20participants"">here</a> to email the same.';
+              }
+            } catch (error) {
+              console.log(error);
+            }
+          },
+          setRandomMessages () {
+            const randInxs = this.myRandomInts(this.allMessages.length-1);
+            this.messages = this.allMessages.filter((itm, i) => {
+              const valid = randInxs.indexOf(i) > -1;
+              if (valid && itm.content.length > 100) this.allMessages[i].content = itm.content.substr(0,100);
+              return valid;
+            });
+          },
+          myRandomInts(max){
+            const arr = []
+            while(arr.length < 3){
+              var candidateInt = Math.floor(Math.random() * max) + 1
+              if(arr.indexOf(candidateInt) === -1) arr.push(candidateInt)
+            }
+            return(arr)
+          },
+          async addMessages () {
+            this.isFormSubmitted = true;
+            this.errors.isError = this.validation();
+
+            if (!this.errors.isError) {
+              // submit api
+              this.isLoading = true;
+              try {
+                const response = await fetch("/guest-book-messages", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(this.form),
+                });
+                const result = await response.json();
+                if (result && result.message && typeof result.message == 'string') {
+                  this.dataSaved = true;
+                  // this.reset();
+                } else {
+                  this.globalErrors = 'Sorry! Something went wrong. Please click <a href="mailto:nshanmugam@gmail.com?subject=RSVP%20Arangetram&body=Hello%2C%20We%20will%20attend%20the%20event%20a%20number%20of%20participants"">here</a> to email the same.';
+                }
+              } catch (error) {
+                console.log(error);
+              }
+            }
           }
         }
       })
