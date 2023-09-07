@@ -280,7 +280,7 @@ router.get('/event-reminder-image', async (req, res) => {
       subj: 'Error: getting email image',
       content: `Email error: ${error}`
     });
-    res.sendFile('/images/email-images/bangle-bg.jpg'); 
+    res.sendFile(__dirname + '/images/email-images/bangle-bg.jpg'); 
   }
   
 });
