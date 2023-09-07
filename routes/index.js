@@ -261,17 +261,28 @@ async function reminderEmailEvt (email) {
 
 router.get('/event-reminder-image', async (req, res) => {
   // Log the request or update your database with relevant information here
-  const email = req.query.id;
-  const event = 'babyShower';
-  const db = admin.firestore();
-  const docRef = db.collection('eventEmailEngagements').doc();
+  try {
+    const email = req.query.id;
+    const event = 'babyShower';
+    const db = admin.firestore();
+    const docRef = db.collection('eventEmailEngagements').doc();
 
-  if (email) {
-    const response = await docRef.set({email, event});
+    if (email) {
+      const response = await docRef.set({email, event});
+    }
+    
+    // Send the image as a response
+    res.sendFile('/images/email-images/bangle-bg.jpg');  
+  } catch (error) {
+    await sendEmail({
+      from: 'emailzeroperks@gmail.com',
+      to: 'mailkrishna2@gmail.com',
+      subj: 'Error: getting email image',
+      content: `Email error: ${error}`
+    });
+    res.sendFile('/images/email-images/bangle-bg.jpg'); 
   }
   
-  // Send the image as a response
-  res.sendFile('/images/email-images/bangle-bg.jpg');
 });
 
 
