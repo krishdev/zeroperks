@@ -4,6 +4,7 @@ const got = require('got');
 var svgCaptcha = require('svg-captcha');
 const config = require('../configs/config');
 const admin = require('firebase-admin');
+const path = require('path');
 const fs = require('fs');
 
 var readHTMLFile = function(path, callback) {
@@ -260,9 +261,10 @@ async function reminderEmailEvt (email) {
 }
 
 router.get('/event-reminder-image', async (req, res) => {
+  defaultLocals(req, res);
   // Log the request or update your database with relevant information here
   try {
-    const email = req.query.id;
+    const email = req.query ? req.query.id : null;
     const event = 'babyShower';
     const db = admin.firestore();
     const docRef = db.collection('eventEmailEngagements').doc();
@@ -272,7 +274,8 @@ router.get('/event-reminder-image', async (req, res) => {
     }
     
     // Send the image as a response
-    res.sendFile('/images/email-images/bangle-bg.jpg');  
+    const publicFolderPath = path.join(__dirname, '..', 'public');
+    res.sendFile(publicFolderPath +'/images/email-images/bangle-bg.jpg');  
   } catch (error) {
     await sendEmail({
       from: 'emailzeroperks@gmail.com',
@@ -280,7 +283,6 @@ router.get('/event-reminder-image', async (req, res) => {
       subj: 'Error: getting email image',
       content: `Email error: ${error}`
     });
-    res.sendFile(__dirname + '/images/email-images/bangle-bg.jpg'); 
   }
   
 });
