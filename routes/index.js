@@ -183,9 +183,9 @@ router.post('/event-reminder-621', async function (req, res) {
         }
       });
     }
-    // for (let i = 0; i < allEmails.length; i++) {
-      await reminderEmailEvt('mailkrishna2@gmail.com'); 
-    // }
+    for (let i = 0; i < allEmails.length; i++) {
+      await reminderEmailEvt(allEmails[i]); 
+    }
     
     res.json({message: "Email sent"});
   } catch (error) {
