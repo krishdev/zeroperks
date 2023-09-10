@@ -208,7 +208,7 @@ router.post('/event-thankyou-621', async function (req, res) {
       });
     }
     for (let i = 0; i < allEmails.length; i++) {
-      await reminderEmailEvt('mailkrishna2@gmail.com'); 
+      await reminderEmailEvt(allEmails[i]); 
     }
     
     res.json({message: "Email sent"});
