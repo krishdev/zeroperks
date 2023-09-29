@@ -33,7 +33,7 @@
                     <article class="blog-post">                        
                         <p class="blog-post-meta row">
                             <span class="col-sm-6">
-                                <b>Date Published: </b><%= new Date(post.published_at).getDate() %> <%= new Date(post.published_at).toLocaleString('default', {month: 'medium'}) %>, <%= new Date(post.published_at).getFullYear() %>
+                                <b>Date Published: </b><%= new Date(post.published_at).getDate() %> <%= new Date(post.published_at).toLocaleString('default', {month: 'short'}) %>, <%= new Date(post.published_at).getFullYear() %>
                             </span>
                             <span class="col-sm-6">
                                 <b>Views: </b><%= post.views ? post.views : 1 %>
