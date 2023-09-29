@@ -7,7 +7,8 @@ const {
 function startSitemap () {
     console.log('sitemap started..');
     const generator = SitemapGenerator('https://www.zeroperks.com', {
-        stripQuerystring: false
+        stripQuerystring: false,
+        filepath: './public/sitemap.xml'
     });
 
     generator.on('done', () => {
