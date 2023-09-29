@@ -41,7 +41,7 @@
                                 <img src="<%= aclPort+thisPost.heroImage.url %>" alt="<%= thisPost.title.substring(0,50) %>">
                             </figure>
                             <div class="c-Category-post__body">
-                                <div class="c-Category-post__date"><%= new Date(thisPost.published_at).toLocaleString() %></div>
+                                <div class="c-Category-post__date"><%= new Date(thisPost.published_at).getDate() %> <%= new Date(thisPost.published_at).toLocaleString('default', {month: 'short'}) %>, <%= new Date(thisPost.published_at).getFullYear() %></div>
                                 <h3 class="mt-5 mb-4 display-6 lh-1 fw-bold blog-card__text">
                                     <a href="/post/<%= thisPost.url %>/" class="blog-card__link d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                                         <%= thisPost.title.substring(0,50) %>
