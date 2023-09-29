@@ -76,7 +76,7 @@
                                 <span class="c-Topics-art-body__cat"><%= article.categories[0].name %></span>
                             </a>
                             <div class="c-Topics-art-body__title"><%= article.title && article.title.length < 93 ? article.title : (article.title.substring(0,90)+'..') %></div>
-                            <div class="c-Topics-art-body__date"><%= new Date(article.createdAt).toString().substring(0,15) %></div>
+                            <div class="c-Topics-art-body__date"><%= new Date(article.createdAt).getDate() %> <%= new Date(article.createdAt).toLocaleString('default', {month: 'short'}) %>, <%= new Date(article.createdAt).getFullYear() %></div>
                             <a href="/post/<%- article.url %>" class="o-Btn-line o-Btn-line--black o-Btn--icon">Read Article <span class="o-Icon-bg"><i class="fas fa-chevron-right"></i></span></a>
                         </div>
                     </div>
