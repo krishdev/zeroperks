@@ -188,7 +188,8 @@
                 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
                 
                 if (eventDate) {
-                  const now = new Date(eventDate);
+                  const dtSplit = eventDate.split('-');
+                  const now = new Date(`${dtSplit[1]}/${dtSplit[2]}/${dtSplit[0]}`);
                   this.eventDate = `${days[now.getDay()]} ${months[now.getMonth()]} ${now.getDate()} ${now.getFullYear()}`;
                 }
               },
