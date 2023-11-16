@@ -94,3 +94,15 @@ exports.getGitRepo = function (perPage, page) {
       });
   })
 }
+
+/**
+ * 
+ * @param {String} dateTimeStr
+ */
+exports.getDayMonthYearTime = function (dateTimeStr) {
+  if (!dateTimeStr) return null;
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const now = new Date(dateTimeStr);
+  return `${days[now.getDay()]} ${months[now.getMonth()]} ${now.getDate()} ${now.getFullYear()}`;
+}
