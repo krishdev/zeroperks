@@ -67,7 +67,7 @@
             <% } %>
             
             <div class="row c-Post__two-rows">
-                <section class="col-sm-12 col-md-9">
+                <section class="col-sm-12 col-md-9" id="app">
                     <article class="blog-post">                        
                         <p class="blog-post-meta row">
                             <span class="col-sm-6" v-cloak>
@@ -76,13 +76,13 @@
                         </p>
                         <p class="blog-post-meta row">
                             <span class="col-sm-6">
-                                <b>Event Venue: </b><a href="http://maps.google.com/?q=<%= post.eventVenue.replace(/\n/g,' '); %>""><%= post.eventVenue %></a>
+                                <b>Event Venue: </b><a href="http://maps.google.com/?q=<%= post.eventVenue.replace(/\n/g,' '); %>" target="_blank"><%= post.eventVenue %></a>
                             </span>
                         </p>
                         <p class="blog-post-content"><%- post.eventDetails %></p>
                     </article>
 
-                    <article class="c-Rsvp" id="app">
+                    <article class="c-Rsvp">
                         <div class="row">
                             <div class="col col-lg-6 col-md-12 col-12">
                                 <h4 class="mb-3">RSVP</h4>
