@@ -106,12 +106,16 @@ router.post('/event-reminder-621', async function (req, res) {
           }
         });
       }
+      console.log("allEmails: " + allEmails.length);
       if (eventResBody && eventResBody.length) {
         const thisEvent = eventResBody[0];
         thisEvent.reminderEventContent = md.render(thisEvent.reminderEventContent);
+        console.log("reminderEventContent: " + thisEvent.reminderEventContent);
         for (let i = 0; i < allEmails.length; i++) {
-          await reminderEmailEvt(allEmails[i], thisEvent); 
+            console.log("allEmails: " + allEmails[i]);
+            await reminderEmailEvt(allEmails[i], thisEvent); 
         }
+        console.log("email sent");
       }
       
       res.json({message: "Email sent"});
