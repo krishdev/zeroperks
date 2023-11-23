@@ -109,8 +109,8 @@ router.post('/event-reminder-621', async function (req, res) {
       console.log("allEmails: " + allEmails.length);
       if (eventResBody && eventResBody.length) {
         const thisEvent = eventResBody[0];
-        console.log("eventTime: " + thisEvent.eventTime);
         thisEvent.reminderEventContent = md.render(thisEvent.reminderEventContent);
+        console.log("eventTime: " + thisEvent.eventTime);
         for (let i = 0; i < allEmails.length; i++) {
             console.log("allEmails: " + allEmails[i]);
             await reminderEmailEvt(allEmails[i], thisEvent); 
