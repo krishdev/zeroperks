@@ -6,7 +6,8 @@ md = new MarkdownIt();
 const config = require('../configs/config');
 const {
     defaultLocals,
-    timeSince
+    timeSince,
+    reminderEmailEvt
 } = require('../configs/common-setup');
 const {
     sendEmail
@@ -85,5 +86,36 @@ async function updatePost (id, data) {
         console.log('POST Update error: ', error);
     }
 }
+
+router.post('/event-reminder-621', async function (req, res) {
+    try {
+      const data = req.body;
+      const eventId = data.eventId;
+      const db = admin.firestore();
+      const participants = db.collection('events').where('postId', "==", eventId);
+      const response = await participants.get();
+      let allData = response.docs.map(doc=>doc.data());
+      const eventResBody = await getEventById(eventId);
+      let allEmails = [];
+      if (allData && allData.length) {
+        allData.forEach( item => {
+          if (allEmails.indexOf(item.email) === -1) {
+            allEmails.push(item.email);
+          }
+        });
+      }
+      if (eventResBody && eventResBody.length) {
+        const thisEvent = eventResBody[0];
+        thisEvent.reminderEventContent = md.render(thisEvent.reminderEventContent);
+        for (let i = 0; i < allEmails.length; i++) {
+          await reminderEmailEvt(allEmails[i], thisEvent); 
+        }
+      }
+      
+      res.json({message: "Email sent"});
+    } catch (error) {
+      res.json({message: "Error occurred"});
+    }
+});
 
 module.exports = router;
