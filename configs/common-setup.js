@@ -110,3 +110,26 @@ exports.getDayMonthYearTime = function (dateTimeStr) {
   const now = new Date(dateTimeStr);
   return `${days[now.getDay()]} ${months[now.getMonth()]} ${now.getDate()} ${now.getFullYear()}`;
 }
+
+/**
+ * 
+ * @param {String} eventId 
+ * @returns event
+ */
+exports.getEventById = async (eventId) => {
+  /** Get Event details */
+  try {
+    const eventRes = await got.get(config.acl+'/events?_where[id]='+eventId, {		
+        responseType: 'json'
+    })
+    const eventResBody = eventRes.body;
+    console.log("event body: "+ eventResBody.length);
+    if (!eventResBody || eventResBody.length === 0) {
+        return null;
+    }
+    return eventResBody;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
