@@ -97,6 +97,7 @@ router.post('/event-reminder-621', async function (req, res) {
       let allData = response.docs.map(doc=>doc.data());
       const eventResBody = await getEventById(eventId);
       let allEmails = [];
+      console.log('eventResBody reminder: ' + eventResBody.length);
       if (allData && allData.length) {
         allData.forEach( item => {
           if (allEmails.indexOf(item.email) === -1) {
@@ -107,6 +108,7 @@ router.post('/event-reminder-621', async function (req, res) {
       if (eventResBody && eventResBody.length) {
         const thisEvent = eventResBody[0];
         thisEvent.reminderEventContent = md.render(thisEvent.reminderEventContent);
+        console.log('allEmails reminder: ' + allEmails.length);
         for (let i = 0; i < allEmails.length; i++) {
           await reminderEmailEvt(allEmails[i], thisEvent); 
         }
