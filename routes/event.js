@@ -98,7 +98,7 @@ router.post('/event-reminder-621', async function (req, res) {
       let allData = response.docs.map(doc=>doc.data());
       const eventResBody = await getEventById(eventId);
       let allEmails = [];
-      console.log("eventResBody: " + eventResBody.length);
+      
       if (allData && allData.length) {
         allData.forEach( item => {
           if (allEmails.indexOf(item.email) === -1) {
@@ -106,16 +106,12 @@ router.post('/event-reminder-621', async function (req, res) {
           }
         });
       }
-      console.log("allEmails: " + allEmails.length);
       if (eventResBody && eventResBody.length) {
         const thisEvent = eventResBody[0];
-        console.log("eventTime: " + thisEvent.reminderEventContent);
-        thisEvent.reminderEventContent = md.render(thisEvent.reminderEventContent);
+        thisEvent.reminderEmailContent = md.render(thisEvent.reminderEmailContent);
         for (let i = 0; i < allEmails.length; i++) {
-            console.log("allEmails: " + allEmails[i]);
             await reminderEmailEvt(allEmails[i], thisEvent); 
         }
-        console.log("email sent");
       }
       
       res.json({message: "Email sent"});
