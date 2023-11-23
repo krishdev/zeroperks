@@ -98,6 +98,7 @@ router.post('/event-reminder-621', async function (req, res) {
       let allData = response.docs.map(doc=>doc.data());
       const eventResBody = await getEventById(eventId);
       let allEmails = [];
+      console.log("eventResBody: " + eventResBody.length);
       if (allData && allData.length) {
         allData.forEach( item => {
           if (allEmails.indexOf(item.email) === -1) {
