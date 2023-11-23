@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const admin = require('firebase-admin');
 const got = require('got');
 const MarkdownIt = require('markdown-it'),
 md = new MarkdownIt();
@@ -95,10 +96,8 @@ router.post('/event-reminder-621', async function (req, res) {
       const participants = db.collection('events').where('postId', "==", eventId);
       const response = await participants.get();
       let allData = response.docs.map(doc=>doc.data());
-      console.log('eventResBody eventId: ' + eventId, "allData: " + allData.length);
       const eventResBody = await getEventById(eventId);
       let allEmails = [];
-      console.log('eventResBody reminder: ' + eventResBody.length);
       if (allData && allData.length) {
         allData.forEach( item => {
           if (allEmails.indexOf(item.email) === -1) {
@@ -109,7 +108,6 @@ router.post('/event-reminder-621', async function (req, res) {
       if (eventResBody && eventResBody.length) {
         const thisEvent = eventResBody[0];
         thisEvent.reminderEventContent = md.render(thisEvent.reminderEventContent);
-        console.log('allEmails reminder: ' + allEmails.length);
         for (let i = 0; i < allEmails.length; i++) {
           await reminderEmailEvt(allEmails[i], thisEvent); 
         }
