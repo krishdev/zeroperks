@@ -95,6 +95,7 @@ router.post('/event-reminder-621', async function (req, res) {
       const participants = db.collection('events').where('postId', "==", eventId);
       const response = await participants.get();
       let allData = response.docs.map(doc=>doc.data());
+      console.log('eventResBody eventId: ' + eventId, "allData: " + allData.length);
       const eventResBody = await getEventById(eventId);
       let allEmails = [];
       console.log('eventResBody reminder: ' + eventResBody.length);
