@@ -7,7 +7,7 @@ md = new MarkdownIt();
 const config = require('../configs/config');
 const {
     defaultLocals,
-    timeSince,
+    getEventById,
     reminderEmailEvt
 } = require('../configs/common-setup');
 const {
