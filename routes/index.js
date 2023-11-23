@@ -266,7 +266,7 @@ router.get('/event-reminder-image', async (req, res) => {
     if (eventResBody && eventResBody.length) {
       const thisPost = eventResBody[0];
       console.log("eventBanner: "+thisPost.eventBanner.url);
-      res.sendFile(`https://admin.zeroperks.com/${thisPost.eventBanner.url}`);  
+      res.sendFile(publicFolderPath+thisPost.eventBanner.url);  
     } else {
       res.sendFile(publicFolderPath +'/images/email-images/bangle-bg.jpg');  
     }
