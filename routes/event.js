@@ -114,7 +114,7 @@ router.post('/event-reminder-621', async function (req, res) {
       
       res.json({message: "Email sent"});
     } catch (error) {
-      res.json({message: "Error occurred"});
+      res.json({message: "Error occurred", error});
     }
 });
 
