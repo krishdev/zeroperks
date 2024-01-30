@@ -104,6 +104,10 @@ router.get('/dance', async function(req, res, next) {
   res.render('partials/dance');
 });
 
+router.get('/baby-shower/', function (req, res) {
+  res.render('partials/baby-shower');
+})
+
 router.post('/arrangetram-540', async function (req, res) {
   const db = admin.firestore();
   const docRef = db.collection('participants').doc();
