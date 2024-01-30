@@ -105,6 +105,7 @@ router.get('/dance', async function(req, res, next) {
 });
 
 router.get('/baby-shower/', function (req, res) {
+  defaultLocals(req, res);
   res.render('partials/baby-shower');
 })
 
