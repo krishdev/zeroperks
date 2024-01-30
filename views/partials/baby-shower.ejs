@@ -610,9 +610,9 @@
 					this.affiliate.name = urlParam.name;
 					this.affiliate.email = urlParam.email;
 					var isRegistered = false;
-					if(!this.affiliate.email) {
-						this.showRsvpBtns = false;
-					}
+					// if(!this.affiliate.email) {
+					// 	this.showRsvpBtns = false;
+					// }
 					this.$http.get('/api/babyshowerGetAllData').then(response => {		
 						_this.participants = response.body;
 						for(var i = 0 ; i < _this.participants.length ; i++) {
