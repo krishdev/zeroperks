@@ -648,7 +648,11 @@
           const rsvpBtn = document.querySelector("#rsvp-btn");
           if (rsvpBtn) {
             rsvpBtn.addEventListener('click', () => {
-              document.querySelector(".c-Main__footer-form").scrollIntoView({ behavior: "instant", block: "start", inline: "nearest" });
+              const rsvpPos = document.querySelector(".c-Main__footer-rsvp__cntr").getBoundingClientRect();
+              window.scrollTo({
+                top: rsvpPos.y,
+                behavior: "smooth"
+              });
             })
           }
 
@@ -765,14 +769,14 @@
             origin: "bottom",
             reset: false
           });
-          ScrollReveal().reveal('#footer-rsvp',{
-            delay: 175,
-            duration: 1500,
-            opacity: 0,
-            distance: "50%",
-            origin: "bottom",
-            reset: false
-          });
+          // ScrollReveal().reveal('#footer-rsvp',{
+          //   delay: 175,
+          //   duration: 1500,
+          //   opacity: 0,
+          //   distance: "50%",
+          //   origin: "bottom",
+          //   reset: false
+          // });
           ScrollReveal().reveal('.tl-content',{
             delay: 175,
             duration: 1500,
