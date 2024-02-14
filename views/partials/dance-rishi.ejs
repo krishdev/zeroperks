@@ -645,6 +645,12 @@
           }
           
           this.initateAnimate();
+          const rsvpBtn = document.querySelector("#rsvp-btn");
+          if (rsvpBtn) {
+            rsvpBtn.addEventListener('click', () => {
+              document.querySelector(".c-Main__footer-form").scrollIntoView({ behavior: "instant", block: "start", inline: "nearest" });
+            })
+          }
 
           const userAgent = navigator.userAgent;
           
