@@ -597,6 +597,7 @@ svg:not(:root) {
     background-color: #181039;
     opacity: .8;
     z-index: 5;
+    box-shadow: 1px 2px 3px 0px rgb(76, 76, 76,.41);
 }
 
 .c-Accrd__header {
@@ -1466,6 +1467,11 @@ div#invitation {
 
     .o-Form__label {
         font-size: 1em;
+    }
+
+    .c-Main__footer-form {
+        padding: 1em;
+        flex-basis: auto;
     }
 }
 
