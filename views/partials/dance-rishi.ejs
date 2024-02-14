@@ -16,7 +16,7 @@
     <link rel="icon" href="/images/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Dancing+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<%= origin %>/assets/style-blue.css">
     <script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
@@ -99,12 +99,12 @@
               <div class="c-Main__body-cntr">
                   <div id="abt-shishya" class="c-Main__body-abt-you">
                       <div class="c-Main__body-abt__image">
-                          <div class="c-Main__body-abt__img1">
+                          <!-- <div class="c-Main__body-abt__img1">
                               <img src="/assets/rishi/about-img-1.jpg" alt="rishika-pose-1">
                           </div>
                           <div class="c-Main__body-abt__img2">
                               <img src="/assets/rishi/about-img-2.jpg" alt="rishika-pose-2">
-                          </div>
+                          </div> -->
                           <div class="c-Main__body-abt__img3">
                               <img src="/assets/rishi/about-img-3.jpg" alt="rishika-pose-3">
                           </div>
@@ -134,6 +134,89 @@
                           <img src="/assets/rishi/about-guru.jpg" alt="guru-image">
                       </div>
                   </div>
+              </div>
+
+              <div class="c-Main__invi" id="invitation">
+                <div class="c-Main__invi-cntr" id="invitation-container">
+                  <h2 class="c-Main__sub-title">Invitation</h2>
+                  <div class="c-Info-underline" style="margin-bottom: 60px">
+                    <svg width="80" height="3" viewBox="0 0 80 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="1.5" y1="1.5" x2="78.5" y2="1.5" stroke="#F73859" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"></line>
+                    </svg>
+                  </div>
+                  <div class="c-Main__invi-wrap">
+                    <div class="row">
+                      <div class="col-md-6 col-12" id="invitation-left">
+                        <ul class="c-Invi__details">
+                          <li>Mr Santhosh and Mrs Salini</li>
+                          <li class="c-Invi__details__agw">along with</li>
+                          <li>Natyom Dance Academy</li>
+                          <li style="font-family: 'Dancing Script', cursive;">cordially invite you to their daughter</li>
+                          <li class="c-Invi__details__thb">Rishika's Bharatanatyam Arangetram</li>
+                          <li>Disciple of Smt. Praveena Vajja</li>
+                          <li style="display: none;"><a class="theme-btn" href="#rsvp">RSVP <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a></li>
+                          <li><a href="https://natyom.com/" target="_blank"><img src="/assets/natyom_logo_mono.svg" alt=""></a></li>
+                        </ul>
+                      </div>
+                      <div class="col-md-6 col-12 c-Invi__end">
+                        <div class="c-Invi__details-wrap"  id="invitation-date">
+                          <h2>Date & Time</h2>
+                          <div class="c-Invi__item">
+                            <div class="c-Invi__cal">
+                              <div class="main-div">
+                                <div class="sub-div">
+                                  <div class="year-div">MAR</div>
+                                </div>
+                                <div class="date-div">
+                                  <p>17</p>
+                                </div>
+                              </div>
+                              <div class="c-Invi__time">
+                                <div>3PM - 6PM</br>(Seating starts at 2:30PM)</div>
+                                <add-to-calendar-button
+                                  name="Add to Calendar"
+                                  options="'Apple','Google'"
+                                  location="Plaza Theater Garland, 521 W State St, Garland, TX 75040"
+                                  startDate="2024-03-17"
+                                  endDate="2024-03-17"
+                                  startTime="14:30"
+                                  endTime="18:00"
+                                  timeZone="America/Chicago"
+                                ></add-to-calendar-button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="c-Invi__details-wrap"  id="invitation-venue">
+                          <h2>Venue</h2>
+                          <div class="c-Invi__item">
+                            <div class="c-Invi__location">
+                              <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                              </div>
+                              <div class="c-Invi__desti">
+                                <div>
+                                  Plaza Theater Garland,</br>521 W State St,</br>Garland, TX 75040
+                                </div>
+                                <a target="_blank" class="o-Btn--maps o-Btn--andr" href="https://maps.google.com/?q=Plaza+Theater,+Garland,+TX">
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M512 96c0 50.2-59.1 125.1-84.6 155c-3.8 4.4-9.4 6.1-14.5 5H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c53 0 96 43 96 96s-43 96-96 96H139.6c8.7-9.9 19.3-22.6 30-36.8c6.3-8.4 12.8-17.6 19-27.2H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320c-53 0-96-43-96-96s43-96 96-96h39.8c-21-31.5-39.8-67.7-39.8-96c0-53 43-96 96-96s96 43 96 96zM117.1 489.1c-3.8 4.3-7.2 8.1-10.1 11.3l-1.8 2-.2-.2c-6 4.6-14.6 4-20-1.8C59.8 473 0 402.5 0 352c0-53 43-96 96-96s96 43 96 96c0 30-21.1 67-43.5 97.9c-10.7 14.7-21.7 28-30.8 38.5l-.6 .7zM128 352a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM416 128a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
+                                  <span>Open in Map</span>
+                                </a>
+                                <a target="_blank" class="o-Btn--maps o-Btn--ios hide" href="https://maps.apple.com/maps?q=Plaza+Theater,+Garland,+TX">
+                                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M512 96c0 50.2-59.1 125.1-84.6 155c-3.8 4.4-9.4 6.1-14.5 5H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c53 0 96 43 96 96s-43 96-96 96H139.6c8.7-9.9 19.3-22.6 30-36.8c6.3-8.4 12.8-17.6 19-27.2H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320c-53 0-96-43-96-96s43-96 96-96h39.8c-21-31.5-39.8-67.7-39.8-96c0-53 43-96 96-96s96 43 96 96zM117.1 489.1c-3.8 4.3-7.2 8.1-10.1 11.3l-1.8 2-.2-.2c-6 4.6-14.6 4-20-1.8C59.8 473 0 402.5 0 352c0-53 43-96 96-96s96 43 96 96c0 30-21.1 67-43.5 97.9c-10.7 14.7-21.7 28-30.8 38.5l-.6 .7zM128 352a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM416 128a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
+                                  <span>Open in Map</span>
+                                </a>
+                                <!-- <a target="_blank" class="o-Btn o-Btn--maps" href="geo:32.91515288598084, -96.63565890899281">
+                                  
+                                </a> -->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div class="c-Main__acpnts">
@@ -215,7 +298,7 @@
 
               <div class="c-Main__prgs">
                   <div class="c-Main__prgs-cntr">
-                      <h2 class="c-Info__title">Program Details</h2>
+                      <h2 class="c-Main__sub-title">Program Details</h2>
                       <div class="c-Info-underline" style="margin-bottom: 60px">
                           <svg width="80" height="3" viewBox="0 0 80 3" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <line x1="1.5" y1="1.5" x2="78.5" y2="1.5" stroke="#F73859" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"></line>
@@ -223,7 +306,6 @@
                       </div>
                       <div class="c-Main__prgs-details">
                           <div class="c-Main__prgs-col c-Main__prgs-col--lft">
-                              <h3 class="c-Main__prgs__txt">Session 1</h3>
                               <div class="c-Main__prgs-col__cntr">
                                   <div class="c-Main__prgs-col__wrap">
                                       <h5 class="c-Main__prgs-col__wrap-title">Gajananam/ Paramaanadam</h5>
@@ -254,11 +336,11 @@
                                           <li><span>Ragam:</span> Ragamalika</li>
                                           <li><span>Talam:</span> Misra Chapu</li>
                                           <li><span>Composer:</span> Tanjore Quartet</li>
-                                          <li><span>Choreographer:</span> Padma Shri Sri. Adyar K. Lakshman</li>
+                                          <li><span>Choreographer:</span> Smt. Rukmini Devi Arundale Kalakshetra</li>
                                       </ul>
                                   </div>
                                   <div class="c-Main__prgs-col__wrap">
-                                      <h5 class="c-Main__prgs-col__wrap-title">Gajananam/ Paramaanadam</h5>
+                                      <h5 class="c-Main__prgs-col__wrap-title">Chalamela Varnam</h5>
                                       <ul class="c-Main__prgs__song-desc">
                                           <li><span>Ragam:</span> Nattakuranji</li>
                                           <li><span>Talam:</span> Adi</li>
@@ -269,7 +351,6 @@
                               </div>
                           </div>
                           <div class="c-Main__prgs-col c-Main__prgs-col--rgt">
-                              <h3 class="c-Main__prgs__txt">Session 2</h3>
                               <div class="c-Main__prgs-col__cntr">
                                   <div class="c-Main__prgs-col__wrap">
                                       <h5 class="c-Main__prgs-col__wrap-title">Simhasana Stithe</h5>
@@ -284,7 +365,7 @@
                                       <h5 class="c-Main__prgs-col__wrap-title">Oru Murai Vanthu Parthaaya</h5>
                                       <ul class="c-Main__prgs__song-desc">
                                           <li><span>Ragam:</span> Kunthalavarali</li>
-                                          <li><span>Talam:</span> Roopaka</li>
+                                          <li><span>Talam:</span> Adi</li>
                                           <li><span>Composer:</span> MG Radhakrishnan</li>
                                           <li>From the Film Manichithrathazhu</li>
                                       </ul>
@@ -312,7 +393,7 @@
 
               <div class="c-Main__gallery">
                   <div class="c-Main__gallery-cntr">
-                      <h2 class="c-Info__title">Visual Tour</h2>
+                      <h2 class="c-Main__sub-title">Visual Tour</h2>
                       <div class="c-Info-underline" style="margin-bottom: 60px">
                           <svg width="80" height="3" viewBox="0 0 80 3" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <line x1="1.5" y1="1.5" x2="78.5" y2="1.5" stroke="#F73859" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"></line>
@@ -478,14 +559,14 @@
                           </div>
                       </div>
                       <div class="c-Main__foter-contact">
-                          <h2 class="c-Info__title">Need More Information? Contact Us!</h2>
+                          <h2 class="c-Main__sub-title">Need More Information? Contact Us!</h2>
                           <div class="c-Contact__wrap">
                               <div class="c-Contact__title">Email:</div>
-                              <a href="mailto:salini" class="c-Contact__link">salini@gmail.com</a>
+                              <a href="mailto:salini" class="c-Contact__link">salini.lv@gmail.com</a>
                           </div>
                           <div class="c-Contact__wrap">
-                              <div class="c-Contact__title">Phone number:</div>
-                              <a href="tel:9873541160" class="c-Contact__link">+1 987 354 1160</a>
+                              <div class="c-Contact__title">Phone:</div>
+                              <a href="tel:9873541160" class="c-Contact__link">+1 (303) 218-0409</a>
                           </div>
                           <div class="c-Contact__wrap c-Contact__wrap--social">
                               <div class="c-Contact__wrap-social">
@@ -552,16 +633,18 @@
           this.getMessages();
         },
         mounted () {
-          let allClose = document.querySelectorAll('.modal.hide');
-          if (allClose) {
-            allClose = Array.from(allClose);
-            allClose.forEach(item => {
-              item.classList.remove('hide');
-            })
+          const $accrd = document.querySelectorAll('.c-Accrd');
+          if ($accrd) {
+              let accrds = Array.from($accrd);
+              accrds.forEach(el=>{
+                  el.addEventListener('click', (e) => {
+                      const thisAccrd = e.currentTarget.classList;
+                      thisAccrd.contains('open') ? thisAccrd.remove('open') : thisAccrd.add('open');
+                  })
+              })
           }
 
           const userAgent = navigator.userAgent;
-
           
           // Check for iOS
           if (/iPad|iPhone|iPod/.test(userAgent)) {
@@ -782,16 +865,6 @@
             if (!phone) return false;
             const isvalid = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/i.test(phone);
             return isvalid;
-          },
-          openModal (modalName) {
-            const modal = document.getElementById(modalName);
-            document.querySelector('body').classList.add('is-Locked');
-            modal.classList.add("open");
-          },
-          closeModal (modalName) {
-            const modal = document.getElementById(modalName);
-            modal.classList.remove("open");
-            document.querySelector('body').classList.remove('is-Locked');
           },
           async getMessages () {
             try {
