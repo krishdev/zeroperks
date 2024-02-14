@@ -1339,6 +1339,30 @@ div#invitation {
     opacity: .1;
 }
 
+.underline-animation {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Create a pseudo-element for the underline */
+.underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 4px; /* or the thickness you want for your underline */
+    bottom: 0;
+    left: 0;
+    background: var(--thm-vuetify-secondary); /* or any color you want */
+    transition: width 0.3s ease, left 0.3s ease; /* smooth transition for the animation */
+}
+
+/* Animate the pseudo-element on hover */
+.underline-animation.animate::after {
+    width: 100%; /* full width of the element */
+    left: 0; /* align to the left edge */
+}
+
 
 @media (min-width: 992px) {
     .gallery:hover .gallery__image {
