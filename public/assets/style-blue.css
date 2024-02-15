@@ -456,7 +456,7 @@ svg:not(:root) {
 
 .c-Main__body-abt__desc {
     font-size: 1.125em;
-    line-height: 1.3;
+    line-height: 1.7;
     font-weight: 300;
     color: var(--thm-color1-alpha6, #fff);
 }
@@ -1336,7 +1336,7 @@ div#invitation {
     background-image: url(/assets/rishi/kk-1.png);
     background-repeat: no-repeat;
     background-size: contain;
-    opacity: .1;
+    opacity: .2;
 }
 
 .underline-animation {
@@ -1496,6 +1496,20 @@ div#invitation {
     .c-Main__footer-form {
         padding: 1em;
         flex-basis: auto;
+    }
+
+    .c-Main__body-abt__cnt .c-Info-title {
+        text-align: center;
+    }
+
+    .c-Main__body-abt__cnt .c-Info-underline {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .c-Main__acpnts:after {
+        background-position: 335px 0%;
+        opacity: .25;
     }
 }
 
