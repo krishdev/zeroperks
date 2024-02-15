@@ -543,7 +543,7 @@ svg:not(:root) {
 .c-Main__acpnts:after {
     background-image: url("/assets/rishi/kerala-2.png");
     background-repeat: no-repeat;
-    background-position: 379px 68%;
+    background-position: 379px 0%;
     background-size: 40em;
     content: "";
     width: 40em;
