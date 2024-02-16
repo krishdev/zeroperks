@@ -155,7 +155,7 @@ router.post('/arrangetram-540', async function (req, res) {
         from: 'rshkpillai@gmail.com',
         to: email,
         subj: 'Rishika\'s Bharatanatyam Arangetram',
-        html: htmlFile
+        content: htmlFile
       });
 
     });
