@@ -1,8 +1,5 @@
-<!-- Free to use, HTML email template designed & built by FullSphere. Learn more about us at www.fullsphere.co.uk -->
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
-
 <head>
 
   <!--[if gte mso 9]>
@@ -20,7 +17,7 @@
   <!--[if !mso]><!--><meta http-equiv="X-UA-Compatible" content="IE=edge"><!--<![endif]-->
 
     <!-- Your title goes here -->
-    <title>Newsletter</title>
+    <title>Email RSVP</title>
     <!-- End title -->
 
     <!-- Start stylesheet -->
@@ -73,7 +70,7 @@
         <tr>
           <td style="width: 596px; vertical-align: top; padding-left: 0; padding-right: 0; padding-top: 15px; padding-bottom: 15px;" width="596">
 
-            <h1>Thaarika's Bharatanatyam Arangetram</h1>
+            <h1><%= title %></h1>
 
           </td>
         </tr>
@@ -82,7 +79,7 @@
     <!-- End container for logo -->
 
     <!-- Hero image -->
-    <img style="width: 600px; max-width: 600px; height: 350px; max-height: 350px; text-align: center;" alt="Hero image" src="https://zeroperks.com/assets/gallery/t-7.jpg" align="center" width="600" height="350">
+    <img style="width: 600px; max-width: 600px; height: 350px; max-height: 350px; text-align: center;" alt="Hero image" src="<%= image1 %>" align="center" width="600" height="350">
     <!-- Hero image -->
 
     <!-- Start single column section -->
@@ -93,12 +90,12 @@
 
               <h1 style="font-size: 20px; line-height: 24px; font-family: 'Helvetica', Arial, sans-serif; font-weight: 600; text-decoration: none; color: #000000;">Invitation</h1>
 
-              <p style="font-size: 15px; line-height: 24px; font-family: 'Helvetica', Arial, sans-serif; font-weight: 400; text-decoration: none; color: #919293;">Mr Shanmugam and Mrs Nethra along with Natyom Dance Academy cordially invite you to their daughter Thaarika's Bharatanatyam Arangetram Disciple of Smt. Praveena Vajja.</p>
+              <p style="font-size: 15px; line-height: 24px; font-family: 'Helvetica', Arial, sans-serif; font-weight: 400; text-decoration: none; color: #919293;"><%= content %></p>
 
               
 
               <!-- Start button (You can change the background colour by the hex code below) -->
-              <a href="https://zeroperks.com/dance" target="_blank" style="background-color: #000000; font-size: 15px; line-height: 22px; font-family: 'Helvetica', Arial, sans-serif; font-weight: normal; text-decoration: none; padding: 12px 15px; color: #ffffff; border-radius: 5px; display: inline-block; mso-padding-alt: 0;">
+              <a href="<%= invitationLink %>" target="_blank" style="background-color: #000000; font-size: 15px; line-height: 22px; font-family: 'Helvetica', Arial, sans-serif; font-weight: normal; text-decoration: none; padding: 12px 15px; color: #ffffff; border-radius: 5px; display: inline-block; mso-padding-alt: 0;">
                   <!--[if mso]>
                   <i style="letter-spacing: 25px; mso-font-width: -100%; mso-text-raise: 30pt;">&nbsp;</i>
                 <![endif]-->
@@ -117,7 +114,7 @@
       <!-- End single column section -->
       
       <!-- Start image -->
-      <img style="width: 600px; max-width: 600px; height: 350px; max-height: 350px; text-align: center;" alt="Image" src="https://zeroperks.com/assets/gallery/t-1.jpg" align="center" width="600" height="240">
+      <img style="width: 600px; max-width: 600px; height: 350px; max-height: 350px; text-align: center;" alt="Image" src="<%= image2 %>" align="center" width="600" height="240">
       <!-- End image -->
 
       <!-- Start heading for double column section -->
@@ -140,13 +137,13 @@
             <tr>      
               <td style="width: 252px; vertical-align: top; padding-left: 30px; padding-right: 15px; padding-top: 0; padding-bottom: 30px; text-align: center;" width="252">
 
-                <p style="font-size: 15px; line-height: 24px; font-family: 'Helvetica', Arial, sans-serif; font-weight: 400; text-decoration: none; color: #919293;">Granville Arts Center, 300 N 5th St, Garland, TX 75040.</p>
+                <p style="font-size: 15px; line-height: 24px; font-family: 'Helvetica', Arial, sans-serif; font-weight: 400; text-decoration: none; color: #919293;"><%= venue %></p>
                               
               </td>
 
               <td style="width: 252px; vertical-align: top; padding-left: 15px; padding-right: 30px; padding-top: 0; padding-bottom: 30px; text-align: center;" width="252">              
-                <p style="font-size: 15px; line-height: 24px; font-family: 'Helvetica', Arial, sans-serif; font-weight: 400; text-decoration: none; color: #919293;">Sep 3, 2023</p>
-                <p>4PM - 7PM (Seating starts at 3:30PM)</p>
+                <p style="font-size: 15px; line-height: 24px; font-family: 'Helvetica', Arial, sans-serif; font-weight: 400; text-decoration: none; color: #919293;"><%= date %></p>
+                <p><%= time %></p>
 
             </td>
           </tr>
@@ -165,8 +162,8 @@
               </p>
 
               <p style="margin-bottom: 0; font-size: 13px; line-height: 24px; font-family: 'Helvetica', Arial, sans-serif; font-weight: 400; text-decoration: none; color: #ffffff;">
-                <a target="_blank" style="text-decoration: underline; color: #ffffff;" href="https://zeroperks.com/dance">
-                    www.zeroperks.com/dance
+                <a target="_blank" style="text-decoration: underline; color: #ffffff;" href="<%= invitationLink %>">
+                  <%= invitationLink.replace("https://", "") %>
                 </a>
               </p>
 
