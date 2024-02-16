@@ -488,37 +488,46 @@
                           </svg>
                       </div>
                       <div class="c-Main__footer-form">
-                          <h2 class="c-Info-title">RSVP Here</h2>
-                          <div class="o-Form__wrap">
+                          <h2 class="c-Info-title"><span v-if="!dataSaved && !globalErrors">RSVP Here</span><span v-else>Thank you</span></h2>
+                          <div v-if="!dataSaved && !globalErrors">
+                            <div class="o-Form__wrap">
                               <label for="name" class="o-Form__label">Name:</label>
                               <input type="text" id="name" class="o-Form__field" placeholder="Kumar" v-model.trim="form.name">
                               <div class="o-Form__errors">
                                   <p class="o-Form__errors-txt" v-if="errors.isError && errors.name" v-html="errors.name"></p>
                               </div>
+                            </div>
+                            <div class="o-Form__wrap">
+                                <label for="email" class="o-Form__label">Email:</label>
+                                <input type="email" id="email" class="o-Form__field" placeholder="kumar@sample.com" v-model.trim="form.email">
+                                <div class="o-Form__errors">
+                                    <p class="o-Form__errors-txt" v-if="errors.isError && errors.email" v-html="errors.email"></p>
+                                </div>
+                            </div>
+                            <div class="o-Form__wrap">
+                                <label for="guests" class="o-Form__label"># of people attending:</label>
+                                <input type="tel" id="guests" class="o-Form__field" placeholder="Number of attendees" v-model.trim="form.guests">
+                                <div class="o-Form__errors">
+                                    <p class="o-Form__errors-txt" v-if="errors.isError && errors.guests" v-html="errors.guests"></p>
+                                </div>
+                            </div>
+                            <div class="o-Form__wrap o-Form__btns">
+                                <button type="button" @click.prevent="submit" class="o-Btn o-Btn--green o-Btn--rsvp">
+                                    <div class="o-Btn__svg">
+                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
+                                            <path d="M15.5593 0.793611C15.6285 0.862943 15.6758 0.951085 15.6954 1.04709C15.7149 1.14309 15.7058 1.24272 15.6693 1.33361L9.85025 15.8806C9.79897 16.0087 9.71334 16.1202 9.60279 16.2028C9.49223 16.2854 9.36103 16.3358 9.22364 16.3487C9.08624 16.3615 8.94797 16.3361 8.82405 16.2754C8.70012 16.2147 8.59535 16.121 8.52125 16.0046L5.34325 11.0096L0.348254 7.83161C0.231572 7.75759 0.137606 7.65278 0.0767238 7.52874C0.0158421 7.4047 -0.00958824 7.26624 0.0032389 7.12866C0.016066 6.99108 0.066652 6.85972 0.149415 6.74907C0.232178 6.63842 0.3439 6.55278 0.472254 6.50161L15.0193 0.684611C15.1101 0.648023 15.2098 0.638943 15.3058 0.658499C15.4018 0.678056 15.4899 0.725386 15.5593 0.794611V0.793611ZM6.34125 10.7176L9.10225 15.0556L13.8353 3.22361L6.34125 10.7176ZM13.1283 2.51661L1.29625 7.24961L5.63525 10.0096L13.1293 2.51661H13.1283Z" fill="white" class=""></path>
+                                        </svg>
+                                    </div>
+                                    <p class="o-Btn__text">Submit</p>
+                                </button>
+                            </div>
                           </div>
-                          <div class="o-Form__wrap">
-                              <label for="email" class="o-Form__label">Email:</label>
-                              <input type="email" id="email" class="o-Form__field" placeholder="kumar@sample.com" v-model.trim="form.email">
-                              <div class="o-Form__errors">
-                                  <p class="o-Form__errors-txt" v-if="errors.isError && errors.email" v-html="errors.email"></p>
-                              </div>
+                          <div v-cloak v-else class="c-Rsvp__saved">
+                            <p>We're glad you're able to make it! We'll see you soon.</p>
+                            <p>Your RSVP has been received. We'll send you more details closer to the event.</p>
                           </div>
-                          <div class="o-Form__wrap">
-                              <label for="guests" class="o-Form__label"># of people attending:</label>
-                              <input type="tel" id="guests" class="o-Form__field" placeholder="Number of attendees" v-model.trim="form.guests">
-                              <div class="o-Form__errors">
-                                  <p class="o-Form__errors-txt" v-if="errors.isError && errors.guests" v-html="errors.guests"></p>
-                              </div>
-                          </div>
-                          <div class="o-Form__wrap o-Form__btns">
-                              <button type="button" @click.prevent="submit" class="o-Btn o-Btn--green o-Btn--rsvp">
-                                  <div class="o-Btn__svg">
-                                      <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
-                                          <path d="M15.5593 0.793611C15.6285 0.862943 15.6758 0.951085 15.6954 1.04709C15.7149 1.14309 15.7058 1.24272 15.6693 1.33361L9.85025 15.8806C9.79897 16.0087 9.71334 16.1202 9.60279 16.2028C9.49223 16.2854 9.36103 16.3358 9.22364 16.3487C9.08624 16.3615 8.94797 16.3361 8.82405 16.2754C8.70012 16.2147 8.59535 16.121 8.52125 16.0046L5.34325 11.0096L0.348254 7.83161C0.231572 7.75759 0.137606 7.65278 0.0767238 7.52874C0.0158421 7.4047 -0.00958824 7.26624 0.0032389 7.12866C0.016066 6.99108 0.066652 6.85972 0.149415 6.74907C0.232178 6.63842 0.3439 6.55278 0.472254 6.50161L15.0193 0.684611C15.1101 0.648023 15.2098 0.638943 15.3058 0.658499C15.4018 0.678056 15.4899 0.725386 15.5593 0.794611V0.793611ZM6.34125 10.7176L9.10225 15.0556L13.8353 3.22361L6.34125 10.7176ZM13.1283 2.51661L1.29625 7.24961L5.63525 10.0096L13.1293 2.51661H13.1283Z" fill="white" class=""></path>
-                                      </svg>
-                                  </div>
-                                  <p class="o-Btn__text">Submit</p>
-                              </button>
+                          <div class="c-Rsvp__saved" v-if="globalErrors">
+                            <p v-html="globalErrors"></p>
                           </div>
                       </div>
                       <div class="c-Main__foter-contact">
