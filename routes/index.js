@@ -143,7 +143,7 @@ router.post('/arrangetram-540', async function (req, res) {
       date: 'Mar 17, 2024',
       time: '3PM - 6PM (Seating starts at 2:30PM)',
       image1: 'https://zeroperks.com/assets/gallery-rishi/t-7.JPG',
-      image2: 'https://zeroperks.com/assets/gallery-rishi/t-11.JPG'
+      image2: 'https://zeroperks.com/assets/rishi/t-11.JPG'
 
      }, (err, htmlFile) => {
       if (err) {
