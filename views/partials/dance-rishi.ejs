@@ -629,7 +629,7 @@
         },
         created () {
           const rsvpd = localStorage.getItem("arrishimar17");
-          const fdb = localStorage.setItem("arrishimar17fd");
+          const fdb = localStorage.getItem("arrishimar17fd");
           this.dataSaved = rsvpd ? true : false;
           this.feedbackSuccess = fdb ? true : false;
         },
