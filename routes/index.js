@@ -139,7 +139,7 @@ router.post('/arrangetram-540', async function (req, res) {
       title: 'Rishika\'s Bharatanatyam Arangetram',
       content: 'Mr Santhosh and Mrs Salini along with Natyom Dance Academy cordially invite you to their daughter Rishika\'s Bharatanatyam Arangetram Disciple of Smt. Praveena Vajja.',
       invitationLink: 'https://www.zeroperks.com/rishikas-arangetram',
-      venue: 'Plaza Theater Garland, 521 W State St, Garland, TX 75040',
+      venue: 'Plaza Theater, 521 W State St, Garland, TX 75040',
       date: 'Mar 17, 2024',
       time: '3PM - 6PM (Seating starts at 2:30PM)',
       image1: 'https://zeroperks.com/assets/gallery-rishi/t-7.JPG',
@@ -171,6 +171,22 @@ router.post('/arrangetram-540', async function (req, res) {
       subj: 'Error: Bharatanatyam Arangetram',
       content: `Error Occurred: \n name: ${name} \n email: ${email} \n phone: ${phone} \n guests: ${guests} \n timestamp: ${timestamp}`
   });
+  }
+});
+
+router.post("/einvite-feedback", async function (req, res) {
+  const db = admin.firestore();
+  const docRef = db.collection('feedbackInvite').doc();
+  const data = req.body;
+  try {
+    const response = await docRef.set(data);
+    res.json({message: "Data saved", other: response});
+  } catch (error) {
+    console.log("feedback error: ", error);
+    res.status(500).send({
+      message: error,
+      data
+    });
   }
 });
 

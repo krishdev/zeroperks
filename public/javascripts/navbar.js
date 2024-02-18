@@ -11,14 +11,14 @@ const navbar = {
     initialized () {
         const self = this;
         if (this.data.mobMenu) {
-            this.data.mobMenu.addEventListener('click', function () {
+            this.data.mobMenu?.addEventListener('click', function () {
                 self.toggleMenu();
             })
         }
         window.addEventListener('resize', debounce(()=> {
             const windowWidth = window.innerWidth;
             if (windowWidth >= 768) {
-                self.data.navBar.classList.remove(self.data.className);
+                self.data.navBar?.classList.remove(self.data.className);
                 self.data.isOpen = false;
             }
         }, 250));
@@ -28,16 +28,16 @@ const navbar = {
         const windowWidth = window.innerWidth;
         if (windowWidth < 768) {
             // mobile
-            const isOpen = self.data.navBar.classList.contains(self.data.className);
+            const isOpen = self.data.navBar?.classList.contains(self.data.className) || false;
             if (isOpen) {
-                self.data.navBar.classList.remove(self.data.className);
+                self.data.navBar?.classList.remove(self.data.className);
                 self.data.isOpen = false;
             } else {
-                self.data.navBar.classList.add(self.data.className);
+                self.data.navBar?.classList.add(self.data.className);
                 self.data.isOpen = true;
             }
         } else {
-            self.data.navBar.classList.remove(self.data.className);
+            self.data.navBar?.classList.remove(self.data.className);
             self.data.isOpen = false;
         }
     }

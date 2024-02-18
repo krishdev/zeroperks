@@ -179,7 +179,7 @@ body {
 .o-Btn {
     margin-top: auto;
     margin: 0px;
-    padding: 1.25em 3.125em;
+    padding: 16px 3.125em;
     font-size: 1.125em;
     /* font-family: Ubuntu; */
     font-weight: 500;
@@ -246,6 +246,7 @@ body {
     white-space: normal;
     z-index: 3;
     position: relative;
+    font-size: .875em;
 }
 
 .c-Main__image {
@@ -489,10 +490,11 @@ svg:not(:root) {
     flex-basis: 30%;
     flex-grow: 1;
     border-top: none;
+    display: none;
 }
 
 .c-Main__body-guru__cnt-text {
-    flex-basis: 70%;
+    flex-basis: 100%;
     font-size: 1.125em;
     color: var(--thm-color1-alpha6, #fff);
     font-weight: 300;
@@ -936,15 +938,9 @@ svg:not(:root) {
 }
 
 .c-Contact__title {
-    font-size: 1.625em;
-    line-height: 1.2;
     max-width: 100%;
-}
-
-.c-Contact__title {
     font-size: 1.5em;
     line-height: 1.2;
-    word-break: break-word;
 }
 
 .c-Contact__link {
@@ -1357,10 +1353,38 @@ div#invitation {
     transition: width 0.3s ease, left 0.3s ease; /* smooth transition for the animation */
 }
 
+.c-Share__exp {
+    margin-top: .75em;
+    list-style: none;
+}
+
+.c-Share__exp .c-Share__btn {
+    min-width: 15em;
+    border: 0;
+    padding: .75em;
+    border-radius: 20pt;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.c-Share__exp li {
+    margin-bottom: .5em;
+}
+
 /* Animate the pseudo-element on hover */
 .underline-animation.animate::after {
     width: 100%; /* full width of the element */
     left: 0; /* align to the left edge */
+}
+
+.c-Invi__details-natyom-logo {
+    width: 7em;
+    display: inline-block;
+}
+
+.c-Invi__details-natyom-logo img {
+    width: 100%;
 }
 
 
@@ -1424,7 +1448,7 @@ div#invitation {
     }
 
     .c-Main__title-name {
-        font-size: 2.5em;
+        font-size: 2.25em;
     }
 
     .c-Main__body-abt-you {
@@ -1471,6 +1495,7 @@ div#invitation {
 
     .o-Separator {
         margin: 0 0 3.125em;
+        display: block;
     }
 
     .c-Main__prgs-col {
@@ -1511,6 +1536,15 @@ div#invitation {
         background-position: 335px 0%;
         opacity: .25;
     }
+
+    .c-Share__exp .c-Share__btn {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .c-Invi__details {
+        font-size: 1em;
+    }
 }
 
 @media (max-width: 710px) {
@@ -1534,5 +1568,52 @@ div#invitation {
 
     .c-Accrd__header-title {
         padding-left: .5em;
+    }
+
+    .c-Main__foter-contact {
+        flex-basis: 27.375rem;
+    }
+}
+
+@media (max-width: 320px) {
+    body {
+        font-size: 12px;
+    }
+
+    .c-Main__title-name,
+    .c-Main__sub-title {
+        font-size: 1.5em;
+    }
+
+    .c-Main__title-desc > p {
+        font-size: 1em;
+    }
+
+    .o-Btn {
+        padding: .875em 3em;
+        width: 100%;
+    }
+
+    .c-Main__foter-contact {
+        flex-basis: 20.375rem
+    }
+
+    .underline-animation::after {
+        height: 2px;
+    }
+
+    .c-Main__acpnts-cntr, .c-Main__prgs, .c-Main__gallery, .c-Main__invi-cntr,
+    .c-Main__body-cntr {
+        padding-bottom: 4.25em;
+    }
+    
+    .c-Main__footer-rsvp__cntr {
+        padding-top: 4em;
+        padding-bottom: 4em;
+    }
+
+    div#invitation, .c-Main__acpnts,
+    .c-Main__body-cntr {
+        padding-top: 4.25em;
     }
 }
