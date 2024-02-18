@@ -1,6 +1,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><%= title %></title>
 <link rel="shortcut icon" href="/images/favicon.png" />
+<% if (typeof canonical != 'undefined') { %>
+    <link rel="canonical" href="https://www.example.com/preferred-page-url" />
+<% } %>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="<%= description %>">
 <meta name="keywords" content="<%= keywords %>">

@@ -133,7 +133,6 @@ router.post('/arrangetram-540', async function (req, res) {
     const response = await docRef.set(data);
     res.json({message: "Data saved", other: response});
     const templatePath = path.resolve(__dirname, '../views/email/arangetram-rsvp.ejs');
-    console.log('templatePath', templatePath);
 
     ejs.renderFile(templatePath, { 
       title: 'Rishika\'s Bharatanatyam Arangetram',
