@@ -628,7 +628,10 @@
           feedbackSuccess: false
         },
         created () {
-          
+          const rsvpd = localStorage.getItem("arrishimar17");
+          const fdb = localStorage.setItem("arrishimar17fd");
+          this.dataSaved = rsvpd ? true : false;
+          this.feedbackSuccess = fdb ? true : false;
         },
         mounted () {
           const $accrd = document.querySelectorAll('.c-Accrd');
@@ -795,6 +798,7 @@
                 const result = await response.json();
                 if (result && result.message && typeof result.message == 'string') {
                   this.dataSaved = true;
+                  localStorage.setItem("arrishimar17", true);
                   this.reset();
                 } else {
                   this.globalErrors = 'Sorry! Something went wrong. Please click <a href="mailto:nshanmugam@gmail.com?subject=RSVP%20Arangetram&body=Hello%2C%20We%20will%20attend%20the%20event%20a%20number%20of%20participants"">here</a> to email the same.';
@@ -978,6 +982,7 @@
                 break;
             }
             this.feedbackSuccess = true;
+            localStorage.setItem("arrishimar17fd", true);
           },
           async serviceReq (url, type, data) {
             try {
