@@ -843,6 +843,8 @@
             // }
             if (!this.form.guests) {
               this.errors.guests = 'No of Guests is required.';
+            } else if (!this.validateGuest(this.form.guests)) {
+              this.errors.guests = 'Please enter a valid number';
             } else {
               this.errors.guests = '';
             }
@@ -870,6 +872,11 @@
           validatePhone (phone) {
             if (!phone) return false;
             const isvalid = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/i.test(phone);
+            return isvalid;
+          },
+          validateGuest (guest) {
+            if (!guest) return false;
+            const isvalid = /^([\d]+)$/g.test(guest);
             return isvalid;
           },
           async getMessages () {
