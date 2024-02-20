@@ -1043,6 +1043,7 @@ svg:not(:root) {
     border-left-color: rgb(253, 215, 94);
     width: 100%;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .c-Main__prgs-col__wrap-title {
