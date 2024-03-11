@@ -192,7 +192,8 @@ router.post("/einvite-feedback", async function (req, res) {
 router.post('/arangetram-reminder-978', async function (req, res) {
   try {
     const db = admin.firestore();
-    const participants = db.collection('participants');
+    const data = req.body;
+    const participants = db.collection(data.fireCollection);
     const response = await participants.get();
     let allData = response.docs.map(doc=>doc.data());
     let allEmails = [];
@@ -204,7 +205,7 @@ router.post('/arangetram-reminder-978', async function (req, res) {
       });
     }
     for (let i = 0; i < allEmails.length; i++) {
-      await reminderEmailEvt(allEmails[i]); 
+      await reminderEmailEvt(allEmails[i], data.eventDetails); 
     }
     
     res.json({message: "Email sent"});
