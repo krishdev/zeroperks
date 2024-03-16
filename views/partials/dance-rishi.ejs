@@ -47,8 +47,8 @@
                   </h1>
                   <div class="c-Main__title-desc">
                       <p>Experience the grace of Bharatanatyam at Rishika's Arangetram on <span class="underline-animation">Sunday, March 17, 2024</span>. Join us for a mesmerizing performance!</p>
-                      <button id="rsvp-btn" class="o-Btn o-Btn--green o-Btn--rsvp">
-                          <p class="o-Btn__text">RSVP HERE</p>
+                      <button id="invitation" class="o-Btn o-Btn--green o-Btn--rsvp">
+                          <p class="o-Btn__text">VIEW INVITATION</p>
                       </button>
                   </div>
               </div>
@@ -647,10 +647,10 @@
           }
           
           this.initateAnimate();
-          const rsvpBtn = document.querySelector("#rsvp-btn");
+          const rsvpBtn = document.querySelector("#invitation");
           if (rsvpBtn) {
             rsvpBtn.addEventListener('click', () => {
-              const rsvpPos = document.querySelector(".c-Main__footer-rsvp__cntr").getBoundingClientRect();
+              const rsvpPos = document.querySelector(".c-Main__invi-cntr").getBoundingClientRect();
               window.scrollTo({
                 top: rsvpPos.y,
                 behavior: "smooth"
