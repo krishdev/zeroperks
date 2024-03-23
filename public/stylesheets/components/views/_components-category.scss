@@ -95,3 +95,12 @@ $c-name: '.c-Category';
 #{$c-name}__posts h2 {
     margin-top: 2em;
 }
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row nowrap;
+}
+
+.pagination li:not(:last-child) {margin-right: .5em;}
