@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <%- contentFor('pageMeta') %>
+    <%- include('../common/fragments/page-meta', { 
+        title: 'Bharatanatyam Arangetram Invitation | Custom E-Invites for Classical Dance Performances',
+        description: 'Create stunning, personalized Bharatanatyam Arangetram e-invites with our custom designs. Celebrate your special moment with traditional and modern invitation styles. Easy to customize, share, and send!',
+        keywords: 'Bharatanatyam Arangetram Invitation',
+        ogWide: '/assets/invi-poster.jpg',
+        ogSquare: '/assets/invi-poster-square.jpg',
+    }) %>
+    <%- contentFor('topHead') %>
+    <meta name="og:title" content="Bharatanatyam Arangetram Invitation | Custom E-Invites for Classical Dance Performances" />
+    <meta name="og:description" content="Create stunning, personalized Bharatanatyam Arangetram e-invites with our custom designs. Celebrate your special moment with traditional and modern invitation styles. Easy to customize, share, and send!" />
+    
+  </head>
+  <body>
+    <div id="__next">
+      
+    </div>
+    
+    <script>
+      new Vue({
+        el: "#__next",
+        data: {
+          form: {
+            name: '',
+            email: '',
+            phone: '',
+            guests: '',
+            content: ''
+          },
+          isLoading: false,
+          isFormSubmitted: false,
+          errors: {
+            isError: false,
+            name: '',
+            email: '',
+            phone: '',
+            guests: ''
+          },
+          globalErrors: '',
+          dataSaved: false,
+          messages: [],
+          allMessages: []
+        },
+        created () {
+        },
+        methods: {
+        }
+      })
+    </script>
+  </body>
+</html>

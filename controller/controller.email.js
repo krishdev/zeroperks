@@ -1,6 +1,7 @@
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 const config = require ('../configs/config');
+const logger = require('../configs/logger');
 
 var transporter = nodemailer.createTransport(smtpTransport({
   service: 'gmail',
@@ -25,7 +26,9 @@ exports.sendEmail = async function (body) {
         return isEmailSent;
     } catch (error) {
         console.log(error);
-        console.log('email: ' + body.to);
+        console.log('email..........: ' + body.to);
+        logger.info("email missed: " + body.to);
+        logger.error(error);
     }
 }
 

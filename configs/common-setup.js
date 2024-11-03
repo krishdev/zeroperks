@@ -2,6 +2,7 @@ const config = require('./config');
 const got = require('got');
 const ejs = require("ejs");
 const path = require('path');
+const winston = require('winston');
 const {
   sendEmail
 } = require('../controller/controller.email');

@@ -39,6 +39,11 @@ $c-name: '.c-Category';
     padding-bottom: 2em;
 }
 
+#{$c-name}-post__figure {
+    height: 220px;
+    overflow: hidden;
+}
+
 #{$c-name}-post__figure img {
     width: 100%;
 }

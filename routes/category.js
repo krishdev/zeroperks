@@ -39,7 +39,8 @@ router.get(['/:url','/:url/:page'], async function(req, res, next) {
             const responseBody = response.body;
             const responseCount = await got.get(config.acl+'/posts/count', {		
                 responseType: 'json'
-            })
+            });
+            console.log("responseCount: " + responseCount);
             const responseCountBody = responseCount.body;
             res.render('partials/category-landing', {
                 recentPosts: responseBody, 
