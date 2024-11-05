@@ -147,7 +147,7 @@ router.post('/arrangetram-540', async function (req, res) {
     ejs.renderFile(templatePath, { 
       title: 'Sahasra\'s Bharatanatyam Arangetram',
       content: 'Mr Srinivasa and Mrs Madhuri along with Natyom Dance Academy cordially invite you to their daughter Sahasra\'s Bharatanatyam Arangetram Disciple of Smt. Praveena Vajja.',
-      invitationLink: 'https://www.zeroperks.com/rishikas-arangetram',
+      invitationLink: 'https://www.zeroperks.com/sahasra-arangetram',
       venue: 'Brownlee Theater, Granville Arts Center, 300 N 5th St, Garland, TX 75040',
       date: 'Dec 01, 2024',
       time: '2:30PM (Seating starts at 2PM)',
