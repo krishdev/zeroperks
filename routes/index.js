@@ -145,13 +145,13 @@ router.post('/arrangetram-540', async function (req, res) {
     const templatePath = path.resolve(__dirname, '../views/email/arangetram-rsvp.ejs');
 
     ejs.renderFile(templatePath, { 
-      title: 'Rishika\'s Bharatanatyam Arangetram',
-      content: 'Mr Santhosh and Mrs Salini along with Natyom Dance Academy cordially invite you to their daughter Rishika\'s Bharatanatyam Arangetram Disciple of Smt. Praveena Vajja.',
+      title: 'Sahasra\'s Bharatanatyam Arangetram',
+      content: 'Mr Srinivasa and Mrs Madhuri along with Natyom Dance Academy cordially invite you to their daughter Sahasra\'s Bharatanatyam Arangetram Disciple of Smt. Praveena Vajja.',
       invitationLink: 'https://www.zeroperks.com/rishikas-arangetram',
-      venue: 'Plaza Theater, 521 W State St, Garland, TX 75040',
-      date: 'Mar 17, 2024',
-      time: '3PM - 6PM (Seating starts at 2:30PM)',
-      image1: 'https://zeroperks.com/assets/gallery-rishi/t-7.JPG',
+      venue: 'Brownlee Theater, Granville Arts Center, 300 N 5th St, Garland, TX 75040',
+      date: 'Dec 01, 2024',
+      time: '2:30PM (Seating starts at 2PM)',
+      image1: 'https://zeroperks.com/assets/gallery-sahasra/t-16.JPG',
       image2: 'https://zeroperks.com/assets/rishi/t-11.jpg'
 
      }, (err, htmlFile) => {
@@ -175,7 +175,7 @@ router.post('/arrangetram-540', async function (req, res) {
       data
     });
     sendEmail({
-      from: 'rshkpillai@gmail.com',
+      from: 'emailzeroperks@gmail.com',
       to: 'emailzeroperks@gmail.com',
       subj: 'Error: Bharatanatyam Arangetram',
       content: `Error Occurred: \n name: ${name} \n email: ${email} \n phone: ${phone} \n guests: ${guests} \n timestamp: ${timestamp}`
@@ -389,7 +389,7 @@ router.get('/arrangetram-6874', async function (req, res) {
  router.get('/arrangetram-attendees', async function (req, res) {
   defaultLocals(req, res);
   const db = admin.firestore();
-  const participants = db.collection('events').where('eventId', "==", "sahasra17");;
+  const participants = db.collection('arangetram').where('eventId', "==", "sahasra17");;
   const response = await participants.get();
   let allData = response.docs.map(doc=>doc.data());
   let totalGuests = 0;
