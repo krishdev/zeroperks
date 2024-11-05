@@ -151,7 +151,7 @@ router.post('/arrangetram-540', async function (req, res) {
       venue: 'Brownlee Theater, Granville Arts Center, 300 N 5th St, Garland, TX 75040',
       date: 'Dec 01, 2024',
       time: '2:30PM (Seating starts at 2PM)',
-      image1: 'https://zeroperks.com/assets/gallery-sahasra/t-16.JPG',
+      image1: 'https://zeroperks.com/assets/gallery-saharsha/t-16.JPG',
       image2: 'https://zeroperks.com/assets/rishi/t-11.jpg'
 
      }, (err, htmlFile) => {
