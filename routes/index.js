@@ -115,6 +115,11 @@ router.get('/rishikas-arangetram', async function(req, res, next) {
   res.render('partials/dance-rishi');
 });
 
+router.get('/sahasra-arangetram', async function(req, res, next) {
+  defaultLocals(req, res);
+  res.render('partials/dance-sahasra');
+});
+
 router.get('/baby-shower/', async function (req, res) {
   defaultLocals(req, res);
   res.render('partials/baby-shower');
