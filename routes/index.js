@@ -207,14 +207,14 @@ router.post('/arangetram-reminder-978', async function (req, res) {
     const response = await participants.get();
     let allData = response.docs.map(doc=>doc.data());
     let allEmails = [];
-    // if (allData && allData.length) {
-    //   allData.forEach( item => {
-    //     if (allEmails.indexOf(item.email) === -1) {
-    //       allEmails.push(item.email);
-    //     }
-    //   });
-    // }
-    allEmails = ["20rishika09@gmail.com","alekhyadevi1995@gmail.com","ally.aditi@gmail.com","anshlala2006@gmail.com","anuncy06@gmail.com","anuroopa2107@gmail.com","anyroopa2107@gmail.com","armahanandigari@gmail.con","ashwadeenu@gmail.com","balurkurups@gmail.com","binduarla@gmail.com","catnjohntran@gmail.com","christina_sal@msn.com","cpvrajan@yahoo.com","divya.grandhy@gmail.com","diya.shanthi.the@gmail.com","dsravanthi82@gmail.com","durga.varanasi21@gmail.com","ethanhenderson06@icloud.com","gld081200@aol.com","jana_naidu@yahoo.com","jcdinakar@gmail.com","kaju60490@gmail.com","Kalpana.214@gmail.com","kfitz847@gmail.com","khanalalishaa@gmail.com","kurapatiniswitha9@gmail.com","lindseyw556@gmail.com","liviamthomas2024@gmail.com","mihirdharma17@gmail.com","mytri.nair3@gmail.com","neelima.yalamanchali@gmail.com","nethramr@gmail.com","nitutewari04@gmail.com","nkoneru3@gmail.com","pchunduru@yahoo.com","prety7@gmail.com","priya_pillai11@hotmail.com","psrivatsan@gmail.com","punit.s.2000@gmail.com","r.chandu2000@gmail.com","rajanvibhav@gmail.com","raseena@gmail.com","rethigc@gmail.com","rheagwdancer@icloud.com","s.cher5025@gmail.com","sahasrabajjuri@gmail.com","Sahasrak@yahoo.com","sailaja.siris@gmail.com","saipragnya.akula@gmail.com","sanjanambati@gmail.com","sankaran.natarajan80@gmail.com","sathyasree.tumpala@gmail.com","seeniyar@gmail.com","settyvariamulya@gmail.com","shijo.itc@gmail.com","sowndharya.seetharaman77@gmail.com","spreethapillai@gmail.com","ssnsahana@gmail.com","sumit_m18@yahoo.com","sumitmehrotra2005@gmail.com","sunyaajani@gmail.com","surasuhas7@gmail.com","tanvisdandu@gmail.com","themathews2007@outlook.com","thsudha@gmail.com","Trevorliebeno@gmail.com","Trevorliebeno@gmail.com","umagood@gmail.com","vaiduriam@gmail.com","veddyclash@gmail.com","vibha.arvind@gmail.com","yyu4620@g.coppellisd.com","zjs3563@g.coppellisd.com","zjs3563@gmail.com"];
+    if (allData && allData.length) {
+      allData.forEach( item => {
+        if (allEmails.indexOf(item.email) === -1) {
+          allEmails.push(item.email);
+        }
+      });
+    }
+    
     let sentEmails = [];
     
     let emailQueue = setInterval(async () => {
@@ -369,6 +369,38 @@ router.get('/arrangetram-6874', async function (req, res) {
  }
 res.render('partials/dance-admin', {allData: allData, totalGuests});
 });
+
+router.get('/arrangetram-6874', async function (req, res) {
+  defaultLocals(req, res);
+  const db = admin.firestore();
+  const participants = db.collection('events').where('postId', "==", "6553938d72cd2695c40bcbd7");;
+  const response = await participants.get();
+  let allData = response.docs.map(doc=>doc.data());
+  let totalGuests = 0;
+  if (allData && allData.length) {
+   allData.forEach( item => {
+     const part = item.guests ? +item.guests : 0;
+     totalGuests += part;
+   })
+  }
+ res.render('partials/dance-admin', {allData: allData, totalGuests});
+ });
+
+ router.get('/arrangetram-attendees', async function (req, res) {
+  defaultLocals(req, res);
+  const db = admin.firestore();
+  const participants = db.collection('events').where('eventId', "==", "sahasra17");;
+  const response = await participants.get();
+  let allData = response.docs.map(doc=>doc.data());
+  let totalGuests = 0;
+  if (allData && allData.length) {
+   allData.forEach( item => {
+     const part = item.guests ? +item.guests : 0;
+     totalGuests += part;
+   })
+  }
+ res.render('partials/dance-admin', {allData: allData, totalGuests});
+ });
 
 
 router.get('/login', async function (req, res) {
