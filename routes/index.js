@@ -161,9 +161,9 @@ router.post('/arrangetram-540', async function (req, res) {
       }
 
       sendEmail({
-        from: 'rshkpillai@gmail.com',
+        from: 'emailzeroperks@gmail.com',
         to: email,
-        subj: 'Rishika\'s Bharatanatyam Arangetram',
+        subj: 'Sahasra\'s Bharatanatyam Arangetram',
         content: htmlFile
       });
 

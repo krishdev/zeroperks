@@ -1,4 +1,11 @@
 @charset "UTF-8";
+:root {
+    --main-bgcolor: #fefaf1;
+    --sec-bgcolor: #191919;
+    --grn-color: #0b3d20;
+    --mgnt-color: #812955;
+    --padding: 16px;
+}
 .slick-slider {
     box-sizing: border-box;
     -webkit-user-select: none;
@@ -1002,7 +1009,7 @@ ul.smothscroll a:hover {
     line-height: 55px;
     font-family: Inter, sans-serif;
     font-weight: 700;
-    color: #fff;
+    color: #000;
     display: inline-block;
     padding-bottom: 10px;
     position: relative;
@@ -3738,7 +3745,7 @@ a.theme-btn svg {
 
 .wpo-site-footer-s2 .upper-contact-area .contact-grids,
 .wpo-site-footer .upper-contact-area .contact-grids {
-    background: #ff4155;
+    background: var(--mgnt-color);
     position: relative;
     z-index: 1;
     padding: 80px 165px 80px 0
@@ -3763,7 +3770,7 @@ a.theme-btn svg {
     top: 0;
     width: 40%;
     height: 100%;
-    background: #ff4155;
+    background: var(--mgnt-color);
     z-index: 1
 }
 
@@ -4156,10 +4163,10 @@ a.theme-btn svg {
 
 .wpo-about-area,
 .wpo-about-area-s2 {
-    background: #191919;
+    background: var(--sec-bgcolor);
     overflow: hidden;
     z-index: 1;
-    position: relative
+    position: relative;
 }
 
 .wpo-about-area-s2 .ab-shape,
@@ -4167,7 +4174,7 @@ a.theme-btn svg {
     position: absolute;
     left: 0;
     bottom: -95%;
-    z-index: -1
+    z-index: -1;
 }
 
 .wpo-about-area-s2 .ab-shape svg circle,
@@ -4476,8 +4483,8 @@ a.theme-btn svg {
 
 .wpo-service-area,
 .wpo-service-area-s2 {
-    background: rgb(47,7,35);
-    background: linear-gradient(321deg, rgba(47,7,35,1) 0%, rgba(47,29,76,1) 35%, rgba(14,28,69,1) 100%);   
+    background: var(--main-color);
+    /* background: linear-gradient(321deg, rgba(47,7,35,1) 0%, rgba(47,29,76,1) 35%, rgba(14,28,69,1) 100%);    */
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -4489,6 +4496,7 @@ a.theme-btn svg {
     font-size: 1.5em;
     text-align: center;
     margin-bottom: 2em;
+    color: #000;
 }
 
 .c-Invi__details li {
@@ -4498,7 +4506,7 @@ a.theme-btn svg {
 .c-Invi__details li a {
     display: inline-block;
     width: 10em;
-    margin-top: 2em;
+    margin-top: 1em;
 }
 
 li.c-Invi__details__agw {
@@ -4508,6 +4516,8 @@ li.c-Invi__details__agw {
 li.c-Invi__details__thb {
     font-family: 'Dancing Script', cursive;
     font-size: 1.875em;
+    font-weight: 600;
+    color: var(--grn-color);
 }
 
 .wpo-about-content {
@@ -4645,7 +4655,7 @@ li.c-Invi__details__thb {
     font-weight: 700;
     font-size: 26px;
     line-height: 31px;
-    color: #fff;
+    color: #000;
     margin-bottom: 20px
 }
 
@@ -4660,7 +4670,7 @@ li.c-Invi__details__thb {
 
 .wpo-service-area-s2 .wpo-service-wrap .wpo-service-item p,
 .wpo-service-area .wpo-service-wrap .wpo-service-item p {
-    color: #d8d8d8;
+    color: #000;
     margin: 25px 0
 }
 
@@ -4798,6 +4808,13 @@ li.c-Invi__details__thb {
     .wpo-work-area-s2 .wpo-work-wrap .wpo-work-item ul,
     .wpo-work-area .wpo-work-wrap .wpo-work-item ul {
         justify-content: center
+    }
+    .c-Invi__details {
+        font-size: 1.375em;
+    }
+
+    .c-Invi__details__thb {
+        font-size: 1.75em;
     }
 }
 
@@ -5989,7 +6006,7 @@ li.c-Invi__details__thb {
 }
 
 .wpo-contact-area {
-    background: #131313;
+    background: var(--main-bgcolor);
     padding-bottom: 40px !important;
     position: relative;
     overflow: hidden;
@@ -6012,7 +6029,7 @@ li.c-Invi__details__thb {
     padding: 60px 65px 30px;
     box-shadow: 0 5px 15px 0 rgba(68, 68, 68, .1);
     border-radius: 5px;
-    background: #222121;
+    background: var(--grn-color);
     border: 1px solid #464646
 }
 
@@ -7700,6 +7717,10 @@ li.c-Invi__details__thb {
     .wpo-blog-single-section .comment-respond .form-inputs>input:nth-child(2) {
         width: 100%;
         float: none
+    }
+
+    #invitation-container .tab-content .row {
+        flex-flow: column-reverse;
     }
 }
 
@@ -12374,7 +12395,7 @@ i[class^=flaticon-]:before {
  .year-div {
     font-size: 1em;
     padding: 10px;
-    color: #fff;
+    color: #000;
     font-weight: 600;
     margin: 0;
  }
@@ -12388,11 +12409,11 @@ i[class^=flaticon-]:before {
     display: flex;
     flex-flow: row nowrap;
     border-radius: 4pt;
-    box-shadow: 0px 0px 13px 3px #00000075;
+    box-shadow: 0px 0px 13px 3px rgba(0, 0, 0, .15)
 }
 
 .c-Invi__time {
-    background: #50376c;
+    background: var(--mgnt-color);
     padding: 1em;
     border-top-right-radius: 4pt;
     border-bottom-right-radius: 4pt;
@@ -12418,6 +12439,7 @@ i[class^=flaticon-]:before {
 
 .c-Invi__desti {
     padding-left: 1em;
+    color: #000;
     text-align: left;
 }
 
@@ -12432,7 +12454,7 @@ i[class^=flaticon-]:before {
     margin-top: .875em;
     color: #fff;
     font-size: 15px;
-    background: #50376c;
+    background: var(--mgnt-color);
     border: 1px solid transparent;
     padding: 13px 12px 12px;
     font-weight: 600;
@@ -12478,7 +12500,7 @@ div#invitation:before {
     height: 30.5em;
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 0.25;
+    opacity: 0.5;
 }
 
 
@@ -12560,7 +12582,13 @@ div#invitation:before {
         background-color: #fefaf1;
     }
     div#invitation:before {
-        left: 12% !important;
+        left: 7% !important;
+        opacity: .75;
+    }
+
+    #invitation-left {
+        padding-top: 2em;
+        padding-bottom: 25em;
     }
 }
 
@@ -12904,7 +12932,7 @@ button.theme-btn {
     position: relative;
     z-index: 3;
     padding-top: 10em;
-    background-color: #050d36;
+    background-color: var(--sec-bgcolor);
 }
 
 .c-Main__acpnts:after {
@@ -12929,7 +12957,7 @@ button.theme-btn {
     text-align: center;
     margin-top: 0px;
     font-size: 3em;
-    color: var(--thm-color1, #fff);
+    color: #000;
     font-weight: 500;
     line-height: 1.1;
     text-decoration-line: none;
@@ -12941,6 +12969,11 @@ button.theme-btn {
     position: relative;
     min-height: auto;
     display: block;
+}
+
+.c-Main__acpnts-cntr .c-Main__sub-title,
+#portfolio .title h2 {
+    color: #fff;
 }
 
 
@@ -12961,7 +12994,7 @@ button.theme-btn {
     backdrop-filter: blur(15px); */
     display: block;
     cursor: pointer;
-    background-color: #181039;
+    background-color: #282729;
     opacity: .8;
     z-index: 5;
     box-shadow: 4px 1px 3px 0px rgb(76 76 76);
@@ -13079,6 +13112,8 @@ button.theme-btn {
     background-repeat: no-repeat;
     background-position: top;
     background-size: contain;
+    background-color: var(--main-bgcolor);
+    padding-top: 10em;
 }
 
 .c-Main__prgs-cntr .c-Info__title,
@@ -13095,7 +13130,7 @@ button.theme-btn {
 }
 
 .c-Main__prgs-col {
-    background-color: #1799c2;
+    background-color: var(--grn-color);
     padding: 2.25em 1.25em;
     width: 48%;
     overflow: hidden;
@@ -13122,14 +13157,14 @@ button.theme-btn {
 }
 
 .c-Main__prgs-col__wrap {
-    background-color: rgb(29, 164, 206);
+    background-color: rgb(38, 121, 73);
     top: 0px;
     left: 0px;
     margin-bottom: 1.5625em;
     padding: .93em .625em;
     border-width: 0px 0px 0px 4px;
     border-left-style: solid;
-    border-left-color: rgb(253, 215, 94);
+    border-left-color: var(--main-bgcolor);
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
@@ -13164,17 +13199,17 @@ button.theme-btn {
 }
 
 .c-Main__prgs-col--rgt {
-    background-color: rgb(63, 18, 105);
+    background-color: var(--mgnt-color);
     opacity: .9;
 }
 
 .c-Main__prgs-col--rgt .c-Main__prgs-col__wrap {
-    background-color: rgb(75, 24, 123);
+    background-color: #9b4570;
 }
 
 @media (max-width: 767px) {
     .c-Main__acpnts-accrd {
-        width: 80%;
+        width: 100%;
     }
     .c-Main__acpnts {
         padding-top: 6.25em;
@@ -13266,4 +13301,11 @@ button.theme-btn {
    -webkit-column-count: 1;
    column-count:         1;
    }
+ }
+
+ #home-content .slide-sub-title h5 {
+    color: var(--grn-color);
+ }
+ .c-Footer>p{
+    color: #555;
  }
