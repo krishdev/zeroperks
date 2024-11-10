@@ -63,6 +63,7 @@
     <div class="c-Container">
         <div class="c-Alldata">
             <div class="c-Item">
+                <div class="c-Item__sng c-item__name"><b>#</b></div>
                 <div class="c-Item__sng c-item__name"><b>Name</b></div>
                 <div class="c-Item__sng c-item__email"><b>Email</b></div>
                 <div class="c-Item__sng c-item__guests"><b>No.</b></div>
@@ -74,6 +75,7 @@
                     const participant = participants[i];
             %>
                 <div class="c-Item">
+                    <div class="c-Item__sng c-item__name"><%= i+1 %></div>
                     <div class="c-Item__sng c-item__name"><%= participant.name %></div>
                     <div class="c-Item__sng c-item__email"><%= participant.email %></div>
                     <div class="c-Item__sng c-item__guests"><%= participant.guests %></div>
