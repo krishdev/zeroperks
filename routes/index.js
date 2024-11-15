@@ -357,7 +357,7 @@ router.get('/event-reminder-image', async (req, res) => {
 router.get('/arrangetram-6874', async function (req, res) {
  defaultLocals(req, res);
  const db = admin.firestore();
- const participants = db.collection('events').where('postId', "==", "6553938d72cd2695c40bcbd7");;
+ const participants = db.collection('events').where('postId', "==", "6732b9676a52ba07cf0bfbf5");;
  const response = await participants.get();
  let allData = response.docs.map(doc=>doc.data());
  let totalGuests = 0;
