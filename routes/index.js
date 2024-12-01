@@ -205,7 +205,7 @@ router.post('/arangetram-reminder-978', async function (req, res) {
     const data = req.body;
     // let allEmails = data.emails;
     const db = admin.firestore();
-    const participants = db.collection(data.fireCollection);
+    const participants = db.collection(data.fireCollection).where('eventId', "==", data.eventId);
     const response = await participants.get();
     let allData = response.docs.map(doc=>doc.data());
     let allEmails = [];
@@ -302,7 +302,7 @@ router.post('/guest-book-messages', async function (req, res) {
 router.get('/guest-book-messages', async function (req, res) {
   try {
     const db = admin.firestore();
-    const guestbook = db.collection('guestbook');
+    const guestbook = db.collection('guestbook').where('eventId', "==", "sahasra17");
     const response = await guestbook.get();
     let messages = response.docs.map(doc=>doc.data());
 
@@ -389,7 +389,7 @@ router.get('/arrangetram-6874', async function (req, res) {
  router.get('/arrangetram-attendees', async function (req, res) {
   defaultLocals(req, res);
   const db = admin.firestore();
-  const participants = db.collection('arangetram').where('eventId', "==", "sahasra17");;
+  const participants = db.collection('arangetram').where('eventId', "==", "sahasra17");
   const response = await participants.get();
   let allData = response.docs.map(doc=>doc.data());
   let totalGuests = 0;

@@ -661,7 +661,7 @@
                     </div>
                     <div class="clearfix"></div>
                     <div class="slide-btn" id="rsvp-btn">
-                      <a class="theme-btn" href="#rsvp">RSVP HERE <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a>
+                      <a class="theme-btn" href="#guest-book">GUEST BOOK <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a>
                     </div>
                   </div>
                 </div>
@@ -1132,14 +1132,14 @@
             </div>
           </div>
 
-          <section class="wpo-contact-area section-padding" id="rsvp">
+          <section class="wpo-contact-area section-padding" id="rsvp" style="display: none;">
             <div class="wpo-wpo-contact-form-map">
               <div class="container">
                 <div class="row">
                   <div class="row justify-content-center">
                     <div class="col-lg-6 col-12">
                       <div class="wpo-section-title">
-                        <h2>RSVP</h2>
+                        <h2>Guest Book</h2>
                       </div>
                     </div>
                   </div>
@@ -1256,7 +1256,7 @@
             </div>
           </section>
           
-          <section class="wpo-contact-area section-padding" style="display: none;" id="guest-book">
+          <section class="wpo-contact-area section-padding" id="guest-book">
             <div class="wpo-wpo-contact-form-map">
               <div class="container">
                 <div class="row">
@@ -1477,7 +1477,7 @@
           allMessages: []
         },
         created () {
-          // this.getMessages();
+          this.getMessages();
         },
         mounted () {
           const $accrd = document.querySelectorAll('.c-Accrd');
@@ -1691,16 +1691,16 @@
             // } else {
             //   this.errors.phone = '';
             // }
-            if (!this.form.guests) {
-              this.errors.guests = 'No of Guests is required.';
-            } else {
-              this.errors.guests = '';
-            }
-            // if (!this.form.content) {
-            //   this.errors.content = 'Message is required.';
+            // if (!this.form.guests) {
+            //   this.errors.guests = 'No of Guests is required.';
             // } else {
-            //   this.errors.content = '';
+            //   this.errors.guests = '';
             // }
+            if (!this.form.content) {
+              this.errors.content = 'Message is required.';
+            } else {
+              this.errors.content = '';
+            }
 
             for (const key in this.errors) {
               if (Object.hasOwnProperty.call(this.errors, key)) {
