@@ -200,9 +200,11 @@ router.post("/einvite-feedback", async function (req, res) {
 });
 
 router.post('/arangetram-reminder-978', async function (req, res) {
+  let errorEmails = [];
   try {
-    const db = admin.firestore();
     const data = req.body;
+    // let allEmails = data.emails;
+    const db = admin.firestore();
     const participants = db.collection(data.fireCollection);
     const response = await participants.get();
     let allData = response.docs.map(doc=>doc.data());
@@ -215,31 +217,29 @@ router.post('/arangetram-reminder-978', async function (req, res) {
       });
     }
     
-    let sentEmails = [];
-    
-    let emailQueue = setInterval(async () => {
-      let queueCount = 0;
-      for (let i = 0; i < allEmails.length; i++) {
-        const email = allEmails[i];
-        if (sentEmails.indexOf(email) == -1) {
-          sentEmails.push(email);
-          queueCount++;
-        }
-        if (queueCount > 20) break;
-      }
-      if (sentEmails.length === allEmails.length) clearInterval(emailQueue);
-      console.log("email queue: " + sentEmails.join(", "));
-      console.log(`email pending: ${sentEmails.length} --- ${allEmails.length}`);
+    const delayBetweenBatches = 1000; // 1 second
+    let i = 0;
 
-      for (let i = 0; i < sentEmails.length; i++) {
-        await reminderEmailEvt(sentEmails[i], data.eventDetails); 
+    for (const email of allEmails) {
+      // let emails = allEmails.splice(0, emailsPerBatch);
+      try {
+        await reminderEmailEvt(email, data.eventDetails);
+      } catch (error) {
+        errorEmails.push(email);
+        console.error(`Failed to send ${email}: `, error.message);
       }
-    }, 120000);
-
+  
+      if (i < allEmails.length - 1) {
+        console.log(`Waiting for ${delayBetweenBatches / 1000} seconds before next batch...`);
+        await new Promise((resolve) => setTimeout(resolve, delayBetweenBatches));
+      }
+      i++;
+    }
     
     res.json({message: "Email sent"});
   } catch (error) {
-    res.json({message: "Error occurred"});
+    console.log(error);
+    res.json({message: "Error occurred", errorEmails});
   }
 });
 

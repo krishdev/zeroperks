@@ -160,7 +160,7 @@ exports.reminderEmailEvt = async (email, eventDetails) => {
           sendEmail({
               from: 'emailzeroperks@gmail.com',
               to: email,
-              subj: 'Rishika\'s Bharatanatyam Arangetram',
+              subj: eventDetails.eventName,
               content: htmlFile
           });
 
