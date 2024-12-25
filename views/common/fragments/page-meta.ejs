@@ -23,33 +23,3 @@
 <% if (typeof ogOtSquare != 'undefined') { %>
     <meta name="og:image" content="<%= aclPort + ogOtSquare %>">
 <% } %>
-<% if (typeof post != 'undefined') { %>
-<script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "<%= canonical %>"
-      },
-      "headline": "<%= title %>",
-      "description": "<%= description %>",
-      "image": "<%= aclPort + image %>", 
-      "author": {
-        "@type": "Person",
-        "name": "Krishna", 
-        "url": "https://zeroperks.com/about"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "ZeroPerks",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://zeroperks.com/images/zeroperks-logo.png"
-        }
-      },
-      "datePublished": "<%= new Date(post.createdAt).getFullYear() %>-<%= new Date(post.createdAt).toLocaleString('default', {month: 'short'}) %>-<%= new Date(post.createdAt).getDate() %>",
-      "keywords": "<%= keywords %>"
-    }
-    </script>
-    <% } %>
