@@ -9,7 +9,6 @@
             image: post.ogImage && post.ogImage.url ? post.ogImage.url : undefined,
             canonical: 'https://www.zeroperks.com/post/'+post.url
         }) %>
-        <%- contentFor('topHead') %>
         <script type="application/ld+json">
             {
               "@context": "https://schema.org",
@@ -38,6 +37,7 @@
               "keywords": "<%= post.keywords %>"
             }
         </script>
+        <%- contentFor('topHead') %>
     </head>
     <body>
         <script>
