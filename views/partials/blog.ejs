@@ -18,8 +18,8 @@
                 "@type": "WebPage",
                 "@id": "https://www.zeroperks.com/post/<%= post.url %>"
               },
-              "headline": "<%= title %>",
-              "description": "<%= description %>",
+              "headline": "<%= post.title %>",
+              "description": "<%= post.description %>",
               "image": "<%= aclPort + image %>", 
               "author": {
                 "@type": "Person",
@@ -35,7 +35,7 @@
                 }
               },
               "datePublished": "<%= new Date(post.createdAt).getFullYear() %>-<%= new Date(post.createdAt).toLocaleString('default', {month: 'short'}) %>-<%= new Date(post.createdAt).getDate() %>",
-              "keywords": "<%= keywords %>"
+              "keywords": "<%= post.keywords %>"
             }
         </script>
     </head>
