@@ -1,7 +1,7 @@
 
     <% 
         const pageMeta = `
-            <%- include('../common/fragments/page-meta', { 
+            <%- include('../common/fragments/page-meta', {
                 title: post.title + ' |  ZEROPERSK',
                 description: post.description,
                 keywords: post.keyword,
@@ -9,7 +9,7 @@
                 canonical: 'https://www.zeroperks.com/post/'+post.url
             }) %>
         `;
-        contentFor('pageMeta', pageMeta);
+        
     %>
     
     <% contentFor('topHead', `
