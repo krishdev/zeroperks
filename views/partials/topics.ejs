@@ -18,7 +18,13 @@
                 <div class="swiper-wrapper">
                 <!-- Slides -->
                 <% 
-                    const featuredBlogs = allBlogs ? JSON.parse(allBlogs) : [];
+                    let featuredBlogs = [];
+                    try {
+                        featuredBlogs = allBlogs ? JSON.parse(allBlogs) : [];
+                    } catch (error) {
+                        console.error('Invalid JSON for allBlogs:', error);
+                    }
+                    
                     for(let i = 0; i < featuredBlogs.length ; i++) { 
                     const blog = featuredBlogs[i];
                     %>
@@ -65,7 +71,13 @@
                 <h2 class="c-Topics__title">Latest Articles</h2>
                 <div class="c-Topics__lt-articles">
                     <% 
-                    const articles = allBlogs ? JSON.parse(recentArticles) : [];
+                    let articles = [];
+                    try {
+                        articles = recentArticles ? JSON.parse(recentArticles) : [];
+                    } catch (error) {
+                        console.error('Invalid JSON for allBlogs:', error);
+                    }
+                    
                     for(let i = 0; i < articles.length ; i++) { 
                     const article = articles[i];
                     %>
