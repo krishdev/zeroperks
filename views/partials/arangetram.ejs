@@ -1,55 +1,639 @@
-<!DOCTYPE html>
+<%- contentFor('pageMeta') %>
+  <%- include('../common/fragments/page-meta', { 
+      title: 'Exquisite Custom Websites for Arangetram & Recitals | Custom E-Invites for Classical Dance Performances',
+      description: 'Create stunning, personalized Bharatanatyam Arangetram e-invites with our custom designs. Celebrate your special moment with traditional and modern invitation styles. Easy to customize, share, and send!',
+      keywords: 'Bharatanatyam Arangetram Invitation',
+      ogWide: '/assets/invi-poster.jpg',
+      ogSquare: '/assets/invi-poster-square.jpg',
+  }) %>
 
-<html>
-  <head>
-    <%- contentFor('pageMeta') %>
-    <%- include('../common/fragments/page-meta', { 
-        title: 'Bharatanatyam Arangetram Invitation | Custom E-Invites for Classical Dance Performances',
-        description: 'Create stunning, personalized Bharatanatyam Arangetram e-invites with our custom designs. Celebrate your special moment with traditional and modern invitation styles. Easy to customize, share, and send!',
-        keywords: 'Bharatanatyam Arangetram Invitation',
-        ogWide: '/assets/invi-poster.jpg',
-        ogSquare: '/assets/invi-poster-square.jpg',
-    }) %>
-    <%- contentFor('topHead') %>
-    <meta name="og:title" content="Bharatanatyam Arangetram Invitation | Custom E-Invites for Classical Dance Performances" />
-    <meta name="og:description" content="Create stunning, personalized Bharatanatyam Arangetram e-invites with our custom designs. Celebrate your special moment with traditional and modern invitation styles. Easy to customize, share, and send!" />
-    
-  </head>
-  <body>
-    <div id="__next">
-      
+<%- contentFor('topHead') %>
+  <meta name="og:title" content="Bharatanatyam Arangetram Invitation | Custom E-Invites for Classical Dance Performances" />
+  <meta name="og:description" content="Create stunning, personalized Bharatanatyam Arangetram e-invites with our custom designs. Celebrate your special moment with traditional and modern invitation styles. Easy to customize, share, and send!" />
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Lato', sans-serif;
+      color: #333;
+      background-color: #fffaf0; /* Subtle cream background */
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cinzel', serif;
+      color: #800000; /* Deep maroon */
+    }
+
+    p, label {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #800000;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Navigation Menu */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #fffaf0;
+      border-bottom: 1px solid #ccc;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+
+    .logo a {
+      font-size: 24px;
+      font-family: 'Cinzel', serif;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+    }
+
+    .nav-links li {
+      margin-left: 20px;
+    }
+
+    .nav-links a {
+      font-weight: bold;
+    }
+
+    /* Hamburger Menu (for mobile) */
+    .burger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background-color: #800000;
+      margin: 4px;
+    }
+
+    /* Hero Section */
+    #hero {
+      background-image: url('images/hero-background.jpg'); /* Replace with your background image */
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: #fff;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      text-align: center;
+      padding: 150px 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+
+    .hero-content .btn {
+      padding: 15px 30px;
+      background-color: #800000;
+      color: #fff;
+      border-radius: 5px;
+    }
+
+    .hero-content .btn:hover {
+      background-color: #a52a2a;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 20px;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    /* Services Offered */
+    .services-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .service-item {
+      flex: 1 1 300px;
+      max-width: 300px;
+      margin: 20px;
+      text-align: center;
+    }
+
+    .service-item img {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+
+    .service-item h3 {
+      margin-bottom: 15px;
+    }
+
+    .service-item p {
+      font-size: 14px;
+    }
+
+    /* Features Highlight */
+    .features-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .feature-item {
+      flex: 1 1 300px;
+      max-width: 300px;
+      margin: 20px;
+      text-align: center;
+    }
+
+    .feature-item img {
+      width: 80px;
+      margin-bottom: 20px;
+    }
+
+    .feature-item h3 {
+      margin-bottom: 15px;
+    }
+
+    .feature-item p {
+      font-size: 14px;
+    }
+
+    /* Portfolio */
+    .portfolio-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .portfolio-item {
+      position: relative;
+      flex: 1 1 300px;
+      max-width: 400px;
+      margin: 20px;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(128, 0, 0, 0.8);
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-overlay h3 {
+      margin-bottom: 10px;
+    }
+
+    .portfolio-overlay p {
+      margin-bottom: 20px;
+    }
+
+    .portfolio-overlay .btn {
+      padding: 10px 20px;
+      background-color: #fff;
+      color: #800000;
+      border-radius: 5px;
+    }
+
+    .portfolio-overlay .btn:hover {
+      background-color: #f0e68c;
+    }
+
+    /* Testimonials */
+    .testimonial-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+    }
+
+    .testimonial-item {
+      flex: 0 0 300px;
+      margin: 0 20px;
+      text-align: center;
+    }
+
+    .testimonial-item p {
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-item h4 {
+      font-weight: bold;
+    }
+
+    /* About Us */
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-content h3 {
+      margin-top: 40px;
+    }
+
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .team-member {
+      flex: 1 1 200px;
+      margin: 20px;
+      text-align: center;
+    }
+
+    .team-member img {
+      width: 100%;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    /* Call-to-Action Section */
+    #cta {
+      background-image: url('images/cta-background.jpg'); /* Replace with your background image */
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: #fff;
+    }
+
+    #cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(128, 0, 0, 0.8);
+    }
+
+    .cta-content {
+      position: relative;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .cta-content h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .cta-content .btn {
+      padding: 15px 30px;
+      background-color: #fff;
+      color: #800000;
+      border-radius: 5px;
+    }
+
+    .cta-content .btn:hover {
+      background-color: #f0e68c;
+    }
+
+    /* Contact Us */
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #contact-form {
+      flex: 1 1 400px;
+      max-width: 500px;
+      margin: 20px;
+    }
+
+    #contact-form label {
+      display: block;
+      margin-top: 15px;
+    }
+
+    #contact-form input,
+    #contact-form textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #contact-form button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #800000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #contact-form button:hover {
+      background-color: #a52a2a;
+    }
+
+    .contact-info {
+      flex: 1 1 300px;
+      max-width: 400px;
+      margin: 20px;
+      font-size: 18px;
+    }
+
+    .contact-info p {
+      margin-bottom: 15px;
+    }
+
+    .social-media a img {
+      width: 30px;
+      margin-right: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .footer-links a {
+      color: #fff;
+      margin: 0 10px;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .newsletter p {
+      margin-bottom: 10px;
+    }
+
+    .newsletter form {
+      display: flex;
+      justify-content: center;
+    }
+
+    .newsletter input {
+      padding: 8px;
+      width: 250px;
+      border: none;
+      border-radius: 5px 0 0 5px;
+    }
+
+    .newsletter button {
+      padding: 8px 15px;
+      background-color: #800000;
+      color: #fff;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+    }
+
+    .newsletter button:hover {
+      background-color: #a52a2a;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      .services-container,
+      .features-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .testimonial-carousel {
+        flex-direction: column;
+      }
+
+      .portfolio-gallery {
+        flex-direction: column;
+      }
+
+      .contact-container {
+        flex-direction: column;
+      }
+    }
+
+  </style>
+
+<%- contentFor('body') %>
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Crafting Exquisite Custom Websites for Arangetram &amp; Recitals</h1>
+      <p>Transform your event into an unforgettable online experience</p>
+      <a href="#portfolio" class="btn">View Our Work</a>
     </div>
-    
-    <script>
-      new Vue({
-        el: "#__next",
-        data: {
-          form: {
-            name: '',
-            email: '',
-            phone: '',
-            guests: '',
-            content: ''
-          },
-          isLoading: false,
-          isFormSubmitted: false,
-          errors: {
-            isError: false,
-            name: '',
-            email: '',
-            phone: '',
-            guests: ''
-          },
-          globalErrors: '',
-          dataSaved: false,
-          messages: [],
-          allMessages: []
-        },
-        created () {
-        },
-        methods: {
-        }
-      })
-    </script>
-  </body>
-</html>
+  </section>
+
+  <!-- Services Offered -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services-container">
+      <!-- Service 1 -->
+      <div class="service-item">
+        <img src="images/icon-invitations.png" alt="Custom Invitations">
+        <h3>Custom Invitations</h3>
+        <p>Personalized digital invitations that capture the essence of your event.</p>
+      </div>
+      <!-- Service 2 -->
+      <div class="service-item">
+        <img src="images/icon-accompanists.png" alt="Accompanists' Profiles">
+        <h3>Accompanists' Profiles</h3>
+        <p>Detailed pages highlighting the musicians and their contributions.</p>
+      </div>
+      <!-- Service 3 -->
+      <div class="service-item">
+        <img src="images/icon-bios.png" alt="Performer & Guru Bios">
+        <h3>Performer &amp; Guru Bios</h3>
+        <p>Share the journey and accomplishments of the performer and their mentor.</p>
+      </div>
+      <!-- Service 4 -->
+      <div class="service-item">
+        <img src="images/icon-program.png" alt="Program Details">
+        <h3>Program Details</h3>
+        <p>Interactive schedules and descriptions of each performance piece.</p>
+      </div>
+      <!-- Service 5 -->
+      <div class="service-item">
+        <img src="images/icon-rsvp.png" alt="RSVP Management">
+        <h3>RSVP Management</h3>
+        <p>Seamless RSVP functionality integrated into the website.</p>
+      </div>
+      <!-- Service 6 -->
+      <div class="service-item">
+        <img src="images/icon-guestbook.png" alt="Digital Guestbook">
+        <h3>Digital Guestbook</h3>
+        <p>A space for guests to leave messages and well-wishes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Highlight -->
+  <section id="features">
+    <h2>Why Choose Us</h2>
+    <div class="features-container">
+      <!-- Feature 1 -->
+      <div class="feature-item">
+        <img src="images/icon-design.png" alt="Modern Design with Classical Touch">
+        <h3>Modern Design with Classical Touch</h3>
+        <p>Blending contemporary aesthetics with traditional elements.</p>
+      </div>
+      <!-- Feature 2 -->
+      <div class="feature-item">
+        <img src="images/icon-responsive.png" alt="Mobile-Responsive">
+        <h3>Mobile-Responsive</h3>
+        <p>Websites that look stunning on all devices.</p>
+      </div>
+      <!-- Feature 3 -->
+      <div class="feature-item">
+        <img src="images/icon-easy.png" alt="Easy to Update">
+        <h3>Easy to Update</h3>
+        <p>User-friendly interfaces for real-time updates.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <h2>Our Work</h2>
+    <div class="portfolio-gallery">
+      <!-- Project 1 -->
+      <div class="portfolio-item">
+        <img src="images/project1.jpg" alt="Project 1">
+        <div class="portfolio-overlay">
+          <h3>Project Title 1</h3>
+          <p>Brief description of the project.</p>
+          <a href="#" class="btn">View Full Project</a>
+        </div>
+      </div>
+      <!-- Repeat for other projects -->
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-carousel">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-item">
+        <p>"[Client testimonial highlighting their satisfaction with your services.]"</p>
+        <h4>[Client Name]</h4>
+      </div>
+      <!-- Repeat for other testimonials -->
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section id="about">
+    <h2>Who We Are</h2>
+    <div class="about-content">
+      <p>[Mission Statement: Describe your passion for creating beautiful event websites.]</p>
+      <h3>Our Story</h3>
+      <p>[Share how you started in this field and what sets you apart.]</p>
+      <!-- Team Members (if applicable) -->
+      <!--
+      <div class="team-container">
+        <div class="team-member">
+          <img src="images/team1.jpg" alt="[Team Member Name]">
+          <h4>[Team Member Name]</h4>
+          <p>[Brief bio]</p>
+        </div>
+        <!-- Repeat for other team members --
+      </div>
+      -->
+    </div>
+  </section>
+
+  <script>
+    // Mobile Navigation Toggle
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('nav-active');
+      burger.classList.toggle('toggle');
+    });
+
+    // Contact Form Submission
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      // Handle form submission to the server here
+      this.reset();
+    });
+
+  </script>

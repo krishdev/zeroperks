@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <%- contentFor('pageMeta') %>
-        <%- include('./common/fragments/page-meta', { 
-            title: 'ZEROPERSK by Krishna',
-            description: 'ZEROPERSK by Krishna',
-            keywords: 'ZEROPERSK by Krishna',
-        }) %>
-        <%- contentFor('topHead') %>
-    </head>
-    <body>
-        <div class="mb-4 bg-light rounded-3">
-            <div class="container-fluid">
-                <h1><%= message %></h1>
-                <h2><%= error.status %></h2>
-                <pre><%= error.stack %></pre>
-            </div>
+<%- contentFor('pageMeta') %>
+    <%- include('./common/fragments/page-meta', { 
+        title: 'ZEROPERSK by Krishna',
+        description: 'ZEROPERSK by Krishna',
+        keywords: 'ZEROPERSK by Krishna',
+    }) %>
+
+<%- contentFor('topHead') %>
+<% %>
+
+<%- contentFor('body') %>
+    <div class="mb-4 bg-light rounded-3">
+        <div class="container-fluid">
+            <h1><%= message %></h1>
+            <h2><%= error.status %></h2>
+            <pre><%= error.stack %></pre>
         </div>
-    </body>
-</html>
+    </div>

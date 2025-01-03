@@ -1,89 +1,83 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <%- contentFor('pageMeta') %>
-    <%- include('../common/fragments/page-meta', { 
-        title: 'Admin Bharatanatyam Arangetram',
-        description: 'Bharatanatyam Arangetram of Thaarika on Sep 3, 2023. RSVP now.',
-        keywords: 'Thaarika Bharatanatyam Arangetram',
-    }) %>
-    <%- contentFor('topHead') %>
-    <style>
-        .c-Container {
-            display: flex;
-            /* height: 100%; */
-            flex-flow: column;
-            align-items: center;
-            justify-content: center;
-            padding: 1em;
-            overflow-x: hidden;
-            width: 100%;
-        }
+<%- contentFor('pageMeta') %>
+<%- include('../common/fragments/page-meta', { 
+    title: 'Admin Bharatanatyam Arangetram',
+    description: 'Bharatanatyam Arangetram of Thaarika on Sep 3, 2023. RSVP now.',
+    keywords: 'Thaarika Bharatanatyam Arangetram',
+}) %>
+<%- contentFor('topHead') %>
+<style>
+    .c-Container {
+        display: flex;
+        /* height: 100%; */
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1em;
+        overflow-x: hidden;
+        width: 100%;
+    }
 
-        .c-Alldata {
-            display: flex;
-            flex-flow: column;
-            align-items: start;
-            justify-content: center;
-            width: 100%;
-            overflow: auto;
-            white-space: nowrap;
-            /* max-width: 50em; */
-            -webkit-overflow-scrolling: touch;
-        }
+    .c-Alldata {
+        display: flex;
+        flex-flow: column;
+        align-items: start;
+        justify-content: center;
+        width: 100%;
+        overflow: auto;
+        white-space: nowrap;
+        /* max-width: 50em; */
+        -webkit-overflow-scrolling: touch;
+    }
 
-        .c-Item {
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: start;
-            justify-content: start;
-            margin-bottom: 1em;
-            padding: .5em;
-            /* width: 100%; */
-            font-size: 14px;
-        }
+    .c-Item {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: start;
+        justify-content: start;
+        margin-bottom: 1em;
+        padding: .5em;
+        /* width: 100%; */
+        font-size: 14px;
+    }
 
-        .c-Item__sng {
-            padding-right: 1em;
-            width: 21em;
-            text-wrap: wrap;
-        }
+    .c-Item__sng {
+        padding-right: 1em;
+        width: 21em;
+        text-wrap: wrap;
+    }
 
-        .c-Item__sng:first-child,
-        .c-Item__sng:last-child {
-            width: 2em;
-        }
+    .c-Item__sng:first-child,
+    .c-Item__sng:last-child {
+        width: 2em;
+    }
 
-        .c-Item:nth-child(2n) {
-            background-color: rgba(0,0,0,.1);
-        }
-    </style>
-</head>
-<body>
-    <%- include('../common/fragments/navbar') %>
-    <div class="c-Container">
-        <div class="c-Alldata">
-            <div class="c-Item">
-                <div class="c-Item__sng c-item__name"><b>#</b></div>
-                <div class="c-Item__sng c-item__name"><b>Name</b></div>
-                <div class="c-Item__sng c-item__email"><b>Email</b></div>
-                <div class="c-Item__sng c-item__guests"><b>No.</b></div>
-            </div>
-            <% 
-                if (typeof allData != null) {
-                const participants = allData ? allData : [];
-                for(let i = 0; i < participants.length ; i++) { 
-                    const participant = participants[i];
-            %>
-                <div class="c-Item">
-                    <div class="c-Item__sng c-item__name"><%= i+1 %></div>
-                    <div class="c-Item__sng c-item__name"><%= participant.name %></div>
-                    <div class="c-Item__sng c-item__email"><%= participant.email %></div>
-                    <div class="c-Item__sng c-item__guests"><%= participant.guests %></div>
-                </div>
-            <% } } %>
-            <b>Total Guests: <%= totalGuests %></b>
+    .c-Item:nth-child(2n) {
+        background-color: rgba(0,0,0,.1);
+    }
+</style>
+<%- contentFor('body') %>
+<%- include('../common/fragments/navbar') %>
+<div class="c-Container">
+    <div class="c-Alldata">
+        <div class="c-Item">
+            <div class="c-Item__sng c-item__name"><b>#</b></div>
+            <div class="c-Item__sng c-item__name"><b>Name</b></div>
+            <div class="c-Item__sng c-item__email"><b>Email</b></div>
+            <div class="c-Item__sng c-item__guests"><b>No.</b></div>
         </div>
+        <% 
+            if (typeof allData != null) {
+            const participants = allData ? allData : [];
+            for(let i = 0; i < participants.length ; i++) { 
+                const participant = participants[i];
+        %>
+            <div class="c-Item">
+                <div class="c-Item__sng c-item__name"><%= i+1 %></div>
+                <div class="c-Item__sng c-item__name"><%= participant.name %></div>
+                <div class="c-Item__sng c-item__email"><%= participant.email %></div>
+                <div class="c-Item__sng c-item__guests"><%= participant.guests %></div>
+            </div>
+        <% } } %>
+        <b>Total Guests: <%= totalGuests %></b>
     </div>
-</body>
-</html>
+</div>

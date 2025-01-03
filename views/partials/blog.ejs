@@ -6,7 +6,6 @@
     image: post.ogImage && post.ogImage.url ? post.ogImage.url : undefined,
     canonical: 'https://www.zeroperks.com/post/'+post.url
 }) %>
-    
 <%- contentFor('topHead') %>
 <script type="application/ld+json">
     {
@@ -40,6 +39,7 @@
     var postId = "<%= post.id %>";
 </script>
 
+<%- contentFor('body') %>
 <%- include('../common/fragments/navbar') %>
 <div class="c-Post o-Layout">
 

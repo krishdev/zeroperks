@@ -1,179 +1,175 @@
-<!DOCTYPE html>
+<%- contentFor('pageMeta') %>
+<%- include('../common/fragments/page-meta', { 
+    title: 'Rishika\'s Bharatanatyam Arangetram',
+    description: 'Bharatanatyam Arangetram of Rishika on March 17, 2024. RSVP here.',
+    keywords: 'Rishika\'s Bharatanatyam Arangetram',
+    ogWide: '/assets/rishi/invi-poster.jpg',
+    ogSquare: '/assets/rishi/invi-poster-square.jpg',
+}) %>
 
-<html>
-  <head>
-    <%- contentFor('pageMeta') %>
-    <%- include('../common/fragments/page-meta', { 
-        title: 'Rishika\'s Bharatanatyam Arangetram',
-        description: 'Bharatanatyam Arangetram of Rishika on March 17, 2024. RSVP here.',
-        keywords: 'Rishika\'s Bharatanatyam Arangetram',
-        ogWide: '/assets/rishi/invi-poster.jpg',
-        ogSquare: '/assets/rishi/invi-poster-square.jpg',
-    }) %>
-    <%- contentFor('topHead') %>
-    <meta name="og:title" content="March 17, 2024. Save the date & RSVP now" />
-    <meta name="og:description" content="Join us for an unforgettable evening at Granville Arts Center." />
-    <link rel="icon" href="/images/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Dancing+Script&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<%= origin %>/assets/style-blue.css">
-    <script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
-    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <style data-jss="" data-meta="MuiTouchRipple">
-     .c-Footer .row > .col-md-6 {
-          display: none;
-      }
+<%- contentFor('topHead') %>
+<meta name="og:title" content="March 17, 2024. Save the date & RSVP now" />
+<meta name="og:description" content="Join us for an unforgettable evening at Granville Arts Center." />
+<link rel="icon" href="/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Dancing+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="<%= origin %>/assets/style-blue.css">
+<script src="https://cdn.jsdelivr.net/npm/add-to-calendar-button@2" async defer></script>
+<script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<style data-jss="" data-meta="MuiTouchRipple">
+  .c-Footer .row > .col-md-6 {
+      display: none;
+  }
 
-      .c-Footer .row > .col-md-6:first-child {
-          margin: 0 auto;
-          display: block;
-          text-align: center;
-      }
-      .c-Footer {
-          padding-top: 2em;
-          padding-bottom: 3em;
-      }
-    </style>
-  </head>
-  <body>
-    <section class="c-Main">
-      <main class="c-Main__intro">
-          <header id="intro" class="c-Main__header">
-              <div class="c-Main__title">
-                  <h1 class="c-Main__title-name">
-                      <span class="underline-animation">Rishika's</span> Arangetram
-                  </h1>
-                  <div class="c-Main__title-desc">
-                      <p>Experience the grace of Bharatanatyam at Rishika's Arangetram on <span class="underline-animation">Sunday, March 17, 2024</span>. Join us for a mesmerizing performance!</p>
-                      <button id="invitation" class="o-Btn o-Btn--green o-Btn--rsvp">
-                          <p class="o-Btn__text">VIEW INVITATION</p>
-                      </button>
-                  </div>
-              </div>
-              <div class="c-Main__image">
-                  <div class="c-Main__image-pic">
-                      <img src="/assets/rishi/intro.jpg" alt="rishika-intro">
-                  </div>
-              </div>
-          </header>
-          <div id="body" class="c-Main__body">
-              <div class="c-Main__body-cntr">
-                  <div id="abt-shishya" class="c-Main__body-abt-you">
-                      <div class="c-Main__body-abt__image">
-                          <!-- <div class="c-Main__body-abt__img1">
-                              <img src="/assets/rishi/about-img-1.jpg" alt="rishika-pose-1">
-                          </div>
-                          <div class="c-Main__body-abt__img2">
-                              <img src="/assets/rishi/about-img-2.jpg" alt="rishika-pose-2">
-                          </div> -->
-                          <div class="c-Main__body-abt__img3">
-                              <img src="/assets/rishi/about-img-3.jpg" alt="rishika-pose-3">
-                          </div>
-                      </div>
-                      <div class="c-Main__body-abt__cnt">
-                          <h2 class="c-Info-title">
-                              About Us
-                          </h2>
-                          <div class="c-Info-underline">
-                              <svg width="80" height="3" viewBox="0 0 80 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                  <line x1="1.5" y1="1.5" x2="78.5" y2="1.5" stroke="#F73859" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"></line>
-                              </svg>
-                          </div>
-                          <div class="c-Main__body-abt__desc">
-                            <b>Shishya:</b> Rishika Pillai is currently a senior at Coppell High School. She has been learning Bharatanatyam since the age of five, and it has grown to become one of her most heartfelt passions. Rishika has completed the Senior Certificate in Bharatanatyam from the SAMPADA SiliconAndhra Organization with distinction and spends her free time teaching dance to students at Natyom. She has also been learning Carnatic Music from Smt. Latha Varadarajan. Outside of dance, Rishika likes to read books, watch movies, listen to music and spend time with her friends and family. She plans on attending college in the fall.
-                          </div>
-                      </div>
-                  </div>
-                  <div id="abt-guru" class="c-Main__body-abt-guru">
-                      <div class="c-Main__body-guru__cnt">
-                          <hr class="o-Separator"/>
-                          <div class="c-Main__body-guru__cnt-text">
-                              <b>Guru:</b> Dr. Praveena Vajja is the owner and director of Natyom Dance Academy. She is the Disciple of Guru Natyacharya Shri Avasarala Rukmaji Rao, who is a disciple of Padma Shri Adyar K. Lakshman in Bharatanatyam Kalakshetra style and Kuchipudi, Padma Bhushan Dr. Vempati Chinasatyam. She specializes in teaching Bharatanatyam and has extensive training in Kuchipudi and Kathak as well. She has trained, performed, and taught dance for over 40 years. Natyom Dance Academy’s core curriculum develops a foundation of Bharatanatyam for all students. The basis allows students to easily pick up other forms of Indian Classical and Modern Dance.
-                              <p>Students graduate at Natyom by taking certification exams in 4 levels through SAMPADA Siliconandhra and performing arangetrams.</p>
-                          </div>
-                      </div>
-                      <div class="c-Main__body-abt-guru__img">
-                          <img src="/assets/rishi/about-guru.jpg" alt="guru-image">
-                      </div>
-                  </div>
-              </div>
+  .c-Footer .row > .col-md-6:first-child {
+      margin: 0 auto;
+      display: block;
+      text-align: center;
+  }
+  .c-Footer {
+      padding-top: 2em;
+      padding-bottom: 3em;
+  }
+</style>
 
-              <div class="c-Main__invi" id="invitation">
-                <div class="c-Main__invi-cntr" id="invitation-container">
-                  <h2 class="c-Main__sub-title">Invitation</h2>
-                  <div class="c-Info-underline" style="margin-bottom: 60px">
-                    <svg width="80" height="3" viewBox="0 0 80 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="1.5" y1="1.5" x2="78.5" y2="1.5" stroke="#F73859" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"></line>
-                    </svg>
-                  </div>
-                  <div class="c-Main__invi-wrap">
-                    <div class="row">
-                      <div class="col-md-6 col-12" id="invitation-left">
-                        <ul class="c-Invi__details">
-                          <li>Mr Santhosh and Mrs Salini</li>
-                          <li class="c-Invi__details__agw">along with</li>
-                          <li>Natyom Dance Academy</li>
-                          <li style="font-family: 'Dancing Script', cursive;">cordially invite you to their daughter</li>
-                          <li class="c-Invi__details__thb">Rishika's Bharatanatyam Arangetram</li>
-                          <li>Disciple of Smt. Praveena Vajja</li>
-                          <li style="display: none;"><a class="theme-btn" href="#rsvp">RSVP <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a></li>
-                          <li><a class="c-Invi__details-natyom-logo" href="https://natyom.com/" target="_blank"><img style="margin: 6px 0 0;" src="/assets/natyom_logo_mono.svg" alt=""></a></li>
-                        </ul>
-                      </div>
-                      <div class="col-md-6 col-12 c-Invi__end">
-                        <div class="c-Invi__details-wrap"  id="invitation-date">
-                          <h2>Date & Time</h2>
-                          <div class="c-Invi__item">
-                            <div class="c-Invi__cal">
-                              <div class="main-div">
-                                <div class="sub-div">
-                                  <div class="year-div">MAR</div>
-                                </div>
-                                <div class="date-div">
-                                  <p>17</p>
-                                </div>
+<%- contentFor('body') %>
+  <section class="c-Main">
+    <main class="c-Main__intro">
+        <header id="intro" class="c-Main__header">
+            <div class="c-Main__title">
+                <h1 class="c-Main__title-name">
+                    <span class="underline-animation">Rishika's</span> Arangetram
+                </h1>
+                <div class="c-Main__title-desc">
+                    <p>Experience the grace of Bharatanatyam at Rishika's Arangetram on <span class="underline-animation">Sunday, March 17, 2024</span>. Join us for a mesmerizing performance!</p>
+                    <button id="invitation" class="o-Btn o-Btn--green o-Btn--rsvp">
+                        <p class="o-Btn__text">VIEW INVITATION</p>
+                    </button>
+                </div>
+            </div>
+            <div class="c-Main__image">
+                <div class="c-Main__image-pic">
+                    <img src="/assets/rishi/intro.jpg" alt="rishika-intro">
+                </div>
+            </div>
+        </header>
+        <div id="body" class="c-Main__body">
+            <div class="c-Main__body-cntr">
+                <div id="abt-shishya" class="c-Main__body-abt-you">
+                    <div class="c-Main__body-abt__image">
+                        <!-- <div class="c-Main__body-abt__img1">
+                            <img src="/assets/rishi/about-img-1.jpg" alt="rishika-pose-1">
+                        </div>
+                        <div class="c-Main__body-abt__img2">
+                            <img src="/assets/rishi/about-img-2.jpg" alt="rishika-pose-2">
+                        </div> -->
+                        <div class="c-Main__body-abt__img3">
+                            <img src="/assets/rishi/about-img-3.jpg" alt="rishika-pose-3">
+                        </div>
+                    </div>
+                    <div class="c-Main__body-abt__cnt">
+                        <h2 class="c-Info-title">
+                            About Us
+                        </h2>
+                        <div class="c-Info-underline">
+                            <svg width="80" height="3" viewBox="0 0 80 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="1.5" y1="1.5" x2="78.5" y2="1.5" stroke="#F73859" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"></line>
+                            </svg>
+                        </div>
+                        <div class="c-Main__body-abt__desc">
+                          <b>Shishya:</b> Rishika Pillai is currently a senior at Coppell High School. She has been learning Bharatanatyam since the age of five, and it has grown to become one of her most heartfelt passions. Rishika has completed the Senior Certificate in Bharatanatyam from the SAMPADA SiliconAndhra Organization with distinction and spends her free time teaching dance to students at Natyom. She has also been learning Carnatic Music from Smt. Latha Varadarajan. Outside of dance, Rishika likes to read books, watch movies, listen to music and spend time with her friends and family. She plans on attending college in the fall.
+                        </div>
+                    </div>
+                </div>
+                <div id="abt-guru" class="c-Main__body-abt-guru">
+                    <div class="c-Main__body-guru__cnt">
+                        <hr class="o-Separator"/>
+                        <div class="c-Main__body-guru__cnt-text">
+                            <b>Guru:</b> Dr. Praveena Vajja is the owner and director of Natyom Dance Academy. She is the Disciple of Guru Natyacharya Shri Avasarala Rukmaji Rao, who is a disciple of Padma Shri Adyar K. Lakshman in Bharatanatyam Kalakshetra style and Kuchipudi, Padma Bhushan Dr. Vempati Chinasatyam. She specializes in teaching Bharatanatyam and has extensive training in Kuchipudi and Kathak as well. She has trained, performed, and taught dance for over 40 years. Natyom Dance Academy’s core curriculum develops a foundation of Bharatanatyam for all students. The basis allows students to easily pick up other forms of Indian Classical and Modern Dance.
+                            <p>Students graduate at Natyom by taking certification exams in 4 levels through SAMPADA Siliconandhra and performing arangetrams.</p>
+                        </div>
+                    </div>
+                    <div class="c-Main__body-abt-guru__img">
+                        <img src="/assets/rishi/about-guru.jpg" alt="guru-image">
+                    </div>
+                </div>
+            </div>
+
+            <div class="c-Main__invi" id="invitation">
+              <div class="c-Main__invi-cntr" id="invitation-container">
+                <h2 class="c-Main__sub-title">Invitation</h2>
+                <div class="c-Info-underline" style="margin-bottom: 60px">
+                  <svg width="80" height="3" viewBox="0 0 80 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <line x1="1.5" y1="1.5" x2="78.5" y2="1.5" stroke="#F73859" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"></line>
+                  </svg>
+                </div>
+                <div class="c-Main__invi-wrap">
+                  <div class="row">
+                    <div class="col-md-6 col-12" id="invitation-left">
+                      <ul class="c-Invi__details">
+                        <li>Mr Santhosh and Mrs Salini</li>
+                        <li class="c-Invi__details__agw">along with</li>
+                        <li>Natyom Dance Academy</li>
+                        <li style="font-family: 'Dancing Script', cursive;">cordially invite you to their daughter</li>
+                        <li class="c-Invi__details__thb">Rishika's Bharatanatyam Arangetram</li>
+                        <li>Disciple of Smt. Praveena Vajja</li>
+                        <li style="display: none;"><a class="theme-btn" href="#rsvp">RSVP <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a></li>
+                        <li><a class="c-Invi__details-natyom-logo" href="https://natyom.com/" target="_blank"><img style="margin: 6px 0 0;" src="/assets/natyom_logo_mono.svg" alt=""></a></li>
+                      </ul>
+                    </div>
+                    <div class="col-md-6 col-12 c-Invi__end">
+                      <div class="c-Invi__details-wrap"  id="invitation-date">
+                        <h2>Date & Time</h2>
+                        <div class="c-Invi__item">
+                          <div class="c-Invi__cal">
+                            <div class="main-div">
+                              <div class="sub-div">
+                                <div class="year-div">MAR</div>
                               </div>
-                              <div class="c-Invi__time">
-                                <div>3PM - 6PM</br>(Seating starts at 2:30PM)</div>
-                                <add-to-calendar-button
-                                  name="Add to Calendar"
-                                  options="'Apple','Google'"
-                                  location="Plaza Theater Garland, 521 W State St, Garland, TX 75040"
-                                  startDate="2024-03-17"
-                                  endDate="2024-03-17"
-                                  startTime="14:30"
-                                  endTime="18:00"
-                                  timeZone="America/Chicago"
-                                ></add-to-calendar-button>
+                              <div class="date-div">
+                                <p>17</p>
                               </div>
+                            </div>
+                            <div class="c-Invi__time">
+                              <div>3PM - 6PM</br>(Seating starts at 2:30PM)</div>
+                              <add-to-calendar-button
+                                name="Add to Calendar"
+                                options="'Apple','Google'"
+                                location="Plaza Theater Garland, 521 W State St, Garland, TX 75040"
+                                startDate="2024-03-17"
+                                endDate="2024-03-17"
+                                startTime="14:30"
+                                endTime="18:00"
+                                timeZone="America/Chicago"
+                              ></add-to-calendar-button>
                             </div>
                           </div>
                         </div>
-                        <div class="c-Invi__details-wrap"  id="invitation-venue">
-                          <h2>Venue</h2>
-                          <div class="c-Invi__item">
-                            <div class="c-Invi__location">
+                      </div>
+                      <div class="c-Invi__details-wrap"  id="invitation-venue">
+                        <h2>Venue</h2>
+                        <div class="c-Invi__item">
+                          <div class="c-Invi__location">
+                            <div>
+                              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                            </div>
+                            <div class="c-Invi__desti">
                               <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                                Plaza Theater,</br>521 W State St,</br>Garland, TX 75040
                               </div>
-                              <div class="c-Invi__desti">
-                                <div>
-                                  Plaza Theater,</br>521 W State St,</br>Garland, TX 75040
-                                </div>
-                                <a target="_blank" class="o-Btn--maps o-Btn--andr" href="https://maps.google.com/?q=Plaza+Theater,+Garland,+TX">
-                                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M512 96c0 50.2-59.1 125.1-84.6 155c-3.8 4.4-9.4 6.1-14.5 5H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c53 0 96 43 96 96s-43 96-96 96H139.6c8.7-9.9 19.3-22.6 30-36.8c6.3-8.4 12.8-17.6 19-27.2H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320c-53 0-96-43-96-96s43-96 96-96h39.8c-21-31.5-39.8-67.7-39.8-96c0-53 43-96 96-96s96 43 96 96zM117.1 489.1c-3.8 4.3-7.2 8.1-10.1 11.3l-1.8 2-.2-.2c-6 4.6-14.6 4-20-1.8C59.8 473 0 402.5 0 352c0-53 43-96 96-96s96 43 96 96c0 30-21.1 67-43.5 97.9c-10.7 14.7-21.7 28-30.8 38.5l-.6 .7zM128 352a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM416 128a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
-                                  <span>Open in Map</span>
-                                </a>
-                                <a target="_blank" class="o-Btn--maps o-Btn--ios hide" href="https://maps.apple.com/maps?q=Plaza+Theater,+Garland,+TX">
-                                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M512 96c0 50.2-59.1 125.1-84.6 155c-3.8 4.4-9.4 6.1-14.5 5H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c53 0 96 43 96 96s-43 96-96 96H139.6c8.7-9.9 19.3-22.6 30-36.8c6.3-8.4 12.8-17.6 19-27.2H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320c-53 0-96-43-96-96s43-96 96-96h39.8c-21-31.5-39.8-67.7-39.8-96c0-53 43-96 96-96s96 43 96 96zM117.1 489.1c-3.8 4.3-7.2 8.1-10.1 11.3l-1.8 2-.2-.2c-6 4.6-14.6 4-20-1.8C59.8 473 0 402.5 0 352c0-53 43-96 96-96s96 43 96 96c0 30-21.1 67-43.5 97.9c-10.7 14.7-21.7 28-30.8 38.5l-.6 .7zM128 352a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM416 128a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
-                                  <span>Open in Map</span>
-                                </a>
-                                <!-- <a target="_blank" class="o-Btn o-Btn--maps" href="geo:32.91515288598084, -96.63565890899281">
-                                  
-                                </a> -->
-                              </div>
+                              <a target="_blank" class="o-Btn--maps o-Btn--andr" href="https://maps.google.com/?q=Plaza+Theater,+Garland,+TX">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M512 96c0 50.2-59.1 125.1-84.6 155c-3.8 4.4-9.4 6.1-14.5 5H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c53 0 96 43 96 96s-43 96-96 96H139.6c8.7-9.9 19.3-22.6 30-36.8c6.3-8.4 12.8-17.6 19-27.2H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320c-53 0-96-43-96-96s43-96 96-96h39.8c-21-31.5-39.8-67.7-39.8-96c0-53 43-96 96-96s96 43 96 96zM117.1 489.1c-3.8 4.3-7.2 8.1-10.1 11.3l-1.8 2-.2-.2c-6 4.6-14.6 4-20-1.8C59.8 473 0 402.5 0 352c0-53 43-96 96-96s96 43 96 96c0 30-21.1 67-43.5 97.9c-10.7 14.7-21.7 28-30.8 38.5l-.6 .7zM128 352a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM416 128a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
+                                <span>Open in Map</span>
+                              </a>
+                              <a target="_blank" class="o-Btn--maps o-Btn--ios hide" href="https://maps.apple.com/maps?q=Plaza+Theater,+Garland,+TX">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M512 96c0 50.2-59.1 125.1-84.6 155c-3.8 4.4-9.4 6.1-14.5 5H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h96c53 0 96 43 96 96s-43 96-96 96H139.6c8.7-9.9 19.3-22.6 30-36.8c6.3-8.4 12.8-17.6 19-27.2H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320c-53 0-96-43-96-96s43-96 96-96h39.8c-21-31.5-39.8-67.7-39.8-96c0-53 43-96 96-96s96 43 96 96zM117.1 489.1c-3.8 4.3-7.2 8.1-10.1 11.3l-1.8 2-.2-.2c-6 4.6-14.6 4-20-1.8C59.8 473 0 402.5 0 352c0-53 43-96 96-96s96 43 96 96c0 30-21.1 67-43.5 97.9c-10.7 14.7-21.7 28-30.8 38.5l-.6 .7zM128 352a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM416 128a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
+                                <span>Open in Map</span>
+                              </a>
+                              <!-- <a target="_blank" class="o-Btn o-Btn--maps" href="geo:32.91515288598084, -96.63565890899281">
+                                
+                              </a> -->
                             </div>
                           </div>
                         </div>
@@ -182,839 +178,838 @@
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div class="c-Main__acpnts">
-                  <div class="c-Main__acpnts-cntr">
-                      <h2 class="c-Main__sub-title">Accompanists</h2>
-                      <div class="c-Info-underline" style="margin-bottom: 60px">
-                          <svg width="80" height="3" viewBox="0 0 80 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <line x1="1.5" y1="1.5" x2="78.5" y2="1.5" stroke="#F73859" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"></line>
-                          </svg>
-                      </div>
-                      <div class="c-Main__acpnts-accrd">
-                          <article id="accompanists-one" class="c-Accrd">
-                              <header id="nattuvangam" class="c-Accrd__header">
-                                  <div class="c-Accrd__header-name">
-                                      <div class="c-Accrd__header-img"><img src="/assets/rishi/induva.png" alt="induva"></div>
-                                      <div class="c-Accrd__header-title">
-                                          <span>Nattuvangam</span>
-                                          <span>Smt.Induvadana</span>
-                                      </div>
-                                  </div>
-                              </header>
-                              <div class="c-Accrd__cnt">
-                                  <p>Induvadana, an exponent of Bharatha Natyam was fortunate to be born in a family of highly accomplished artists. It is not surprising that she inherited her love for dance and music since her childhood, which blossomed in a highly creative and artistic environment. She is the daughter of Guru Padmashri.Adyar K. Lakshman a highly acclaimed dance guru, choreographer, Nattuvanar, composer and director of the internationally recognized institute of fine arts "Bharatha Choodamani"</p>
-                                  <p>Trained rigorously in both Bharatha Natyam and Nattuvangam her thorough foundation is revealed through well-executed rhythmic patterns in scintillating nritta and highly emotive and sensitive abhinaya. She has also been closely associated with her uncle Shri K Rama Rao and her aunty Smt Nagamani Srinivasa Rao, both well-known dance gurus and her uncle Shri K Gopinath who is an acclaimed mridangam player. She has performed in various dance programmes organized by Bharatha Choodamani and various cultural organizations in India and abroad.</p>
-                                  <p>Apart from her dancing career she also teaches Bharatanatyam and Nattuvangam and conducts Bharatanatyam recitals to her students in the Kalakshetra Style of Bharatha Natyam, which is characterized by traditional purity, grace and vigor and also Nattuvangam in the unique style of her illustrious father Guru Shri Adyar K. Lakshman. She also teaches Bharatanatyam as a Fitness Program for adults.</p>
-                              </div>
-                          </article>
-                          <article id="accompanists-two" class="c-Accrd">
-                              <header id="nattuvangam" class="c-Accrd__header">
-                                  <div class="c-Accrd__header-name">
-                                      <div class="c-Accrd__header-img"><img src="/assets/rishi/akshaya.png" alt="akshaya"></div>
-                                      <div class="c-Accrd__header-title">
-                                          <span>Vocalist</span>
-                                          <span>Smt. Akshaya Ramanathan</span>
-                                      </div>
-                                  </div>
-                              </header>
-                              <div class="c-Accrd__cnt">
-                                  <p>Smt. Akshaya Ramanathan hails from a musical family and she got her first training from her mother A.Jayanthi. Under her father's guidance she took music full time.She moved to Texas with her husband and continues to pursue her music career.</p>
-                                  <p>She went on to learn from Carnatica brothers and Smt. Padma Sandilyan. At present, she is getting advanced music training under the tutelage of Smt. Prarthana Sai Narasimhan (Disciple of Smt. Mani Krishna Swamy & Sri Chingleput Ranganathan), Sri. Chembai Srinivasan (Bharatanatyam Vocal).</p>
-                                  <p>She is a Master of Fine Arts in Carnatic Music from Annamalai University, Chidambaram. She also completed her Carnatic Vocal Grades from the same University.</p>
-                                  <p>Akshaya has worked as Music Lecturer in Sri Shankarlal Sundarbai Shasun Jain College for Women, Chennai, for 4 years where she has trained more than 500 Students. She holds 10 years of teaching experience in Carnatic Music for Students in India and abroad. She has rendered Carnatic vocal concerts and performed in The Music Academy and Sabhas for Bharatanatyam in India and USA with guru's blessings. To her credit, she has also done playback singing in Albums, Jingles, and Films (Tamil, Kannada) and worked with Eminent Carnatic Musicians and Music Directors.</p>
-                              </div>
-                          </article>
-                          <article id="accompanists-three" class="c-Accrd">
-                              <header id="nattuvangam" class="c-Accrd__header">
-                                  <div class="c-Accrd__header-name">
-                                      <div class="c-Accrd__header-img"><img src="/assets/rishi/umamahesh.png" alt="umamahesh"></div>
-                                      <div class="c-Accrd__header-title">
-                                          <span>Violin</span>
-                                          <span>Sri. Umamahesh Iyer</span>
-                                      </div>
-                                  </div>
-                              </header>
-                              <div class="c-Accrd__cnt">
-                                  <p>Umamahesh is an ardent lover of music and started learning Mridangam and later his interest continued as a violinist. He started learning violin from the young age of 5 from Guru Pala Balakrishna Pillai who was an eminent violinist and was known for his unique style. Umamahesh had his first public concert at the age of 9. He continued his lessons from Shri. Nedumangad Sivanandan in Kerala and Prof. R Thyagarajan of Swathi Thirunal Music college, Trivandrum, Kerala.</p>
-                                  <p>He is now pursuing advanced lessons from Smt.Vaikom Padma Krishnan who is a senior disciple of Kalimamani/Padmashree A. Kanyakumari and consulting lessons from Shri. TKV Ramanujacharlu of Srirangam.</p>
-                                  <p>He actively participates and supports music activities & vocal and dance arangetrams in the DFW area.</p>
-                                  <p>He is a Software Engineer /IT Professional and employed in a reputed IT company in a Senior management position and currently lives in Plano, TX, USA.</p>
-                              </div>
-                          </article>
-                          <article id="accompanists-four" class="c-Accrd">
-                              <header id="nattuvangam" class="c-Accrd__header">
-                                  <div class="c-Accrd__header-name">
-                                      <div class="c-Accrd__header-img"><img src="/assets/rishi/balarajen.png" alt="balarajen"></div>
-                                      <div class="c-Accrd__header-title">
-                                          <span>Mridangam</span>
-                                          <span>Sri. Balu Rajendrakurup</span>
-                                      </div>
-                                  </div>
-                              </header>
-                              <div class="c-Accrd__cnt">
-                                  <p>BaluKurup is a renowned Mridangist & percussionist who experiments with multiple genres like Indian Classical, Jazz, African and world music percussion. He is fortunate to be a small leaf of huge Banyan tree, TheThanjavurBani Mridangam lineage of Palghat Mani Iyer,under renowned gurus Sri.Nagoor AmbiIyer, Sri Mavelikara Velukutty Nair and Sri.Erickavu Sunil. Balu has been performing for notable maestros in south Indian film music fraternity and carnatic music exponents for the last 25 years. He is part of Valle Venia, a symphony group based in Germany and performs for world music concerts across European countries, US and the Middle East.Balu believes music is a universal medium to communicate the most innate expressions with nature and is open to experimenting with any form of music and artists.</p>
-                              </div>
-                          </article>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="c-Main__prgs">
-                  <div class="c-Main__prgs-cntr">
-                      <h2 class="c-Main__sub-title">Program Details</h2>
-                      <div class="c-Info-underline" style="margin-bottom: 60px">
-                          <svg width="80" height="3" viewBox="0 0 80 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <line x1="1.5" y1="1.5" x2="78.5" y2="1.5" stroke="#F73859" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"></line>
-                          </svg>
-                      </div>
-                      <div class="c-Main__prgs-details">
-                          <div class="c-Main__prgs-col c-Main__prgs-col--lft">
-                              <div class="c-Main__prgs-col__cntr">
-                                  <div class="c-Main__prgs-col__wrap">
-                                      <h5 class="c-Main__prgs-col__wrap-title">Gajananam/ Paramaanadam</h5>
-                                      <ul class="c-Main__prgs__song-desc">
-                                          <li><span>Ragam:</span> Kedara</li>
-                                          <li><span>Choreographer:</span> Padma Shri Sri. Adyar K. Lakshman</li>
-                                      </ul>
-                                  </div>
-                                  <div class="c-Main__prgs-col__wrap">
-                                      <h5 class="c-Main__prgs-col__wrap-title">Alarippu</h5>
-                                      <ul class="c-Main__prgs__song-desc">
-                                          <li><span>Talam:</span> Chaturasra</li>
-                                          <li><span>Choreographer:</span> Padma Shri Sri. Adyar K. Lakshman</li>
-                                      </ul>
-                                  </div>
-                                  <div class="c-Main__prgs-col__wrap">
-                                      <h5 class="c-Main__prgs-col__wrap-title">Kalyani Jatiswaram</h5>
-                                      <ul class="c-Main__prgs__song-desc">
-                                          <li><span>Ragam:</span> Kalyani</li>
-                                          <li><span>Talam:</span> Roopaka</li>
-                                          <li><span>Composer:</span> Tanjore Quartet</li>
-                                          <li><span>Choreographer:</span> Smt. Rukmini Devi Arundale Kalakshetra</li>
-                                      </ul>
-                                  </div>
-                                  <div class="c-Main__prgs-col__wrap">
-                                      <h5 class="c-Main__prgs-col__wrap-title">Shabdam</h5>
-                                      <ul class="c-Main__prgs__song-desc">
-                                          <li><span>Ragam:</span> Ragamalika</li>
-                                          <li><span>Talam:</span> Misra Chapu</li>
-                                          <li><span>Composer:</span> Tanjore Quartet</li>
-                                          <li><span>Choreographer:</span> Smt. Rukmini Devi Arundale Kalakshetra</li>
-                                      </ul>
-                                  </div>
-                                  <div class="c-Main__prgs-col__wrap">
-                                      <h5 class="c-Main__prgs-col__wrap-title">Chalamela Varnam</h5>
-                                      <ul class="c-Main__prgs__song-desc">
-                                          <li><span>Ragam:</span> Nattakuranji</li>
-                                          <li><span>Talam:</span> Adi</li>
-                                          <li><span>Composer:</span> Moolaiveettu Rangaswamy Nattuvanar</li>
-                                          <li><span>Choreographer:</span> Smt. Rukmini Devi Arundale Kalakshetra</li>
-                                      </ul>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="c-Main__prgs-col c-Main__prgs-col--rgt">
-                              <div class="c-Main__prgs-col__cntr">
-                                  <div class="c-Main__prgs-col__wrap">
-                                      <h5 class="c-Main__prgs-col__wrap-title">Simhasana Stithe</h5>
-                                      <ul class="c-Main__prgs__song-desc">
-                                          <li><span>Ragam:</span> Ragamalika</li>
-                                          <li><span>Talam:</span> Roopaka</li>
-                                          <li><span>Composer:</span> Muthuswamy Dikshithar</li>
-                                          <li><span>Choreographer:</span> Padma Shri Sri. Adyar K. Lakshman</li>
-                                      </ul>
-                                  </div>
-                                  <div class="c-Main__prgs-col__wrap">
-                                      <h5 class="c-Main__prgs-col__wrap-title">Movie Song</h5>
-                                      <ul class="c-Main__prgs__song-desc">
-                                          <li><span>Ragam:</span> Kunthalavarali</li>
-                                          <li><span>Talam:</span> Adi</li>
-                                      </ul>
-                                  </div>
-                                  <div class="c-Main__prgs-col__wrap">
-                                      <h5 class="c-Main__prgs-col__wrap-title">Thillana</h5>
-                                      <ul class="c-Main__prgs__song-desc">
-                                          <li><span>Ragam:</span> Mohana</li>
-                                          <li><span>Talam:</span> Roopaka</li>
-                                          <li><span>Composer:</span> Madhurai N. Krishnan</li>
-                                          <li><span>Choreographer:</span> Padma Shri Sri. Adyar K. Lakshman</li>
-                                      </ul>
-                                  </div>
-                                  <div class="c-Main__prgs-col__wrap">
-                                      <h5 class="c-Main__prgs-col__wrap-title">Mangalam</h5>
-                                      <ul class="c-Main__prgs__song-desc">
-                                          <li>The conclusion</li>
-                                      </ul>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="c-Main__gallery">
-                  <div class="c-Main__gallery-cntr">
-                      <h2 class="c-Main__sub-title">Visual Tour</h2>
-                      <div class="c-Info-underline" style="margin-bottom: 60px">
-                          <svg width="80" height="3" viewBox="0 0 80 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <line x1="1.5" y1="1.5" x2="78.5" y2="1.5" stroke="#F73859" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"></line>
-                          </svg>
-                      </div>
-                  </div>
-                  <div class="c-Main__gallery__wrap">
-                      <div class="wpo-project-wrap wpo-project-slide">
-                          <div class="gallery" id="gallery-images">
-                              <div class="gallery__column">
-                                <a href="javascript:void(0);" class="gallery__link">
-                                  <figure class="gallery__thumb">
-                                    <img src="/assets/gallery-rishi/t-1.JPG" class="gallery__image">
-                                  </figure>
-                                </a>
-            
-                                <a href="javascript:void(0);" class="gallery__link">
-                                  <figure class="gallery__thumb">
-                                    <img src="/assets/gallery-rishi/t-2.JPG" class="gallery__image">
-                                  </figure>
-                                </a>
-            
-                                <a href="javascript:void(0);" class="gallery__link">
-                                  <figure class="gallery__thumb">
-                                    <img src="/assets/gallery-rishi/t-3.JPG" class="gallery__image">
-                                  </figure>
-                                </a>
-                              </div>
-                              <div class="gallery__column">
-                                <a href="javascript:void(0);" class="gallery__link">
-                                  <figure class="gallery__thumb">
-                                    <img src="/assets/gallery-rishi/t-4.JPG" class="gallery__image">
-                                  </figure>
-                                </a>
-            
-                                <a href="javascript:void(0);" class="gallery__link">
-                                  <figure class="gallery__thumb">
-                                    <img src="/assets/gallery-rishi/t-5.JPG" class="gallery__image">
-                                  </figure>
-                                </a>
-            
-                                <a href="javascript:void(0);" class="gallery__link">
-                                  <figure class="gallery__thumb">
-                                    <img src="/assets/gallery-rishi/t-6.JPG" class="gallery__image">
-                                  </figure>
-                                </a>
-                              </div>
-                              <div class="gallery__column">
-                                <a href="javascript:void(0);" class="gallery__link">
-                                  <figure class="gallery__thumb">
-                                    <img src="/assets/gallery-rishi/t-7.JPG" class="gallery__image">
-                                  </figure>
-                                </a>
-            
-                                <a href="javascript:void(0);" class="gallery__link">
-                                  <figure class="gallery__thumb">
-                                    <img src="/assets/gallery-rishi/t-8.JPG" class="gallery__image">
-                                  </figure>
-                                </a>
-            
-                                <a href="javascript:void(0);" class="gallery__link">
-                                  <figure class="gallery__thumb">
-                                    <img src="/assets/gallery-rishi/t-9.JPG" class="gallery__image">
-                                  </figure>
-                                </a>
-                              </div>
-                              <div class="gallery__column">
-                                <a href="javascript:void(0);" class="gallery__link">
-                                  <figure class="gallery__thumb">
-                                    <img src="/assets/gallery-rishi/t-10.JPG" class="gallery__image">
-                                  </figure>
-                                </a>
-            
-                                <a href="javascript:void(0);" class="gallery__link">
-                                  <figure class="gallery__thumb">
-                                    <img src="/assets/gallery-rishi/t-11.JPG" class="gallery__image">
-                                  </figure>
-                                </a>
-            
-                                <a href="javascript:void(0);" class="gallery__link">
-                                  <figure class="gallery__thumb">
-                                    <img src="/assets/gallery-rishi/t-12.JPG" class="gallery__image">
-                                  </figure>
-                                </a>
-                              </div>
-                            </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <footer id="__next" class="c-Main__footer">
-              <div id="footer-rsvp" class="c-Main__footer-rsvp">
-                  <div class="c-Main__footer-rsvp__cntr">
-                      <div class="c-Main__footer-svg1">
-                          <svg width="1106" height="1169" viewBox="0 0 1106 1169" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g opacity="0.2" filter="url(#filter0_f_1928_763)">
-                                  <circle cx="499.5" cy="562.5" r="306.5" fill="url(#paint0_linear_1928_763)"></circle>
-                              </g>
-                              <defs>
-                                  <filter id="filter0_f_1928_763" x="-107" y="-44" width="1213" height="1213" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                      <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
-                                      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
-                                      <feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_1928_763"></feGaussianBlur>
-                                  </filter>
-                                  <linearGradient id="paint0_linear_1928_763" x1="193" y1="256" x2="860.217" y2="322.151" gradientUnits="userSpaceOnUse">
-                                      <stop stop-color="#B16CEA"></stop>
-                                      <stop offset="0.510417" stop-color="#FF504B"></stop>
-                                      <stop offset="1" stop-color="#FFA84B"></stop>
-                                  </linearGradient>
-                              </defs>
-                          </svg>
-                      </div>
-                      <div class="c-Main__footer-svg2">
-                          <svg width="996" height="1031" viewBox="0 0 996 1031" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <g opacity="0.3" filter="url(#filter0_f_1928_764)">
-                                  <circle cx="528.5" cy="502.5" r="228.5" fill="url(#paint0_linear_1928_764)"></circle>
-                              </g>
-                              <defs>
-                                  <filter id="filter0_f_1928_764" x="0" y="-26" width="1057" height="1057" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                                      <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
-                                      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
-                                      <feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_1928_764"></feGaussianBlur>
-                                  </filter>
-                                  <linearGradient id="paint0_linear_1928_764" x1="306.347" y1="296.85" x2="797.841" y2="349.461" gradientUnits="userSpaceOnUse">
-                                      <stop stop-color="#8200E9"></stop>
-                                      <stop offset="1" stop-color="#4200E5"></stop>
-                                  </linearGradient>
-                              </defs>
-                          </svg>
-                      </div>
-                      <div class="c-Main__footer-form" style="display: none;">
-                          <h2 class="c-Info-title"><span v-if="!dataSaved && !globalErrors">RSVP Here</span><span v-else>Thank you</span></h2>
-                          <div v-if="!dataSaved && !globalErrors">
-                            <div class="o-Form__wrap">
-                              <label for="name" class="o-Form__label">Name:</label>
-                              <input type="text" id="name" class="o-Form__field" placeholder="Kumar" v-model.trim="form.name">
-                              <div class="o-Form__errors">
-                                  <p class="o-Form__errors-txt" v-if="errors.isError && errors.name" v-html="errors.name"></p>
-                              </div>
-                            </div>
-                            <div class="o-Form__wrap">
-                                <label for="email" class="o-Form__label">Email:</label>
-                                <input type="email" id="email" class="o-Form__field" placeholder="kumar@sample.com" v-model.trim="form.email">
-                                <div class="o-Form__errors">
-                                    <p class="o-Form__errors-txt" v-if="errors.isError && errors.email" v-html="errors.email"></p>
-                                </div>
-                            </div>
-                            <div class="o-Form__wrap">
-                                <label for="guests" class="o-Form__label"># of people attending:</label>
-                                <input type="tel" id="guests" class="o-Form__field" placeholder="Number of attendees" v-model.trim="form.guests">
-                                <div class="o-Form__errors">
-                                    <p class="o-Form__errors-txt" v-if="errors.isError && errors.guests" v-html="errors.guests"></p>
-                                </div>
-                            </div>
-                            <div class="o-Form__wrap o-Form__btns">
-                                <button id="form-submit" type="button" @click.prevent="submit" class="o-Btn o-Btn--green o-Btn--rsvp">
-                                    <div class="o-Btn__svg">
-                                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
-                                            <path d="M15.5593 0.793611C15.6285 0.862943 15.6758 0.951085 15.6954 1.04709C15.7149 1.14309 15.7058 1.24272 15.6693 1.33361L9.85025 15.8806C9.79897 16.0087 9.71334 16.1202 9.60279 16.2028C9.49223 16.2854 9.36103 16.3358 9.22364 16.3487C9.08624 16.3615 8.94797 16.3361 8.82405 16.2754C8.70012 16.2147 8.59535 16.121 8.52125 16.0046L5.34325 11.0096L0.348254 7.83161C0.231572 7.75759 0.137606 7.65278 0.0767238 7.52874C0.0158421 7.4047 -0.00958824 7.26624 0.0032389 7.12866C0.016066 6.99108 0.066652 6.85972 0.149415 6.74907C0.232178 6.63842 0.3439 6.55278 0.472254 6.50161L15.0193 0.684611C15.1101 0.648023 15.2098 0.638943 15.3058 0.658499C15.4018 0.678056 15.4899 0.725386 15.5593 0.794611V0.793611ZM6.34125 10.7176L9.10225 15.0556L13.8353 3.22361L6.34125 10.7176ZM13.1283 2.51661L1.29625 7.24961L5.63525 10.0096L13.1293 2.51661H13.1283Z" fill="white" class=""></path>
-                                        </svg>
+            <div class="c-Main__acpnts">
+                <div class="c-Main__acpnts-cntr">
+                    <h2 class="c-Main__sub-title">Accompanists</h2>
+                    <div class="c-Info-underline" style="margin-bottom: 60px">
+                        <svg width="80" height="3" viewBox="0 0 80 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="1.5" y1="1.5" x2="78.5" y2="1.5" stroke="#F73859" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"></line>
+                        </svg>
+                    </div>
+                    <div class="c-Main__acpnts-accrd">
+                        <article id="accompanists-one" class="c-Accrd">
+                            <header id="nattuvangam" class="c-Accrd__header">
+                                <div class="c-Accrd__header-name">
+                                    <div class="c-Accrd__header-img"><img src="/assets/rishi/induva.png" alt="induva"></div>
+                                    <div class="c-Accrd__header-title">
+                                        <span>Nattuvangam</span>
+                                        <span>Smt.Induvadana</span>
                                     </div>
-                                    <p class="o-Btn__text">Submit</p>
-                                </button>
+                                </div>
+                            </header>
+                            <div class="c-Accrd__cnt">
+                                <p>Induvadana, an exponent of Bharatha Natyam was fortunate to be born in a family of highly accomplished artists. It is not surprising that she inherited her love for dance and music since her childhood, which blossomed in a highly creative and artistic environment. She is the daughter of Guru Padmashri.Adyar K. Lakshman a highly acclaimed dance guru, choreographer, Nattuvanar, composer and director of the internationally recognized institute of fine arts "Bharatha Choodamani"</p>
+                                <p>Trained rigorously in both Bharatha Natyam and Nattuvangam her thorough foundation is revealed through well-executed rhythmic patterns in scintillating nritta and highly emotive and sensitive abhinaya. She has also been closely associated with her uncle Shri K Rama Rao and her aunty Smt Nagamani Srinivasa Rao, both well-known dance gurus and her uncle Shri K Gopinath who is an acclaimed mridangam player. She has performed in various dance programmes organized by Bharatha Choodamani and various cultural organizations in India and abroad.</p>
+                                <p>Apart from her dancing career she also teaches Bharatanatyam and Nattuvangam and conducts Bharatanatyam recitals to her students in the Kalakshetra Style of Bharatha Natyam, which is characterized by traditional purity, grace and vigor and also Nattuvangam in the unique style of her illustrious father Guru Shri Adyar K. Lakshman. She also teaches Bharatanatyam as a Fitness Program for adults.</p>
+                            </div>
+                        </article>
+                        <article id="accompanists-two" class="c-Accrd">
+                            <header id="nattuvangam" class="c-Accrd__header">
+                                <div class="c-Accrd__header-name">
+                                    <div class="c-Accrd__header-img"><img src="/assets/rishi/akshaya.png" alt="akshaya"></div>
+                                    <div class="c-Accrd__header-title">
+                                        <span>Vocalist</span>
+                                        <span>Smt. Akshaya Ramanathan</span>
+                                    </div>
+                                </div>
+                            </header>
+                            <div class="c-Accrd__cnt">
+                                <p>Smt. Akshaya Ramanathan hails from a musical family and she got her first training from her mother A.Jayanthi. Under her father's guidance she took music full time.She moved to Texas with her husband and continues to pursue her music career.</p>
+                                <p>She went on to learn from Carnatica brothers and Smt. Padma Sandilyan. At present, she is getting advanced music training under the tutelage of Smt. Prarthana Sai Narasimhan (Disciple of Smt. Mani Krishna Swamy & Sri Chingleput Ranganathan), Sri. Chembai Srinivasan (Bharatanatyam Vocal).</p>
+                                <p>She is a Master of Fine Arts in Carnatic Music from Annamalai University, Chidambaram. She also completed her Carnatic Vocal Grades from the same University.</p>
+                                <p>Akshaya has worked as Music Lecturer in Sri Shankarlal Sundarbai Shasun Jain College for Women, Chennai, for 4 years where she has trained more than 500 Students. She holds 10 years of teaching experience in Carnatic Music for Students in India and abroad. She has rendered Carnatic vocal concerts and performed in The Music Academy and Sabhas for Bharatanatyam in India and USA with guru's blessings. To her credit, she has also done playback singing in Albums, Jingles, and Films (Tamil, Kannada) and worked with Eminent Carnatic Musicians and Music Directors.</p>
+                            </div>
+                        </article>
+                        <article id="accompanists-three" class="c-Accrd">
+                            <header id="nattuvangam" class="c-Accrd__header">
+                                <div class="c-Accrd__header-name">
+                                    <div class="c-Accrd__header-img"><img src="/assets/rishi/umamahesh.png" alt="umamahesh"></div>
+                                    <div class="c-Accrd__header-title">
+                                        <span>Violin</span>
+                                        <span>Sri. Umamahesh Iyer</span>
+                                    </div>
+                                </div>
+                            </header>
+                            <div class="c-Accrd__cnt">
+                                <p>Umamahesh is an ardent lover of music and started learning Mridangam and later his interest continued as a violinist. He started learning violin from the young age of 5 from Guru Pala Balakrishna Pillai who was an eminent violinist and was known for his unique style. Umamahesh had his first public concert at the age of 9. He continued his lessons from Shri. Nedumangad Sivanandan in Kerala and Prof. R Thyagarajan of Swathi Thirunal Music college, Trivandrum, Kerala.</p>
+                                <p>He is now pursuing advanced lessons from Smt.Vaikom Padma Krishnan who is a senior disciple of Kalimamani/Padmashree A. Kanyakumari and consulting lessons from Shri. TKV Ramanujacharlu of Srirangam.</p>
+                                <p>He actively participates and supports music activities & vocal and dance arangetrams in the DFW area.</p>
+                                <p>He is a Software Engineer /IT Professional and employed in a reputed IT company in a Senior management position and currently lives in Plano, TX, USA.</p>
+                            </div>
+                        </article>
+                        <article id="accompanists-four" class="c-Accrd">
+                            <header id="nattuvangam" class="c-Accrd__header">
+                                <div class="c-Accrd__header-name">
+                                    <div class="c-Accrd__header-img"><img src="/assets/rishi/balarajen.png" alt="balarajen"></div>
+                                    <div class="c-Accrd__header-title">
+                                        <span>Mridangam</span>
+                                        <span>Sri. Balu Rajendrakurup</span>
+                                    </div>
+                                </div>
+                            </header>
+                            <div class="c-Accrd__cnt">
+                                <p>BaluKurup is a renowned Mridangist & percussionist who experiments with multiple genres like Indian Classical, Jazz, African and world music percussion. He is fortunate to be a small leaf of huge Banyan tree, TheThanjavurBani Mridangam lineage of Palghat Mani Iyer,under renowned gurus Sri.Nagoor AmbiIyer, Sri Mavelikara Velukutty Nair and Sri.Erickavu Sunil. Balu has been performing for notable maestros in south Indian film music fraternity and carnatic music exponents for the last 25 years. He is part of Valle Venia, a symphony group based in Germany and performs for world music concerts across European countries, US and the Middle East.Balu believes music is a universal medium to communicate the most innate expressions with nature and is open to experimenting with any form of music and artists.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <div class="c-Main__prgs">
+                <div class="c-Main__prgs-cntr">
+                    <h2 class="c-Main__sub-title">Program Details</h2>
+                    <div class="c-Info-underline" style="margin-bottom: 60px">
+                        <svg width="80" height="3" viewBox="0 0 80 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="1.5" y1="1.5" x2="78.5" y2="1.5" stroke="#F73859" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"></line>
+                        </svg>
+                    </div>
+                    <div class="c-Main__prgs-details">
+                        <div class="c-Main__prgs-col c-Main__prgs-col--lft">
+                            <div class="c-Main__prgs-col__cntr">
+                                <div class="c-Main__prgs-col__wrap">
+                                    <h5 class="c-Main__prgs-col__wrap-title">Gajananam/ Paramaanadam</h5>
+                                    <ul class="c-Main__prgs__song-desc">
+                                        <li><span>Ragam:</span> Kedara</li>
+                                        <li><span>Choreographer:</span> Padma Shri Sri. Adyar K. Lakshman</li>
+                                    </ul>
+                                </div>
+                                <div class="c-Main__prgs-col__wrap">
+                                    <h5 class="c-Main__prgs-col__wrap-title">Alarippu</h5>
+                                    <ul class="c-Main__prgs__song-desc">
+                                        <li><span>Talam:</span> Chaturasra</li>
+                                        <li><span>Choreographer:</span> Padma Shri Sri. Adyar K. Lakshman</li>
+                                    </ul>
+                                </div>
+                                <div class="c-Main__prgs-col__wrap">
+                                    <h5 class="c-Main__prgs-col__wrap-title">Kalyani Jatiswaram</h5>
+                                    <ul class="c-Main__prgs__song-desc">
+                                        <li><span>Ragam:</span> Kalyani</li>
+                                        <li><span>Talam:</span> Roopaka</li>
+                                        <li><span>Composer:</span> Tanjore Quartet</li>
+                                        <li><span>Choreographer:</span> Smt. Rukmini Devi Arundale Kalakshetra</li>
+                                    </ul>
+                                </div>
+                                <div class="c-Main__prgs-col__wrap">
+                                    <h5 class="c-Main__prgs-col__wrap-title">Shabdam</h5>
+                                    <ul class="c-Main__prgs__song-desc">
+                                        <li><span>Ragam:</span> Ragamalika</li>
+                                        <li><span>Talam:</span> Misra Chapu</li>
+                                        <li><span>Composer:</span> Tanjore Quartet</li>
+                                        <li><span>Choreographer:</span> Smt. Rukmini Devi Arundale Kalakshetra</li>
+                                    </ul>
+                                </div>
+                                <div class="c-Main__prgs-col__wrap">
+                                    <h5 class="c-Main__prgs-col__wrap-title">Chalamela Varnam</h5>
+                                    <ul class="c-Main__prgs__song-desc">
+                                        <li><span>Ragam:</span> Nattakuranji</li>
+                                        <li><span>Talam:</span> Adi</li>
+                                        <li><span>Composer:</span> Moolaiveettu Rangaswamy Nattuvanar</li>
+                                        <li><span>Choreographer:</span> Smt. Rukmini Devi Arundale Kalakshetra</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-Main__prgs-col c-Main__prgs-col--rgt">
+                            <div class="c-Main__prgs-col__cntr">
+                                <div class="c-Main__prgs-col__wrap">
+                                    <h5 class="c-Main__prgs-col__wrap-title">Simhasana Stithe</h5>
+                                    <ul class="c-Main__prgs__song-desc">
+                                        <li><span>Ragam:</span> Ragamalika</li>
+                                        <li><span>Talam:</span> Roopaka</li>
+                                        <li><span>Composer:</span> Muthuswamy Dikshithar</li>
+                                        <li><span>Choreographer:</span> Padma Shri Sri. Adyar K. Lakshman</li>
+                                    </ul>
+                                </div>
+                                <div class="c-Main__prgs-col__wrap">
+                                    <h5 class="c-Main__prgs-col__wrap-title">Movie Song</h5>
+                                    <ul class="c-Main__prgs__song-desc">
+                                        <li><span>Ragam:</span> Kunthalavarali</li>
+                                        <li><span>Talam:</span> Adi</li>
+                                    </ul>
+                                </div>
+                                <div class="c-Main__prgs-col__wrap">
+                                    <h5 class="c-Main__prgs-col__wrap-title">Thillana</h5>
+                                    <ul class="c-Main__prgs__song-desc">
+                                        <li><span>Ragam:</span> Mohana</li>
+                                        <li><span>Talam:</span> Roopaka</li>
+                                        <li><span>Composer:</span> Madhurai N. Krishnan</li>
+                                        <li><span>Choreographer:</span> Padma Shri Sri. Adyar K. Lakshman</li>
+                                    </ul>
+                                </div>
+                                <div class="c-Main__prgs-col__wrap">
+                                    <h5 class="c-Main__prgs-col__wrap-title">Mangalam</h5>
+                                    <ul class="c-Main__prgs__song-desc">
+                                        <li>The conclusion</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="c-Main__gallery">
+                <div class="c-Main__gallery-cntr">
+                    <h2 class="c-Main__sub-title">Visual Tour</h2>
+                    <div class="c-Info-underline" style="margin-bottom: 60px">
+                        <svg width="80" height="3" viewBox="0 0 80 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="1.5" y1="1.5" x2="78.5" y2="1.5" stroke="#F73859" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"></line>
+                        </svg>
+                    </div>
+                </div>
+                <div class="c-Main__gallery__wrap">
+                    <div class="wpo-project-wrap wpo-project-slide">
+                        <div class="gallery" id="gallery-images">
+                            <div class="gallery__column">
+                              <a href="javascript:void(0);" class="gallery__link">
+                                <figure class="gallery__thumb">
+                                  <img src="/assets/gallery-rishi/t-1.JPG" class="gallery__image">
+                                </figure>
+                              </a>
+          
+                              <a href="javascript:void(0);" class="gallery__link">
+                                <figure class="gallery__thumb">
+                                  <img src="/assets/gallery-rishi/t-2.JPG" class="gallery__image">
+                                </figure>
+                              </a>
+          
+                              <a href="javascript:void(0);" class="gallery__link">
+                                <figure class="gallery__thumb">
+                                  <img src="/assets/gallery-rishi/t-3.JPG" class="gallery__image">
+                                </figure>
+                              </a>
+                            </div>
+                            <div class="gallery__column">
+                              <a href="javascript:void(0);" class="gallery__link">
+                                <figure class="gallery__thumb">
+                                  <img src="/assets/gallery-rishi/t-4.JPG" class="gallery__image">
+                                </figure>
+                              </a>
+          
+                              <a href="javascript:void(0);" class="gallery__link">
+                                <figure class="gallery__thumb">
+                                  <img src="/assets/gallery-rishi/t-5.JPG" class="gallery__image">
+                                </figure>
+                              </a>
+          
+                              <a href="javascript:void(0);" class="gallery__link">
+                                <figure class="gallery__thumb">
+                                  <img src="/assets/gallery-rishi/t-6.JPG" class="gallery__image">
+                                </figure>
+                              </a>
+                            </div>
+                            <div class="gallery__column">
+                              <a href="javascript:void(0);" class="gallery__link">
+                                <figure class="gallery__thumb">
+                                  <img src="/assets/gallery-rishi/t-7.JPG" class="gallery__image">
+                                </figure>
+                              </a>
+          
+                              <a href="javascript:void(0);" class="gallery__link">
+                                <figure class="gallery__thumb">
+                                  <img src="/assets/gallery-rishi/t-8.JPG" class="gallery__image">
+                                </figure>
+                              </a>
+          
+                              <a href="javascript:void(0);" class="gallery__link">
+                                <figure class="gallery__thumb">
+                                  <img src="/assets/gallery-rishi/t-9.JPG" class="gallery__image">
+                                </figure>
+                              </a>
+                            </div>
+                            <div class="gallery__column">
+                              <a href="javascript:void(0);" class="gallery__link">
+                                <figure class="gallery__thumb">
+                                  <img src="/assets/gallery-rishi/t-10.JPG" class="gallery__image">
+                                </figure>
+                              </a>
+          
+                              <a href="javascript:void(0);" class="gallery__link">
+                                <figure class="gallery__thumb">
+                                  <img src="/assets/gallery-rishi/t-11.JPG" class="gallery__image">
+                                </figure>
+                              </a>
+          
+                              <a href="javascript:void(0);" class="gallery__link">
+                                <figure class="gallery__thumb">
+                                  <img src="/assets/gallery-rishi/t-12.JPG" class="gallery__image">
+                                </figure>
+                              </a>
                             </div>
                           </div>
-                          <div v-cloak v-else class="c-Rsvp__saved">
-                            <p>We're glad you're able to make it! We'll see you soon.</p>
-                            <p>Your RSVP has been received. We'll send you more details closer to the event.</p>
-                            <b>Share your feedback about the eInvite</b>
-                            <ul class="c-Share__exp">
-                              <li v-if="!feedbackSuccess">
-                                <button type="button" @click.prevent="feedback('5')" :class="{'c-Share__btn--disabled': feedbackSuccess, 'c-Share__btn--highlight': feedbackStatus.love}" :disabled="feedbackSuccess" class="c-Share__btn o-Btn o-Btn--green o-Btn--rsvp">
-                                  <p class="o-Btn__text">I love it!</p>
-                                </button>
-                              </li>
-                              <li v-if="!feedbackSuccess">
-                                <button type="button" @click.prevent="feedback('3')" :class="{'c-Share__btn--disabled': feedbackSuccess, 'c-Share__btn--highlight': feedbackStatus.like}" :disabled="feedbackSuccess" class="c-Share__btn o-Btn o-Btn--green o-Btn--rsvp">
-                                  <p class="o-Btn__text">I like it!</p>
-                                </button>
-                              </li>
-                              <li v-if="!feedbackSuccess">
-                                <button type="button" @click.prevent="feedback('1')" :class="{'c-Share__btn--disabled': feedbackSuccess, 'c-Share__btn--highlight': feedbackStatus.okish}" :disabled="feedbackSuccess" class="c-Share__btn o-Btn o-Btn--green o-Btn--rsvp">
-                                  <p class="o-Btn__text">It was okay.</p>
-                                </button>
-                              </li>
-                              <li v-if="feedbackSuccess">
-                                <p>Appreciate it.</p>
-                              </li>
-                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer id="__next" class="c-Main__footer">
+            <div id="footer-rsvp" class="c-Main__footer-rsvp">
+                <div class="c-Main__footer-rsvp__cntr">
+                    <div class="c-Main__footer-svg1">
+                        <svg width="1106" height="1169" viewBox="0 0 1106 1169" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.2" filter="url(#filter0_f_1928_763)">
+                                <circle cx="499.5" cy="562.5" r="306.5" fill="url(#paint0_linear_1928_763)"></circle>
+                            </g>
+                            <defs>
+                                <filter id="filter0_f_1928_763" x="-107" y="-44" width="1213" height="1213" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+                                    <feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_1928_763"></feGaussianBlur>
+                                </filter>
+                                <linearGradient id="paint0_linear_1928_763" x1="193" y1="256" x2="860.217" y2="322.151" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#B16CEA"></stop>
+                                    <stop offset="0.510417" stop-color="#FF504B"></stop>
+                                    <stop offset="1" stop-color="#FFA84B"></stop>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="c-Main__footer-svg2">
+                        <svg width="996" height="1031" viewBox="0 0 996 1031" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.3" filter="url(#filter0_f_1928_764)">
+                                <circle cx="528.5" cy="502.5" r="228.5" fill="url(#paint0_linear_1928_764)"></circle>
+                            </g>
+                            <defs>
+                                <filter id="filter0_f_1928_764" x="0" y="-26" width="1057" height="1057" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+                                    <feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_1928_764"></feGaussianBlur>
+                                </filter>
+                                <linearGradient id="paint0_linear_1928_764" x1="306.347" y1="296.85" x2="797.841" y2="349.461" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#8200E9"></stop>
+                                    <stop offset="1" stop-color="#4200E5"></stop>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="c-Main__footer-form" style="display: none;">
+                        <h2 class="c-Info-title"><span v-if="!dataSaved && !globalErrors">RSVP Here</span><span v-else>Thank you</span></h2>
+                        <div v-if="!dataSaved && !globalErrors">
+                          <div class="o-Form__wrap">
+                            <label for="name" class="o-Form__label">Name:</label>
+                            <input type="text" id="name" class="o-Form__field" placeholder="Kumar" v-model.trim="form.name">
+                            <div class="o-Form__errors">
+                                <p class="o-Form__errors-txt" v-if="errors.isError && errors.name" v-html="errors.name"></p>
+                            </div>
                           </div>
-                          <div class="c-Rsvp__saved" v-if="globalErrors">
-                            <p v-html="globalErrors"></p>
-                          </div>
-                      </div> 
-                      <div class="c-Main__foter-contact">
-                          <h2 class="c-Main__sub-title">Need More Information? Contact Us!</h2>
-                          <div class="c-Contact__wrap">
-                              <div class="c-Contact__title">Email:</div>
-                              <a href="mailto:pillaisalini16@gmail.com" class="c-Contact__link">pillaisalini16@gmail.com</a>
-                          </div>
-                          <div class="c-Contact__wrap">
-                              <div class="c-Contact__title">Phone:</div>
-                              <a href="tel:3032180409" class="c-Contact__link">+1 (303) 218-0409</a>
-                          </div>
-                          <div class="c-Contact__wrap c-Contact__wrap--social">
-                              <div class="c-Contact__wrap-social">
-                                  Share the Excitement! Shout-out to Rishika #rishikasarangetram
-                              </div>
-                              <div class="c-Social-icons">
-                                  <div class="c-Social-icons__wrap c-Social-icons__wrap--fb">
-                                      <a href="https://www.facebook.com/sharer/sharer.php?u=https://zeroperks.com/rishikas-arangetram&amp;hashtag=%23rishikasarangetram" class="c-Social-icon__link c-Social-icon__link--fb" target="_blank">
-                                          <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
-                                              <path d="M211.9 197.4h-36.7v59.9h36.7V433.1h70.5V256.5h49.2l5.2-59.1h-54.4c0 0 0-22.1 0-33.7 0-13.9 2.8-19.5 16.3-19.5 10.9 0 38.2 0 38.2 0V82.9c0 0-40.2 0-48.8 0 -52.5 0-76.1 23.1-76.1 67.3C211.9 188.8 211.9 197.4 211.9 197.4z"></path>
-                                          </svg>
-                                      </a>
-                                  </div>
-                                  <div class="c-Social-icons__wrap c-Social-icons__wrap--fb">
-                                      <a href="https://x.com/intent/tweet?url=https://zeroperks.com/rishikas-arangetram&text=Join%20us%20at%20Your%20Event%20Name&hashtags=rishikasarangetram" class="c-Social-icon__link c-Social-icon__link--fb" target="_blank">
-                                          <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
-                                              <path d="M419.6 168.6c-11.7 5.2-24.2 8.7-37.4 10.2 13.4-8.1 23.8-20.8 28.6-36 -12.6 7.5-26.5 12.9-41.3 15.8 -11.9-12.6-28.8-20.6-47.5-20.6 -42 0-72.9 39.2-63.4 79.9 -54.1-2.7-102.1-28.6-134.2-68 -17 29.2-8.8 67.5 20.1 86.9 -10.7-0.3-20.7-3.3-29.5-8.1 -0.7 30.2 20.9 58.4 52.2 64.6 -9.2 2.5-19.2 3.1-29.4 1.1 8.3 25.9 32.3 44.7 60.8 45.2 -27.4 21.4-61.8 31-96.4 27 28.8 18.5 63 29.2 99.8 29.2 120.8 0 189.1-102.1 185-193.6C399.9 193.1 410.9 181.7 419.6 168.6z"></path>
-                                          </svg>
-                                      </a>
-                                  </div>
-                                  <div class="c-Social-icons__wrap c-Social-icons__wrap--fb">
-                                      <a href="https://www.instagram.com/?url=https://zeroperks.com/rishikas-arangetram&hashtag=rishikasarangetram" class="c-Social-icon__link c-Social-icon__link--fb" target="_blank">
-                                          <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
-                                              <path d="M256 109.3c47.8 0 53.4 0.2 72.3 1 17.4 0.8 26.9 3.7 33.2 6.2 8.4 3.2 14.3 7.1 20.6 13.4 6.3 6.3 10.1 12.2 13.4 20.6 2.5 6.3 5.4 15.8 6.2 33.2 0.9 18.9 1 24.5 1 72.3s-0.2 53.4-1 72.3c-0.8 17.4-3.7 26.9-6.2 33.2 -3.2 8.4-7.1 14.3-13.4 20.6 -6.3 6.3-12.2 10.1-20.6 13.4 -6.3 2.5-15.8 5.4-33.2 6.2 -18.9 0.9-24.5 1-72.3 1s-53.4-0.2-72.3-1c-17.4-0.8-26.9-3.7-33.2-6.2 -8.4-3.2-14.3-7.1-20.6-13.4 -6.3-6.3-10.1-12.2-13.4-20.6 -2.5-6.3-5.4-15.8-6.2-33.2 -0.9-18.9-1-24.5-1-72.3s0.2-53.4 1-72.3c0.8-17.4 3.7-26.9 6.2-33.2 3.2-8.4 7.1-14.3 13.4-20.6 6.3-6.3 12.2-10.1 20.6-13.4 6.3-2.5 15.8-5.4 33.2-6.2C202.6 109.5 208.2 109.3 256 109.3M256 77.1c-48.6 0-54.7 0.2-73.8 1.1 -19 0.9-32.1 3.9-43.4 8.3 -11.8 4.6-21.7 10.7-31.7 20.6 -9.9 9.9-16.1 19.9-20.6 31.7 -4.4 11.4-7.4 24.4-8.3 43.4 -0.9 19.1-1.1 25.2-1.1 73.8 0 48.6 0.2 54.7 1.1 73.8 0.9 19 3.9 32.1 8.3 43.4 4.6 11.8 10.7 21.7 20.6 31.7 9.9 9.9 19.9 16.1 31.7 20.6 11.4 4.4 24.4 7.4 43.4 8.3 19.1 0.9 25.2 1.1 73.8 1.1s54.7-0.2 73.8-1.1c19-0.9 32.1-3.9 43.4-8.3 11.8-4.6 21.7-10.7 31.7-20.6 9.9-9.9 16.1-19.9 20.6-31.7 4.4-11.4 7.4-24.4 8.3-43.4 0.9-19.1 1.1-25.2 1.1-73.8s-0.2-54.7-1.1-73.8c-0.9-19-3.9-32.1-8.3-43.4 -4.6-11.8-10.7-21.7-20.6-31.7 -9.9-9.9-19.9-16.1-31.7-20.6 -11.4-4.4-24.4-7.4-43.4-8.3C310.7 77.3 304.6 77.1 256 77.1L256 77.1z"></path>
-                                              <path d="M256 164.1c-50.7 0-91.9 41.1-91.9 91.9s41.1 91.9 91.9 91.9 91.9-41.1 91.9-91.9S306.7 164.1 256 164.1zM256 315.6c-32.9 0-59.6-26.7-59.6-59.6s26.7-59.6 59.6-59.6 59.6 26.7 59.6 59.6S288.9 315.6 256 315.6z"></path>
-                                              <circle cx="351.5" cy="160.5" r="21.5"></circle>
-                                          </svg>
-                                      </a>
-                                  </div>
+                          <div class="o-Form__wrap">
+                              <label for="email" class="o-Form__label">Email:</label>
+                              <input type="email" id="email" class="o-Form__field" placeholder="kumar@sample.com" v-model.trim="form.email">
+                              <div class="o-Form__errors">
+                                  <p class="o-Form__errors-txt" v-if="errors.isError && errors.email" v-html="errors.email"></p>
                               </div>
                           </div>
-                      </div>
-                  </div>
-              </div>
-          </footer>
-      </main>
-    </section>
+                          <div class="o-Form__wrap">
+                              <label for="guests" class="o-Form__label"># of people attending:</label>
+                              <input type="tel" id="guests" class="o-Form__field" placeholder="Number of attendees" v-model.trim="form.guests">
+                              <div class="o-Form__errors">
+                                  <p class="o-Form__errors-txt" v-if="errors.isError && errors.guests" v-html="errors.guests"></p>
+                              </div>
+                          </div>
+                          <div class="o-Form__wrap o-Form__btns">
+                              <button id="form-submit" type="button" @click.prevent="submit" class="o-Btn o-Btn--green o-Btn--rsvp">
+                                  <div class="o-Btn__svg">
+                                      <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
+                                          <path d="M15.5593 0.793611C15.6285 0.862943 15.6758 0.951085 15.6954 1.04709C15.7149 1.14309 15.7058 1.24272 15.6693 1.33361L9.85025 15.8806C9.79897 16.0087 9.71334 16.1202 9.60279 16.2028C9.49223 16.2854 9.36103 16.3358 9.22364 16.3487C9.08624 16.3615 8.94797 16.3361 8.82405 16.2754C8.70012 16.2147 8.59535 16.121 8.52125 16.0046L5.34325 11.0096L0.348254 7.83161C0.231572 7.75759 0.137606 7.65278 0.0767238 7.52874C0.0158421 7.4047 -0.00958824 7.26624 0.0032389 7.12866C0.016066 6.99108 0.066652 6.85972 0.149415 6.74907C0.232178 6.63842 0.3439 6.55278 0.472254 6.50161L15.0193 0.684611C15.1101 0.648023 15.2098 0.638943 15.3058 0.658499C15.4018 0.678056 15.4899 0.725386 15.5593 0.794611V0.793611ZM6.34125 10.7176L9.10225 15.0556L13.8353 3.22361L6.34125 10.7176ZM13.1283 2.51661L1.29625 7.24961L5.63525 10.0096L13.1293 2.51661H13.1283Z" fill="white" class=""></path>
+                                      </svg>
+                                  </div>
+                                  <p class="o-Btn__text">Submit</p>
+                              </button>
+                          </div>
+                        </div>
+                        <div v-cloak v-else class="c-Rsvp__saved">
+                          <p>We're glad you're able to make it! We'll see you soon.</p>
+                          <p>Your RSVP has been received. We'll send you more details closer to the event.</p>
+                          <b>Share your feedback about the eInvite</b>
+                          <ul class="c-Share__exp">
+                            <li v-if="!feedbackSuccess">
+                              <button type="button" @click.prevent="feedback('5')" :class="{'c-Share__btn--disabled': feedbackSuccess, 'c-Share__btn--highlight': feedbackStatus.love}" :disabled="feedbackSuccess" class="c-Share__btn o-Btn o-Btn--green o-Btn--rsvp">
+                                <p class="o-Btn__text">I love it!</p>
+                              </button>
+                            </li>
+                            <li v-if="!feedbackSuccess">
+                              <button type="button" @click.prevent="feedback('3')" :class="{'c-Share__btn--disabled': feedbackSuccess, 'c-Share__btn--highlight': feedbackStatus.like}" :disabled="feedbackSuccess" class="c-Share__btn o-Btn o-Btn--green o-Btn--rsvp">
+                                <p class="o-Btn__text">I like it!</p>
+                              </button>
+                            </li>
+                            <li v-if="!feedbackSuccess">
+                              <button type="button" @click.prevent="feedback('1')" :class="{'c-Share__btn--disabled': feedbackSuccess, 'c-Share__btn--highlight': feedbackStatus.okish}" :disabled="feedbackSuccess" class="c-Share__btn o-Btn o-Btn--green o-Btn--rsvp">
+                                <p class="o-Btn__text">It was okay.</p>
+                              </button>
+                            </li>
+                            <li v-if="feedbackSuccess">
+                              <p>Appreciate it.</p>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="c-Rsvp__saved" v-if="globalErrors">
+                          <p v-html="globalErrors"></p>
+                        </div>
+                    </div> 
+                    <div class="c-Main__foter-contact">
+                        <h2 class="c-Main__sub-title">Need More Information? Contact Us!</h2>
+                        <div class="c-Contact__wrap">
+                            <div class="c-Contact__title">Email:</div>
+                            <a href="mailto:pillaisalini16@gmail.com" class="c-Contact__link">pillaisalini16@gmail.com</a>
+                        </div>
+                        <div class="c-Contact__wrap">
+                            <div class="c-Contact__title">Phone:</div>
+                            <a href="tel:3032180409" class="c-Contact__link">+1 (303) 218-0409</a>
+                        </div>
+                        <div class="c-Contact__wrap c-Contact__wrap--social">
+                            <div class="c-Contact__wrap-social">
+                                Share the Excitement! Shout-out to Rishika #rishikasarangetram
+                            </div>
+                            <div class="c-Social-icons">
+                                <div class="c-Social-icons__wrap c-Social-icons__wrap--fb">
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://zeroperks.com/rishikas-arangetram&amp;hashtag=%23rishikasarangetram" class="c-Social-icon__link c-Social-icon__link--fb" target="_blank">
+                                        <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
+                                            <path d="M211.9 197.4h-36.7v59.9h36.7V433.1h70.5V256.5h49.2l5.2-59.1h-54.4c0 0 0-22.1 0-33.7 0-13.9 2.8-19.5 16.3-19.5 10.9 0 38.2 0 38.2 0V82.9c0 0-40.2 0-48.8 0 -52.5 0-76.1 23.1-76.1 67.3C211.9 188.8 211.9 197.4 211.9 197.4z"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="c-Social-icons__wrap c-Social-icons__wrap--fb">
+                                    <a href="https://x.com/intent/tweet?url=https://zeroperks.com/rishikas-arangetram&text=Join%20us%20at%20Your%20Event%20Name&hashtags=rishikasarangetram" class="c-Social-icon__link c-Social-icon__link--fb" target="_blank">
+                                        <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
+                                            <path d="M419.6 168.6c-11.7 5.2-24.2 8.7-37.4 10.2 13.4-8.1 23.8-20.8 28.6-36 -12.6 7.5-26.5 12.9-41.3 15.8 -11.9-12.6-28.8-20.6-47.5-20.6 -42 0-72.9 39.2-63.4 79.9 -54.1-2.7-102.1-28.6-134.2-68 -17 29.2-8.8 67.5 20.1 86.9 -10.7-0.3-20.7-3.3-29.5-8.1 -0.7 30.2 20.9 58.4 52.2 64.6 -9.2 2.5-19.2 3.1-29.4 1.1 8.3 25.9 32.3 44.7 60.8 45.2 -27.4 21.4-61.8 31-96.4 27 28.8 18.5 63 29.2 99.8 29.2 120.8 0 189.1-102.1 185-193.6C399.9 193.1 410.9 181.7 419.6 168.6z"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="c-Social-icons__wrap c-Social-icons__wrap--fb">
+                                    <a href="https://www.instagram.com/?url=https://zeroperks.com/rishikas-arangetram&hashtag=rishikasarangetram" class="c-Social-icon__link c-Social-icon__link--fb" target="_blank">
+                                        <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
+                                            <path d="M256 109.3c47.8 0 53.4 0.2 72.3 1 17.4 0.8 26.9 3.7 33.2 6.2 8.4 3.2 14.3 7.1 20.6 13.4 6.3 6.3 10.1 12.2 13.4 20.6 2.5 6.3 5.4 15.8 6.2 33.2 0.9 18.9 1 24.5 1 72.3s-0.2 53.4-1 72.3c-0.8 17.4-3.7 26.9-6.2 33.2 -3.2 8.4-7.1 14.3-13.4 20.6 -6.3 6.3-12.2 10.1-20.6 13.4 -6.3 2.5-15.8 5.4-33.2 6.2 -18.9 0.9-24.5 1-72.3 1s-53.4-0.2-72.3-1c-17.4-0.8-26.9-3.7-33.2-6.2 -8.4-3.2-14.3-7.1-20.6-13.4 -6.3-6.3-10.1-12.2-13.4-20.6 -2.5-6.3-5.4-15.8-6.2-33.2 -0.9-18.9-1-24.5-1-72.3s0.2-53.4 1-72.3c0.8-17.4 3.7-26.9 6.2-33.2 3.2-8.4 7.1-14.3 13.4-20.6 6.3-6.3 12.2-10.1 20.6-13.4 6.3-2.5 15.8-5.4 33.2-6.2C202.6 109.5 208.2 109.3 256 109.3M256 77.1c-48.6 0-54.7 0.2-73.8 1.1 -19 0.9-32.1 3.9-43.4 8.3 -11.8 4.6-21.7 10.7-31.7 20.6 -9.9 9.9-16.1 19.9-20.6 31.7 -4.4 11.4-7.4 24.4-8.3 43.4 -0.9 19.1-1.1 25.2-1.1 73.8 0 48.6 0.2 54.7 1.1 73.8 0.9 19 3.9 32.1 8.3 43.4 4.6 11.8 10.7 21.7 20.6 31.7 9.9 9.9 19.9 16.1 31.7 20.6 11.4 4.4 24.4 7.4 43.4 8.3 19.1 0.9 25.2 1.1 73.8 1.1s54.7-0.2 73.8-1.1c19-0.9 32.1-3.9 43.4-8.3 11.8-4.6 21.7-10.7 31.7-20.6 9.9-9.9 16.1-19.9 20.6-31.7 4.4-11.4 7.4-24.4 8.3-43.4 0.9-19.1 1.1-25.2 1.1-73.8s-0.2-54.7-1.1-73.8c-0.9-19-3.9-32.1-8.3-43.4 -4.6-11.8-10.7-21.7-20.6-31.7 -9.9-9.9-19.9-16.1-31.7-20.6 -11.4-4.4-24.4-7.4-43.4-8.3C310.7 77.3 304.6 77.1 256 77.1L256 77.1z"></path>
+                                            <path d="M256 164.1c-50.7 0-91.9 41.1-91.9 91.9s41.1 91.9 91.9 91.9 91.9-41.1 91.9-91.9S306.7 164.1 256 164.1zM256 315.6c-32.9 0-59.6-26.7-59.6-59.6s26.7-59.6 59.6-59.6 59.6 26.7 59.6 59.6S288.9 315.6 256 315.6z"></path>
+                                            <circle cx="351.5" cy="160.5" r="21.5"></circle>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+  </section>
     
-<script>
-      new Vue({
-        el: "#__next",
-        data: {
-          form: {
-            name: '',
-            email: '',
-            guests: '',
-            content: '',
-            eventId: 'rishikamar17'
-          },
-          isLoading: false,
-          isFormSubmitted: false,
-          errors: {
-            isError: false,
-            name: '',
-            email: '',
-            phone: '',
-            guests: ''
-          },
-          globalErrors: '',
-          dataSaved: false,
-          messages: [],
-          allMessages: [],
-          feedbackStatus: {
-            love: false,
-            like: false,
-            okish: false
-          },
-          feedbackSuccess: false
+  <script>
+    new Vue({
+      el: "#__next",
+      data: {
+        form: {
+          name: '',
+          email: '',
+          guests: '',
+          content: '',
+          eventId: 'rishikamar17'
         },
-        created () {
-          const rsvpd = localStorage.getItem("arrishimar17");
-          const fdb = localStorage.getItem("arrishimar17fd");
-          this.dataSaved = rsvpd ? true : false;
-          this.feedbackSuccess = fdb ? true : false;
+        isLoading: false,
+        isFormSubmitted: false,
+        errors: {
+          isError: false,
+          name: '',
+          email: '',
+          phone: '',
+          guests: ''
         },
-        mounted () {
-          const $accrd = document.querySelectorAll('.c-Accrd');
-          if ($accrd) {
-              let accrds = Array.from($accrd);
-              accrds.forEach(el=>{
-                  el.addEventListener('click', (e) => {
-                      const thisAccrd = e.currentTarget.classList;
-                      thisAccrd.contains('open') ? thisAccrd.remove('open') : thisAccrd.add('open');
-                  })
-              })
-          }
-          
-          this.initateAnimate();
-          const rsvpBtn = document.querySelector("#invitation");
-          if (rsvpBtn) {
-            rsvpBtn.addEventListener('click', () => {
-              const rsvpPos = document.querySelector(".c-Main__invi-cntr").getBoundingClientRect();
-              window.scrollTo({
-                top: rsvpPos.y,
-                behavior: "smooth"
-              });
+        globalErrors: '',
+        dataSaved: false,
+        messages: [],
+        allMessages: [],
+        feedbackStatus: {
+          love: false,
+          like: false,
+          okish: false
+        },
+        feedbackSuccess: false
+      },
+      created () {
+        const rsvpd = localStorage.getItem("arrishimar17");
+        const fdb = localStorage.getItem("arrishimar17fd");
+        this.dataSaved = rsvpd ? true : false;
+        this.feedbackSuccess = fdb ? true : false;
+      },
+      mounted () {
+        const $accrd = document.querySelectorAll('.c-Accrd');
+        if ($accrd) {
+            let accrds = Array.from($accrd);
+            accrds.forEach(el=>{
+                el.addEventListener('click', (e) => {
+                    const thisAccrd = e.currentTarget.classList;
+                    thisAccrd.contains('open') ? thisAccrd.remove('open') : thisAccrd.add('open');
+                })
             })
-          }
+        }
+        
+        this.initateAnimate();
+        const rsvpBtn = document.querySelector("#invitation");
+        if (rsvpBtn) {
+          rsvpBtn.addEventListener('click', () => {
+            const rsvpPos = document.querySelector(".c-Main__invi-cntr").getBoundingClientRect();
+            window.scrollTo({
+              top: rsvpPos.y,
+              behavior: "smooth"
+            });
+          })
+        }
 
-          const userAgent = navigator.userAgent;
-          
-          // Check for iOS
-          if (/iPad|iPhone|iPod/.test(userAgent)) {
-            const iosMap = document.querySelector('.o-Btn--ios');
-            const andrMap = document.querySelector('.o-Btn--andr');
-            if (iosMap) iosMap.classList.remove('hide');
-            if (andrMap) andrMap.classList.add('hide');
-          }
+        const userAgent = navigator.userAgent;
+        
+        // Check for iOS
+        if (/iPad|iPhone|iPod/.test(userAgent)) {
+          const iosMap = document.querySelector('.o-Btn--ios');
+          const andrMap = document.querySelector('.o-Btn--andr');
+          if (iosMap) iosMap.classList.remove('hide');
+          if (andrMap) andrMap.classList.add('hide');
+        }
 
-          ScrollReveal().reveal('#rsvp-btn',{
-            delay: 75,
-            duration: 1500,
-            opacity: 0,
-            distance: "50%",
-            origin: "bottom",
-            reset: false
-          });
+        ScrollReveal().reveal('#rsvp-btn',{
+          delay: 75,
+          duration: 1500,
+          opacity: 0,
+          distance: "50%",
+          origin: "bottom",
+          reset: false
+        });
 
-          ScrollReveal().reveal('#abt-guru',{
-            delay: 75,
-            duration: 1500,
-            opacity: 0,
-            distance: "50%",
-            origin: "bottom",
-            reset: false
-          });
+        ScrollReveal().reveal('#abt-guru',{
+          delay: 75,
+          duration: 1500,
+          opacity: 0,
+          distance: "50%",
+          origin: "bottom",
+          reset: false
+        });
 
-          ScrollReveal().reveal('#abt-shishya',{
-            delay: 75,
-            duration: 1500,
-            opacity: 0,
-            distance: "50%",
-            origin: "bottom",
-            reset: false
-          });
+        ScrollReveal().reveal('#abt-shishya',{
+          delay: 75,
+          duration: 1500,
+          opacity: 0,
+          distance: "50%",
+          origin: "bottom",
+          reset: false
+        });
 
-          ScrollReveal().reveal('#invitation-left',{
-            delay: 125,
-            duration: 1500,
-            opacity: 0,
-            distance: "50%",
-            origin: "bottom",
-            reset: false
-          });
+        ScrollReveal().reveal('#invitation-left',{
+          delay: 125,
+          duration: 1500,
+          opacity: 0,
+          distance: "50%",
+          origin: "bottom",
+          reset: false
+        });
 
-          ScrollReveal().reveal('#invitation-date',{
-            delay: 125,
-            duration: 1500,
-            opacity: 0,
-            distance: "50%",
-            origin: "bottom",
-            reset: false
-          });
+        ScrollReveal().reveal('#invitation-date',{
+          delay: 125,
+          duration: 1500,
+          opacity: 0,
+          distance: "50%",
+          origin: "bottom",
+          reset: false
+        });
 
-          ScrollReveal().reveal('#invitation-venue',{
-            delay: 125,
-            duration: 1500,
-            opacity: 0,
-            distance: "50%",
-            origin: "bottom",
-            reset: false
-          });
+        ScrollReveal().reveal('#invitation-venue',{
+          delay: 125,
+          duration: 1500,
+          opacity: 0,
+          distance: "50%",
+          origin: "bottom",
+          reset: false
+        });
 
-          ScrollReveal().reveal('#accompanists-one',{
-            delay: 175,
-            duration: 1500,
-            opacity: 0,
-            distance: "50%",
-            origin: "bottom",
-            reset: false
-          });
-          ScrollReveal().reveal('#accompanists-two',{
-            delay: 175,
-            duration: 1500,
-            opacity: 0,
-            distance: "50%",
-            origin: "bottom",
-            reset: false
-          });
-          ScrollReveal().reveal('#accompanists-three',{
-            delay: 175,
-            duration: 1500,
-            opacity: 0,
-            distance: "50%",
-            origin: "bottom",
-            reset: false
-          });
-          ScrollReveal().reveal('#accompanists-four',{
-            delay: 175,
-            duration: 1500,
-            opacity: 0,
-            distance: "50%",
-            origin: "bottom",
-            reset: false
-          });
-          ScrollReveal().reveal('#gallery-images',{
-            delay: 175,
-            duration: 1500,
-            opacity: 0,
-            distance: "50%",
-            origin: "bottom",
-            reset: false
-          });
-          
-          // ScrollReveal().reveal('#footer-rsvp',{
-          //   delay: 175,
-          //   duration: 1500,
-          //   opacity: 0,
-          //   distance: "50%",
-          //   origin: "bottom",
-          //   reset: false
-          // });
-          ScrollReveal().reveal('.c-Main__prgs-col__wrap',{
-            delay: 175,
-            duration: 1500,
-            opacity: 0,
-            distance: "50%",
-            origin: "bottom",
-            reset: false
-          });
-        },
-        methods: {
-          async submit () {
-            this.isFormSubmitted = true;
-            this.errors.isError = this.validation();
+        ScrollReveal().reveal('#accompanists-one',{
+          delay: 175,
+          duration: 1500,
+          opacity: 0,
+          distance: "50%",
+          origin: "bottom",
+          reset: false
+        });
+        ScrollReveal().reveal('#accompanists-two',{
+          delay: 175,
+          duration: 1500,
+          opacity: 0,
+          distance: "50%",
+          origin: "bottom",
+          reset: false
+        });
+        ScrollReveal().reveal('#accompanists-three',{
+          delay: 175,
+          duration: 1500,
+          opacity: 0,
+          distance: "50%",
+          origin: "bottom",
+          reset: false
+        });
+        ScrollReveal().reveal('#accompanists-four',{
+          delay: 175,
+          duration: 1500,
+          opacity: 0,
+          distance: "50%",
+          origin: "bottom",
+          reset: false
+        });
+        ScrollReveal().reveal('#gallery-images',{
+          delay: 175,
+          duration: 1500,
+          opacity: 0,
+          distance: "50%",
+          origin: "bottom",
+          reset: false
+        });
+        
+        // ScrollReveal().reveal('#footer-rsvp',{
+        //   delay: 175,
+        //   duration: 1500,
+        //   opacity: 0,
+        //   distance: "50%",
+        //   origin: "bottom",
+        //   reset: false
+        // });
+        ScrollReveal().reveal('.c-Main__prgs-col__wrap',{
+          delay: 175,
+          duration: 1500,
+          opacity: 0,
+          distance: "50%",
+          origin: "bottom",
+          reset: false
+        });
+      },
+      methods: {
+        async submit () {
+          this.isFormSubmitted = true;
+          this.errors.isError = this.validation();
 
-            if (!this.errors.isError) {
-              // submit api
-              this.isLoading = true;
-              try {
-                const response = await fetch("/arrangetram-540", {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify(this.form),
-                });
-                const result = await response.json();
-                if (result && result.message && typeof result.message == 'string') {
-                  this.dataSaved = true;
-                  localStorage.setItem("arrishimar17", true);
-                  this.reset();
-                } else {
-                  this.globalErrors = 'Sorry! Something went wrong. Please click <a href="mailto:nshanmugam@gmail.com?subject=RSVP%20Arangetram&body=Hello%2C%20We%20will%20attend%20the%20event%20a%20number%20of%20participants"">here</a> to email the same.';
-                }
-              } catch (error) {
-                console.log(error);
-              }
-            }
-          },
-          reset () {
-            this.isFormSubmitted = false;
-            this.isLoading = false;
-            this.form.name = '';
-            this.form.email = '';
-            this.form.guests = '';
-            this.errors.isError = false;
-            this.errors.name = '';
-            this.errors.email = '';
-            this.errors.guests = '';
-            this.globalErrors = '';
-          },
-          validation () {
-            let isError = false;
-            if (!this.form.name) {
-              this.errors.name = 'Name is required.';
-            } else {
-              this.errors.name = '';
-            }
-            if (!this.form.email) {
-              this.errors.email = 'Email is required.';
-            } else if (!this.validateEmail(this.form.email)) {
-              this.errors.email = 'Email is invalid.';
-            } else {
-              this.errors.email = '';
-            }
-            // if (!this.form.phone) {
-            //   this.errors.phone = 'Phone is required.';
-            // } else if (!this.validatePhone(this.form.phone)) {
-            //   this.errors.phone = 'Phone is invalid.';
-            // } else {
-            //   this.errors.phone = '';
-            // }
-            if (!this.form.guests) {
-              this.errors.guests = 'No of Guests is required.';
-            } else if (!this.validateGuest(this.form.guests)) {
-              this.errors.guests = 'Please enter a valid number';
-            } else {
-              this.errors.guests = '';
-            }
-            // if (!this.form.content) {
-            //   this.errors.content = 'Message is required.';
-            // } else {
-            //   this.errors.content = '';
-            // }
-
-            for (const key in this.errors) {
-              if (Object.hasOwnProperty.call(this.errors, key)) {
-                if(this.errors[key] && key != 'isError') {
-                  isError = true;
-                }
-              }
-            }
-
-            return isError;
-          },
-          validateEmail (email) {
-            if (!email) return false;
-            const isvalid = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-            return isvalid;
-          },
-          validatePhone (phone) {
-            if (!phone) return false;
-            const isvalid = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/i.test(phone);
-            return isvalid;
-          },
-          validateGuest (guest) {
-            if (!guest) return false;
-            const isvalid = /^([\d]+)$/g.test(guest);
-            return isvalid;
-          },
-          async getMessages () {
+          if (!this.errors.isError) {
+            // submit api
+            this.isLoading = true;
             try {
-              const response = await fetch("/guest-book-messages", {
-                method: "GET",
-                headers: {
-                  "Content-Type": "application/json",
-                }
-              });
-              const result = await response.json();
-              if (result && result.message && result.message == 'success') {
-                this.allMessages = result.messages;
-                this.setRandomMessages();
-                if (this.allMessages.length > 3) {
-                  setInterval(() => {
-                    this.setRandomMessages();
-                  },3000)
-                }
-              } else {
-                this.globalErrors = 'Sorry! Something went wrong.';
-              }
-            } catch (error) {
-              console.log(error);
-            }
-          },
-          setRandomMessages () {
-            if (this.allMessages.length && this.allMessages.length > 3) {
-              const randInxs = this.myRandomInts(this.allMessages.length);
-              this.messages = this.allMessages.filter((itm, i) => {
-                const valid = randInxs.indexOf(i) > -1;
-                if (valid && itm.content.length > 100) this.allMessages[i].content = itm.content.substr(0,100) + '..';
-                return valid;
-              });
-            } else {
-              this.messages = this.allMessages.filter((itm, i) => {
-                if (itm.content.length > 100) this.allMessages[i].content = itm.content.substr(0,100) + '..';
-                return true;
-              });
-            }
-          },
-          myRandomInts(max){
-            let arr = [];
-            if (this.allMessages.length > 3) {
-              while(arr.length < 3){
-                var candidateInt = Math.floor(Math.random() * max) + 1
-                if(arr.indexOf(candidateInt) === -1) arr.push(candidateInt)
-              }
-            } else {
-              arr = this.allMessages.map((itm, i)=> i);
-            }
-            return(arr)
-          },
-          async addMessages () {
-            this.isFormSubmitted = true;
-            this.errors.isError = this.validation();
-            if (!this.errors.isError) {
-              // submit api
-              this.isLoading = true;
-              try {
-                const response = await fetch("/guest-book-messages", {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify(this.form),
-                });
-                const result = await response.json();
-                if (result && result.message && typeof result.message == 'string') {
-                  this.dataSaved = true;
-                  // this.reset();
-                } else {
-                  this.globalErrors = 'Sorry! Something went wrong. Please click <a href="mailto:nshanmugam@gmail.com?subject=RSVP%20Arangetram&body=Hello%2C%20We%20will%20attend%20the%20event%20a%20number%20of%20participants"">here</a> to email the same.';
-                }
-              } catch (error) {
-                console.log(error);
-              }
-            }
-          },
-          async initateAnimate () {
-            let allUnderlines = document.querySelectorAll(".underline-animation");
-            if (allUnderlines) {
-              allUnderlines = Array.from(allUnderlines);
-              for(let i = 0; allUnderlines.length > i; i++) {
-                const el = allUnderlines[i];
-                const done = await this.animateUnderline(500, el);
-                console.log('inserted');
-              }
-            }
-          },
-          animateUnderline (ms, el) {
-            return new Promise(res => setTimeout(()=>{
-              el.classList.add('animate');
-              res();
-            }, ms));
-          },
-          feedback (fd) {
-            const resultFd = this.serviceReq("/einvite-feedback", "POST", {id: "rishikamar17", feedback: fd});
-            switch (fd) {
-              case "5":
-                this.feedbackStatus.love =  true;
-                break;
-              case "3":
-              this.feedbackStatus.like =  true;
-                break;
-            
-              default:
-                // is 1
-                this.feedbackStatus.okish =  true;
-                break;
-            }
-            this.feedbackSuccess = true;
-            localStorage.setItem("arrishimar17fd", true);
-          },
-          async serviceReq (url, type, data) {
-            try {
-              const response = await fetch(url, {
-                method: type,
+              const response = await fetch("/arrangetram-540", {
+                method: "POST",
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(this.form),
               });
               const result = await response.json();
               if (result && result.message && typeof result.message == 'string') {
-                return true;
+                this.dataSaved = true;
+                localStorage.setItem("arrishimar17", true);
+                this.reset();
               } else {
                 this.globalErrors = 'Sorry! Something went wrong. Please click <a href="mailto:nshanmugam@gmail.com?subject=RSVP%20Arangetram&body=Hello%2C%20We%20will%20attend%20the%20event%20a%20number%20of%20participants"">here</a> to email the same.';
-                return false;
               }
             } catch (error) {
-              return false;
               console.log(error);
             }
           }
+        },
+        reset () {
+          this.isFormSubmitted = false;
+          this.isLoading = false;
+          this.form.name = '';
+          this.form.email = '';
+          this.form.guests = '';
+          this.errors.isError = false;
+          this.errors.name = '';
+          this.errors.email = '';
+          this.errors.guests = '';
+          this.globalErrors = '';
+        },
+        validation () {
+          let isError = false;
+          if (!this.form.name) {
+            this.errors.name = 'Name is required.';
+          } else {
+            this.errors.name = '';
+          }
+          if (!this.form.email) {
+            this.errors.email = 'Email is required.';
+          } else if (!this.validateEmail(this.form.email)) {
+            this.errors.email = 'Email is invalid.';
+          } else {
+            this.errors.email = '';
+          }
+          // if (!this.form.phone) {
+          //   this.errors.phone = 'Phone is required.';
+          // } else if (!this.validatePhone(this.form.phone)) {
+          //   this.errors.phone = 'Phone is invalid.';
+          // } else {
+          //   this.errors.phone = '';
+          // }
+          if (!this.form.guests) {
+            this.errors.guests = 'No of Guests is required.';
+          } else if (!this.validateGuest(this.form.guests)) {
+            this.errors.guests = 'Please enter a valid number';
+          } else {
+            this.errors.guests = '';
+          }
+          // if (!this.form.content) {
+          //   this.errors.content = 'Message is required.';
+          // } else {
+          //   this.errors.content = '';
+          // }
+
+          for (const key in this.errors) {
+            if (Object.hasOwnProperty.call(this.errors, key)) {
+              if(this.errors[key] && key != 'isError') {
+                isError = true;
+              }
+            }
+          }
+
+          return isError;
+        },
+        validateEmail (email) {
+          if (!email) return false;
+          const isvalid = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+          return isvalid;
+        },
+        validatePhone (phone) {
+          if (!phone) return false;
+          const isvalid = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/i.test(phone);
+          return isvalid;
+        },
+        validateGuest (guest) {
+          if (!guest) return false;
+          const isvalid = /^([\d]+)$/g.test(guest);
+          return isvalid;
+        },
+        async getMessages () {
+          try {
+            const response = await fetch("/guest-book-messages", {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              }
+            });
+            const result = await response.json();
+            if (result && result.message && result.message == 'success') {
+              this.allMessages = result.messages;
+              this.setRandomMessages();
+              if (this.allMessages.length > 3) {
+                setInterval(() => {
+                  this.setRandomMessages();
+                },3000)
+              }
+            } else {
+              this.globalErrors = 'Sorry! Something went wrong.';
+            }
+          } catch (error) {
+            console.log(error);
+          }
+        },
+        setRandomMessages () {
+          if (this.allMessages.length && this.allMessages.length > 3) {
+            const randInxs = this.myRandomInts(this.allMessages.length);
+            this.messages = this.allMessages.filter((itm, i) => {
+              const valid = randInxs.indexOf(i) > -1;
+              if (valid && itm.content.length > 100) this.allMessages[i].content = itm.content.substr(0,100) + '..';
+              return valid;
+            });
+          } else {
+            this.messages = this.allMessages.filter((itm, i) => {
+              if (itm.content.length > 100) this.allMessages[i].content = itm.content.substr(0,100) + '..';
+              return true;
+            });
+          }
+        },
+        myRandomInts(max){
+          let arr = [];
+          if (this.allMessages.length > 3) {
+            while(arr.length < 3){
+              var candidateInt = Math.floor(Math.random() * max) + 1
+              if(arr.indexOf(candidateInt) === -1) arr.push(candidateInt)
+            }
+          } else {
+            arr = this.allMessages.map((itm, i)=> i);
+          }
+          return(arr)
+        },
+        async addMessages () {
+          this.isFormSubmitted = true;
+          this.errors.isError = this.validation();
+          if (!this.errors.isError) {
+            // submit api
+            this.isLoading = true;
+            try {
+              const response = await fetch("/guest-book-messages", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(this.form),
+              });
+              const result = await response.json();
+              if (result && result.message && typeof result.message == 'string') {
+                this.dataSaved = true;
+                // this.reset();
+              } else {
+                this.globalErrors = 'Sorry! Something went wrong. Please click <a href="mailto:nshanmugam@gmail.com?subject=RSVP%20Arangetram&body=Hello%2C%20We%20will%20attend%20the%20event%20a%20number%20of%20participants"">here</a> to email the same.';
+              }
+            } catch (error) {
+              console.log(error);
+            }
+          }
+        },
+        async initateAnimate () {
+          let allUnderlines = document.querySelectorAll(".underline-animation");
+          if (allUnderlines) {
+            allUnderlines = Array.from(allUnderlines);
+            for(let i = 0; allUnderlines.length > i; i++) {
+              const el = allUnderlines[i];
+              const done = await this.animateUnderline(500, el);
+              console.log('inserted');
+            }
+          }
+        },
+        animateUnderline (ms, el) {
+          return new Promise(res => setTimeout(()=>{
+            el.classList.add('animate');
+            res();
+          }, ms));
+        },
+        feedback (fd) {
+          const resultFd = this.serviceReq("/einvite-feedback", "POST", {id: "rishikamar17", feedback: fd});
+          switch (fd) {
+            case "5":
+              this.feedbackStatus.love =  true;
+              break;
+            case "3":
+            this.feedbackStatus.like =  true;
+              break;
+          
+            default:
+              // is 1
+              this.feedbackStatus.okish =  true;
+              break;
+          }
+          this.feedbackSuccess = true;
+          localStorage.setItem("arrishimar17fd", true);
+        },
+        async serviceReq (url, type, data) {
+          try {
+            const response = await fetch(url, {
+              method: type,
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            });
+            const result = await response.json();
+            if (result && result.message && typeof result.message == 'string') {
+              return true;
+            } else {
+              this.globalErrors = 'Sorry! Something went wrong. Please click <a href="mailto:nshanmugam@gmail.com?subject=RSVP%20Arangetram&body=Hello%2C%20We%20will%20attend%20the%20event%20a%20number%20of%20participants"">here</a> to email the same.';
+              return false;
+            }
+          } catch (error) {
+            return false;
+            console.log(error);
+          }
         }
-      })
-    </script>
-  </body>
-</html>
+      }
+    })
+  </script>

@@ -1,188 +1,263 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <%- contentFor('pageMeta') %>
-        <%- include('../common/fragments/page-meta', { 
-            title: 'ZEROPERSK by Krishna',
-            description: 'I build projects for customers and share my personal projects here as open source. In addition to that, I also write about my recovery over the ACL tear.',
-            keywords: 'ZEROPERSK by Krishna, Krishnas portfolio, website development, application freelancer in Dallas, acl forum, acl Experience, survived acl, recovery path of acl, recovery in acl, acl, anterior cruciate ligament, step by step recovery in acl',
-        }) %>
-        <%- contentFor('topHead') %>
-        <meta name="google-site-verification" content="RfhFvY6B47rpgb1bLnFHPZ0AIjm4nbeyC5kKWLKvnxQ" />
-        <meta name="msvalidate.01" content="C54C228DBD5A6501FF46CCDC002C3DB9" />
-    </head>
-    <body>
-        <%- include('../common/fragments/navbar') %>
-        <script>
-            var allRepo  = "<%- allRepo  %>";
-        </script>
-        <main>
-            <section class="o-Layout">
-                <div class="c-Home__mid-panel">
-                    <span class="c-Home-mid-p__lt">TECH&HEALTH</span>
-                    <h1 class="c-Home-mid-p__h">ZEROPERKS</h1>
-                    <a href="#knowmore" class="o-Btn o-Btn--blue o-Icon o-Icon--dwn-arw">Know More</a>
-                    <div class="c-Home__Banner">
-                        <div class="c-Home-Banner__scooter" id="knowmore"></div>
+<%- contentFor('pageMeta') %>
+    <%- include('../common/fragments/page-meta', { 
+        title: 'ZEROPERSK by Krishna',
+        description: 'I build projects for customers and share my personal projects here as open source. In addition to that, I also write about my recovery over the ACL tear.',
+        keywords: 'ZEROPERSK by Krishna, Krishnas portfolio, website development, application freelancer in Dallas, acl forum, acl Experience, survived acl, recovery path of acl, recovery in acl, acl, anterior cruciate ligament, step by step recovery in acl',
+    }) %>
+
+<%- contentFor('topHead') %>
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Zeroperks - Custom Websites, E-Invitations, and Insights",
+        "url": "https://zeroperks.com",
+        "description": "Zeroperks offers custom websites and e-invitations for Bharatanatyam Arangetram, cultural programs, and personal events. Read articles on immigration, things to do in DFW, technology, money investment, and home buying.",
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "Zeroperks",
+            "url": "https://zeroperks.com",
+            "logo": "https://zeroperks.com/images/zeroperks-logo.png",
+            "sameAs": [
+            "https://www.facebook.com/mynameiskrishnakumar",
+            "https://www.linkedin.com/in/krishdev/",
+            "https://github.com/krishdev"
+            ],
+            "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "emailzeroperks@gmail.com",
+            "contactType": "Customer Service",
+            "areaServed": "Worldwide",
+            "availableLanguage": ["English", "Tamil", "Telugu"]
+            }
+        },
+        "about": [
+            {
+            "@type": "Thing",
+            "name": "Custom Websites"
+            },
+            {
+            "@type": "Thing",
+            "name": "E-Invitations"
+            },
+            {
+            "@type": "Thing",
+            "name": "Bharatanatyam Arangetram"
+            },
+            {
+            "@type": "Thing",
+            "name": "Cultural Programs"
+            },
+            {
+            "@type": "Thing",
+            "name": "Immigration Articles"
+            },
+            {
+            "@type": "Thing",
+            "name": "Things to Do in DFW"
+            },
+            {
+            "@type": "Thing",
+            "name": "Technology Insights"
+            },
+            {
+            "@type": "Thing",
+            "name": "Money Investment Tips"
+            },
+            {
+            "@type": "Thing",
+            "name": "Home Buying Guidance"
+            }
+        ],
+        "publisher": {
+            "@type": "Organization",
+            "name": "ZeroPerks",
+            "logo": {
+            "@type": "ImageObject",
+            "url": "https://zeroperks.com/images/zeroperks-logo.png"
+            }
+        },
+        "image": [
+            "https://zeroperks.com/images/zeroperks-logo.png",
+            "https://www.zeroperks.com/assets/invi-poster.jpg",
+            "https://zeroperks.com/images/project-screenshots/arangetram/theme1.png",
+            "https://admin.zeroperks.com/uploads/h1b_c1409b2ce1.webp",
+            "https://admin.zeroperks.com/uploads/money_man_429c9953da.jpg",
+            "https://admin.zeroperks.com/uploads/financial_blog_article_f99363abd5.jpg"
+        ]
+        }
+    </script>    
+    
+<%- contentFor('body') %>
+    <%- include('../common/fragments/navbar') %>
+    <script>
+        var allRepo  = "<%- allRepo  %>";
+    </script>
+    <main>
+        <section class="o-Layout">
+            <div class="c-Home__mid-panel">
+                <span class="c-Home-mid-p__lt">TECH&HEALTH</span>
+                <h1 class="c-Home-mid-p__h">ZEROPERKS</h1>
+                <a href="#knowmore" class="o-Btn o-Btn--blue o-Icon o-Icon--dwn-arw">Know More</a>
+                <div class="c-Home__Banner">
+                    <div class="c-Home-Banner__scooter" id="knowmore"></div>
+                </div>
+            </div>
+        </section>
+        <section class="c-Section-lt-white c-Home__sec">
+            <div class="o-Layout">
+                <h2>Welcome to zeroperks, where sharing matters.</h2>
+                <p class="c-Section__desc">I build projects for customers and share my personal projects here as open source. In addition to that, I also write about my recovery over the <span class="o-Tooltip" data-tool="Anterior Cruciate Ligament">ACL</span> tear.</p>
+                <div class="c-Home-sec__grid row">
+                    <div class="col-sm-12 col-md-6 col-4">
+                        <div class="o-Icon-block">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <span class="c-Home-grid__title">Web/Mob Apps</span>
+                        <p>Turn conversations into applications and get customers all around the world. Replace manual tasks with automation.</p>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6 col-4">
+                        <div class="o-Icon-block">
+                            <i class="fas fa-x-ray"></i>
+                        </div>
+                        <span class="c-Home-grid__title">ACL</span>
+                        <p>My experience over the ACL tear in my left knee. Explaining my findings, struggles, surgery, and recovery.</p>
+                    </div>
+                    
+                    <div class="col-sm-12 col-md-6 col-4">
+                        <div class="o-Icon-block">
+                            <i class="fas fa-th-large"></i>
+                        </div>
+                        <span class="c-Home-grid__title">Responsive</span>
+                        <p>Getting seamless experience across any device is the key to any applications success. Simple solution over complex ideas.</p>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6 col-4">
+                        <div class="o-Icon-block">
+                            <i class="fas fa-window-restore"></i>
+                        </div>
+                        <span class="c-Home-grid__title">Innovative</span>
+                        <p>Bored with look alike websites built with Wix and Shopify. We deliver ideas on the topics you care about most straight to you.</p>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6 col-4">
+                        <div class="o-Icon-block">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <span class="c-Home-grid__title">Open Source</span>
+                        <p>As I learn, I start building projects out of it. Such projects I make it publicaly available through github.</p>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6 col-4">
+                        <div class="o-Icon-block">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <span class="c-Home-grid__title">Expertise</span>
+                        <p>I provide a wide range of advanced technologies. Whether you need a simple tool or a complex enterprise solution, I am here to help.</p>
                     </div>
                 </div>
-            </section>
-            <section class="c-Section-lt-white c-Home__sec">
-                <div class="o-Layout">
-                    <h2>Welcome to zeroperks, where sharing matters.</h2>
-                    <p class="c-Section__desc">I build projects for customers and share my personal projects here as open source. In addition to that, I also write about my recovery over the <span class="o-Tooltip" data-tool="Anterior Cruciate Ligament">ACL</span> tear.</p>
-                    <div class="c-Home-sec__grid row">
-                        <div class="col-sm-12 col-md-6 col-4">
-                            <div class="o-Icon-block">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <span class="c-Home-grid__title">Web/Mob Apps</span>
-                            <p>Turn conversations into applications and get customers all around the world. Replace manual tasks with automation.</p>
+            </div>
+        </section>
+        <section class="c-Section-white c-Home__sec">
+            <div class="o-Layout">
+                <h2>Stuff I've Worked On</h2>
+                <p class="c-Section__desc">Working for corporations is my priority, but in my leisure time I love to build some things for myself or freelance.</p>
+                <div class="c-Project-wrapper">
+                    <div class="c-Project">
+                        <figure class="c-Project__images">
+                            <img src="/images/project-screenshots/eyf/page-1.png" alt="electyour-future-img">
+                        </figure>
+                        <div class="c-Project__content">
+                            <p>Self Project</p>
+                            <h3><a target="_blank" href="/post/project-epolling-tn-assembly-election-2021">EPolling Projections</a></h3>
+                            <p>For the very first time an online election survey has been conducted at constituency level. I created a secure portal where users can vote anonymously. Used firebase to enabling push notifications and notify users while revealing in the results.</p>
+                            <ul>
+                                <li>Vue</li>
+                                <li>NodeJS</li>
+                                <li>Express</li>
+                                <li>Firebase</li>
+                                <li>SQL</li>
+                            </ul>
                         </div>
-
-                        <div class="col-sm-12 col-md-6 col-4">
-                            <div class="o-Icon-block">
-                                <i class="fas fa-x-ray"></i>
-                            </div>
-                            <span class="c-Home-grid__title">ACL</span>
-                            <p>My experience over the ACL tear in my left knee. Explaining my findings, struggles, surgery, and recovery.</p>
+                    </div>
+                    <div class="c-Project c-Project--invert">
+                        <figure class="c-Project__images">
+                            <img src="/images/project-screenshots/play-time/page-1.png" alt="electyour-future-img">
+                        </figure>
+                        <div class="c-Project__content">
+                            <p>Self Project</p>
+                            <h3><a href="javascript:void(0)">Game Time</a></h3>
+                            <p style="background-color: #ece7fe;">Song quiz, over 30 random songs from Kollywood where two teams can compete. It was developed by myself over a night when we went for a summer vacation. Series of image pops up as clues and teams have to guess the song name from it. There is a scoreboard which decides who wins at last.</p>
+                            <ul>
+                                <li>Vue</li>
+                                <li>NodeJS</li>
+                                <li>Express</li>
+                                <li>SQL</li>
+                            </ul>
                         </div>
-                        
-                        <div class="col-sm-12 col-md-6 col-4">
-                            <div class="o-Icon-block">
-                                <i class="fas fa-th-large"></i>
-                            </div>
-                            <span class="c-Home-grid__title">Responsive</span>
-                            <p>Getting seamless experience across any device is the key to any applications success. Simple solution over complex ideas.</p>
+                    </div>
+                    <div class="c-Project">
+                        <figure class="c-Project__images">
+                            <img src="/images/project-screenshots/coding-crocodile/page-1.png" alt="electyour-future-img">
+                        </figure>
+                        <div class="c-Project__content">
+                            <p>Freelance</p>
+                            <h3><a target="_blank" href="javascript:void(0)">Coding Crocodiles</a></h3>
+                            <p>A team of engineers grouped to start a new venture called <a href="javascript:void(0)">Coding Crocodiles</a>. Helped them put their ideas into a website. Designed Logo, template, and developed it through php. If needed in future it can be enhanced with Wordpress.</p>
+                            <ul>
+                                <li>HTML</li>
+                                <li>SCSS</li>
+                                <li>BEM</li>
+                                <li>PHP</li>
+                            </ul>
                         </div>
-
-                        <div class="col-sm-12 col-md-6 col-4">
-                            <div class="o-Icon-block">
-                                <i class="fas fa-window-restore"></i>
-                            </div>
-                            <span class="c-Home-grid__title">Innovative</span>
-                            <p>Bored with look alike websites built with Wix and Shopify. We deliver ideas on the topics you care about most straight to you.</p>
-                        </div>
-
-                        <div class="col-sm-12 col-md-6 col-4">
-                            <div class="o-Icon-block">
-                                <i class="fas fa-box-open"></i>
-                            </div>
-                            <span class="c-Home-grid__title">Open Source</span>
-                            <p>As I learn, I start building projects out of it. Such projects I make it publicaly available through github.</p>
-                        </div>
-
-                        <div class="col-sm-12 col-md-6 col-4">
-                            <div class="o-Icon-block">
-                                <i class="fas fa-dumbbell"></i>
-                            </div>
-                            <span class="c-Home-grid__title">Expertise</span>
-                            <p>I provide a wide range of advanced technologies. Whether you need a simple tool or a complex enterprise solution, I am here to help.</p>
+                    </div>
+                    <div class="c-Project c-Project--invert">
+                        <figure class="c-Project__images">
+                            <img src="/images/project-screenshots/arangetram/theme1.png" alt="electyour-future-img">
+                        </figure>
+                        <div class="c-Project__content">
+                            <p>Freelance</p>
+                            <h3><a href="/dance">Bharatanatyam Arangetram Invite</a></h3>
+                            <p style="background-color: #ece7fe;">Crafted a Bharatanatyam Arangetram invitation system that seamlessly blends traditional details with modern features. It includes comprehensive information on the Shishya, Guru, Accompanists, and Program, enhanced by integrated RSVP capabilities for efficient guest management. The addition of a digital guest book allows for the collection of blessings and feedback, creating a memorable and insightful celebration of this cultural event.</p>
+                            <ul>
+                                <li>Vue</li>
+                                <li>NodeJS</li>
+                                <li>Express</li>
+                                <li>MongoDB</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </section>
-            <section class="c-Section-white c-Home__sec">
-                <div class="o-Layout">
-                    <h2>Stuff I've Worked On</h2>
-                    <p class="c-Section__desc">Working for corporations is my priority, but in my leisure time I love to build some things for myself or freelance.</p>
-                    <div class="c-Project-wrapper">
-                        <div class="c-Project">
-                            <figure class="c-Project__images">
-                                <img src="/images/project-screenshots/eyf/page-1.png" alt="electyour-future-img">
-                            </figure>
-                            <div class="c-Project__content">
-                                <p>Self Project</p>
-                                <h3><a target="_blank" href="/post/project-epolling-tn-assembly-election-2021">EPolling Projections</a></h3>
-                                <p>For the very first time an online election survey has been conducted at constituency level. I created a secure portal where users can vote anonymously. Used firebase to enabling push notifications and notify users while revealing in the results.</p>
-                                <ul>
-                                    <li>Vue</li>
-                                    <li>NodeJS</li>
-                                    <li>Express</li>
-                                    <li>Firebase</li>
-                                    <li>SQL</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="c-Project c-Project--invert">
-                            <figure class="c-Project__images">
-                                <img src="/images/project-screenshots/play-time/page-1.png" alt="electyour-future-img">
-                            </figure>
-                            <div class="c-Project__content">
-                                <p>Self Project</p>
-                                <h3><a href="javascript:void(0)">Game Time</a></h3>
-                                <p style="background-color: #ece7fe;">Song quiz, over 30 random songs from Kollywood where two teams can compete. It was developed by myself over a night when we went for a summer vacation. Series of image pops up as clues and teams have to guess the song name from it. There is a scoreboard which decides who wins at last.</p>
-                                <ul>
-                                    <li>Vue</li>
-                                    <li>NodeJS</li>
-                                    <li>Express</li>
-                                    <li>SQL</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="c-Project">
-                            <figure class="c-Project__images">
-                                <img src="/images/project-screenshots/coding-crocodile/page-1.png" alt="electyour-future-img">
-                            </figure>
-                            <div class="c-Project__content">
-                                <p>Freelance</p>
-                                <h3><a target="_blank" href="javascript:void(0)">Coding Crocodiles</a></h3>
-                                <p>A team of engineers grouped to start a new venture called <a href="javascript:void(0)">Coding Crocodiles</a>. Helped them put their ideas into a website. Designed Logo, template, and developed it through php. If needed in future it can be enhanced with Wordpress.</p>
-                                <ul>
-                                    <li>HTML</li>
-                                    <li>SCSS</li>
-                                    <li>BEM</li>
-                                    <li>PHP</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="c-Project c-Project--invert">
-                            <figure class="c-Project__images">
-                                <img src="/images/project-screenshots/arangetram/theme1.png" alt="electyour-future-img">
-                            </figure>
-                            <div class="c-Project__content">
-                                <p>Freelance</p>
-                                <h3><a href="/dance">Bharatanatyam Arangetram Invite</a></h3>
-                                <p style="background-color: #ece7fe;">Crafted a Bharatanatyam Arangetram invitation system that seamlessly blends traditional details with modern features. It includes comprehensive information on the Shishya, Guru, Accompanists, and Program, enhanced by integrated RSVP capabilities for efficient guest management. The addition of a digital guest book allows for the collection of blessings and feedback, creating a memorable and insightful celebration of this cultural event.</p>
-                                <ul>
-                                    <li>Vue</li>
-                                    <li>NodeJS</li>
-                                    <li>Express</li>
-                                    <li>MongoDB</li>
-                                </ul>
-                            </div>
+            </div>
+        </section>
+        <section class="c-Section-ultr-drk c-Home__sec">
+            <div class="o-Layout">
+                <h2>Other Projects of Mine</h2>
+                <p class="c-Section__desc">Some of my seriously fun projects.</p>
+                <div class="c-Repo-wrapper row">
+                    <%  if (typeof allRepo != 'undefined' && allRepo) {
+                        allRepo = JSON.parse(allRepo);
+                        if (allRepo.length) {
+                            for(let i = 0; i < allRepo.length; i++) { 
+                                let thisRepo = allRepo[i];
+                    %>
+                    <div class="c-Repo col-sm-12 col-md-6 col-4">
+                        <div class="c-Repo__body">
+                            <a class="o-Icon-link" href="<%= thisRepo.html_url %>" target="_blank">
+                                <i class="fas fa-folder"></i>
+                            </a>
+                            <h3 class="c-Repo__title"><%= thisRepo.name %></h3>
+                            <% if (thisRepo.description != null) { %><p class="c-Repo__desc"><%- thisRepo.description %></p><% } %>
                         </div>
                     </div>
-                </div>
-            </section>
-            <section class="c-Section-ultr-drk c-Home__sec">
-                <div class="o-Layout">
-                    <h2>Other Projects of Mine</h2>
-                    <p class="c-Section__desc">Some of my seriously fun projects.</p>
-                    <div class="c-Repo-wrapper row">
-                        <%  if (typeof allRepo != 'undefined' && allRepo) {
-                            allRepo = JSON.parse(allRepo);
-                            if (allRepo.length) {
-                                for(let i = 0; i < allRepo.length; i++) { 
-                                    let thisRepo = allRepo[i];
-                        %>
-                        <div class="c-Repo col-sm-12 col-md-6 col-4">
-                            <div class="c-Repo__body">
-                                <a class="o-Icon-link" href="<%= thisRepo.html_url %>" target="_blank">
-                                    <i class="fas fa-folder"></i>
-                                </a>
-                                <h3 class="c-Repo__title"><%= thisRepo.name %></h3>
-                                <% if (thisRepo.description != null) { %><p class="c-Repo__desc"><%- thisRepo.description %></p><% } %>
-                            </div>
-                        </div>
-                        <% } } } %>
+                    <% } } } %>
 
-                        <div class="o-Btn-wrapper o-Btn-wrapper--center">
-                            <a href="https://github.com/krishdev?tab=repositories" class="o-Btn-line">More on Github</a>
-                        </div>
+                    <div class="o-Btn-wrapper o-Btn-wrapper--center">
+                        <a href="https://github.com/krishdev?tab=repositories" class="o-Btn-line">More on Github</a>
                     </div>
                 </div>
-            </section>
-        </main>
-    </body>
-</html>
+            </div>
+        </section>
+    </main>

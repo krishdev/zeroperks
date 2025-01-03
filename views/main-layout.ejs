@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
-    
+    <head>
         <%- pageMeta %>
         <%- include('./common/fragments/headers')%>
+        <meta name="google-site-verification" content="RfhFvY6B47rpgb1bLnFHPZ0AIjm4nbeyC5kKWLKvnxQ" />
+        <meta name="msvalidate.01" content="C54C228DBD5A6501FF46CCDC002C3DB9" />
         <%- topHead %>
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -11,14 +13,14 @@
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','GTM-NT6GRXX');</script>
         <!-- End Google Tag Manager -->
-    
+    </head>
     <body>
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NT6GRXX"
             height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
         <%- body %>
-        <%- script %>
+        
         <%- include('./common/fragments/footer')%>
     </body>
 </html>

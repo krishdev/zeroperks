@@ -1,16 +1,13 @@
-<!DOCTYPE html>
+<%- contentFor('pageMeta') %>
+<%- include('../common/fragments/page-meta', { 
+    title: 'Thaarikas Bharatanatyam Arangetram',
+    description: 'Bharatanatyam Arangetram of Thaarika on Sep 3, 2023. RSVP now. Bharatanatyam Invitation. Arangetram Invitation.',
+    keywords: 'Thaarika Bharatanatyam Arangetram',
+    ogWide: '/assets/invi-poster.jpg',
+    ogSquare: '/assets/invi-poster-square.jpg',
+}) %>
 
-<html>
-  <head>
-    <%- contentFor('pageMeta') %>
-    <%- include('../common/fragments/page-meta', { 
-        title: 'Thaarikas Bharatanatyam Arangetram',
-        description: 'Bharatanatyam Arangetram of Thaarika on Sep 3, 2023. RSVP now. Bharatanatyam Invitation. Arangetram Invitation.',
-        keywords: 'Thaarika Bharatanatyam Arangetram',
-        ogWide: '/assets/invi-poster.jpg',
-        ogSquare: '/assets/invi-poster-square.jpg',
-    }) %>
-    <%- contentFor('topHead') %>
+<%- contentFor('topHead') %>
     <meta name="og:title" content="Sep 3, 2023. Save the date & RSVP now" />
     <meta name="og:description" content="Join us for an unforgettable evening at Granville Arts Center." />
     <link href="<%= origin %>/assets/bootstrap.min.css" rel="stylesheet">
@@ -631,8 +628,8 @@
           font-size: .875rem;
       }
     </style>
-  </head>
-  <body>
+ 
+ <%- contentFor('body') %>
     <div id="__next">
       <div id="scrool">
         <div class="br-app">
@@ -1309,7 +1306,7 @@
 
     </div>
     
-<script>
+    <script>
       new Vue({
         el: "#__next",
         data: {
@@ -1661,5 +1658,3 @@
         }
       })
     </script>
-  </body>
-</html>
