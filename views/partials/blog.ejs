@@ -1,16 +1,10 @@
-
-    <% 
-        const pageMeta = `
-            <%- include('../common/fragments/page-meta', {
-                title: post.title + ' |  ZEROPERSK',
-                description: post.description,
-                keywords: post.keyword,
-                image: post.ogImage && post.ogImage.url ? post.ogImage.url : undefined,
-                canonical: 'https://www.zeroperks.com/post/'+post.url
-            }) %>
-        `;
-        
-    %>
+<%- include('../common/fragments/page-meta', {
+    title: post.title + ' |  ZEROPERSK',
+    description: post.description,
+    keywords: post.keyword,
+    image: post.ogImage && post.ogImage.url ? post.ogImage.url : undefined,
+    canonical: 'https://www.zeroperks.com/post/'+post.url
+}) %>
     
     <% contentFor('topHead', `
     <script type="application/ld+json">
