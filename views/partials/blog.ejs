@@ -1,5 +1,5 @@
 
-    <%- contentFor('pageMeta'), include('../common/fragments/page-meta', { 
+    <%- contentFor('pageMeta', include('../common/fragments/page-meta', { 
         title: post.title + ' |  ZEROPERSK',
         description: post.description,
         keywords: post.keyword,
@@ -7,7 +7,7 @@
         canonical: 'https://www.zeroperks.com/post/'+post.url
     }) %>
     
-    <%- contentFor('topHead'), `
+    <%- contentFor('topHead', `
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -39,7 +39,7 @@
     <script>
         var postId = "<%= post.id %>";
     </script>
-    ` %>
+    `) %>
 
 <%- include('../common/fragments/navbar') %>
 <div class="c-Post o-Layout">
