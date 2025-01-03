@@ -9,7 +9,7 @@
                 canonical: 'https://www.zeroperks.com/post/'+post.url
             }) %>
         `;
-        contentFor('pageMeta', pageMeta) 
+        contentFor('pageMeta', pageMeta);
     %>
     
     <% contentFor('topHead', `
@@ -44,7 +44,7 @@
     <script>
         var postId = "<%= post.id %>";
     </script>
-    `) %>
+    `); %>
 
 <%- include('../common/fragments/navbar') %>
 <div class="c-Post o-Layout">
