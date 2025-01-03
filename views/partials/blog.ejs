@@ -1,3 +1,4 @@
+<%- contentFor('pageMeta') %>
 <%- include('../common/fragments/page-meta', {
     title: post.title + ' |  ZEROPERSK',
     description: post.description,
@@ -6,39 +7,38 @@
     canonical: 'https://www.zeroperks.com/post/'+post.url
 }) %>
     
-    <% contentFor('topHead', `
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://www.zeroperks.com/post/<%= post.url %>"
-            },
-            "headline": "<%= post.title %>",
-            "description": "<%= post.description %>",
-            "image": "<%= aclPort + post.ogImage.url %>", 
-            "author": {
-            "@type": "Person",
-            "name": "Krishna", 
-            "url": "https://zeroperks.com/about"
-            },
-            "publisher": {
-            "@type": "Organization",
-            "name": "ZeroPerks",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://zeroperks.com/images/zeroperks-logo.png"
-            }
-            },
-            "datePublished": "<%= new Date(post.createdAt).getFullYear() %>-<%= new Date(post.createdAt).toLocaleString('default', {month: 'short'}) %>-<%= new Date(post.createdAt).getDate() %>",
-            "keywords": "<%= post.keywords %>"
+<% contentFor('topHead') %>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.zeroperks.com/post/<%= post.url %>"
+        },
+        "headline": "<%= post.title %>",
+        "description": "<%= post.description %>",
+        "image": "<%= aclPort + post.ogImage.url %>", 
+        "author": {
+        "@type": "Person",
+        "name": "Krishna", 
+        "url": "https://zeroperks.com/about"
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "ZeroPerks",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://zeroperks.com/images/zeroperks-logo.png"
         }
-    </script>
-    <script>
-        var postId = "<%= post.id %>";
-    </script>
-    `); %>
+        },
+        "datePublished": "<%= new Date(post.createdAt).getFullYear() %>-<%= new Date(post.createdAt).toLocaleString('default', {month: 'short'}) %>-<%= new Date(post.createdAt).getDate() %>",
+        "keywords": "<%= post.keywords %>"
+    }
+</script>
+<script>
+    var postId = "<%= post.id %>";
+</script>
 
 <%- include('../common/fragments/navbar') %>
 <div class="c-Post o-Layout">
