@@ -62,7 +62,7 @@
                         <b>Date Published: </b><%= new Date(post.published_at).getDate() %> <%= new Date(post.published_at).toLocaleString('default', {month: 'short'}) %>, <%= new Date(post.published_at).getFullYear() %>
                     </span>
                     <span class="col-sm-6">
-                        <b>Views: </b><%= post.views ? post.views : 1 %>
+                        <b>Views: </b><%= post.views ? post.views.toLocaleString() : 1 %>
                     </span>
                 </p>
                 <p class="blog-post-content"><%- post.content %></p>
