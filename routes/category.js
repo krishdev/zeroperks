@@ -37,7 +37,7 @@ router.get(['/:url','/:url/:page'], async function(req, res, next) {
                 responseType: 'json'
             });
             const responseBody = response.body;
-            const responseCount = await got.get(config.acl+'/posts/count', {		
+            const responseCount = await got.get(config.acl+'/posts?_where[categories.name]='+category.name+'/count', {		
                 responseType: 'json'
             });
             console.log("responseCount: " + responseCount);
