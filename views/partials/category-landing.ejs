@@ -38,7 +38,7 @@
                 <h1 class="display-5 fw-bold u-Kaushan"><%= category.title %></h1>
                 <%- category.description.description %>
             </div>
-            <% if (typeof category.bannerImage != 'undefined' && typeof category.bannerImage.url != 'undefined') { %>
+            <% if (category.bannerImage && category.bannerImage.url && typeof category.bannerImage != 'undefined' && typeof category.bannerImage.url != 'undefined') { %>
             <div class="c-Category-header__figure">
                 <img src="<%= aclPort+category.bannerImage.url %>" alt="hero image" style="width: 100%">
             </div>
