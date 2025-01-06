@@ -7,7 +7,7 @@ const {
     renderErrorPage
 } = require('../configs/common-setup');
 const e = require('express');
-const logger = require('../configs/logger');
+
 
 /* GET Project page. */
 router.get(['/:url','/:url/:page'], async function(req, res, next) {
@@ -41,7 +41,7 @@ router.get(['/:url','/:url/:page'], async function(req, res, next) {
             const responseCount = await got.get(config.acl+'/posts/count?_where[categories.name]='+category.name, {		
                 responseType: 'json'
             });
-            logger.info("responseCount: " + JSON.stringify(responseCount));
+            // logger.info("responseCount: " + JSON.stringify(responseCount));
             const responseCountBody = responseCount.body;
             res.render('partials/category-landing', {
                 recentPosts: responseBody, 
