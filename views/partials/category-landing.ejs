@@ -58,7 +58,7 @@
                 <div class="col-sm-12 col-md-6 col-4">
                     <div class="c-Category-post">
                         <figure class="c-Category-post__figure">
-                            <img src="<%= aclPort+thisPost.heroImage.url %>" alt="<%= thisPost.title.substring(0,50) %>">
+                            <a href="/post/<%= thisPost.url %>/"><img src="<%= aclPort+thisPost.heroImage.url %>" alt="<%= thisPost.title.substring(0,50) %>"></a>
                         </figure>
                         <div class="c-Category-post__body">
                             <div class="c-Category-post__date"><%= new Date(thisPost.published_at).getDate() %> <%= new Date(thisPost.published_at).toLocaleString('default', {month: 'short'}) %>, <%= new Date(thisPost.published_at).getFullYear() %></div>

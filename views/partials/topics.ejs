@@ -138,7 +138,7 @@
                 const article = articles[i];
                 %>
                 <div class="c-Topics-art">
-                    <figure class="c-Topics-art__fig" style="background-image: url('<%= aclPort+article.heroImage.url %>')"></figure>
+                    <a href="/category/<%= article.categories[0].url %>" style="display: block;"><figure class="c-Topics-art__fig" style="background-image: url('<%= aclPort+article.heroImage.url %>')"></figure></a>
                     <div class="c-Topics-art__body">
                         <a href="/category/<%= article.categories[0].url %>" style="text-decoration:none;color: <%= article.categories[0].colorCode %>">
                             <span class="c-Topics-art-body__cat"><%= article.categories[0].name %></span>
