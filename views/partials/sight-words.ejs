@@ -109,13 +109,8 @@
 var sightWords = ["a","the","as","to","do","I","is","was","you","of","for","from","your","said","all","put","are","does","see","have","love","by","my","who","two","they","what","want","give","live","one","some","come","there","where","were"];
 
 
-const getWords = (i) => {
-	if (i >= sightWords.length || i < 0) {
-    i = 0
-  };
-  if (i === 0) document.querySelector("#btn_back").setAttribute('disabled', true);
-  document.querySelector("#btn_back").removeAttribute('disabled');
-  const word = sightWords[i];
+const getWords = (inx) => {
+  const word = sightWords[inx];
   if (word) document.querySelector(".c-Word__item").innerText = word;
 }
 
@@ -125,12 +120,17 @@ document.querySelector("#btn_back").setAttribute('disabled', true);
 
 document.querySelector("#btn_nxt").addEventListener("click", (e) => {
 	getWords(i);
+  if (i >= sightWords.length || i < 0) {
+    i = 0
+  };
+  if (i === 0) document.querySelector("#btn_back").setAttribute('disabled', true);
+  document.querySelector("#btn_back").removeAttribute('disabled');
   i++;
 })
 
 
 document.querySelector("#btn_back").addEventListener("click", (e) => {
-	if (i >= 0) getWords(i--);
+	if (i >= 0) getWords(--i);
 })
 
 let markedItems = [];
