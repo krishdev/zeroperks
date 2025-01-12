@@ -1,0 +1,128 @@
+<%- contentFor('pageMeta') %>
+<%- include('../common/fragments/page-meta', {
+    title: 'Sight Words for Kindergarten|  ZEROPERSK',
+    description: 'Sight Words for Kindergarten online flash cards.',
+    keywords: 'Sight words, kindergarten word game',
+    ogWide: '/assets/open-graph/love-to-learn.jpg',
+    canonical: 'https://www.zeroperks.com/sight-words/'
+}) %>
+<%- contentFor('topHead') %>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Sight Words for Kindergarten",
+        "description": "Sight Words for Kindergarten online flash cards.",
+        "url": "https://www.zeroperks.com/sight-words/",
+        "category": "Educational app",
+        "operatingSystem": "Any",
+        "applicationCategory": "Education",
+        "educationalUse": "Learning sight words",
+        "publisher": {
+            "@type": "Organization",
+            "name": "ZeroPerks",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://zeroperks.com/images/zeroperks-logo.png"
+            }
+        }
+    }
+</script>
+<style>
+    body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    }
+
+    .c-Word__item {
+    font-size: 3.875em;
+    /* text-transform: capitalize; */
+    color: #666;
+    margin-bottom: .25em;
+    }
+
+    .c-Words {
+    display: flex;
+    flex-flow: column wrap;
+    height: 100vh;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    font-family: sans-serif;
+    text-align: center;
+    }
+
+    .btn {
+    display: inline-flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: center;
+    height: 30px;
+    border: 0;
+    background-color: blueviolet;
+    color: white;
+    font-size: 1em;
+    text-transform: uppercase;
+    width: 100px;
+    border-radius: 100pt;
+    padding: 1.5em 1.5em;
+    margin: 0 auto;
+    font-weight: 600;
+    cursor: pointer;
+    }
+
+    .btn-green {
+    background-color: #3ebf3e;
+    }
+
+    .btn-red {
+    background-color: #d52f2f;
+    }
+
+    .c-Words-btn__cntr {
+    margin-bottom: .875em;
+    }
+</style>
+
+<%- contentFor('body') %>
+<%- include('../common/fragments/navbar') %>
+<div class="c-Words">
+    <span class="c-Word__item">Ready</span>
+    <div class="c-Words__btn-wrap">
+      <div class="c-Words-btn__cntr">
+        <button id="btn_back" class="btn btn-green">Back</button>
+        <button id="btn_nxt" class="btn btn-blue">Next</button>
+      </div>
+      <button id="btn_mark" class="btn btn-red">Mark</button>
+    </div>
+  </div>
+<script>
+var sightWords = ["a","the","as","to","do","I","is","was","you","of","for","from","your","said","all","put","are","does","see","have","love","by","my","who","two","they","what","want","give","live","one","some","come","there","where","were"];
+
+
+const getWords = (i) => {
+	if (i >= sightWords.length) i = 0;
+  const word = sightWords[i];
+  document.querySelector(".c-Word__item").innerText = word;
+}
+
+let i = 0;
+
+document.querySelector("#btn_nxt").addEventListener("click", (e) => {
+	getWords(i);
+  i++;
+})
+
+
+document.querySelector("#btn_back").addEventListener("click", (e) => {
+	if (i >= 0) getWords(i--);
+})
+
+let markedItems = [];
+document.querySelector("#btn_mark").addEventListener("click", (e) => {
+	const word = document.querySelector(".c-Word__item").innerText;
+	markedItems.push(word);
+})
+</script>

@@ -11,15 +11,15 @@
 <meta name="og:description" content="<%= description %>">
 <meta name="og:image" content="<%= origin+'/images/og-images/og-wide.jpg' %>">
 <meta name="og:image" content="<%= origin+'/images/og-images/thumb.jpg' %>">
-<% if (typeof image != 'undefined') { %>
+<% if (typeof image != 'undefined' && image) { %>
 <meta name="og:image" content="<%= aclPort + image %>">
 <% } %>
-<% if (typeof ogWide != 'undefined') { %>
+<% if (typeof ogWide != 'undefined' && ogWide) { %>
     <meta name="og:image" content="<%= origin + ogWide %>">
 <% } %>
-<% if (typeof ogSquare != 'undefined') { %>
+<% if (typeof ogSquare != 'undefined' && ogSquare) { %>
     <meta name="og:image" content="<%= origin + ogSquare %>">
 <% } %>
-<% if (typeof ogOtSquare != 'undefined') { %>
+<% if (typeof ogOtSquare != 'undefined' && ogOtSquare) { %>
     <meta name="og:image" content="<%= aclPort + ogOtSquare %>">
 <% } %>
