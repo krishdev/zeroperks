@@ -95,6 +95,12 @@ router.get('/topics', async function(req, res, next) {
   res.render('partials/topics', {allBlogs, allCategories, recentArticles});
 });
 
+router.get('/sight-words', async function(req, res, next) {
+  defaultLocals(req, res);
+  
+  res.render('partials/signt-words');
+});
+
 router.get('/contact', async function(req, res, next) {
   defaultLocals(req, res);
   res.render('partials/contact');
