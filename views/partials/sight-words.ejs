@@ -110,12 +110,18 @@ var sightWords = ["a","the","as","to","do","I","is","was","you","of","for","from
 
 
 const getWords = (i) => {
-	if (i >= sightWords.length) i = 0;
+	if (i >= sightWords.length || i < 0) {
+    i = 0
+    document.querySelector("#btn_back").setAttribute('disabled', true);
+  };
+  document.querySelector("#btn_back").setAttribute('disabled', false);
   const word = sightWords[i];
-  document.querySelector(".c-Word__item").innerText = word;
+  if (word) document.querySelector(".c-Word__item").innerText = word;
 }
 
 let i = 0;
+
+document.querySelector("#btn_back").setAttribute('disabled', true);
 
 document.querySelector("#btn_nxt").addEventListener("click", (e) => {
 	getWords(i);
