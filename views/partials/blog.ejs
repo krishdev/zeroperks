@@ -38,6 +38,50 @@
 <script>
     var postId = "<%= post.id %>";
 </script>
+<style>
+    .article-card {
+        display: flex;
+        width: 600px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+    .article-card__img {
+        width: 40%;
+        background-image: url("https://admin.zeroperks.com/uploads/small_h1b_top_salary_2024_f5dc52f8ce.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50%;
+    }
+    .article-card-content {
+        padding: 15px;
+        width: 60%;
+    }
+    .article-card-title {
+        font-size: 1.5em;
+        margin: 0 0 10px;
+        color: #333;
+    }
+    .article-card-description {
+        font-size: 1em;
+        color: #666;
+        margin: 0 0 15px;
+    }
+    .article-card a {
+        display: inline-block;
+        padding: 10px 15px;
+        font-size: 0.9em;
+        color: #fff;
+        background-color: #007bff;
+        text-decoration: none;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .article-card a:hover {
+        background-color: #0056b3;
+    }
+</style>
 
 <%- contentFor('body') %>
 <%- include('../common/fragments/navbar') %>
