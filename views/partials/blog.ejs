@@ -85,7 +85,7 @@
                         const thisPost = recentPosts[i];
                         const title = thisPost.shortTitle ? thisPost.shortTitle : thisPost.title;   
                     %>
-                    <li class="c-Post__sd-item"><i class="fas fa-chevron-right"></i> <a href="/post/<%= thisPost.url %>/"><%= title.substring(0,25) %></a></li>
+                    <li class="c-Post__sd-item"><i class="fas fa-chevron-right"></i> <a href="/post/<%= post.url %>/"><%= title.substring(0,25) %></a></li>
                     <% } %>
                 </ol>
                 <button id="helpfulPost" class="c-Comment-cnt-ftr__icn c-Comment-cnt-ftr__icn--like">

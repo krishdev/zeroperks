@@ -451,8 +451,7 @@ router.post('/login', async function (req, res) {
       req.session.token = response.body.jwt;
       req.session.username = response.body.user.username;
       req.session.userId = response.body.user.id;
-      let referer = req.headers.referer;
-      if (referer.indexOf('register') > -1) referer = '/topics/';
+      let referer = req.query.redirectTo;
       const redirecTo = referer || '/topics/';
       res.redirect(redirecTo);
     }

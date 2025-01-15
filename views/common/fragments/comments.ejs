@@ -39,7 +39,7 @@
                 </div>
                 <a id="comment-btn" href="javascript:void(0)" class="c-Comment-form__btn c-Comment-form__btn--login" id="login-btn">Add Comment <i class="fas fa-comment-dots"></i></a>
             <% } else { %>
-                <a href="/login" class="c-Comment-form__btn c-Comment-form__btn--login" id="login-btn">Add Comment <i class="fas fa-comment-dots"></i></a>
+                <a rel="nofollow" href="/login?redirectTo=/post/<%= thisPost.url %>/" class="c-Comment-form__btn c-Comment-form__btn--login" id="login-btn">Add Comment <i class="fas fa-comment-dots"></i></a>
             <% } %>
         </div>
     </div>
