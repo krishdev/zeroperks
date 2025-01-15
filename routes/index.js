@@ -451,15 +451,14 @@ router.post('/login', async function (req, res) {
       req.session.token = response.body.jwt;
       req.session.username = response.body.user.username;
       req.session.userId = response.body.user.id;
-      const redirecTo = req.session.redirect || '/';
-      console.log('redirectTo: ' + redirecTo);
+      const redirecTo = req.session.redirect || '/topics/';
       res.redirect(redirecTo);
     }
   } catch (error) {
     console.log('Login: ', error);
     res.render('partials/login', {
       title: 'login',
-      error: error,
+      error: error || 'Something went wrong! Please try again',
       allCategories
     });
   }
