@@ -88,7 +88,7 @@ router.get('/topics', async function(req, res, next) {
   try {
     allBlogs = await getBlogs(3, '_featured=true');
     allCategories = await getAllCategories();
-    recentArticles = await getBlogs(6, '_sort=createdAt:DESC');
+    recentArticles = await getBlogs(6, '_sort=createdAt:DESC&status=published');
   } catch (error) {
     console.log(error);
   }
