@@ -136,6 +136,7 @@
                 
                 for(let i = 0; i < articles.length ; i++) { 
                 const article = articles[i];
+                if (article.categories && article.categories.length) {
                 %>
                 <div class="c-Topics-art">
                     <a href="/post/<%- article.url %>" style="display: block;"><figure class="c-Topics-art__fig" style="background-image: url('<%= aclPort+article.heroImage.url %>')"></figure></a>
@@ -148,7 +149,8 @@
                         <a href="/post/<%- article.url %>" class="o-Btn-line o-Btn-line--black o-Btn--icon">Read Article <span class="o-Icon-bg"><i class="fas fa-chevron-right"></i></span></a>
                     </div>
                 </div>
-                <% } %>
+                <% }
+                } %>
             </div>
         </div>
     </main>
