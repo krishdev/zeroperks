@@ -12,7 +12,7 @@ const {
 const {
     sendEmail
 } = require('../controller/controller.email');
-const { authRequired } = require('../middleware/authrequired');
+const { authRequired } = require('../middleware/authRequired');
 const logger = require('../configs/logger');
 
 
