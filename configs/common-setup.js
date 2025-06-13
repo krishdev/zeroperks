@@ -9,7 +9,7 @@ const {
 exports.defaultLocals = function (req, res) {
     res.locals.origin = config.env;
     res.locals.year = new Date().getFullYear();
-    const token = req.session.token || null;
+    const token = req.cookies.token || null;
     res.locals.token = token;
     const username = req.session.username || null;
     res.locals.username = username;

@@ -4,6 +4,7 @@ const got = require('got');
 const MarkdownIt = require('markdown-it'),
 md = new MarkdownIt();
 const config = require('../configs/config');
+const Comment = require('../models/Comment');
 const {
     defaultLocals,
     timeSince
@@ -11,6 +12,8 @@ const {
 const {
     sendEmail
 } = require('../controller/controller.email');
+const { authRequired } = require('../middleware/authrequired');
+const logger = require('../configs/logger');
 
 
 async function generateJWTStrapi () {
@@ -63,12 +66,13 @@ router.get('/:url', async function (req, res, next) {
     let thisPost = responseBody[0];
     let responseComment = [];
     try {
-        responseComment = await got.get(config.acl+'/comments?_sort=createdAt:DESC&_where[post]='+thisPost.id, {		
-            responseType: 'json'
-        });
-        if (responseComment && responseComment.body.length) {
-            responseComment.body.forEach (item => {
-                item.timeSince = timeSince(new Date (item.published_at));
+        responseComment = await Comment.find({ postId: thisPost.id, status: 'approved' })
+                            .sort({ createdAt: -1 })
+                            .populate('userId', 'username')
+                            .exec();
+        if (responseComment && responseComment.length) {
+            responseComment.forEach (item => {
+                item.timeSince = timeSince(new Date (item.createdAt));
             })
         }
     } catch (error) {
@@ -78,7 +82,7 @@ router.get('/:url', async function (req, res, next) {
     
     updatePost(thisPost.id, thisPost);
     thisPost.content = md.render(thisPost.content);
-    res.render('partials/blog', {post:thisPost, recentPosts: recentPostResponseBody, comments: responseComment.body || [], url: encodeURIComponent(`/post/${req.params.url}`)})
+    res.render('partials/blog', {post:thisPost, recentPosts: recentPostResponseBody, comments: responseComment || [], url: encodeURIComponent(`/post/${req.params.url}`)})
 })
 
 async function updatePost (id, data) {
@@ -110,26 +114,32 @@ async function updateComment (id, data) {
     }
 }
 
-router.post('/comment', async function (req, res) {
+router.post('/comment', authRequired, async function (req, res) {
     const params = req.body;
     try {
-        const response = await got.post(config.acl + '/comments', {
-            responseType: 'json',
-            json: {
-                "comment": params.comment,
-                "post": params.postId,
-                "user": req.session.userId
-            },
-            headers: {
-              Authorization:
-                'Bearer '+req.session.token,
-            }
-        })
+        // Save comment to DB
+        if (!params.postId || !params.comment) {
+            return res.status(400).json({
+                success: false,
+                message: 'Post ID and comment are required.'
+            });
+        }
+        const comment = new Comment({
+            postId: params.postId,
+            userId: req.user.userId,
+            content: params.comment,
+            parent: params.parent || null,
+            status: 'approved'
+        });
+
+        comment.save();
+
         res.status(200).json({
             success: true,
-            message: response.body
+            message: "Saved comment successfully."
         })
     } catch (error) {
+        logger.error('Error while saving comment: ', error);
         res.status(500).json({
             success: false,
             message: error
@@ -155,15 +165,13 @@ router.post('/like', async function (req, res) {
                     thisPost.helpful += 1;
                     updatePost(thisPost.id, thisPost);
                 } else if (commentId){
-                    // add +1 to Comment helpful
-                    const commentResponse = await got.get(config.acl+'/comments/'+commentId, {		
-                        responseType: 'json'
-                    });
-                    const commentBody = commentResponse.body;
-                    if (commentBody && commentBody.id) {
-                        let thisComment = commentBody;
-                        thisComment.helpful += 1;
-                        updateComment(thisComment.id, thisComment)
+                    // Find comment by ID and update comment likes
+                    const updated =  await Comment.findByIdAndUpdate(commentId, { $inc: { likes: 1 } }, { new: true });
+     
+                    // Prevent negative likes
+                    if (updated.likes < 0) {
+                        updated.likes = 0;
+                        await updated.save();
                     }
                 }
                 res.status(200).json({
@@ -177,12 +185,7 @@ router.post('/like', async function (req, res) {
                 })
             }
         } catch (error) {
-            sendEmail({
-                from: 'mailkrishna2@gmail.com',
-                to: 'mailkrishna2@gmail.com',
-                subj: 'Zeroperks | Error occurred on Like API',
-                content: `<p>${new Date().toString()}</p> ${error}`
-            })
+            logger.error('Error while liking post/comment: ', error);
             res.status(200).json({
                 success: false,
                 error: true,

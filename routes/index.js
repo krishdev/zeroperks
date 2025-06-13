@@ -8,6 +8,9 @@ const admin = require('firebase-admin');
 const path = require('path');
 const fs = require('fs');
 const ejs = require('ejs');
+const User = require('../models/User');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 var readHTMLFile = function(path, callback) {
   fs.readFile(path, {encoding: 'utf-8'}, function (err, html) {
@@ -40,7 +43,6 @@ const {
 } = require('../controller/controller.blog');
 const { all } = require('p-cancelable');
 
-let jwt = null;
 let headersAuth = {
     responseType: 'json',
     headers: {
@@ -77,6 +79,11 @@ router.get('/about', async function(req, res, next) {
     console.log(error);
   }
   res.render('partials/about', {allRepo, calcYear});
+});
+
+router.get('/disclaimer', async function(req, res, next) {
+  defaultLocals(req, res);
+  res.render('disclaimer');
 });
 
 router.get('/topics', async function(req, res, next) {
@@ -439,24 +446,53 @@ router.post('/login', async function (req, res) {
   }
   const body = req.body;
   try {
-    const response = await got.post(config.acl+'/auth/local', {
-      responseType: 'json',
-      json: {
-        identifier: body.email,
-        password: body.password
-      }
-    });
-    if (response && response.body) {
-      console.log(response.body);
-      req.session.token = response.body.jwt;
-      req.session.username = response.body.user.username;
-      req.session.userId = response.body.user.id;
-      let referer = req.query.redirectTo;
-      const redirecTo = referer || '/topics/';
-      res.redirect(redirecTo);
+    const { email, password } = body;
+    if (!email || !password) {
+      res.render('partials/login', {
+        title: 'login',
+        error: 'Please provide both email and password',
+        allCategories
+      });
     }
+
+    // Find the user by email
+    const user = await User.findOne({email: email});
+    if (!user) {
+      return res.render('partials/login', {
+        title: 'login',
+        error: 'User not found. Please register first.',
+        allCategories
+      });
+    }
+
+    const isPasswordValid = bcrypt.compareSync(password, user.password);
+
+    if (!isPasswordValid) {
+      return res.render('partials/login', {
+        title: 'login',
+        error: 'Invalid password. Please try again.',
+        allCategories
+      });
+    }
+
+    // Continue if the user is found and password is valid. Generate JWT token.
+
+    const token = jwt.sign({ userId: user._id, username: user.username, email: user.email }, config.jwtSecret, {
+      expiresIn: '1h' 
+    });
+
+    res.cookie('token', token, {
+      httpOnly: true,
+      maxAge: 60 * 60 * 1000, // 60 minutes
+    });
+
+    req.session.token = token;
+    req.session.username = user.username;
+    req.session.userId = user._id;
+    let referer = req.query.redirectTo;
+    const redirecTo = referer || '/topics/';
+    res.redirect(redirecTo);
   } catch (error) {
-    console.log('Login: ', error);
     res.render('partials/login', {
       title: 'login',
       error: error || 'Something went wrong! Please try again',
@@ -498,27 +534,31 @@ router.post('/register', async function (req, res) {
     console.log(error);
   }
   try {
-    const response = await got.post(config.acl+'/auth/local/register', {
-      responseType: 'json',
-      json: {
-        username: body.username,
-        email: body.email,
-        password: body.password
-      }
-    });
-    if (response && response.body) {
-      console.log(response.body);
-      req.session.token = response.body.jwt;
-      req.session.username = response.body.user.username;
-      let redirecTo = req.session.redirect || '/';
-      if (redirecTo) redirecTo = new URL(redirecTo).pathname;
-      res.redirect(redirecTo);
+    // Check if the email is already registered
+    const existingUser = await User.findOne({ email : body.email });
+
+    if (existingUser) {
+      return res.render('partials/register', {
+        title: 'Register',
+        error: `Email already registered. Please <a href="/login">login</a>.`,
+        allCategories
+      });
     }
+
+    const newUser = new User({
+      username: body.username,
+      email: body.email,
+      password: bcrypt.hashSync(body.password, 10)
+    });
+
+    newUser.save();
+
+    res.redirect("/login");
+
   } catch (error) {
-    console.log('Register: ', error);
     res.render('partials/register', {
-      title: 'register',
-      error: error,
+      title: 'Register',
+      error: `Sorry! Something went wrong please report <a href="/contact">here</a>.`,
       allCategories
     });
   }

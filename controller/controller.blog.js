@@ -11,7 +11,7 @@ const config = require('../configs/config');
 async function getBlogs (numb, filter) {
     let data = null;
     try {
-        data = apiBlog(`${config.acl}/posts?${filter}&_limit=${numb}`)
+        data = await apiBlog(`${config.acl}/posts?${filter}&_limit=${numb}`)
     } catch (error) {
         console.log(error);
     }

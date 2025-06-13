@@ -33,6 +33,7 @@ const post = {
                     let likes = +cmtElm.getAttribute('data-like-count');
                     likes++
                     cmtElm.innerText = likes + (likes == 1 ? ' Like' : ' Likes');
+                    cmtElm.setAttribute('data-like-count', likes);
                 } else {
                     const postElm = document.querySelector('#helpfulPost span');
                     let likes = +postElm.getAttribute('data-like-count');

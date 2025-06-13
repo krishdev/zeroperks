@@ -4,6 +4,8 @@ const session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -20,6 +22,13 @@ const {
 
 var app = express();
 var expressLayouts = require('express-ejs-layouts');
+
+mongoose.connect('mongodb://localhost:27017/zeroperks', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
+app.use(bodyParser.json());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

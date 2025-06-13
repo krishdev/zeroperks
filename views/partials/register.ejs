@@ -1,9 +1,9 @@
 
 <%- contentFor('pageMeta') %>
     <%- include('../common/fragments/page-meta', { 
-        title: 'Register to ZEROPERSK',
-        description: 'Register to ZEROPERSK',
-        keywords: 'Register to ZEROPERSK',
+        title: 'Register to ZEROPERKS',
+        description: 'Register to ZEROPERKS',
+        keywords: 'Register to ZEROPERKS',
     }) %>
 
 <%- contentFor('topHead') %>
@@ -44,7 +44,7 @@
                     <li><a href="/register" class="active">Register</a></li>
                     <li><a href="/login">Login</a></li>
                 </ul>
-                <form class="c-Cred__form" id="registerForm" action="/register" method="post">
+                <form class="c-Cred__form" id="registerForm" action="/register" method="post" novalidate autocomplete="off" onsubmit="return false;">
                     <div class="o-Form__wrapper">
                         <input type="text" name="username" id="username" class="form-control" placeholder="Username" required="" autofocus="">
                         <div class="o-Form__error">
@@ -76,10 +76,10 @@
                     </div>
                     <% if (typeof(error) != "undefined") { %>
                         <div class="o-Form__server-error">
-                            <p>Sorry! Something went wrong please report <a href="/contact">here</a>.</p>
+                            <p><%- error %></p>
                         </div>
                     <% } %>
-                    <button class="c-Comment-form__btn" id="signup-btn" type="button">Sign up <i class="fas fa-user-plus"></i></button>
+                    <button class="c-Comment-form__btn" id="signup-btn" type="submit">Sign up <i class="fas fa-user-plus"></i></button>
                 </form>
             </div>
         </div>

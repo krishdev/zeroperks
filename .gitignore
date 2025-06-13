@@ -2,3 +2,5 @@ package-lock.json
 node_modules
 configs/config.js
 configs/service-key.json
+logs/app.log
+public/sitemap.xml

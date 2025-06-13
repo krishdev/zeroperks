@@ -1,8 +1,8 @@
 <%- contentFor('pageMeta') %>
     <%- include('../common/fragments/page-meta', { 
-        title: 'Login to ZEROPERSK',
-        description: 'Login to ZEROPERSK',
-        keywords: 'Login to ZEROPERSK',
+        title: 'Login to ZEROPERKS',
+        description: 'Login to ZEROPERKS',
+        keywords: 'Login to ZEROPERKS',
     }) %>
 
 <%- contentFor('topHead') %>
@@ -43,7 +43,7 @@
                     <li><a href="/register">Register</a></li>
                     <li><a href="/login" class="active">Login</a></li>
                 </ul>
-                <form class="c-Cred__form" id="loginForm" action="/login" method="post" autocomplete="off">
+                <form class="c-Cred__form" id="loginForm" action="/login" method="post" autocomplete="off" novalidate onsubmit="return false;">
                     <div class="o-Form__wrapper">
                         <input type="email" autocomplete="off" name="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
                         <div class="o-Form__error">
@@ -62,7 +62,7 @@
                             <p>Email ID or Password did not match please try again.</p>
                         </div>
                     <% } %>
-                    <button class="c-Comment-form__btn" id="signin-btn" type="button">Sign in <i class="fas fa-sign-in-alt"></i></button>
+                    <button class="c-Comment-form__btn" id="signin-btn" type="submit">Sign in <i class="fas fa-sign-in-alt"></i></button>
                 </form>
             </div>
         </div>

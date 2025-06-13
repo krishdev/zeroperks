@@ -3,22 +3,39 @@ import axios from 'axios';
 const credentials = {
     data: {
         login: document.querySelector('#signin-btn'),
+        loginForm: document.querySelector('#loginForm'),
         register: document.querySelector('#signup-btn'),
         comment: document.querySelector('#comment-btn'),
+        fields: document.querySelectorAll(".form-control"),
         errorClass: 'o-Error',
         formSubmitting: false
     },
     initialized () {
         var self = this;
         if (this.data.login) {
-            this.data.login.addEventListener('click', function () {
-                self.methods.login();
-            })
+            this.data.login.addEventListener('click', (e) => {
+                e.preventDefault();
+                const invalid = self.methods.loginValidation();
+                if (!invalid) {
+                    self.methods.loginSubmited(invalid);
+                }
+            });
         }
         if (this.data.register) {
-            this.data.register.addEventListener('click', function () {
-                self.methods.register();
-            })
+            this.data.register.addEventListener('click', (e) => {
+                e.preventDefault();
+                const invalid = self.methods.registerValidation();
+                if (!invalid) {
+                    self.methods.registerSubmit(invalid);
+                }
+            });
+        }
+        if (this.data.register || this.data.login) {
+            this.data.fields.forEach((field) => {
+                field.addEventListener('change', (e) => {
+                    self.data.register ? self.methods.registerValidation() : self.methods.loginValidation();
+                });
+            });
         }
         if (this.data.comment) {
             this.data.comment.addEventListener('click', function () {
@@ -27,7 +44,7 @@ const credentials = {
         }
     },
     methods: {
-        login () {
+        loginValidation () {
             credentials.data.formSubmitting = true;
             
             var invalid = false;
@@ -66,15 +83,18 @@ const credentials = {
             } else  {
                 $passwordRequired.classList.remove(credentials.data.errorClass);
             }
+            return invalid;
+        },
+        loginSubmited (invalid) {
             if (!invalid) {
                 document.querySelector('#loginForm').submit();
             }
         },
-        register () {
+        registerValidation () {
             credentials.data.formSubmitting = true;
             var regex = {
                 email: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/,
+                password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]{8,}$/,
                 username: /^[(\w\s)]+$/g
             };
             var invalid = false;
@@ -166,6 +186,9 @@ const credentials = {
                 $confirmPasswordRequired.classList.remove(credentials.data.errorClass);
                 $confirmPasswordInvalid.classList.remove(credentials.data.errorClass);
             }
+            return invalid;
+        },
+        registerSubmit (invalid) {
             if (!invalid) {
                 document.querySelector('#registerForm').submit();
             }

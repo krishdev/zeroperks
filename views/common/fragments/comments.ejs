@@ -6,24 +6,24 @@
             %>
             <div class="c-Comment-cnt">
                 <div class="c-Comment-cnt__user-ltr">
-                    <%- comment.user ? comment.user.username.substring(0,1).toUpperCase() : '<i class="fas fa-user"></i>' %>
+                    <%- comment.userId ? comment.userId.username.substring(0,1).toUpperCase() : '<i class="fas fa-user"></i>' %>
                 </div>
                 <div class="c-Comment-cnt__body">
                     <div class="c-Comment-cnt__header">
                         <div class="c-Comment-cnt-hdr__username">
-                            <%= comment.user ? comment.user.username : 'Anonymous' %>
+                            <%= comment.userId ? comment.userId.username : 'Anonymous' %>
                         </div>
                         <div class="c-Comment-cnt-hdr__time">
                             <%= comment.timeSince %> ago
                         </div>
                     </div>
 
-                    <p><%= comment.comment %></p>
+                    <p><%= comment.content %></p>
 
                     <div class="c-Comment-cnt__footer">
                         <button data-comment-id="<%- comment.id %>" class="c-Comment-cnt-ftr__icn c-Comment-cnt-ftr__icn--like">
                             <i class="fas fa-heart"></i>
-                            <span data-like-count="<%- comment.helpful %>"><%= comment.helpful ? (comment.helpful + (comment.helpful == 1 ? ' Like' : ' Likes')) : 'Helpful' %></span>
+                            <span data-like-count="<%- comment.likes %>"><%= comment.likes ? (comment.likes + (comment.likes == 1 ? ' Like' : ' Likes')) : 'Helpful' %></span>
                         </button>
                     </div>
                 </div>
