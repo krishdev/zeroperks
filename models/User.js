@@ -17,7 +17,12 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  provider: {
+    type: String,
+    enum: ['local', 'google', 'facebook'],
+    default: 'local'
+  },
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);

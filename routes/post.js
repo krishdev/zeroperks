@@ -5,6 +5,8 @@ const MarkdownIt = require('markdown-it'),
 md = new MarkdownIt();
 const config = require('../configs/config');
 const Comment = require('../models/Comment');
+const { OAuth2Client } = require('google-auth-library');
+const client = new OAuth2Client('YOUR_GOOGLE_CLIENT_ID')
 const {
     defaultLocals,
     timeSince
@@ -200,5 +202,75 @@ router.post('/like', async function (req, res) {
         })
     }
 })
+
+// GET Method to send client ID for Google One Tap
+router.post('/get-client', async function (req, res) {
+    try {
+        res.status(200).json({
+            clientId: config.googleClientId
+        });
+    } catch (error) {
+        logger.error('Error while getting Google client ID: ', error);
+        res.status(500).json({
+            success: false,
+            error: error
+        });
+    }
+});
+
+// POST Method to handle Google One Tap response
+router.post('/auth/google-one-tap', async function (req, res) {
+    const response = req.body;
+    if (response && response.credential) {
+        try {
+            const ticket = await client.verifyIdToken({
+                idToken: credential,
+                audience: config.googleClientId
+            });
+            const payload = ticket.getPayload();
+
+            // Extract user info
+            const { email, name } = payload;
+
+            // Check if user exists
+            let user = await User.findOne({ email });
+            if (!user) {
+                // Create new user if not exists
+                user = await User.create({
+                    email,
+                    username: name || email.split('@')[0],
+                    password: '', // or some placeholder
+                    provider: 'google'
+                });
+            }
+
+            // Create your own JWT
+            const token = jwt.sign(
+                { userId: user._id, username: user.username, email: user.email },
+                config.jwtSecret,
+                { expiresIn: '1h' }
+            );
+
+            res.cookie('token', token, {
+                httpOnly: true,
+                sameSite: 'Strict',
+                maxAge: 60 * 60 * 1000
+            });
+
+            res.json({ success: true });
+        } catch (error) {
+            logger.error('Error during Google One Tap authentication: ', error);
+            res.status(500).json({
+                success: false,
+                message: error.message
+            });
+        }
+    } else {
+        res.status(400).json({
+            success: false,
+            message: 'Invalid request.'
+        });
+    }
+});
 
 module.exports = router;

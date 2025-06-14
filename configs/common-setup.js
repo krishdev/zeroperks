@@ -3,17 +3,30 @@ const got = require('got');
 const ejs = require("ejs");
 const path = require('path');
 const winston = require('winston');
+const jwt = require('jsonwebtoken');
+
 const {
   sendEmail
 } = require('../controller/controller.email');
 exports.defaultLocals = function (req, res) {
     res.locals.origin = config.env;
     res.locals.year = new Date().getFullYear();
+    res.locals.aclPort = config.acl;
+
     const token = req.cookies.token || null;
     res.locals.token = token;
-    const username = req.session.username || null;
-    res.locals.username = username;
-    res.locals.aclPort = config.acl;
+    res.locals.username = null;
+    res.locals.isAuthenticated = false;
+
+    if (token) {
+      try {
+        const decoded = jwt.verify(token, config.jwtSecret);
+        res.locals.username = decoded.username;
+        res.locals.isAuthenticated = true;
+      } catch (err) {
+        res.locals.token = null;
+      }
+    }
 }
 
 /**

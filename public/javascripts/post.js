@@ -20,6 +20,21 @@ const post = {
                 })
             })
         }
+        axios.post('/post/get-client').then(res => {
+            try {
+                setTimeout(() => {
+                    google.accounts.id.initialize({
+                        client_id: res.data.clientId,
+                        callback: this.handleCredentialResponse,
+                        auto_select: false,
+                        cancel_on_tap_outside: false
+                    });
+                    google.accounts.id.prompt();
+                }, 1500);
+            } catch (error) {
+                console.error('Google One Tap initialization failed:', error);
+            }
+        });
     },
     helpfulLike (postId, commentId) {
         axios.post('/post/like', {
@@ -44,6 +59,15 @@ const post = {
         }, error => {
             console.log(error);
         })
+    },
+    handleCredentialResponse(response) {
+        axios.post('/post/auth/google-one-tap', {
+            credential: response.credential
+        }).then(res => {
+            if (res.data.success) {
+                window.location.reload();
+            }
+        });
     }
 }
 

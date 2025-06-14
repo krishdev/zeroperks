@@ -19,11 +19,12 @@ var {
 const {
   defaultLocals
 } = require('./configs/common-setup');
+const config = require('./configs/config');
 
 var app = express();
 var expressLayouts = require('express-ejs-layouts');
 
-mongoose.connect('mongodb://localhost:27017/zeroperks', {
+mongoose.connect(`mongodb://${config.mongo.username}:${config.mongo.password}@localhost:27017/${config.mongo.dbName}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -64,8 +65,10 @@ app.use('/event', eventRouter);
 app.use('/api', apiRouter);
 schedulerOnceAWeek();
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  defaultLocals(req, res);
+app.use((req, res, next) => {
+  if (req.method === 'GET') {
+    defaultLocals(req, res);
+  }
   next(createError(404));
 });
 

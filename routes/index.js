@@ -86,6 +86,11 @@ router.get('/disclaimer', async function(req, res, next) {
   res.render('disclaimer');
 });
 
+router.get('/privacy-policy', async function(req, res, next) {
+  defaultLocals(req, res);
+  res.render('privacy-policy');
+});
+
 router.get('/topics', async function(req, res, next) {
   defaultLocals(req, res);
   let allBlogs = [];
@@ -422,41 +427,42 @@ router.get('/login', async function (req, res) {
   res.locals.aclPort = config.acl;
   res.locals.token = null;
   res.locals.username = null;
-  req.session.username = null;
-  delete req.session.token;
+
   let allCategories = [];
   try {
     allCategories = await getAllCategories();
   } catch (error) {
     console.log(error);
   }
-  res.render('partials/login', {allCategories});
+
+  res.render('partials/login', { allCategories });
 })
 
 router.post('/login', async function (req, res) {
   res.locals.origin = config.env;
   res.locals.year = new Date().getFullYear();
-  res.locals.token = req.session.token || null;
   res.locals.aclPort = config.acl;
+
+  const { email, password } = req.body;
+
   let allCategories = [];
   try {
     allCategories = await getAllCategories();
   } catch (error) {
     console.log(error);
   }
-  const body = req.body;
-  try {
-    const { email, password } = body;
-    if (!email || !password) {
-      res.render('partials/login', {
-        title: 'login',
-        error: 'Please provide both email and password',
-        allCategories
-      });
-    }
 
-    // Find the user by email
-    const user = await User.findOne({email: email});
+  if (!email || !password) {
+    return res.render('partials/login', {
+      title: 'login',
+      error: 'Please provide both email and password',
+      allCategories
+    });
+  }
+
+  try {
+    const user = await User.findOne({ email });
+
     if (!user) {
       return res.render('partials/login', {
         title: 'login',
@@ -475,27 +481,25 @@ router.post('/login', async function (req, res) {
       });
     }
 
-    // Continue if the user is found and password is valid. Generate JWT token.
-
-    const token = jwt.sign({ userId: user._id, username: user.username, email: user.email }, config.jwtSecret, {
-      expiresIn: '1h' 
-    });
+    const token = jwt.sign(
+      { userId: user._id, username: user.username, email: user.email },
+      config.jwtSecret,
+      { expiresIn: '1h' }
+    );
 
     res.cookie('token', token, {
       httpOnly: true,
-      maxAge: 60 * 60 * 1000, // 60 minutes
+      sameSite: 'Strict',
+      secure: false, // set to true if using HTTPS
+      maxAge: 60 * 60 * 1000
     });
 
-    req.session.token = token;
-    req.session.username = user.username;
-    req.session.userId = user._id;
-    let referer = req.query.redirectTo;
-    const redirecTo = referer || '/topics/';
-    res.redirect(redirecTo);
+    const redirectTo = req.query.redirectTo || '/topics/';
+    res.redirect(redirectTo);
   } catch (error) {
     res.render('partials/login', {
       title: 'login',
-      error: error || 'Something went wrong! Please try again',
+      error: 'Something went wrong. Please try again.',
       allCategories
     });
   }
@@ -504,38 +508,36 @@ router.post('/login', async function (req, res) {
 router.get('/register', async function (req, res) {
   res.locals.origin = config.env;
   res.locals.year = new Date().getFullYear();
+  res.locals.aclPort = config.acl;
   res.locals.token = null;
   res.locals.username = null;
-  req.session.username = null;
-  res.locals.aclPort = config.acl;
-  delete req.session.token;
-  req.session.redirect = req.headers.referer;
+
   let allCategories = [];
   try {
     allCategories = await getAllCategories();
   } catch (error) {
     console.log(error);
   }
-  res.render('partials/register', {
-    allCategories
-  });
+
+  res.render('partials/register', { allCategories });
 })
 
 router.post('/register', async function (req, res) {
   res.locals.origin = config.env;
   res.locals.year = new Date().getFullYear();
-  res.locals.token = req.session.token || null;
   res.locals.aclPort = config.acl;
-  const body = req.body;
+
+  const { username, email, password } = req.body;
+
   let allCategories = [];
   try {
     allCategories = await getAllCategories();
   } catch (error) {
     console.log(error);
   }
+
   try {
-    // Check if the email is already registered
-    const existingUser = await User.findOne({ email : body.email });
+    const existingUser = await User.findOne({ email });
 
     if (existingUser) {
       return res.render('partials/register', {
@@ -546,15 +548,14 @@ router.post('/register', async function (req, res) {
     }
 
     const newUser = new User({
-      username: body.username,
-      email: body.email,
-      password: bcrypt.hashSync(body.password, 10)
+      username,
+      email,
+      password: bcrypt.hashSync(password, 10)
     });
 
-    newUser.save();
+    await newUser.save();
 
-    res.redirect("/login");
-
+    res.redirect('/login');
   } catch (error) {
     res.render('partials/register', {
       title: 'Register',
@@ -565,12 +566,9 @@ router.post('/register', async function (req, res) {
 })
 
 router.get('/logout', function (req, res) {
-  delete req.session.token;
-  delete req.session.username;
-  let redirecTo = req.headers.referer || '/';
-  if (redirecTo) redirecTo = new URL(redirecTo).pathname;
-  console.log(redirecTo);
-  res.redirect(redirecTo);
+  res.clearCookie('token'); // this logs out the user
+  const redirectTo = req.headers.referer || '/';
+  res.redirect(new URL(redirectTo).pathname);
 })
 
 router.get('/verify-image', function (req, res) {
