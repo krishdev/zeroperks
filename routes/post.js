@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const got = require('got');
+const jwt = require('jsonwebtoken');
 const MarkdownIt = require('markdown-it'),
 md = new MarkdownIt();
 const config = require('../configs/config');
@@ -16,6 +17,7 @@ const {
 } = require('../controller/controller.email');
 const { authRequired } = require('../middleware/authRequired');
 const logger = require('../configs/logger');
+const User = require('../models/User');
 
 
 async function generateJWTStrapi () {
@@ -224,7 +226,7 @@ router.post('/auth/google-one-tap', async function (req, res) {
     if (response && response.credential) {
         try {
             const ticket = await client.verifyIdToken({
-                idToken: credential,
+                idToken: response.credential,
                 audience: config.googleClientId
             });
             const payload = ticket.getPayload();

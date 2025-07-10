@@ -20,21 +20,12 @@ const post = {
                 })
             })
         }
-        axios.post('/post/get-client').then(res => {
-            try {
-                setTimeout(() => {
-                    google.accounts.id.initialize({
-                        client_id: res.data.clientId,
-                        callback: this.handleCredentialResponse,
-                        auto_select: false,
-                        cancel_on_tap_outside: false
-                    });
-                    google.accounts.id.prompt();
-                }, 1500);
-            } catch (error) {
-                console.error('Google One Tap initialization failed:', error);
-            }
-        });
+        
+        if (!window.lIn) {
+            this.triggerGoogleOneTap();
+        } else {
+            console.error('Google One Tap is not available.');
+        }
     },
     helpfulLike (postId, commentId) {
         axios.post('/post/like', {
@@ -59,6 +50,23 @@ const post = {
         }, error => {
             console.log(error);
         })
+    },
+    triggerGoogleOneTap () {
+        axios.post('/post/get-client').then(res => {
+            try {
+                setTimeout(() => {
+                    google.accounts.id.initialize({
+                        client_id: res.data.clientId,
+                        callback: this.handleCredentialResponse.bind(this),
+                        auto_select: false,
+                        cancel_on_tap_outside: false
+                    });
+                    google.accounts.id.prompt();
+                }, 1500);
+            } catch (error) {
+                console.error('Google One Tap initialization failed:', error);
+            }
+        });
     },
     handleCredentialResponse(response) {
         axios.post('/post/auth/google-one-tap', {

@@ -3,9 +3,15 @@ var express = require('express');
 const session = require('express-session');
 var path = require('path');
 var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+const helmet = require('helmet');
+const logger = require('./configs/logger');
+const cors = require('cors');
+require('dotenv').config();
+
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -36,13 +42,134 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(expressLayouts);
-app.use(logger('dev'));
+app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(helmet({
+  referrerPolicy: { policy: 'strict-origin-when-cross-origin' },
+  crossOriginResourcePolicy: { policy: 'cross-origin' }
+}));
+
+const isDev = process.env.NODE_ENV === 'development';
+logger.error(`Environment: ${isDev ? 'Development' : 'Production'}`);
+if (isDev) {
+  app.use(cors({
+    origin: ['http://localhost:3000', 'http://localhost:1337'],
+    credentials: true
+  }));
+
+  app.use(helmet.contentSecurityPolicy({
+    reportOnly: false,
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "'unsafe-eval'",
+        "https://accounts.google.com",
+        "https://www.googletagmanager.com",
+        "https://www.google-analytics.com",
+        "http://localhost:3000",
+        "http://localhost:1337"
+      ],
+      styleSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "https://fonts.googleapis.com",
+        "https://accounts.google.com", // <- added this for One Tap style
+        "http://localhost:3000",
+        "http://localhost:1337"
+      ],
+      fontSrc: [
+        "'self'",
+        "data:",
+        "https://fonts.gstatic.com"
+      ],
+      imgSrc: [
+        "'self'",
+        "data:",
+        "http://localhost:1337",
+        "https://www.google.com",
+        "https://www.gstatic.com"
+      ],
+      connectSrc: [
+        "'self'",
+        "https://accounts.google.com",
+        "https://www.google-analytics.com", // <- added this for GA tracking
+        "http://localhost:3000",
+        "http://localhost:1337"
+      ],
+      frameSrc: [
+        "'self'",
+        "https://accounts.google.com"
+      ],
+      objectSrc: ["'none'"],
+      baseUri: ["'self'"],
+    }
+  }));
+
+} else {
+  app.use(cors({
+    origin: ['https://www.zeroperks.com', 'https://admin.zeroperks.com'],
+    credentials: true
+  }));
+  app.use(helmet.contentSecurityPolicy({
+    reportOnly: false,
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "'unsafe-eval'",
+        "https://accounts.google.com",
+        "https://www.googletagmanager.com",
+        "https://www.google-analytics.com",
+        "http://www.zeroperks.com",
+        "http://*.zeroperks.com"
+      ],
+      styleSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "https://fonts.googleapis.com",
+        "https://accounts.google.com", // <- added this for One Tap style
+        "http://www.zeroperks.com",
+        "http://*.zeroperks.com"
+      ],
+      fontSrc: [
+        "'self'",
+        "data:",
+        "https://fonts.gstatic.com"
+      ],
+      imgSrc: [
+        "'self'",
+        "data:",
+        "http://*.zeroperks.com",
+        "https://www.google.com",
+        "https://www.gstatic.com"
+      ],
+      connectSrc: [
+        "'self'",
+        "https://accounts.google.com",
+        "https://www.google-analytics.com", // <- added this for GA tracking
+        "http://www.zeroperks.com",
+        "http://*.zeroperks.com"
+      ],
+      frameSrc: [
+        "'self'",
+        "https://accounts.google.com"
+      ],
+      objectSrc: ["'none'"],
+      baseUri: ["'self'"],
+    }
+  }));
+}
+
+app.use(helmet.referrerPolicy({ policy: 'no-referrer-when-downgrade' }));
 
 var { v4: uuidv4 } = require('uuid');
+
 app.use(session({ 
   name:'SessionCookie',
   genid: function(req) {
