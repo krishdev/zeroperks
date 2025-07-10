@@ -241,7 +241,6 @@ router.post('/auth/google-one-tap', async function (req, res) {
                 user = await User.create({
                     email,
                     username: name || email.split('@')[0],
-                    password: '', // or some placeholder
                     provider: 'google'
                 });
             }
