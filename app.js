@@ -127,7 +127,8 @@ if (isDev) {
         "https://www.googletagmanager.com",
         "https://www.google-analytics.com",
         "https://www.zeroperks.com",
-        "https://*.zeroperks.com"
+        "https://zeroperks.com",
+        "https://admin.zeroperks.com"
       ],
       styleSrc: [
         "'self'",
@@ -135,7 +136,8 @@ if (isDev) {
         "https://fonts.googleapis.com",
         "https://accounts.google.com", // <- added this for One Tap style
         "https://www.zeroperks.com",
-        "https://*.zeroperks.com"
+        "https://zeroperks.com",
+        "https://admin.zeroperks.com"
       ],
       fontSrc: [
         "'self'",
@@ -145,7 +147,8 @@ if (isDev) {
       imgSrc: [
         "'self'",
         "data:",
-        "https://*.zeroperks.com",
+        "https://zeroperks.com",
+        "https://admin.zeroperks.com",
         "https://www.google.com",
         "https://www.gstatic.com"
       ],
@@ -154,7 +157,8 @@ if (isDev) {
         "https://accounts.google.com",
         "https://www.google-analytics.com", // <- added this for GA tracking
         "https://www.zeroperks.com",
-        "https://*.zeroperks.com"
+        "https://zeroperks.com",
+        "https://admin.zeroperks.com"
       ],
       frameSrc: [
         "'self'",
