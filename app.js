@@ -147,6 +147,7 @@ if (isDev) {
       imgSrc: [
         "'self'",
         "data:",
+        "https://www.zeroperks.com",
         "https://zeroperks.com",
         "https://admin.zeroperks.com",
         "https://www.google.com",
