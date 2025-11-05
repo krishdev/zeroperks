@@ -9,7 +9,7 @@
   <%- contentFor('topHead') %>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
 <%- contentFor('body') %>
   <script>
@@ -186,120 +186,117 @@
       </div>
   </main>
   <script>
-    const { createApp } = Vue;
-
-    createApp({
-      setup() {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/i;
-
-        return {
-          form: {
-            name: '',
-            email: '',
-            phone: '',
-            guests: ''
-          },
-          isLoading: false,
-          errors: {
-            isError: false,
-            name: '',
-            email: '',
-            phone: '',
-            guests: ''
-          },
-          globalErrors: '',
-          dataSaved: false,
-          formattedDate: '',
-
-          formatEventDate(dateStr) {
-            if (!dateStr) return '';
-            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-            const [year, month, day] = dateStr.split('-');
-            const date = new Date(`${month}/${day}/${year}`);
-
-            return `${days[date.getDay()]} ${months[date.getMonth()]} ${date.getDate()}, ${year}`;
-          },
-
-          validateField(fieldName) {
-            switch(fieldName) {
-              case 'name':
-                this.errors.name = !this.form.name ? 'Name is required.' : '';
-                break;
-              case 'email':
-                if (!this.form.email) {
-                  this.errors.email = 'Email is required.';
-                } else if (!emailRegex.test(this.form.email)) {
-                  this.errors.email = 'Please enter a valid email address.';
-                } else {
-                  this.errors.email = '';
-                }
-                break;
-              case 'phone':
-                if (this.form.phone && !phoneRegex.test(this.form.phone)) {
-                  this.errors.phone = 'Please enter a valid phone number.';
-                } else {
-                  this.errors.phone = '';
-                }
-                break;
-              case 'guests':
-                this.errors.guests = !this.form.guests ? 'Please select number of guests.' : '';
-                break;
-            }
-          },
-
-          validateForm() {
-            this.validateField('name');
-            this.validateField('email');
-            this.validateField('guests');
-
-            return !this.errors.name && !this.errors.email && !this.errors.guests;
-          },
-
-          async submit() {
-            if (!this.validateForm()) {
-              this.errors.isError = true;
-              return;
-            }
-
-            this.isLoading = true;
-            this.globalErrors = '';
-
-            try {
-              const response = await fetch('/api/rsvp-event', {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  ...this.form,
-                  postId: eventData.postId
-                }),
-              });
-
-              const result = await response.json();
-
-              if (result && result.message && typeof result.message === 'string') {
-                this.dataSaved = true;
-              } else {
-                this.globalErrors = 'Sorry! Something went wrong. Please <a href="mailto:mailkrishna2@gmail.com?subject=RSVP%20Event&body=Hello%2C%20I%20would%20like%20to%20RSVP%20for%20the%20event">click here</a> to email instead.';
-              }
-            } catch (error) {
-              console.error('RSVP submission error:', error);
-              this.globalErrors = 'Network error occurred. Please <a href="mailto:mailkrishna2@gmail.com?subject=RSVP%20Event&body=Hello%2C%20I%20would%20like%20to%20RSVP%20for%20the%20event">click here</a> to email instead.';
-            } finally {
-              this.isLoading = false;
-            }
-          }
-        };
+    new Vue({
+      el: '#app',
+      data: {
+        form: {
+          name: '',
+          email: '',
+          phone: '',
+          guests: ''
+        },
+        isLoading: false,
+        errors: {
+          isError: false,
+          name: '',
+          email: '',
+          phone: '',
+          guests: ''
+        },
+        globalErrors: '',
+        dataSaved: false,
+        formattedDate: ''
       },
-
-      mounted() {
+      created() {
         if (eventData.eventDate) {
           this.formattedDate = this.formatEventDate(eventData.eventDate);
         }
+      },
+      methods: {
+        formatEventDate(dateStr) {
+          if (!dateStr) return '';
+          const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+          const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+          const dtSplit = dateStr.split('-');
+          const date = new Date(`${dtSplit[1]}/${dtSplit[2]}/${dtSplit[0]}`);
+
+          return `${days[date.getDay()]} ${months[date.getMonth()]} ${date.getDate()}, ${dtSplit[0]}`;
+        },
+
+        validateField(fieldName) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/i;
+
+          switch(fieldName) {
+            case 'name':
+              this.errors.name = !this.form.name ? 'Name is required.' : '';
+              break;
+            case 'email':
+              if (!this.form.email) {
+                this.errors.email = 'Email is required.';
+              } else if (!emailRegex.test(this.form.email)) {
+                this.errors.email = 'Please enter a valid email address.';
+              } else {
+                this.errors.email = '';
+              }
+              break;
+            case 'phone':
+              if (this.form.phone && !phoneRegex.test(this.form.phone)) {
+                this.errors.phone = 'Please enter a valid phone number.';
+              } else {
+                this.errors.phone = '';
+              }
+              break;
+            case 'guests':
+              this.errors.guests = !this.form.guests ? 'Please select number of guests.' : '';
+              break;
+          }
+        },
+
+        validateForm() {
+          this.validateField('name');
+          this.validateField('email');
+          this.validateField('guests');
+
+          return !this.errors.name && !this.errors.email && !this.errors.guests;
+        },
+
+        async submit() {
+          if (!this.validateForm()) {
+            this.errors.isError = true;
+            return;
+          }
+
+          this.isLoading = true;
+          this.globalErrors = '';
+
+          try {
+            const response = await fetch('/api/rsvp-event', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                ...this.form,
+                postId: eventData.postId
+              }),
+            });
+
+            const result = await response.json();
+
+            if (result && result.message && typeof result.message === 'string') {
+              this.dataSaved = true;
+            } else {
+              this.globalErrors = 'Sorry! Something went wrong. Please <a href="mailto:mailkrishna2@gmail.com?subject=RSVP%20Event&body=Hello%2C%20I%20would%20like%20to%20RSVP%20for%20the%20event">click here</a> to email instead.';
+            }
+          } catch (error) {
+            console.error('RSVP submission error:', error);
+            this.globalErrors = 'Network error occurred. Please <a href="mailto:mailkrishna2@gmail.com?subject=RSVP%20Event&body=Hello%2C%20I%20would%20like%20to%20RSVP%20for%20the%20event">click here</a> to email instead.';
+          } finally {
+            this.isLoading = false;
+          }
+        }
       }
-    }).mount('#app');
+    });
   </script>
