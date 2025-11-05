@@ -81,7 +81,8 @@ if (isDev) {
         "https://fonts.googleapis.com",
         "https://accounts.google.com", // <- added this for One Tap style
         "http://localhost:3000",
-        "http://localhost:1337"
+        "http://localhost:1337",
+        "https://cdn.jsdelivr.net"
       ],
       fontSrc: [
         "'self'",
@@ -100,7 +101,8 @@ if (isDev) {
         "https://accounts.google.com",
         "https://www.google-analytics.com", // <- added this for GA tracking
         "http://localhost:3000",
-        "http://localhost:1337"
+        "http://localhost:1337",
+        "https://cdn.jsdelivr.net"
       ],
       frameSrc: [
         "'self'",
