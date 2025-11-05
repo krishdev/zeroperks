@@ -1,5 +1,5 @@
 <%- contentFor('pageMeta') %>
-  <%- include('../common/fragments/page-meta', { 
+  <%- include('../common/fragments/page-meta', {
       title: post.eventName + ' |  ZEROPERKS',
       description: post.shortInvite,
       keywords: 'Baby shower',
@@ -7,292 +7,299 @@
   }) %>
 
   <%- contentFor('topHead') %>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-  <style>
-      .c-Note {
-          font-size: 9px;
-          line-height: 1.5;
-      }
-      .c-Errors p {
-          font-size: 12px;
-          color: red;
-      }
-      .c-Post {
-          font-family: 'Roboto', sans-serif;
-      }
-      .blog-post ul li {
-          list-style: circle;
-      }
-      .c-Footer .row > .col-md-6 {
-          display: none;
-      }
-      .c-Footer .row > .col-md-6:first-child {
-          margin: 0 auto;
-          display: block;
-          text-align: center;
-          width: 100%;
-      }
-
-      .c-Rsvp{
-          background: #f5f5f5;
-          padding: 1em;
-          border-radius: 4pt;
-          box-shadow: 1px 1px 3px rgba(0,0,0,.5);
-      }
-
-      .c-Footer > p {
-          color: #d8d8d8;
-      }
-
-  </style>
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.prod.js"></script>
 
 <%- contentFor('body') %>
   <script>
-      var postId = "<%= post.id %>";
-      var eventDate = "<%= post.eventDate %>";
+      const eventData = {
+          postId: "<%= post.id %>",
+          eventDate: "<%= post.eventDate %>",
+          eventTime: "<%= post.eventTime %>"
+      };
   </script>
+
   <%- include('../common/fragments/navbar') %>
-  <div class="c-Post o-Layout">
 
-      <h1 class="c-Post__title"><%= post.eventName %></h1>
-      <% if( post.eventBanner.url) { %>
-      <figure class="c-Post__figure" style="background-image: url('<%= aclPort+post.eventBanner.url %>');"></figure>
-      <% } %>
-      
-      <div class="row c-Post__two-rows">
-          <section class="col-sm-12 col-md-9" id="app">
-              <article class="blog-post">                        
-                  <p class="blog-post-meta row">
-                      <span class="col-sm-6" v-cloak>
-                          <b>Event Date: </b> {{eventDate}}&nbsp;<%= post.eventTime %>
-                      </span>
-                  </p>
-                  <p class="blog-post-meta row">
-                      <span class="col-sm-6">
-                          <b>Event Venue: </b><a href="http://maps.google.com/?q=<%= post.eventVenue.replace(/\n/g,' '); %>" target="_blank"><%= post.eventVenue %></a>
-                      </span>
-                  </p>
-                  <p class="blog-post-content"><%- post.eventDetails %></p>
-              </article>
+  <main class="c-Events o-Layout" id="app">
+      <!-- Event Header -->
+      <header class="c-Events__header">
+          <h1 class="c-Events__title"><%= post.eventName %></h1>
+          <% if( post.eventBanner && post.eventBanner.url) { %>
+          <img src="<%= aclPort + post.eventBanner.url %>" alt="<%= post.eventName %> banner" class="c-Events__banner">
+          <% } %>
+      </header>
 
-              <article class="c-Rsvp">
-                  <div class="row">
-                      <div class="col col-lg-6 col-md-12 col-12">
-                          <h4 class="mb-3">RSVP</h4>
-                          <div class="wpo-contact-form">
-                              <form v-if="!dataSaved && !globalErrors" class="contact-validation-active" novalidate>
-                                  <div class="row">
-                                      <div class="col-md-6 mb-3">
-                                          <div class="form-field">
-                                              <input type="text" value="" class="form-control" name="name" placeholder="Your Name" v-model.trim="form.name" />
-                                              <div class="c-Errors">
-                                                  <p v-if="this.errors.isError && this.errors.name" v-html="this.errors.name"></p>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="col-md-6 mb-3">
-                                          <div class="form-field">
-                                              <input type="email" class="form-control" value="" name="email" placeholder="Your Email" v-model.trim="form.email" />
-                                              <div class="c-Errors">
-                                                  <p v-if="this.errors.isError && this.errors.email" v-html="this.errors.email"></p>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="mb-3">
-                                          <div class="form-field">
-                                              <input type="tel" value="" class="form-control" name="phone" placeholder="Your phone" v-model.trim="form.phone" maxlength="17" />
-                                              <div class="c-Errors">
-                                                  <p v-if="this.errors.isError && this.errors.phone" v-html="this.errors.phone"></p>
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="mb-3">
-                                          <div class="form-field">
-                                              <select type="text" name="subject" class="form-control" autocomplete="off" v-model="form.guests">
-                                                  <option disabled value="" selected>Choose number of guests</option>
-                                                  <option value="1">One</option>
-                                                  <option value="2">Two</option>
-                                                  <option value="3">Three</option>
-                                                  <option value="4">Four</option>
-                                                  <option value="5">Five</option>
-                                                  <option value="6">Six</option>
-                                                  <option value="7">Seven</option>
-                                              </select>
-                                              <div class="c-Errors">
-                                                  <p v-if="this.errors.isError && this.errors.guests" v-html="this.errors.guests"></p>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <p class="c-Note">Your email and phone number are safe with us. We respect your privacy and assure you that your information will not be shared with any third parties and only be used for this event.</p>
-                                  <div class="submit-area">
-                                      <button type="submit" class="btn btn-primary btn-lg btn-block" @click.prevent="submit">
-                                          Submit Now
-                                          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
-                                              <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                              <path
-                                                  d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"
-                                              />
-                                          </svg>
-                                      </button>
-                                  </div>
-                              </form>
-                              <div v-cloak v-else class="c-Rsvp__saved">
-                                  <p>We're glad you're able to make it! We'll see you soon.</p>
-                                  <p>Your RSVP has been received. We'll send you more details closer to the event.</p>
-                              </div>
-                              <div class="c-Rsvp__saved" v-if="globalErrors">
-                                  <p v-html="globalErrors"></p>
-                              </div>
-                          </div>
-                      </div>                            
+      <!-- Main Content Grid -->
+      <div class="c-Post__two-rows">
+          <!-- Event Details Section -->
+          <article class="c-EventContent">
+              <!-- Event Details Card -->
+              <div class="c-EventDetails">
+                  <div class="c-EventDetails__item">
+                      <span class="c-EventDetails__item-label">Event Date</span>
+                      <span class="c-EventDetails__item-value" v-cloak>{{ formattedDate }}</span>
+                      <span class="c-EventDetails__item-value"><%= post.eventTime %></span>
                   </div>
-              </article>
-              
+                  <div class="c-EventDetails__item">
+                      <span class="c-EventDetails__item-label">Event Venue</span>
+                      <a href="https://maps.google.com/?q=<%= post.eventVenue.replace(/\n/g,' '); %>" target="_blank" rel="noopener noreferrer" class="c-EventDetails__item-value">
+                          <%= post.eventVenue %>
+                      </a>
+                  </div>
+              </div>
+
+              <!-- Event Description -->
+              <div class="event-description">
+                  <%- post.eventDetails %>
+              </div>
+          </article>
+
+          <!-- RSVP Form Section -->
+          <section class="c-RsvpSection">
+              <h2 class="c-RsvpSection__title">RSVP to Event</h2>
+
+              <form v-if="!dataSaved && !globalErrors" @submit.prevent="submit" class="c-RsvpForm" :class="{ 'c-RsvpForm--loading': isLoading }" novalidate>
+                  <!-- Name Field -->
+                  <div class="c-RsvpForm__field">
+                      <label for="rsvp-name" class="c-RsvpForm__label">
+                          Full Name
+                          <span class="c-RsvpForm__required" aria-label="required">*</span>
+                      </label>
+                      <input
+                          id="rsvp-name"
+                          type="text"
+                          v-model.trim="form.name"
+                          @blur="validateField('name')"
+                          placeholder="Enter your full name"
+                          class="c-RsvpForm__input"
+                          required
+                          autocomplete="name"
+                          aria-describedby="error-name"
+                      />
+                      <div v-if="errors.isError && errors.name" class="c-RsvpForm__error is-visible" id="error-name" role="alert">
+                          {{ errors.name }}
+                      </div>
+                  </div>
+
+                  <!-- Email Field -->
+                  <div class="c-RsvpForm__field">
+                      <label for="rsvp-email" class="c-RsvpForm__label">
+                          Email Address
+                          <span class="c-RsvpForm__required" aria-label="required">*</span>
+                      </label>
+                      <input
+                          id="rsvp-email"
+                          type="email"
+                          v-model.trim="form.email"
+                          @blur="validateField('email')"
+                          placeholder="your.email@example.com"
+                          class="c-RsvpForm__input"
+                          required
+                          autocomplete="email"
+                          aria-describedby="error-email"
+                      />
+                      <div v-if="errors.isError && errors.email" class="c-RsvpForm__error is-visible" id="error-email" role="alert">
+                          {{ errors.email }}
+                      </div>
+                  </div>
+
+                  <!-- Phone Field -->
+                  <div class="c-RsvpForm__field">
+                      <label for="rsvp-phone" class="c-RsvpForm__label">
+                          Phone Number
+                      </label>
+                      <input
+                          id="rsvp-phone"
+                          type="tel"
+                          v-model.trim="form.phone"
+                          @blur="validateField('phone')"
+                          placeholder="+1 (555) 000-0000"
+                          class="c-RsvpForm__input"
+                          maxlength="17"
+                          autocomplete="tel"
+                          aria-describedby="error-phone"
+                      />
+                      <div v-if="errors.isError && errors.phone" class="c-RsvpForm__error is-visible" id="error-phone" role="alert">
+                          {{ errors.phone }}
+                      </div>
+                  </div>
+
+                  <!-- Guests Field -->
+                  <div class="c-RsvpForm__field">
+                      <label for="rsvp-guests" class="c-RsvpForm__label">
+                          Number of Guests
+                          <span class="c-RsvpForm__required" aria-label="required">*</span>
+                      </label>
+                      <select
+                          id="rsvp-guests"
+                          v-model="form.guests"
+                          @blur="validateField('guests')"
+                          class="c-RsvpForm__select"
+                          required
+                          aria-describedby="error-guests"
+                      >
+                          <option value="" disabled selected>Select number of guests</option>
+                          <option value="1">1 Guest</option>
+                          <option value="2">2 Guests</option>
+                          <option value="3">3 Guests</option>
+                          <option value="4">4 Guests</option>
+                          <option value="5">5 Guests</option>
+                          <option value="6">6 Guests</option>
+                          <option value="7">7+ Guests</option>
+                      </select>
+                      <div v-if="errors.isError && errors.guests" class="c-RsvpForm__error is-visible" id="error-guests" role="alert">
+                          {{ errors.guests }}
+                      </div>
+                  </div>
+
+                  <!-- Privacy Notice -->
+                  <div class="c-PrivacyNotice">
+                      Your email and phone number are safe with us. We respect your privacy and assure you that your information will not be shared with any third parties and will only be used for this event.
+                  </div>
+
+                  <!-- Form Actions -->
+                  <div class="c-RsvpForm__actions">
+                      <button type="submit" class="c-RsvpForm__submit" :disabled="isLoading">
+                          <svg v-if="!isLoading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                              <path fill="currentColor" d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM337 209L209 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L303 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/>
+                          </svg>
+                          <span v-if="!isLoading">Submit RSVP</span>
+                          <span v-else>Submitting...</span>
+                      </button>
+                  </div>
+              </form>
+
+              <!-- Success Message -->
+              <div v-if="dataSaved && !globalErrors" class="c-RsvpSuccess">
+                  <h4>RSVP Received!</h4>
+                  <p>We're glad you're able to make it! We'll see you soon.</p>
+                  <p>Your RSVP has been received. We'll send you more details closer to the event.</p>
+              </div>
+
+              <!-- Error Message -->
+              <div v-if="globalErrors" class="c-RsvpError" role="alert">
+                  <p v-html="globalErrors"></p>
+              </div>
           </section>
       </div>
-      
-  </div>
+  </main>
   <script>
-    new Vue({
-      el: "#app",
-      data: {
-        form: {
-          name: '',
-          email: '',
-          phone: '',
-          guests: ''
-        },
-        isLoading: false,
-        isFormSubmitted: false,
-        errors: {
-          isError: false,
-          name: '',
-          email: '',
-          phone: '',
-          guests: ''
-        },
-        globalErrors: '',
-        dataSaved: false,
-        eventDate: eventDate
-      },
-      created () {
-        const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        
-        if (eventDate) {
-          const dtSplit = eventDate.split('-');
-          const now = new Date(`${dtSplit[1]}/${dtSplit[2]}/${dtSplit[0]}`);
-          this.eventDate = `${days[now.getDay()]} ${months[now.getMonth()]} ${now.getDate()} ${now.getFullYear()}`;
-        }
-      },
-      mounted () {
+    const { createApp } = Vue;
 
-      },
-      methods: {
-        async submit () {
-          this.isFormSubmitted = true;
-          this.errors.isError = this.validation();
+    createApp({
+      setup() {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/i;
 
-          if (!this.errors.isError) {
-            // submit api
+        return {
+          form: {
+            name: '',
+            email: '',
+            phone: '',
+            guests: ''
+          },
+          isLoading: false,
+          errors: {
+            isError: false,
+            name: '',
+            email: '',
+            phone: '',
+            guests: ''
+          },
+          globalErrors: '',
+          dataSaved: false,
+          formattedDate: '',
+
+          formatEventDate(dateStr) {
+            if (!dateStr) return '';
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+            const [year, month, day] = dateStr.split('-');
+            const date = new Date(`${month}/${day}/${year}`);
+
+            return `${days[date.getDay()]} ${months[date.getMonth()]} ${date.getDate()}, ${year}`;
+          },
+
+          validateField(fieldName) {
+            switch(fieldName) {
+              case 'name':
+                this.errors.name = !this.form.name ? 'Name is required.' : '';
+                break;
+              case 'email':
+                if (!this.form.email) {
+                  this.errors.email = 'Email is required.';
+                } else if (!emailRegex.test(this.form.email)) {
+                  this.errors.email = 'Please enter a valid email address.';
+                } else {
+                  this.errors.email = '';
+                }
+                break;
+              case 'phone':
+                if (this.form.phone && !phoneRegex.test(this.form.phone)) {
+                  this.errors.phone = 'Please enter a valid phone number.';
+                } else {
+                  this.errors.phone = '';
+                }
+                break;
+              case 'guests':
+                this.errors.guests = !this.form.guests ? 'Please select number of guests.' : '';
+                break;
+            }
+          },
+
+          validateForm() {
+            this.validateField('name');
+            this.validateField('email');
+            this.validateField('guests');
+
+            return !this.errors.name && !this.errors.email && !this.errors.guests;
+          },
+
+          async submit() {
+            if (!this.validateForm()) {
+              this.errors.isError = true;
+              return;
+            }
+
             this.isLoading = true;
+            this.globalErrors = '';
+
             try {
-              const response = await fetch("/api/rsvp-event", {
-                method: "POST",
+              const response = await fetch('/api/rsvp-event', {
+                method: 'POST',
                 headers: {
-                  "Content-Type": "application/json",
+                  'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({...this.form, ...{postId}}),
+                body: JSON.stringify({
+                  ...this.form,
+                  postId: eventData.postId
+                }),
               });
+
               const result = await response.json();
-              if (result && result.message && typeof result.message == 'string') {
+
+              if (result && result.message && typeof result.message === 'string') {
                 this.dataSaved = true;
-                this.reset();
               } else {
-                this.globalErrors = 'Sorry! Something went wrong. Please click <a href="mailto:mailkrishna2@gmail.com?subject=RSVP%20BabyShower&body=Hello%2C%20We%20will%20attend%20the%20event%20a%20number%20of%20participants"">here</a> to email the same.';
+                this.globalErrors = 'Sorry! Something went wrong. Please <a href="mailto:mailkrishna2@gmail.com?subject=RSVP%20Event&body=Hello%2C%20I%20would%20like%20to%20RSVP%20for%20the%20event">click here</a> to email instead.';
               }
             } catch (error) {
-              console.log(error);
+              console.error('RSVP submission error:', error);
+              this.globalErrors = 'Network error occurred. Please <a href="mailto:mailkrishna2@gmail.com?subject=RSVP%20Event&body=Hello%2C%20I%20would%20like%20to%20RSVP%20for%20the%20event">click here</a> to email instead.';
+            } finally {
+              this.isLoading = false;
             }
           }
-        },
-        reset () {
-          this.isFormSubmitted = false;
-          this.isLoading = false;
-          this.form.name = '';
-          this.form.email = '';
-          this.form.phone = '';
-          this.form.guests = '';
-          this.errors.isError = false;
-          this.errors.name = '';
-          this.errors.email = '';
-          this.errors.phone = '';
-          this.errors.guests = '';
-          this.globalErrors = '';
-        },
-        validation () {
-          let isError = false;
-          if (!this.form.name) {
-            this.errors.name = 'Name is required.';
-          } else {
-            this.errors.name = '';
-          }
-          if (!this.form.email) {
-            this.errors.email = 'Email is required.';
-          } else if (!this.validateEmail(this.form.email)) {
-            this.errors.email = 'Email is invalid.';
-          } else {
-            this.errors.email = '';
-          }
-        //   if (!this.form.phone) {
-        //     this.errors.phone = 'Phone is required.';
-        //   } else if (!this.validatePhone(this.form.phone)) {
-        //     this.errors.phone = 'Phone is invalid.';
-        //   } else {
-        //     this.errors.phone = '';
-        //   }
-          if (!this.form.guests) {
-            this.errors.guests = 'No of Guests is required.';
-          } else {
-            this.errors.guests = '';
-          }
+        };
+      },
 
-          for (const key in this.errors) {
-            if (Object.hasOwnProperty.call(this.errors, key)) {
-              if(this.errors[key] && key != 'isError') {
-                isError = true;
-              }
-            }
-          }
-
-          return isError;
-        },
-        validateEmail (email) {
-          if (!email) return false;
-          const isvalid = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
-          return isvalid;
-        },
-        validatePhone (phone) {
-          if (!phone) return false;
-          const isvalid = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/i.test(phone);
-          return isvalid;
-        },
-        openModal (modalName) {
-          const modal = document.getElementById(modalName);
-          document.querySelector('body').classList.add('is-Locked');
-          modal.classList.add("open");
-        },
-        closeModal (modalName) {
-          const modal = document.getElementById(modalName);
-          modal.classList.remove("open");
-          document.querySelector('body').classList.remove('is-Locked');
+      mounted() {
+        if (eventData.eventDate) {
+          this.formattedDate = this.formatEventDate(eventData.eventDate);
         }
       }
-    })
+    }).mount('#app');
   </script>

@@ -1,0 +1,404 @@
+// Events page component styles
+// Modern, accessible event details and RSVP form
+
+.c-Events {
+  font-family: inherit;
+
+  &__header {
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: $ultra-drk-gray;
+
+    @media (max-width: 768px) {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__banner {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 768px) {
+      height: 280px;
+    }
+  }
+}
+
+// Event details section
+.c-EventDetails {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f6f6fd 0%, #ffffff 100%);
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.25rem;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    &-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: $drk-gray;
+    }
+
+    &-value {
+      font-size: 1rem;
+      font-weight: 500;
+      color: $ultra-drk-gray;
+      word-break: break-word;
+
+      a {
+        color: $mld-blue;
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+        transition: all 0.3s ease;
+
+        &:hover {
+          border-bottom-color: $mld-blue;
+        }
+      }
+    }
+  }
+}
+
+// Event content section
+.c-EventContent {
+  margin-bottom: 2.5rem;
+  padding: 2rem;
+  background: $white;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  line-height: 1.8;
+  color: #4b5563;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $ultra-drk-gray;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $ultra-drk-gray;
+    margin-top: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul, ol {
+    margin: 1rem 0 1rem 1.5rem;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  strong {
+    color: $ultra-drk-gray;
+  }
+}
+
+// RSVP Form Section
+.c-RsvpSection {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0f4ff 0%, #f6f6fd 100%);
+  border-radius: 12px;
+  border: 2px solid $mld-blue;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $ultra-drk-gray;
+    margin-bottom: 1.5rem;
+  }
+
+  &__subtitle {
+    font-size: 0.875rem;
+    color: $drk-gray;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+}
+
+// Form styling
+.c-RsvpForm {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    &--full {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $ultra-drk-gray;
+    display: block;
+  }
+
+  &__required {
+    color: $red;
+    margin-left: 0.25rem;
+  }
+
+  &__input,
+  &__select {
+    padding: 0.875rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background-color: $white;
+    color: $ultra-drk-gray;
+
+    &:focus {
+      outline: none;
+      border-color: $mld-blue;
+      box-shadow: 0 0 0 3px rgba(37, 72, 200, 0.1);
+    }
+
+    &:hover {
+      border-color: #cad5e2;
+    }
+
+    &::placeholder {
+      color: #999;
+    }
+  }
+
+  &__select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232548c8' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+
+    option {
+      background-color: $white;
+      color: $ultra-drk-gray;
+    }
+  }
+
+  &__error {
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+    color: $red;
+    line-height: 1.4;
+    display: none;
+
+    &.is-visible {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+  }
+
+  &__actions {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+    }
+  }
+
+  &__submit {
+    flex: 1;
+    padding: 1rem 2rem;
+    background-color: $mld-blue;
+    color: $white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+
+    &:hover:not(:disabled) {
+      background-color: #1e3fa0;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(37, 72, 200, 0.3);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+}
+
+// Success message
+.c-RsvpSuccess {
+  grid-column: 1 / -1;
+  padding: 1.5rem;
+  background-color: #f0fdf4;
+  border: 2px solid #86efac;
+  border-radius: 8px;
+  animation: slideDown 0.4s ease;
+
+  h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #16a34a;
+    margin: 0 0 0.75rem 0;
+  }
+
+  p {
+    color: #4b7c59;
+    margin: 0;
+    line-height: 1.6;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+// Error message
+.c-RsvpError {
+  grid-column: 1 / -1;
+  padding: 1.5rem;
+  background-color: #fef2f2;
+  border: 2px solid #fca5a5;
+  border-radius: 8px;
+  animation: slideDown 0.4s ease;
+
+  p {
+    color: #b91c1c;
+    margin: 0;
+    line-height: 1.6;
+
+    a {
+      color: #dc2626;
+      text-decoration: underline;
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// Privacy notice
+.c-PrivacyNotice {
+  grid-column: 1 / -1;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-left: 4px solid $mld-blue;
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+// Loading state
+.c-RsvpForm--loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+// Animation
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Two-column layout for larger screens
+.c-Post__two-rows {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+  }
+
+  .col-md-9 {
+    grid-column: span 1;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .c-RsvpForm {
+    grid-template-columns: 1fr;
+  }
+
+  .c-EventDetails {
+    grid-template-columns: 1fr;
+  }
+}
