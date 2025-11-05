@@ -443,6 +443,9 @@ router.post('/login', async function (req, res) {
   res.locals.origin = config.env;
   res.locals.year = new Date().getFullYear();
   res.locals.aclPort = config.acl;
+  res.locals.token = null;
+  res.locals.username = null;
+  res.locals.isAuthenticated = false;
 
   const { email, password } = req.body;
 
@@ -457,7 +460,8 @@ router.post('/login', async function (req, res) {
     return res.render('partials/login', {
       title: 'login',
       error: 'Please provide both email and password',
-      allCategories
+      allCategories,
+      token: res.locals.token
     });
   }
 
