@@ -427,6 +427,7 @@ router.get('/login', async function (req, res) {
   res.locals.aclPort = config.acl;
   res.locals.token = null;
   res.locals.username = null;
+  res.locals.isAuthenticated = false;
 
   let allCategories = [];
   try {
@@ -511,6 +512,7 @@ router.get('/register', async function (req, res) {
   res.locals.aclPort = config.acl;
   res.locals.token = null;
   res.locals.username = null;
+  res.locals.isAuthenticated = false;
 
   let allCategories = [];
   try {
