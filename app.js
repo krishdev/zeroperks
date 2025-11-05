@@ -131,7 +131,8 @@ if (isDev) {
         "https://www.google-analytics.com",
         "https://www.zeroperks.com",
         "https://zeroperks.com",
-        "https://admin.zeroperks.com"
+        "https://admin.zeroperks.com",
+        "https://cdn.jsdelivr.net"
       ],
       styleSrc: [
         "'self'",
@@ -140,7 +141,8 @@ if (isDev) {
         "https://accounts.google.com", // <- added this for One Tap style
         "https://www.zeroperks.com",
         "https://zeroperks.com",
-        "https://admin.zeroperks.com"
+        "https://admin.zeroperks.com",
+        "https://cdn.jsdelivr.net"
       ],
       fontSrc: [
         "'self'",
@@ -162,7 +164,8 @@ if (isDev) {
         "https://www.google-analytics.com", // <- added this for GA tracking
         "https://www.zeroperks.com",
         "https://zeroperks.com",
-        "https://admin.zeroperks.com"
+        "https://admin.zeroperks.com",
+        "https://cdn.jsdelivr.net"
       ],
       frameSrc: [
         "'self'",
