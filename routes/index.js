@@ -521,7 +521,7 @@ router.get('/register', async function (req, res) {
     console.log(error);
   }
 
-  res.render('partials/register', { allCategories });
+  res.render('partials/register', { allCategories, token: res.locals.token });
 })
 
 router.post('/register', async function (req, res) {
