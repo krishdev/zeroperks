@@ -72,7 +72,8 @@ if (isDev) {
         "https://www.googletagmanager.com",
         "https://www.google-analytics.com",
         "http://localhost:3000",
-        "http://localhost:1337"
+        "http://localhost:1337",
+        "https://cdn.jsdelivr.net"
       ],
       styleSrc: [
         "'self'",
