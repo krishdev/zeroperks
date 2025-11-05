@@ -436,7 +436,7 @@ router.get('/login', async function (req, res) {
     console.log(error);
   }
 
-  res.render('partials/login', { allCategories });
+  res.render('partials/login', { allCategories, token: res.locals.token });
 })
 
 router.post('/login', async function (req, res) {
