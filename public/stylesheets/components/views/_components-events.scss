@@ -24,6 +24,7 @@
     margin-bottom: 1rem;
     color: $ultra-drk-gray;
     word-break: break-word;
+    padding: 0 1rem;
 
     @media (min-width: 640px) {
       font-size: 2rem;
@@ -667,6 +668,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
+  padding: 1rem;
 
   @media (min-width: 640px) {
     gap: 1.75rem;
