@@ -160,7 +160,7 @@
 
   @media (min-width: 768px) {
     padding: 2rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: .5rem;
     border-radius: 12px;
     font-size: 1rem;
   }
@@ -245,7 +245,7 @@
 
 // RSVP Form Section
 .c-RsvpSection {
-  margin-top: 1.5rem;
+  margin-top: .5rem;
   padding: 1rem;
   background: linear-gradient(135deg, #f0f4ff 0%, #f6f6fd 100%);
   border-radius: 8px;
@@ -253,14 +253,18 @@
 
   @media (min-width: 640px) {
     padding: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
     border-radius: 10px;
   }
 
   @media (min-width: 768px) {
     padding: 2rem;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     border-radius: 12px;
+  }
+
+  @media (min-width: 992px) {
+    margin-top: 0;
   }
 
   &__title {
@@ -357,7 +361,6 @@
     transition: all 0.3s ease;
     background-color: $white;
     color: $ultra-drk-gray;
-    min-height: 44px;
 
     @media (min-width: 640px) {
       padding: 0.8125rem 0.9375rem;
@@ -672,6 +675,7 @@
   @media (min-width: 992px) {
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
+    padding: 0;
   }
 
   .col-md-9 {
